@@ -1,0 +1,40 @@
+# Local credentials and environment
+.env
+.env.*
+!.env.example
+.databrickscfg
+databricks.env
+.harness/local.json
+.harness/runtime/
+.harness/releases/
+.harness/updates/
+.harness/backups/
+.harness/installed-release.json
+*.tmp-*
+
+# Agent-local state
+.claude/settings.local.json
+*.agent-session.jsonl
+
+# Node and Python
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Builds and test output
+dist/
+build/
+coverage/
+test-results/
+playwright-report/
+
+# Databricks local state
+.databricks/
+
+# Editors and OS
+.DS_Store
+Thumbs.db
+.idea/

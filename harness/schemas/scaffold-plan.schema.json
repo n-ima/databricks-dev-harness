@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/databricks-dev-harness/scaffold-plan.schema.json",
+  "title": "Scaffold plan",
+  "type": "object",
+  "required": ["schemaVersion", "id", "kind", "status", "name", "createdAt", "command"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "minLength": 1 },
+    "kind": { "enum": ["app", "data-update", "genie", "metric-view"] },
+    "status": { "enum": ["needs-input", "ready", "draft-ready", "applying", "applied", "failed", "needs-replan", "draft-generated"] },
+    "name": { "type": "string", "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "command": { "type": "array", "items": { "type": "string" } },
+    "missing": { "type": "array", "items": { "type": "string" } },
+    "rules": { "type": "array", "items": { "type": "object" } }
+  },
+  "additionalProperties": true
+}

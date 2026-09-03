@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-09-03T19:39:24.856Z",
+  "browser": "152.0.4191.53",
+  "results": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "status": "pass",
+      "checks": [
+        "title",
+        "single h1",
+        "no horizontal overflow",
+        "tabs mouse",
+        "tabs keyboard",
+        "details",
+        "no JS errors"
+      ],
+      "screenshot": "work/evidence/docs-desktop.png"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": "pass",
+      "checks": [
+        "title",
+        "single h1",
+        "no horizontal overflow",
+        "tabs mouse",
+        "tabs keyboard",
+        "details",
+        "no JS errors"
+      ],
+      "screenshot": "work/evidence/docs-narrow.png"
+    }
+  ],
+  "artifactHashes": {
+    "docs/site/index.html": "04c333393429a12aed332a0408a3e3641bc052faae65664ffe59e8a46d14374d",
+    "docs/site/guide.css": "5f79673688e2ead31d6d34c32a7439e87aa00492728256fb68694629e91a8a8e",
+    "docs/site/guide.js": "b2501faa9dae549f0ac988c811f0bac0808e1db6ab53844f511315f3ce3a7942",
+    "work/evidence/docs-desktop.png": "f54e4379bb71ae5716ec7438973a8845e146860f9e495cc6727dbed681a46b35",
+    "work/evidence/docs-narrow.png": "4882814c11dffa6b41cb1cff182a0a4477c788861f7c8ede703c908d5a2c3204"
+  },
+  "limitations": [
+    "No automated contrast/axe audit performed; semantic/keyboard checks are scoped smoke tests.",
+    "No public deployment performed."
+  ]
+}

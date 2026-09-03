@@ -1,0 +1,35 @@
+# Private GitHub template publication evidence
+
+## Scope and authorization
+
+See `work/plans/2026-09-04-private-github-publication.md`. The user requested this harness's project name and private visibility. Authenticated personal owner: `n-ima`. Target: `n-ima/databricks-dev-harness`. No Databricks deployment, profile selection/authentication, collaborators, organization policy, hosted documentation, or production action is included.
+
+## Pre-publication inspection
+
+- Exact target was absent before creation (`gh api repos/n-ima/databricks-dev-harness --silent`: HTTP 404).
+- Local source: branch `main`, no HEAD or remote. Existing local Git author identity is configured; no global identity change.
+- 1,029 non-ignored candidate files / 10,249,950 bytes after starting this scoped session and plan. Largest file: intended documentation evidence PNG, 716,109 bytes. Later counts include the audit correction and publication evidence.
+- Independent reviewer: `independent_release_check`, read-only; additional license/provenance subreview. No actual credential, business data, unexpected large or temporary file found. Token-shaped string in `tests/hooks.test.mjs:220` is an artificial redaction-test constant. This inspection is not a mathematical guarantee of no sensitive information.
+- `.harness/` runtime/release/local-connection artifacts are ignored; `.env.example` contains examples only. No real `.env`, `.databrickscfg`, or product connection configuration is part of the source publication.
+- Original candidate: `npm run harness:check` passed. 0.3.0 baseline validation: 981 managed files matched current source and a fresh local Git checkout with `core.autocrlf=true`; manifest SHA-256 `98fe579287b950c6af1745a902720860ff8807e8308689bc1adc71cea4059cdb`.
+
+## Finding and correction
+
+Reviewer found missing Databricks LICENSE/NOTICE before any push. The 289 vendored skill files and their generated provider copies matched upstream v0.2.10, but matching payload hashes did not establish complete distribution metadata. Exact upstream legal documents, explicit third-party scope, refresh acquisition, and conformance regression checks are added in candidate 0.3.1. See `docs/harness/operations/THIRD_PARTY_DISTRIBUTION.md`. No general-purpose OSS license was assigned to the user's harness.
+
+## Publication status
+
+- Created `https://github.com/n-ima/databricks-dev-harness` with `gh repo create ... --private`; activated template with the scoped repository API.
+- Read-back result: `private: true`, `is_template: true`, `default_branch: main`. Added HTTPS origin to this exact repository. No collaborators, branch protection, account/organization settings, or other repositories changed.
+- License/NOTICE bytes were independently compared to the exact official v0.2.10 raw documents in all three locations (vendor, Claude, Copilot): equal. `harness:check` passes.
+- Final 310-test local suite (including eight new notice regressions): 309 pass, 0 fail, 1 skip (host lacks file-symlink test privilege; separate directory-junction test passes). Prior 302-test suite also passed before adding the regressions.
+- Independent recheck confirmed exact legal bytes in all three copies, legal tests 8/8 pass, distribution tests 23 pass/1 permission skip, conformance pass, and the unchanged original 0.3.0 payload. No remaining blocker found within this review scope.
+- New 0.3.1 snapshot: 994 managed files, current-source and fresh Git-checkout raw-byte parity passed. Manifest SHA-256 `fba3bef840e395d06902848d10cadcd834f63b3481b69d49deafe85233c7b37a`. Details: `work/evidence/release-byte-validation.json`.
+- Source upload and hosted CI results are pending. Do not claim publication complete from repository metadata alone.
+
+## Remaining external work (not publication claims)
+
+- The screenshot is sufficient to identify the proposed development workspace and folder; it does not prove valid CLI OAuth or data/resource authority. No profile was automatically selected.
+- Actual Databricks resource validation and workload execution remain not-run in this session.
+- Claude/Copilot real host sign-in/discovery and repeated model evaluations remain separate.
+- Branch protection, required reviews/checks, and production environments are not enabled by creating a private template repository.

@@ -1,0 +1,42 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node tools/agent-hook.mjs context --provider claude",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node tools/agent-hook.mjs route --provider claude",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell|Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node tools/agent-hook.mjs policy --provider claude",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [{ "hooks": [{ "type": "command", "command": "node tools/agent-hook.mjs stop --provider claude", "timeout": 10 }] }],
+    "PreCompact": [{ "hooks": [{ "type": "command", "command": "node tools/agent-hook.mjs compact --provider claude", "timeout": 10 }] }],
+    "PostToolUseFailure": [{ "hooks": [{ "type": "command", "command": "node tools/agent-hook.mjs failure --provider claude", "timeout": 10 }] }]
+  }
+}

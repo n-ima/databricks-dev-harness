@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Databricks Development Harness — 開発ガイド</title>
+  <meta name="description" content="普通の依頼から、要件・モック・実装・検証へ。Claude CodeとGitHub Copilotで使うDatabricks開発ハーネスのガイド。">
+  <link rel="stylesheet" href="./guide.css"><script src="./guide.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<aside class="sidebar" aria-label="ガイドの目次">
+  <a class="brand" href="#overview"><span class="mark" aria-hidden="true">D / H</span><span>Databricks<br>Development Harness</span></a>
+  <span class="edition">DEVELOPER GUIDE · 2026.09</span>
+  <nav><a href="#overview">01　全体像</a><a href="#setup">02　最初のセットアップ</a><a href="#workflow">03　普通の言葉で始める</a><a href="#stack">04　作るもの・標準技術</a><a href="#memory">05　記録と再開</a><a href="#quality">06　検証と改善</a><a href="#limits">07　運用前の確認</a></nav>
+  <div class="sidebar-footer"><span class="status-dot"></span> ローカル開発ガイド<br><a href="../USAGE.md">Markdown版を読む ↗</a></div>
+</aside>
+<main id="main">
+<header><span>INTENT → EVIDENCE</span><a href="../harness/research/2026-09-04-evidence-review.md">設計判断の根拠 ↗</a></header>
+<section id="overview" class="hero">
+  <p class="eyebrow">BUILD WITH CONFIDENCE</p>
+  <h1>やりたいことから、<br><em>確かめられる</em>成果へ。</h1>
+  <p class="lead">要件を伝えたら、AIが設計・モック・実装・検証を進める。<br>人は、業務の意味と重要な決定に集中する。</p>
+  <div class="hero-actions"><a class="button" href="#setup">セットアップを始める <span aria-hidden="true">→</span></a><a class="text-link" href="#workflow">普段の使い方を見る</a></div>
+  <div class="summary-strip"><div><span class="small-label">EDITOR</span><strong>VS Code</strong></div><div><span class="small-label">AGENTS</span><strong>Claude Code / Copilot</strong></div><div><span class="small-label">DISTRIBUTION</span><strong>Template repository</strong></div></div>
+  <div class="note"><strong>全自動と、無条件の自律は別です。</strong> 通常作業は進め、重要な未回答・画面承認・機密権限・破壊的変更・本番反映で止まります。「世界最高」は改善の方向であり、未検証の品質を保証する表現ではありません。</div>
+</section>
+<section id="setup">
+  <div class="section-heading"><span>02 / START</span><h2>最初の準備を、ひとつの流れに。</h2></div>
+  <p>ハーネス本体をGitHub Templateにし、開発対象ごとに別repoを作ります。プラグインは補助配布の候補。コード・設計・テスト・CI・記録まで揃える本体はテンプレートです。</p>
+  <ol class="steps"><li><strong>提供者：テンプレートを登録</strong><p>組織・公開範囲を決めてpush。template設定、main保護、必須CI、独立レビュー、本番Environmentの承認者を設定します。</p></li><li><strong>利用者：案件を作成</strong><p>GitHub CLIでログインし、下のコマンドの組織・案件・パス・workspace・profileを置き換えます。</p></li><li><strong>本人：認証・エージェント選択</strong><p>OAuthブラウザー承認を行い、VS CodeでClaude CodeまたはCopilotのAgentモードにサインインします。</p></li></ol>
+  <div class="tabs" role="tablist" aria-label="セットアップ方法"><button id="tab-win" role="tab" aria-selected="true" aria-controls="panel-win">Windows・新規案件</button><button id="tab-existing" role="tab" aria-selected="false" aria-controls="panel-existing" tabindex="-1">作成済みrepo</button><button id="tab-unix" role="tab" aria-selected="false" aria-controls="panel-unix" tabindex="-1">macOS / Linux</button></div>
+  <div id="panel-win" role="tabpanel" aria-labelledby="tab-win" class="code-panel"><p>テンプレート側のcloneから実行。GitHubの指定repoを新規作成します。</p><pre><code>gh auth login
+.\scripts\new-project.ps1 -Template ORGANIZATION/databricks-dev-harness -Repository ORGANIZATION/sales-operations -LocalPath D:\projects\sales-operations -Profile sales-dev -HostUrl https://YOUR-WORKSPACE.cloud.databricks.com -Authenticate -InstallPrerequisites -InstallExtensions</code></pre><button class="copy" type="button">コマンドをコピー</button></div>
+  <div id="panel-existing" role="tabpanel" aria-labelledby="tab-existing" class="code-panel" hidden><p>GitHubのUse this templateで作成・cloneしたrepo内で実行。</p><pre><code>.\scripts\setup.ps1 -ProjectName sales-operations -Profile sales-dev -HostUrl https://YOUR-WORKSPACE.cloud.databricks.com -Authenticate -InstallPrerequisites -InstallExtensions
+code .</code></pre><button class="copy" type="button">コマンドをコピー</button></div>
+  <div id="panel-unix" role="tabpanel" aria-labelledby="tab-unix" class="code-panel" hidden><p>Node.js 22以上・Git・Python 3.10以上（契約試験用）・Databricks CLI 1.6以上2未満を先に用意。Databricks RuntimeのPython版は案件ごとに別途合わせます。</p><pre><code>bash scripts/setup.sh --project-name sales-operations --profile sales-dev --host https://YOUR-WORKSPACE.cloud.databricks.com --auth
+code .</code></pre><button class="copy" type="button">コマンドをコピー</button></div>
+  <p class="caption">インストールはopt-in。既存の古いツールを黙って更新しません。支払い、権限付与、本番デプロイは行いません。</p>
+  <details><summary>workspace未準備でも進められる？</summary><p>Nodeと同梱Skillsで要件整理・設計まで進められます。公式AppKitの初期化はfixtureモックでもCLIと開発workspace認証が必要です。profileとhostを明示し、業務データ・live pluginは接続しません。</p><pre><code>npm ci --ignore-scripts
+npm run setup -- --project-name sales-operations --skip-agent-skills</code></pre></details>
+  <details><summary>接続確認は何を検証する？</summary><p>明示profileとhostの一致、OAuth結果、workspace到達性、current-user。認証成功だけではresource権限は保証されません。catalog/schema/team_root等を設定しBundleをstrict validateします。</p><pre><code>npm run harness:doctor -- --profile sales-dev --json
+databricks bundle validate --strict -t dev --profile sales-dev</code></pre><p>tokenをrepoへ保存しません。DEFAULTや唯一のprofileも自動選択しません。</p></details>
+</section>
+<section id="workflow">
+  <div class="section-heading"><span>03 / DAILY WORK</span><h2>特別な呪文は、いりません。</h2></div>
+  <p>資料をrepoに置き、目的・利用者・制約を普通に伝えます。エージェントが既存記録を探し、適切な手順と必要なSkillsを読み込みます。</p>
+  <blockquote>営業責任者が地域別の売上異常を見つけるアプリを作って。資料はdocs/product/intakeに置いた。まず架空データで操作できるモックを見せて。要件と設計から進めて。</blockquote>
+  <div class="flow" aria-label="開発の流れ"><div><b>01</b><strong>意図を固める</strong><span>資料・質問・受入条件</span></div><div class="human"><b>HUMAN</b><strong>要件・モック承認</strong><span>重要な意味と画面を確認</span></div><div><b>02</b><strong>小さく作る</strong><span>実装・テスト・修正</span></div><div><b>03</b><strong>別の目で確かめる</strong><span>独立検証・証拠・記録</span></div></div>
+  <div class="split"><div><h3>AIが進めること</h3><p>既存調査、要件・設計のドラフト、fixtureモック、承認済み範囲の実装、機械チェック、失敗修正、checkpoint、知識の整理。</p></div><div><h3>人が決めること</h3><p>業務上の正しさ・対象範囲、未確定の重要事項、モック、機密データと権限、破壊的変更、本番反映。</p></div></div>
+  <p class="caption">「調べるだけ」「レビューだけ」の依頼から、勝手に実装・デプロイへ進むことはありません。</p>
+</section>
+<section id="stack">
+  <div class="section-heading"><span>04 / GOLDEN PATHS</span><h2>作るたびに、選び直さない。</h2></div>
+  <div class="workloads"><article><span class="tag">DATA</span><h3>登録・更新処理</h3><p>Delta / Lakeflow Jobs。主キー、重複、遅延、再実行、照合を先に契約化。transactional CRUDはLakebase。</p></article><article><span class="tag">INTELLIGENCE</span><h3>Genie</h3><p>参照範囲とspace定義を管理。代表質問・言い換え・曖昧さ・権限のbenchmarkを持つ。</p></article><article><span class="tag">ANALYTICS</span><h3>分析ダッシュボード</h3><p>AppKit UIのchart/tableを使うrich app。共有KPIはMetric Viewsで意味を揃える。</p></article><article><span class="tag">APPLICATION</span><h3>業務アプリ</h3><p>AppKit / React / TypeScript。Lakebase Autoscalingで更新、認可・競合・監査を設計。</p></article></div>
+  <div class="stack-line"><span>AppKit UI</span><span>ECharts系 charts</span><span>TanStack系 tables</span><span>Vitest / Playwright</span></div>
+  <p>固定versionの公式manifestからscaffoldし、APIは生成後のinstalled docsを確認します。mockは本番用部品＋架空データ。画像だけで終えず、空・読込・エラー・権限不足・部分データ・狭い画面も確認します。別のlibraryが必要なら理由をADRに残します。</p>
+</section>
+<section id="memory">
+  <div class="section-heading"><span>05 / DURABLE MEMORY</span><h2>会話が変わっても、続きから。</h2></div>
+  <p>Chatは入口。記憶はファイル、完了の根拠はテストと証拠です。ClaudeからCopilotへ切り替えても、同じ要件・設計・checkpointを読みます。</p>
+  <div class="file-map"><div><code>docs/harness/</code><span>ハーネス自身の要件・設計・調査・ADR・運用・知識</span></div><div><code>docs/product/</code><span>開発対象の要件・設計・UI・データ契約・運用・知識</span></div><div><code>work/sessions/</code><span>目的・確認済み状態・判断・証拠・次の行動・ブロッカー</span></div><div><code>work/evidence/ · reviews/</code><span>実際の結果と独立検証。自己申告の完了を分離</span></div><div><code>work/loops/ · approvals/</code><span>反復の残予算・停止理由・人の決定・内容hash</span></div></div>
+  <blockquote class="small-quote">前回の売上アプリを再開して。記録を再確認し、次の未完了項目から進めて。</blockquote>
+  <p>ナレッジには出典・確度・適用範囲・再確認日を付けます。繰り返す失敗は実行可能なチェックへ。生チャット全文・token・本番データを自動で永続化しません。</p>
+</section>
+<section id="quality">
+  <div class="section-heading"><span>06 / IMPROVEMENT</span><h2>改善にも、合格条件を。</h2></div>
+  <ol class="quality-loop"><li><strong>失敗を残す</strong><span>最小の再現例と人の手戻り</span></li><li><strong>小さく変える</strong><span>test・schema・hook・generator</span></li><li><strong>同じ課題で測る</strong><span>providerごと3回以上・独立判定</span></li><li><strong>差分で配る</strong><span>version固定・conflict検出・backup</span></li></ol>
+  <p>通常はassisted mode。headless loopはopt-inで、反復数・壁時計・process時間を制限します。pending gate・policy変更・失敗で停止。未記録の中断反復を黙って再実行しません。費用のsoft limitをhard capとは扱いません。</p>
+  <p>更新は案件側の変更を保護します。案件コード、product設計、work記録、接続設定はupdaterの所有外です。snapshot作成だけで公開や品質認定はされません。</p>
+  <a class="text-link" href="../harness/operations/CLI_REFERENCE.md">詳しいコマンドとreceipt形式 →</a>
+</section>
+<section id="limits">
+  <div class="section-heading"><span>07 / BEFORE PRODUCTION</span><h2>できたことと、確かめること。</h2></div>
+  <div class="note warning"><strong>ローカル実装 ≠ 本番導入済み。</strong><p>実workspaceの権限と接続、Claude/Copilot各hostでの実行、実モデルのgolden trials、GitHub側の保護設定・OIDC、実データ/UIの受入試験は、対象環境を指定したうえで確認します。</p></div>
+  <p>hookやhashは改変・誤操作の検出に有用ですが、同じOS権限で動くagentへの完全なsecurity境界ではありません。開発限定credentials、OS/container隔離、branch protection、CI、Environment承認を組み合わせます。</p>
+  <details><summary>「完了」はどう決まる？</summary><p>受入条件の全項目に、実在する証拠・独立review・変更されていないhashが必要です。not-runはpassになりません。業務上の妥当性とreviewerの本人性は人・CI・組織側の管理で担保します。</p></details>
+  <details><summary>どこから始めればいい？</summary><p>まず小さい1案件をテンプレートから作り、要件→mock→dev検証を一巡します。workspace URLと開発profile、案件repo、利用providerを指定すれば、その環境の導入確認へ進めます。</p></details>
+  <div class="reference-links"><a href="../harness/operations/VALIDATION_STATUS.md">検証結果・未検証項目 ↗</a><a href="../harness/research/2026-09-04-evidence-review.md">調査の一次情報と判断 ↗</a><a href="../USAGE.md">運用手順全文 ↗</a></div>
+</section>
+<footer><span>Databricks Development Harness</span><span>Intent is human. Progress is durable. Completion needs evidence.</span></footer>
+</main><div id="announcement" role="status" aria-live="polite" class="sr-only"></div>
+</body></html>

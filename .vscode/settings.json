@@ -1,0 +1,13 @@
+{
+  "chat.tools.edits.autoApprove": {
+    "**/AGENTS.md": false,
+    "**/harness.config.json": false,
+    "**/tools/agent-hook.mjs": false,
+    "**/.github/hooks/**": false,
+    "**/.claude/settings*.json": false,
+    "**/harness/evals/**": false,
+    "**/harness/schemas/**": false
+  },
+  "files.exclude": { "**/.harness/runtime": true },
+  "search.exclude": { ".claude/skills": true, ".github/skills": true }
+}

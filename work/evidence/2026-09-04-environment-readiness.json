@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-09-04",
+  "scope": "read-only local readiness inventory; no deployment or model execution",
+  "repository": {
+    "gitRemoteConfigured": false,
+    "headCommitExists": false,
+    "productInitialized": false,
+    "releaseVersion": "0.3.0",
+    "independentSourceHashCheck": { "managedFiles": 981, "mismatches": 0 }
+  },
+  "github": { "cliVersion": "2.96.0", "authenticated": true, "destinationSelected": false, "visibilitySelected": false },
+  "databricks": {
+    "configuredProfileCount": 1,
+    "inventoryUsedSkipValidate": true,
+    "profileSelected": false,
+    "projectConnectionFileExists": false,
+    "credentialsValidated": false,
+    "businessDataAccessed": false
+  },
+  "providers": {
+    "claudeCli": { "loggedIn": false, "authMethod": "none" },
+    "copilotCli": { "executableFound": false },
+    "vscodeExtensionInventory": {
+      "claudeCode": "2.1.259",
+      "githubCopilotChatListed": false,
+      "databricksListed": false,
+      "limitation": "CLI-listed extensions for the current VS Code environment only; this does not prove the sign-in state or installed extensions of every VS Code profile/remote host."
+    }
+  },
+  "requiredHumanChoices": [
+    "GitHub owner/repository and visibility",
+    "Development Databricks workspace URL and descriptive profile; approved catalog/schema/compute",
+    "Provider host sign-in and isolated real-evaluation environment",
+    "One pilot product's outcome and consequential requirements"
+  ],
+  "goalAudit": {
+    "previousGoalTurnClassification": "progress",
+    "reason": "The prior turn implemented and independently verified the local candidate and release snapshot.",
+    "currentEvidenceAdded": "Actual GitHub authentication, provider CLI authentication, VS Code extension inventory and absence of project connection selection.",
+    "completionProven": false,
+    "nextAction": "Obtain explicit pilot destination and development identity; do not infer authority from available credentials."
+  },
+  "privacy": "No tokens, profile names, workspace hostnames, user account names or raw credential output retained."
+}

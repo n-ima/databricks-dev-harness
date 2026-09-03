@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/databricks-dev-harness/loop.schema.json",
+  "title": "Bounded agent loop state",
+  "type": "object",
+  "required": ["schemaVersion", "id", "sessionId", "status", "phase", "budgets", "iterations", "createdAt", "updatedAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "minLength": 1 },
+    "sessionId": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["active", "achieved", "blocked", "budget_exhausted", "failed", "cancelled"] },
+    "phase": { "enum": ["intake", "define", "mock", "plan", "implement", "verify", "review", "release", "done"] },
+    "provider": { "enum": ["claude", "copilot", "manual"] },
+    "verifierProvider": { "enum": ["claude", "copilot", "manual"] },
+    "autoContinue": { "type": "boolean" },
+    "budgets": {
+      "type": "object",
+      "required": ["maxIterations", "maxWallMinutes", "maxProcessMinutes"],
+      "properties": {
+        "maxIterations": { "type": "integer", "minimum": 1, "maximum": 32 },
+        "maxWallMinutes": { "type": "number", "exclusiveMinimum": 0, "maximum": 1440 },
+        "maxProcessMinutes": { "type": "number", "exclusiveMinimum": 0, "maximum": 240 },
+        "maxUsd": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "maxAiCredits": { "type": ["number", "null"], "exclusiveMinimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "gate": {
+      "type": ["object", "null"],
+      "properties": {
+        "id": { "type": "string" },
+        "status": { "enum": ["pending", "approved", "rejected"] },
+        "evidence": { "type": ["string", "null"] }
+      },
+      "required": ["id", "status"],
+      "additionalProperties": false
+    },
+    "iterations": { "type": "array", "items": { "type": "object" } },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/databricks-dev-harness/release-manifest.schema.json",
+  "title": "Harness release manifest",
+  "type": "object",
+  "required": ["schemaVersion", "version", "releasedAt", "managedFiles", "migrations"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "releasedAt": { "type": "string", "format": "date-time" },
+    "managedFiles": { "type": "array", "items": { "type": "object", "required": ["path", "sha256", "strategy"] } },
+    "migrations": { "type": "array", "items": { "type": "object" } }
+  },
+  "additionalProperties": false
+}

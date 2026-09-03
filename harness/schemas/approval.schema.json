@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/databricks-dev-harness/approval.schema.json",
+  "title": "Human gate approval",
+  "type": "object",
+  "required": ["schemaVersion", "sessionId", "gate", "decision", "actor", "evidence", "decidedAt"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "sessionId": { "type": "string", "minLength": 1 },
+    "gate": { "enum": ["product-intent", "ui-mock", "sensitive-data-or-permission-change", "destructive-migration", "production-deploy"] },
+    "decision": { "enum": ["approved", "rejected", "revoked"] },
+    "actor": { "type": "string", "minLength": 1 },
+    "evidence": { "type": "string", "minLength": 1 },
+    "decidedAt": { "type": "string", "format": "date-time" },
+    "artifactHashes": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^[a-f0-9]{64}$" } },
+    "provenance": { "type": "string" },
+    "revokedAt": { "type": "string", "format": "date-time" },
+    "reason": { "type": "string" }
+  },
+  "additionalProperties": false
+}

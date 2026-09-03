@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "databricks.databricks",
+    "github.copilot",
+    "github.copilot-chat",
+    "anthropic.claude-code",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ]
+}

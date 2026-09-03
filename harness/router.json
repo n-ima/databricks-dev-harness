@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "defaultRoute": "define",
+  "routes": [
+    {
+      "id": "improve-harness",
+      "priority": 10,
+      "skill": "improve-harness",
+      "firstGate": "harness-policy-review",
+      "patterns": ["ハーネス", "改善ループ", "ループエンジニアリング", "agent harness", "self.?improv"]
+    },
+    {
+      "id": "release",
+      "priority": 20,
+      "skill": "release-work",
+      "firstGate": "production-deploy",
+      "patterns": ["本番", "リリース", "deploy", "デプロイ", "公開", "release"]
+    },
+    {
+      "id": "incident",
+      "priority": 30,
+      "skill": "investigate-work",
+      "firstGate": "none",
+      "patterns": ["障害", "インシデント", "動かない", "失敗", "error", "incident", "原因", "調査"]
+    },
+    {
+      "id": "review",
+      "priority": 40,
+      "skill": "review-work",
+      "firstGate": "none",
+      "patterns": ["レビュー", "確認して", "検証して", "review", "audit", "verify"]
+    },
+    {
+      "id": "mock-ui",
+      "priority": 50,
+      "skill": "mock-ui",
+      "firstGate": "ui-mock",
+      "patterns": ["画面", "モック", "ui", "ux", "ダッシュボード", "グラフ", "フォーム"]
+    },
+    {
+      "id": "build",
+      "priority": 60,
+      "skill": "build-work",
+      "firstGate": "product-intent",
+      "patterns": ["実装", "作成", "追加", "修正", "更新処理", "crud", "pipeline", "job", "genie", "アプリ"]
+    },
+    {
+      "id": "define",
+      "priority": 70,
+      "skill": "define-work",
+      "firstGate": "product-intent",
+      "patterns": ["要件", "企画", "欲しい", "したい", "考えて", "設計", "define", "plan"]
+    },
+    {
+      "id": "investigate",
+      "priority": 80,
+      "skill": "investigate-work",
+      "firstGate": "none",
+      "patterns": ["教えて", "説明", "比較", "調べて", "inspect", "explain", "compare"]
+    }
+  ]
+}

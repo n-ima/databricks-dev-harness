@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "harnessVersion": "0.3.1",
+  "maturityLevel": "L1",
+  "defaultAgentMode": "assisted",
+  "loop": {
+    "maxIterations": 8,
+    "maxWallMinutes": 120,
+    "maxProcessMinutes": 30,
+    "requireIndependentVerification": true,
+    "requirePersistentState": true
+  },
+  "session": {
+    "directory": "work/sessions",
+    "persistRawPrompts": false,
+    "checkpointBeforeCompaction": true,
+    "checkpointBeforeHandoff": true
+  },
+  "knowledge": {
+    "harnessDirectory": "docs/harness/knowledge",
+    "productDirectory": "docs/product/knowledge",
+    "requireSourceAndConfidence": true
+  },
+  "distribution": {
+    "primary": "github-template-repository",
+    "agentExtensions": "generated-repository-assets",
+    "databricksSkillsSource": "vendor/databricks-skills"
+  },
+  "humanGates": [
+    "product-intent",
+    "ui-mock",
+    "sensitive-data-or-permission-change",
+    "destructive-migration",
+    "production-deploy"
+  ],
+  "applicationStack": {
+    "default": "databricks-appkit",
+    "language": "typescript",
+    "ui": "appkit-ui",
+    "charts": "appkit-ui-echarts",
+    "tables": "appkit-ui-tanstack-table",
+    "transactionalStore": "lakebase",
+    "analyticalStore": "delta"
+  }
+}

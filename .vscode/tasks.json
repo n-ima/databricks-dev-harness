@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Harness: Setup",
+      "type": "shell",
+      "command": "npm run setup",
+      "problemMatcher": []
+    },
+    {
+      "label": "Harness: Check",
+      "type": "shell",
+      "command": "npm run harness:check",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Harness: Context",
+      "type": "shell",
+      "command": "npm run harness:context",
+      "problemMatcher": []
+    },
+    {
+      "label": "Databricks: Validate dev bundle",
+      "type": "shell",
+      "command": "databricks bundle validate -t dev",
+      "problemMatcher": []
+    }
+  ]
+}

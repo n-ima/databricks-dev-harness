@@ -1,0 +1,28 @@
+{
+  "source": "https://github.com/databricks/databricks-agent-skills",
+  "resolvedVersion": "0.2.10",
+  "resolvedBy": "Databricks CLI v1.6.0",
+  "retrievedAt": "2026-09-04",
+  "updateCommand": "npm run setup -- --refresh-skills",
+  "legal": {
+    "schemaVersion": 1,
+    "sourceTag": "v0.2.10",
+    "files": {
+      "LICENSE": {
+        "source": "https://raw.githubusercontent.com/databricks/databricks-agent-skills/v0.2.10/LICENSE",
+        "sha256": "df8afbfd34830a45f85dff044550a913a3355be1c61ab756417e7670cb48fa1c",
+        "bytes": 3789
+      },
+      "NOTICE": {
+        "source": "https://raw.githubusercontent.com/databricks/databricks-agent-skills/v0.2.10/NOTICE",
+        "sha256": "0c4c03b0de159e6308cfbb17a96c708b742e3c85887e9debb84dcd270315371e",
+        "bytes": 174
+      },
+      "THIRD_PARTY.md": {
+        "source": "harness-generated:tools/lib/vendor-legal.mjs",
+        "sha256": "e97f899f5ad75b934237cc749bea9d5bb7c153fb3f3157d33ecc8958e48798fc",
+        "bytes": 931
+      }
+    }
+  }
+}

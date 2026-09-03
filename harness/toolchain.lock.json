@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "databricksCli": ">=1.6.0 <2.0.0",
+  "appkitTemplateVersion": "v0.69.1",
+  "appkitManifestSource": "https://github.com/databricks/appkit",
+  "verifiedAt": "2026-09-04",
+  "updatePolicy": "Update by reviewed harness release after manifest, scaffold, build, and golden-task evaluation pass."
+}

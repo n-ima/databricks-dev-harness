@@ -1,0 +1,9 @@
+# Harness knowledge index
+
+Only cross-project, verified knowledge belongs here. Each record needs a source, confidence, verification date, applicability, and review date when time-sensitive.
+
+- [Distribution decision](../decisions/ADR-0001-distribution.md)
+- [Session memory decision](../decisions/ADR-0002-session-memory.md)
+- [Evaluation protocol](../operations/EVALUATION.md)
+
+- [AppKit mock initialization requires explicit workspace identity](20260903-192650-066-appkit-mock-initialization-requires-explicit-workspace-ident.md) — high; review 2026-10-04

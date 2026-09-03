@@ -1,0 +1,30 @@
+{
+  "name": "databricks-dev-harness",
+  "version": "0.3.1",
+  "private": true,
+  "description": "Cross-agent development harness for Databricks data and AI products",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "setup": "node tools/harness.mjs setup",
+    "agent-assets:sync": "node tools/harness.mjs sync-agent-assets",
+    "harness:check": "node tools/harness.mjs check",
+    "harness:doctor": "node tools/harness.mjs doctor",
+    "harness:context": "node tools/harness.mjs context",
+    "harness:route": "node tools/harness.mjs route",
+    "test:harness": "node --test tests/*.test.mjs",
+    "harness": "node tools/harness.mjs",
+    "harness:connect": "node tools/harness.mjs connect",
+    "docs:serve": "node tools/docs-server.mjs",
+    "intake": "node tools/harness.mjs intake",
+    "loop": "node tools/harness.mjs loop",
+    "scaffold": "node tools/harness.mjs scaffold",
+    "evidence": "node tools/harness.mjs evidence",
+    "session:start": "node tools/harness.mjs session start",
+    "session:checkpoint": "node tools/harness.mjs session checkpoint",
+    "session:close": "node tools/harness.mjs session close",
+    "session:list": "node tools/harness.mjs session list",
+    "knowledge:add": "node tools/harness.mjs knowledge add"
+  }
+}
