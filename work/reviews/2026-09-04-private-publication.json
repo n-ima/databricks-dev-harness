@@ -1,0 +1,22 @@
+{
+  "reviewer": "independent_release_check",
+  "provider": "codex",
+  "independent": true,
+  "acceptance": [
+    {
+      "id": "PUB-01",
+      "status": "pass",
+      "evidence": ["work/evidence/2026-09-04-private-publication-independent.md"]
+    },
+    {
+      "id": "PUB-02",
+      "status": "pass",
+      "evidence": ["work/evidence/2026-09-04-private-publication-independent.md"]
+    },
+    {
+      "id": "PUB-03",
+      "status": "pass",
+      "evidence": ["work/evidence/2026-09-04-private-publication-independent.md"]
+    }
+  ]
+}

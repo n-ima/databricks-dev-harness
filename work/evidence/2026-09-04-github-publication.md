@@ -28,7 +28,15 @@ Reviewer found missing Databricks LICENSE/NOTICE before any push. The 289 vendor
 - Initial reviewed source commit: `dd18e032a1e9ebe7b94094ed1e889dd24d9fe1cb`, pushed normally to `origin/main`. `git ls-remote origin refs/heads/main` and local HEAD agreed. 1,042 files tracked; no `.harness/`, real `.env`, `.databrickscfg`, `product.config.json`, or `node_modules/` files staged. The working tree was clean immediately after the initial push.
 - Read-only GitHub verification after push: private/template both true, default branch `main`, Actions enabled and both workflows active. Branch `main` is **not protected**; this was not changed or misrepresented.
 - Initial push had no automatically registered Actions runs/checks when polled. Actions and workflows were enabled. Explicitly dispatched the existing offline `Copilot setup steps` workflow on the source commit: `https://github.com/n-ima/databricks-dev-harness/actions/runs/33816257664` (queued at first read). This runs dependency/conformance/tests, not an AI model or Databricks deployment. A normal follow-up evidence commit also exercises the push trigger.
-- Hosted CI results are pending. The initial metadata and source upload do not certify a successful workflow.
+- Actual hosted run `33816257664`: **success**, source commit `dd18e032a1e9ebe7b94094ed1e889dd24d9fe1cb`, explicit `workflow_dispatch`, Ubuntu runner, completed `2026-09-03T23:08:57Z`. All setup/locked-dependency/conformance/test steps passed. Actual log: **310 tests / 310 pass / 0 fail / 0 skipped**. This is a CI bootstrap/test run, not a real Copilot agent session.
+- Evidence-only follow-up commit `2e6dc171d7a52f0887eb270af0298b9253a86f1f` was pushed normally; no implementation, workflow, or baseline files changed from the tested source commit.
+- `Harness conformance` push-triggered 3-OS workflow still returned an empty run list after both pushes. Windows/macOS hosted matrix execution and automatic push-trigger delivery are **not-run / unverified**. Cause is not established. No unsupported action, permission widening, workflow rewrite, or fabricated success was used to force this claim.
+
+## Handoff
+
+The private template is the harness source. For each actual data/AI product, create a separate private repository with **Use this template**, then run the documented setup and choose a development profile explicitly. The supplied Databricks folder is the proposed workspace location, not a GitHub repository or a completed connection.
+
+Next administrative work: diagnose automatic Actions triggers, verify the full hosted OS matrix, and decide branch protection/reviewer rules. These remain separate from this narrowly authorized private repository creation. Do not claim full harness readiness from the successful source publication or Linux CI.
 
 ## Remaining external work (not publication claims)
 

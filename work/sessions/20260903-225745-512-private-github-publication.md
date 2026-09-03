@@ -1,15 +1,15 @@
 ---
 id: 20260903-225745-512-private-github-publication
 title: private-github-publication
-status: active
+status: completed
 intent: release
 provider: codex
 phase: release
 gate: none
 gate_status: not-applicable
 started: 2026-09-03T22:57:45Z
-updated: 2026-09-03T23:07:05Z
-last_checkpoint: 2026-09-03T23:07:05Z
+updated: 2026-09-03T23:10:50Z
+last_checkpoint: 2026-09-03T23:10:49Z
 requirement: work/plans/2026-09-04-private-github-publication.md
 architecture: docs/harness/design/ARCHITECTURE.md
 plan: work/plans/2026-09-04-private-github-publication.md
@@ -73,3 +73,15 @@ Publish the user-authorized private harness template n-ima/databricks-dev-harnes
 - summary: Published initial source commit dd18e032a1e9ebe7b94094ed1e889dd24d9fe1cb to private template n-ima/databricks-dev-harness/main; local and remote commit match and worktree is clean. 1042 reviewed files tracked, ignored runtime/credential candidates excluded.
 - evidence: work/evidence/2026-09-04-github-publication.md
 - next: Read actual hosted Actions outcomes and independent remote verification; preserve evidence and close this narrowly scoped publication session.
+
+## Checkpoint 2026-09-03T23:10:49Z
+
+- summary: Independent PUB-01/02/03 review passes for the narrowly scoped private source publication. Ubuntu Actions run33816257664 passed310/310 tests; automatic 3-OS workflow is unverified and main is unprotected, explicitly recorded.
+- evidence: work/reviews/20260903-225745-512-private-github-publication.receipt.json
+- next: Commit and push the final sanitized publication evidence; then user may create a separate product repo and explicitly choose its Databricks dev profile. Automatic CI trigger/branch policy follow-up remains separate.
+
+## Closed 2026-09-03T23:10:50Z
+
+- Outcome: completed
+- Summary: Created and populated n-ima/databricks-dev-harness as a private template. Independent publication proof and actual Linux CI pass recorded; full harness readiness, automatic 3-OS triggers, Databricks/provider setup and branch protection not claimed.
+- Independent evidence: work/reviews/20260903-225745-512-private-github-publication.receipt.json
