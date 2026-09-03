@@ -4,12 +4,12 @@ title: private-github-publication
 status: active
 intent: release
 provider: codex
-phase: verify
+phase: release
 gate: none
 gate_status: not-applicable
 started: 2026-09-03T22:57:45Z
-updated: 2026-09-03T23:04:13Z
-last_checkpoint: 2026-09-03T23:04:13Z
+updated: 2026-09-03T23:07:05Z
+last_checkpoint: 2026-09-03T23:07:05Z
 requirement: work/plans/2026-09-04-private-github-publication.md
 architecture: docs/harness/design/ARCHITECTURE.md
 plan: work/plans/2026-09-04-private-github-publication.md
@@ -67,3 +67,9 @@ Publish the user-authorized private harness template n-ima/databricks-dev-harnes
 - summary: Created n-ima/databricks-dev-harness privately and verified is_template=true via GitHub API; added exact origin. No source uploaded yet. Official LICENSE/NOTICE/scope and lock hashes are present; provider assets synchronized; harness conformance passes.
 - evidence: work/evidence/2026-09-04-github-publication.md
 - next: Finish full local tests and independent legal recheck, stamp 0.3.1, commit and push source, then verify real Actions.
+
+## Checkpoint 2026-09-03T23:07:05Z
+
+- summary: Published initial source commit dd18e032a1e9ebe7b94094ed1e889dd24d9fe1cb to private template n-ima/databricks-dev-harness/main; local and remote commit match and worktree is clean. 1042 reviewed files tracked, ignored runtime/credential candidates excluded.
+- evidence: work/evidence/2026-09-04-github-publication.md
+- next: Read actual hosted Actions outcomes and independent remote verification; preserve evidence and close this narrowly scoped publication session.

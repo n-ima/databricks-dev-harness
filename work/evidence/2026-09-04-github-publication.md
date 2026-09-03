@@ -25,7 +25,10 @@ Reviewer found missing Databricks LICENSE/NOTICE before any push. The 289 vendor
 - Final 310-test local suite (including eight new notice regressions): 309 pass, 0 fail, 1 skip (host lacks file-symlink test privilege; separate directory-junction test passes). Prior 302-test suite also passed before adding the regressions.
 - Independent recheck confirmed exact legal bytes in all three copies, legal tests 8/8 pass, distribution tests 23 pass/1 permission skip, conformance pass, and the unchanged original 0.3.0 payload. No remaining blocker found within this review scope.
 - New 0.3.1 snapshot: 994 managed files, current-source and fresh Git-checkout raw-byte parity passed. Manifest SHA-256 `fba3bef840e395d06902848d10cadcd834f63b3481b69d49deafe85233c7b37a`. Details: `work/evidence/release-byte-validation.json`.
-- Source upload and hosted CI results are pending. Do not claim publication complete from repository metadata alone.
+- Initial reviewed source commit: `dd18e032a1e9ebe7b94094ed1e889dd24d9fe1cb`, pushed normally to `origin/main`. `git ls-remote origin refs/heads/main` and local HEAD agreed. 1,042 files tracked; no `.harness/`, real `.env`, `.databrickscfg`, `product.config.json`, or `node_modules/` files staged. The working tree was clean immediately after the initial push.
+- Read-only GitHub verification after push: private/template both true, default branch `main`, Actions enabled and both workflows active. Branch `main` is **not protected**; this was not changed or misrepresented.
+- Initial push had no automatically registered Actions runs/checks when polled. Actions and workflows were enabled. Explicitly dispatched the existing offline `Copilot setup steps` workflow on the source commit: `https://github.com/n-ima/databricks-dev-harness/actions/runs/33816257664` (queued at first read). This runs dependency/conformance/tests, not an AI model or Databricks deployment. A normal follow-up evidence commit also exercises the push trigger.
+- Hosted CI results are pending. The initial metadata and source upload do not certify a successful workflow.
 
 ## Remaining external work (not publication claims)
 
