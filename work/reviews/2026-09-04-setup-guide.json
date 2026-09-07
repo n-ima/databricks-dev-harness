@@ -1,0 +1,12 @@
+{
+  "reviewer": "independent_release_check",
+  "provider": "codex",
+  "independent": true,
+  "acceptance": [
+    {"id": "GUIDE-01", "status": "pass", "evidence": ["work/evidence/2026-09-04-setup-guide.md"]},
+    {"id": "GUIDE-02", "status": "pass", "evidence": ["work/evidence/2026-09-04-setup-guide.md"]},
+    {"id": "GUIDE-03", "status": "pass", "evidence": ["work/evidence/2026-09-04-setup-guide.md"]},
+    {"id": "GUIDE-04", "status": "pass", "evidence": ["work/evidence/2026-09-04-setup-guide.md"]},
+    {"id": "GUIDE-05", "status": "pass", "evidence": ["work/evidence/2026-09-04-setup-guide.md"]}
+  ]
+}

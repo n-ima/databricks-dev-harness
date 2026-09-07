@@ -25,21 +25,73 @@
   <div class="note"><strong>全自動と、無条件の自律は別です。</strong> 通常作業は進め、重要な未回答・画面承認・機密権限・破壊的変更・本番反映で止まります。「世界最高」は改善の方向であり、未検証の品質を保証する表現ではありません。</div>
 </section>
 <section id="setup">
-  <div class="section-heading"><span>02 / START</span><h2>最初の準備を、ひとつの流れに。</h2></div>
-  <p>ハーネス本体をGitHub Templateにし、開発対象ごとに別repoを作ります。プラグインは補助配布の候補。コード・設計・テスト・CI・記録まで揃える本体はテンプレートです。</p>
-  <ol class="steps"><li><strong>提供者：テンプレートを登録</strong><p>組織・公開範囲を決めてpush。template設定、main保護、必須CI、独立レビュー、本番Environmentの承認者を設定します。</p></li><li><strong>利用者：案件を作成</strong><p>GitHub CLIでログインし、下のコマンドの組織・案件・パス・workspace・profileを置き換えます。</p></li><li><strong>本人：認証・エージェント選択</strong><p>OAuthブラウザー承認を行い、VS CodeでClaude CodeまたはCopilotのAgentモードにサインインします。</p></li></ol>
-  <div class="tabs" role="tablist" aria-label="セットアップ方法"><button id="tab-win" role="tab" aria-selected="true" aria-controls="panel-win">Windows・新規案件</button><button id="tab-existing" role="tab" aria-selected="false" aria-controls="panel-existing" tabindex="-1">作成済みrepo</button><button id="tab-unix" role="tab" aria-selected="false" aria-controls="panel-unix" tabindex="-1">macOS / Linux</button></div>
-  <div id="panel-win" role="tabpanel" aria-labelledby="tab-win" class="code-panel"><p>テンプレート側のcloneから実行。GitHubの指定repoを新規作成します。</p><pre><code>gh auth login
-.\scripts\new-project.ps1 -Template ORGANIZATION/databricks-dev-harness -Repository ORGANIZATION/sales-operations -LocalPath D:\projects\sales-operations -Profile sales-dev -HostUrl https://YOUR-WORKSPACE.cloud.databricks.com -Authenticate -InstallPrerequisites -InstallExtensions</code></pre><button class="copy" type="button">コマンドをコピー</button></div>
-  <div id="panel-existing" role="tabpanel" aria-labelledby="tab-existing" class="code-panel" hidden><p>GitHubのUse this templateで作成・cloneしたrepo内で実行。</p><pre><code>.\scripts\setup.ps1 -ProjectName sales-operations -Profile sales-dev -HostUrl https://YOUR-WORKSPACE.cloud.databricks.com -Authenticate -InstallPrerequisites -InstallExtensions
+  <div class="section-heading"><span>02 / START</span><h2>案件フォルダーを用意してから、setup。</h2></div>
+  <div class="note"><strong>空のディレクトリでsetup.shを実行するだけ、ではありません。</strong><p>テンプレートから案件repoを作成 → clone → <b>そのrepoのルートにあるsetup</b>を実行します。揃うのは開発ハーネスと接続設定です。アプリ本体・依存ライブラリ・Databricksリソースや権限・deployは、その後の工程です。</p></div>
+  <p class="setup-intro">Claude Code・GitHub Copilotは利用可能という前提です。新しいプラグインの導入やエージェントの再インストールは不要。<a href="https://github.com/n-ima/databricks-dev-harness">ハーネス本体のprivate template</a>は作成済みなので、これから作りたい製品用の別repoを作ります。</p>
+  <ol class="steps"><li><strong>1. 案件repoを作る</strong><p>例：<code>n-ima/sales-operations</code>。同じ製品のアプリ・データ処理・Genieは一緒に管理できます。</p></li><li><strong>2. clone先でsetupする</strong><p>例：<code>D:\projects\sales-operations</code>。<code>apps/</code>内でも、元ハーネス内でもありません。</p></li><li><strong>3. 値を指定して依頼する</strong><p>本人がOAuth承認。データ利用時にCatalog等を選択し、同じ案件をVS Codeで開いて自然言語で依頼します。</p></li></ol>
+
+  <h3>今回の画面の値は、ここに指定します</h3>
+  <table class="setup-table"><caption>workspace画面とローカル設定の対応</caption><thead><tr><th scope="col">取り出すもの</th><th scope="col">今回の値・例</th><th scope="col">指定先</th></tr></thead><tbody>
+    <tr><th scope="row">workspace URL</th><td><code>https://dbc-3fb0b9a2-66bb.cloud.databricks.com</code></td><td><code>-HostUrl</code> / <code>--host</code>。<code>/browse/...</code>や<code>?o=...</code>は除く</td></tr>
+    <tr><th scope="row">profile名</th><td><code>harness-dev</code>は候補名。本人が決める</td><td><code>-Profile</code> / <code>--profile</code>。以降も同じ名前を使う</td></tr>
+    <tr><th scope="row">Sharedフォルダー</th><td><code>/Workspace/Shared/test/dev-harness</code></td><td>Bundle変数<code>team_root</code>。host引数ではない</td></tr>
+    <tr><th scope="row">Catalog / Schema</th><td>添付にはない。左のCatalogから実在する対象を選ぶ</td><td>後述のローカル変数ファイル。Sharedのフォルダー名から推測しない</td></tr>
+  </tbody></table>
+  <p>パスはDatabricksの対象フォルダーを右クリック → <strong>Copy URL/path → Full path</strong>で確認します。<code>harness-dev</code>、<code>sales-operations</code>はこのガイドの例で、既に作成・認証したという意味ではありません。</p>
+
+  <h3>案件の作り方を1つ選ぶ</h3>
+  <div class="tabs" role="tablist" aria-label="セットアップ方法"><button id="tab-win" role="tab" aria-selected="true" aria-controls="panel-win">Windows・まとめて作成</button><button id="tab-existing" role="tab" aria-selected="false" aria-controls="panel-existing" tabindex="-1">GitHub画面で作成</button><button id="tab-unix" role="tab" aria-selected="false" aria-controls="panel-unix" tabindex="-1">macOS / Linux</button></div>
+  <div id="panel-win" role="tabpanel" aria-labelledby="tab-win" class="code-panel"><p>現在のハーネス本体のcloneから実行します。<strong>LocalPathの案件ディレクトリは先に作りません。</strong> 空でも既存のパスは拒否します。GitHub CLIが必要で、未ログインの場合のみ先に<code>gh auth login</code>。次のnew-projectは新規private repoを作成します。</p><pre><code>Set-Location D:\projects\databricks-dev-harness
+gh auth status
+.\scripts\new-project.ps1 -Template n-ima/databricks-dev-harness -Repository n-ima/sales-operations -LocalPath D:\projects\sales-operations -ProjectName sales-operations -Profile harness-dev -HostUrl https://dbc-3fb0b9a2-66bb.cloud.databricks.com -Authenticate -InstallPrerequisites
+Set-Location D:\projects\sales-operations
+npm ci --ignore-scripts
+npm run harness:check
 code .</code></pre><button class="copy" type="button">コマンドをコピー</button></div>
-  <div id="panel-unix" role="tabpanel" aria-labelledby="tab-unix" class="code-panel" hidden><p>Node.js 22以上・Git・Python 3.10以上（契約試験用）・Databricks CLI 1.6以上2未満を先に用意。Databricks RuntimeのPython版は案件ごとに別途合わせます。</p><pre><code>bash scripts/setup.sh --project-name sales-operations --profile sales-dev --host https://YOUR-WORKSPACE.cloud.databricks.com --auth
+  <div id="panel-existing" role="tabpanel" aria-labelledby="tab-existing" class="code-panel" hidden><p>GitHubで<strong>Use this template → Create a new repository</strong>を選択。例：Owner <code>n-ima</code>、Name <code>sales-operations</code>、<strong>Private</strong>で作成します。clone済みならclone行を省略し、案件フォルダーへ移動してsetupします。</p><pre><code>Set-Location D:\projects
+gh repo clone n-ima/sales-operations D:\projects\sales-operations
+Set-Location D:\projects\sales-operations
+.\scripts\setup.ps1 -ProjectName sales-operations -Profile harness-dev -HostUrl https://dbc-3fb0b9a2-66bb.cloud.databricks.com -Authenticate -InstallPrerequisites
+npm ci --ignore-scripts
+npm run harness:check
 code .</code></pre><button class="copy" type="button">コマンドをコピー</button></div>
-  <p class="caption">インストールはopt-in。既存の古いツールを黙って更新しません。支払い、権限付与、本番デプロイは行いません。</p>
-  <details><summary>workspace未準備でも進められる？</summary><p>Nodeと同梱Skillsで要件整理・設計まで進められます。公式AppKitの初期化はfixtureモックでもCLIと開発workspace認証が必要です。profileとhostを明示し、業務データ・live pluginは接続しません。</p><pre><code>npm ci --ignore-scripts
+  <div id="panel-unix" role="tabpanel" aria-labelledby="tab-unix" class="code-panel" hidden><p>GitHubのUse this templateでprivateな案件repoを作成してから、作業する親フォルダーで実行します。<strong>setup.shはOSツールをインストールしません。</strong> Node.js 22以上・Git・Python 3.10以上・Databricks CLI 1.6以上2未満を、このshellで使えるようにしておきます。</p><pre><code>git clone https://github.com/n-ima/sales-operations.git
+cd sales-operations
+bash scripts/setup.sh --project-name sales-operations --profile harness-dev --host https://dbc-3fb0b9a2-66bb.cloud.databricks.com --auth
+npm ci --ignore-scripts
+npm run harness:check
+code .</code></pre><button class="copy" type="button">コマンドをコピー</button></div>
+  <p class="caption">repo名・profile名を決めてから実行します。Windowsの -InstallPrerequisites は不足ツールの導入への明示同意。既存の古い版は黙って更新しません。認証オプションを付けた場合は本人がブラウザー承認します。エージェント導入済みなので -InstallExtensions は省略しています。</p>
+
+  <h3>setupでできること・別途行うこと</h3>
+  <div class="split"><div><h3>setupが整える</h3><p>案件名の<code>product.config.json</code>、rootの<code>databricks.yml</code>ひな型、両エージェントのSkills、記録用ディレクトリ、元テンプレートの更新基準。指定したprofile/hostの接続確認後、非秘密のメタデータを<code>.harness/local.json</code>へ保存します。</p></div><div><h3>setupでは行わない</h3><p><code>npm ci</code>、AppKitアプリ生成、アプリ固有の依存導入、Catalog/Schema・warehouse・Lakebase・Genie・Apps作成、権限付与、データ更新、deploy。アプリの依存は生成後のlockfileに従ってエージェントが導入します。</p></div></div>
+  <p><code>Connected ...</code>、<code>Harness check passed.</code>、<code>Setup complete.</code>を確認します。これで要件・設計と接続確認へ進めますが、Bundle検証や実行準備の完了とは別です。</p>
+
+  <h3>データ利用前：Catalogと配置先を保存する</h3>
+  <p>Databricksの<strong>Catalog → catalog → schema</strong>で対象を選びます。案件repo内に<code>.databricks/bundle/dev/variable-overrides.json</code>を作成し、次の例のcatalog/schemaを確認済みの実名へ置き換えます。setupはこのファイルを作りません。作成はエージェントに任せられます。</p>
+  <pre class="setup-example"><code>{
+  "catalog": "workspace",
+  "schema": "sales_dev",
+  "team_root": "/Workspace/Shared/test/dev-harness",
+  "dev_suffix": "my-pilot-01"
+}</code></pre>
+  <p><code>workspace</code>と<code>sales_dev</code>は例で、存在や権限を確認した値ではありません。ファイルはGit対象外。tokenは書きません。<code>.env</code>は自動読込されず、別shellへexportが引き継がれる保証もないため、このtarget別ファイルを使います。</p>
+  <div class="note"><strong>team_rootを設定しても、devの配置先は変わりません。</strong><p>既定のdevは <code>/Workspace/Users/.../.bundle/案件名/dev/作業ID</code>。team_rootを使うのはtest/prodです。最初はUsers配下のdevを維持するのが簡単です。devも添付のShared配下にしたい場合だけ、<a href="../harness/operations/SETUP_WALKTHROUGH.md">実践ガイドの5-3</a>に従い、案件の<code>databricks.yml</code>にある<code>targets.dev.workspace.root_path</code>を変更します。</p></div>
+  <p class="setup-intro">値と必要なresource定義を整えた段階で、案件rootから確認します。要件整理を始める前にすべてのBundle検証を終える必要はありません。設定未完でstrict validateが止まった場合は、指摘内容をエージェントと解消します。以下はdeployやデータ更新を行いません。</p>
+  <pre class="setup-example"><code>databricks workspace get-status /Workspace/Shared/test/dev-harness --profile harness-dev
+databricks bundle validate --strict -t dev --profile harness-dev
+npm run harness:doctor -- --profile harness-dev --json</code></pre>
+  <p>フォルダー参照・認証の成功は、書込権限やアプリ稼働の証明ではありません。生成後の<code>apps/&lt;app-name&gt;/</code>は独立Bundleなので、rootの変数は自動継承されません。</p>
+
+  <details><summary>アプリ・処理ごとのDatabricks準備は？</summary><p>データ処理は対象Catalog/Schema・入力・computeと読書き権限。分析アプリはSQL warehouseとデータ権限。Genieは参照データ・warehouse・質問と期待結果。入力系アプリはLakebaseのproject/branch/databaseを選択します。既存利用か新規作成かは人が決め、最初から全部作る必要はありません。</p><p>warehouse IDは<strong>SQL → SQL Warehouses → 対象 → Connection Details</strong>にあるHTTP pathの<code>/warehouses/</code>より後です。workspace IDやフォルダーIDとは別で、setupの引数ではなく後のscaffoldに指定します。App専用service principalの権限も個人の権限とは別に確認します。</p></details>
+  <details><summary>添付のFree Editionだけでよい？</summary><p>非商用のサンプル検証を始める環境として考えます。2026-09-04確認の公式案内では非商用限定・SLAなし、serverless限定、SQL warehouse 1つ、Apps最大3つで最大24時間後停止、Lakebase 1 projectなどの制限があります。業務本番や全AppKit pluginの動作を保証するものではありません。<a href="https://docs.databricks.com/aws/en/getting-started/free-edition-limitations">公式の制限を見る</a>。</p></details>
+  <details><summary>workspace未準備でも進められる？</summary><p>テンプレート取得済みの案件repoで、Nodeと同梱Skillsを使って要件・設計を進められます。接続もUIアプリ本体もまだできていない状態です。公式AppKitの初期化はfixtureモックでも明示dev profile/hostと認証が必要です。</p><pre><code>npm ci --ignore-scripts
 npm run setup -- --project-name sales-operations --skip-agent-skills</code></pre></details>
-  <details><summary>接続確認は何を検証する？</summary><p>明示profileとhostの一致、OAuth結果、workspace到達性、current-user。認証成功だけではresource権限は保証されません。catalog/schema/team_root等を設定しBundleをstrict validateします。</p><pre><code>npm run harness:doctor -- --profile sales-dev --json
-databricks bundle validate --strict -t dev --profile sales-dev</code></pre><p>tokenをrepoへ保存しません。DEFAULTや唯一のprofileも自動選択しません。</p></details>
+  <details><summary>new-projectやsetupが途中で止まったら？</summary><p>repoやcloneができている場合、new-projectは繰り返さず、案件repo内のsetupだけを再実行します。古いツールは会社指定の方法で更新し、必要なら新しいターミナルを開きます。認証だけなら<code>npm run harness:connect -- --profile harness-dev --host https://dbc-3fb0b9a2-66bb.cloud.databricks.com --auth</code>で再確認。Catalog等のMissing variableは変数ファイルを確認し、権限不足をtoken貼付で回避しません。</p></details>
+  <h3>最後に、同じ案件フォルダーでエージェントへ</h3>
+  <blockquote>この案件のAGENTS.mdとactive sessionを確認して。profileはharness-dev、開発はdevのUsers配下。営業データの分析アプリを作りたい。要件と設計から始め、架空データのモックを見せて。本データ接続・権限変更・deployは承認を待って。</blockquote>
+  <p>CLIのprofileは本人が決めた名前に合わせます。Claude CodeとCopilotは同じ案件repoを開いて利用し、切替時は先の作業をcheckpointしてから記録を引き継ぎます。</p>
+  <a class="text-link" href="../harness/operations/SETUP_WALKTHROUGH.md">取得元・設定先・失敗時の再開を含む実践ガイド全文 →</a>
 </section>
 <section id="workflow">
   <div class="section-heading"><span>03 / DAILY WORK</span><h2>特別な呪文は、いりません。</h2></div>

@@ -4,9 +4,15 @@
 
 [HTMLガイド](site/index.html) / [コマンド詳細](harness/operations/CLI_REFERENCE.md) / [根拠と判断](harness/research/2026-09-04-evidence-review.md)
 
+**初回は [具体例付きセットアップ手順](harness/operations/SETUP_WALKTHROUGH.md) を読んでください。** Claude Code・GitHub Copilotが既に使える前提で、今回のworkspace URL・Sharedフォルダーをどこに指定するか、Windows/shellの実行場所、途中失敗時の再開まで説明します。
+
+空のディレクトリでsetup.shを実行するだけではありません。テンプレートから案件repoを作成・cloneし、**そのrepoにある**setupを使います。setup.shはOSツールの導入、npm ci、アプリ生成、Databricksリソース作成を行いません。元ハーネスのsetupを別ディレクトリから呼んでも、元ハーネス側が初期化されるので注意してください。
+
 ## 1. 提供者が一度だけ行うこと
 
 このrepoはハーネスの開発元です。アプリ本体を混在させず、GitHubのTemplate repositoryとして登録します。
+
+今回の開発元 `n-ima/databricks-dev-harness` はprivate templateとして作成済みです。利用者はテンプレート登録を繰り返さず、次の案件作成へ進みます。mainの保護や必須CI・Environment設定はtemplate化とは別です。
 
 1. 組織・リポジトリ名・公開範囲を決め、レビューした内容をpushする。
 2. `scripts/enable-template.ps1 -Repository ORGANIZATION/databricks-dev-harness` を実行する。
@@ -21,8 +27,13 @@ GitHub CLIを用意し、初回のみ `gh auth login` で本人がログイン�
 
 テンプレート側のcloneから、作成・clone・初期設定をまとめて実行します。組織・案件名・パス・workspace URL・profile名を置き換えてください。
 
+`-LocalPath`はまだ存在しないパスにします。空の案件ディレクトリも先に作りません。エージェントの準備は完了済み前提なので、以下では `-InstallExtensions` を省略しています。
+
 ```powershell
-.\scripts\new-project.ps1 -Template ORGANIZATION/databricks-dev-harness -Repository ORGANIZATION/sales-operations -LocalPath D:\projects\sales-operations -ProjectName sales-operations -Profile sales-dev -HostUrl https://YOUR-WORKSPACE.cloud.databricks.com -Authenticate -InstallPrerequisites -InstallExtensions
+.\scripts\new-project.ps1 -Template n-ima/databricks-dev-harness -Repository ORGANIZATION/sales-operations -LocalPath D:\projects\sales-operations -ProjectName sales-operations -Profile sales-dev -HostUrl https://YOUR-WORKSPACE.cloud.databricks.com -Authenticate -InstallPrerequisites
+Set-Location D:\projects\sales-operations
+npm ci --ignore-scripts
+code .
 ```
 
 指定GitHub repoを新規作成します。既存LocalPathは上書きしません。`-InstallPrerequisites`はNode・Git・Databricks CLI・検証用PythonなどのOSソフトウェア、`-InstallExtensions`はVS Code拡張のインストールへの明示的同意です。既存の古いツールは黙って更新せず必要versionを表示して停止します。
@@ -32,7 +43,8 @@ GitHubの **Use this template** から作成済みの場合:
 ```powershell
 git clone https://github.com/ORGANIZATION/sales-operations.git
 Set-Location sales-operations
-.\scripts\setup.ps1 -ProjectName sales-operations -Profile sales-dev -HostUrl https://YOUR-WORKSPACE.cloud.databricks.com -Authenticate -InstallPrerequisites -InstallExtensions
+.\scripts\setup.ps1 -ProjectName sales-operations -Profile sales-dev -HostUrl https://YOUR-WORKSPACE.cloud.databricks.com -Authenticate -InstallPrerequisites
+npm ci --ignore-scripts
 code .
 ```
 
@@ -42,8 +54,12 @@ OAuthブラウザー承認とエージェントのサインインは本人が行
 
 Node.js 22以上（CIは24）、Git、Python 3.10以上（ハーネスの契約試験は3.12を基準）、Databricks CLI **1.6以上・2未満**を会社指定のpackage managerで用意します。対象処理のDatabricks Runtime／Databricks ConnectとPythonの互換版は案件ごとに別途合わせます。
 
+setup.shはこれらをインストールしません。テンプレートから作成した案件repoをcloneし、そのルートで以下を実行します。作成済みアプリの`apps/<name>`の中ではありません。
+
 ```bash
 bash scripts/setup.sh --project-name sales-operations --profile sales-dev --host https://YOUR-WORKSPACE.cloud.databricks.com --auth
+npm ci --ignore-scripts
+code .
 ```
 
 workspaceがなくてもNodeだけで要件・設計の準備ができます。**公式AppKitの初期化はモック用途でもCLIと開発workspace認証が必要**です。明示したprofile/hostだけを使用し、モックは業務データ・live pluginを接続しません。Skillsは同梱版を使います。
@@ -66,6 +82,8 @@ npm run harness:context
 connectはprofile/host一致、認証結果、到達性、current-userを確認してから `.harness/local.json` に非秘密のメタデータを保存します。tokenは保存しません。DEFAULTや唯一のprofileも自動選択しません。設定済みprofileを意図的に使う場合はdoctorに `--use-project-profile` を指定します。
 
 Bundleにはcatalog/schema/team_root等の環境値が必要です。`BUNDLE_VAR_catalog`、`BUNDLE_VAR_schema`、`BUNDLE_VAR_team_root`、開発用`BUNDLE_VAR_dev_suffix`を設定し、`databricks bundle validate --strict -t dev --profile sales-dev` で検証します。認証成功だけでは各resourceへの権限は保証されません。
+
+別shellでも使うため、値は案件repoの `.databricks/bundle/dev/variable-overrides.json` に保存する方法を推奨します（Git対象外、setupは自動生成しません）。`.env`の自動読込はありません。**team_rootをSharedフォルダーに設定しても、devの既定root_pathはUsers配下のまま**です。devもSharedへ配置する場合の1行変更、値の取得元、App固有Bundleとの違いは [具体的な設定手順](harness/operations/SETUP_WALKTHROUGH.md) を参照してください。
 
 VS CodeではClaude CodeまたはCopilot Chatの **Agentモード** を選びます。通常の補完モードでは実行フローは動きません。CLIの有無と拡張のログインは別です。
 

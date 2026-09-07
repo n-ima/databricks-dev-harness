@@ -18,7 +18,8 @@ for (const tab of tabs) {
 }
 for (const button of document.querySelectorAll(".copy")) {
   button.addEventListener("click", async () => {
-    const code = button.parentElement.querySelector("code");
+    const code = button.parentElement.querySelector("pre code");
+    if (!code) return;
     try { await navigator.clipboard.writeText(code.textContent); document.getElementById("announcement").textContent = "コマンドをコピーしました。環境固有の値を置き換えてから実行してください。"; button.textContent = "コピーしました"; }
     catch { document.getElementById("announcement").textContent = "コピーできませんでした。表示されたコマンドを手動で選択してください。"; }
   });

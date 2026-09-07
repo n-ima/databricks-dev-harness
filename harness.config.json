@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "harnessVersion": "0.3.1",
+  "harnessVersion": "0.3.2",
   "maturityLevel": "L1",
   "defaultAgentMode": "assisted",
   "loop": {

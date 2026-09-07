@@ -107,10 +107,10 @@ npm run harness -- eval prepare --id candidate-001 --revision COMMIT_SHA
 npm run harness -- eval record --plan work/evals/candidate-001/plan.json --result work/evals/candidate-001/runs/RUN_ID/result.json
 npm run harness -- eval compare --baseline work/evals/baseline/plan.json --candidate work/evals/candidate-001/plan.json
 npm run harness -- release normalize --yes
-npm run harness -- release create --version 0.3.1 --stamp-template
+npm run harness -- release create --version 0.3.2 --stamp-template
 node tools/check-release.mjs
 npm run harness -- release baseline --manifest harness/base-release.json
-npm run harness -- update plan --source D:/releases/0.3.1
+npm run harness -- update plan --source D:/releases/0.3.2
 npm run harness -- update apply --plan .harness/updates/PLAN.json --yes
 ```
 

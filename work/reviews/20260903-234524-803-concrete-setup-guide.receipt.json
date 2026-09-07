@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "20260903-234524-803-concrete-setup-guide",
+  "requirement": "work/plans/2026-09-04-concrete-setup-guide.md",
+  "status": "pass",
+  "reviewer": "independent_release_check",
+  "provider": "codex",
+  "independent": true,
+  "provenance": {
+    "type": "review-record",
+    "source": "work/reviews/2026-09-04-setup-guide.json",
+    "identityAuthenticated": false
+  },
+  "acceptance": [
+    {
+      "id": "GUIDE-01",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-04-setup-guide.md"
+      ]
+    },
+    {
+      "id": "GUIDE-02",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-04-setup-guide.md"
+      ]
+    },
+    {
+      "id": "GUIDE-03",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-04-setup-guide.md"
+      ]
+    },
+    {
+      "id": "GUIDE-04",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-04-setup-guide.md"
+      ]
+    },
+    {
+      "id": "GUIDE-05",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-04-setup-guide.md"
+      ]
+    }
+  ],
+  "artifactHashes": {
+    "work/reviews/2026-09-04-setup-guide.json": "62a7afcc880fce3fe6285392ab067faa2299e8a316a7db8a409dbc0d062b450a",
+    "work/plans/2026-09-04-concrete-setup-guide.md": "3274c06a2212d74d7f30e877645248435e77c04e0b7816a681998134bbf76a7b",
+    "docs/harness/operations/SETUP_WALKTHROUGH.md": "f1d9bc93eb710a810c9309cc22d4e9b6c8db4c968da8b91ce536135d93fed62c",
+    "docs/USAGE.md": "7cd549dcb336b1eb98c6d350d8c7f6ee758491c6ad242437b806c916f7cabe6b",
+    "README.md": "53ce42c21f03610f6bb86f7d6e7c81cdd5c16e8ba2b9d489b6764d08ccf3b3a3",
+    "docs/site/index.html": "8e618b4b4bc80c26d6cc48f80247ca00d92e0efa49107a8f9a0cb1978188d955",
+    "docs/site/guide.css": "a06e9fb011e970b37ed347b8c4324a6a3fdddb92837760f02bac08a2a08df7b7",
+    "docs/site/guide.js": "1f4cf6e25f78d94e16b97addbcec26e5883c1dc0b41ac4f2dc73a8ac5595d5eb",
+    "tests/docs.test.mjs": "cee55d511ce40272c93a45a28093e1506329e8a39a948cb8e6a34dd814f8459c",
+    "work/evidence/2026-09-04-setup-guide.md": "152866cbebc8ceb8ef59c458d49408a1b7b0b46d7e1db898b2344bba11dd2f03"
+  },
+  "policyHash": "f7f3b4d793ba1384b1b3b099a1aa02993963ae25decbe85157fd1f0db5f0b6d3",
+  "createdAt": "2026-09-04T00:00:55Z"
+}

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.2 — 2026-09-08 (private template documentation update)
+
+- Added a concrete Japanese onboarding walkthrough covering template creation, clone location, Windows/shell setup, prerequisites, authentication, and the natural-language agent handoff.
+- Mapped the supplied Databricks workspace and folder to explicit host/profile and Bundle configuration; distinguished setup completion from application dependencies, platform resources, and deployment.
+- Expanded the existing HTML setup guide and corrected command copying when inline code precedes the command block, with focused regression coverage.
+- Stamped a distinct release baseline while retaining 0.3.1 as immutable history. Local and hosted verification are recorded in `work/evidence/2026-09-08-setup-guide-release.md`; maturity remains L1.
+
 ## 0.3.1 — 2026-09-04 (private template publication candidate)
 
 - Included the exact LICENSE and NOTICE accompanying the pinned Databricks Agent Skills, with explicit third-party scope. This is the Databricks License, not an Apache/MIT grant for all harness code.

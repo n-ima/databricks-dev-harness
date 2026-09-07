@@ -4,10 +4,11 @@
 
 ## まず使う
 
-このリポジトリをGitHubの **Template repository** として公開します。各開発対象は **Use this template** から別リポジトリを作り、ローカルで次を一度だけ実行します。
+このリポジトリはGitHubの **非公開Template repository** です。各開発対象は **Use this template** から別リポジトリを作り、cloneした案件repoのルートで次を一度だけ実行します。空のフォルダーや元ハーネス側でsetupするのではありません。Claude Code・GitHub Copilotの準備は完了済み前提です。
 
 ```powershell
-.\scripts\setup.ps1 -ProjectName sales-operations -Profile sales-dev -HostUrl https://YOUR-WORKSPACE.cloud.databricks.com -Authenticate -InstallPrerequisites -InstallExtensions
+.\scripts\setup.ps1 -ProjectName sales-operations -Profile sales-dev -HostUrl https://YOUR-WORKSPACE.cloud.databricks.com -Authenticate -InstallPrerequisites
+npm ci --ignore-scripts
 ```
 
 その後はVS CodeでClaude CodeまたはCopilot Chatを開き、通常の日本語で依頼します。
@@ -18,9 +19,11 @@ Agentモードでは共通instructionsとSkillsが、既存記録、要件・設
 
 詳細な初期設定、日常利用、再開、トラブル時の手順は [docs/USAGE.md](docs/USAGE.md) を参照してください。
 
+初回は [具体例付きセットアップガイド](docs/harness/operations/SETUP_WALKTHROUGH.md) へ。今回のDatabricks画面から取るURL・フォルダーパス、追加で選ぶCatalog/Schema、setupで揃うもの・揃わないものを説明しています。setup.shは前提ツールをインストールしません。アプリ生成・依存導入・resource権限設定・deployはsetup後の開発工程です。
+
 ブラウザーで読むには `npm run docs:serve` を実行し、[ローカルHTMLガイド](http://127.0.0.1:4173/site/) を開きます。[コマンド詳細](docs/harness/operations/CLI_REFERENCE.md)、[調査と設計根拠](docs/harness/research/2026-09-04-evidence-review.md)、[検証済み範囲・残る導入条件](docs/harness/operations/VALIDATION_STATUS.md) も参照してください。
 
-状態: **0.3.1 / L1・検証中の実装候補**。GitHubの非公開template配布・CIの実施結果は [配布証跡](work/evidence/2026-09-04-github-publication.md) を参照してください。workspace接続、本番デプロイ、実providerによるgolden評価を実施済みとは扱いません。
+状態: **0.3.2 / L1・検証中の実装候補**。GitHubの非公開template配布・CIの実施結果は [今回の配布証跡](work/evidence/2026-09-08-setup-guide-release.md) を参照してください。workspace接続、本番デプロイ、実providerによるgolden評価を実施済みとは扱いません。
 
 ## 何が正本か
 

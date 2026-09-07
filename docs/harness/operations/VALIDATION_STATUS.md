@@ -1,8 +1,10 @@
-# Validation status — 0.3.1 candidate
+# Validation status — 0.3.2 candidate
 
-Last checked: 2026-09-04. This is a locally implemented, tested candidate, not a production-certified or published service. Maturity stays **L1** until real provider/workspace evidence supports promotion.
+Last checked: 2026-09-08. This is a locally implemented, tested candidate, not a production-certified or published service. Maturity stays **L1** until real provider/workspace evidence supports promotion.
 
 Private source-template publication and actual hosted CI results are tracked separately in `work/evidence/2026-09-04-github-publication.md`. The matrix below records implementation proof and the external checks needed for promotion; consult that publication record for checks performed after the original local audit. Version 0.3.1 adds the pre-publication third-party distribution correction described in `THIRD_PARTY_DISTRIBUTION.md`.
+
+Version 0.3.2 adds the reviewed concrete setup walkthrough and HTML setup changes, including the command-copy correction. Its independent guide review and focused/full local checks are recorded in `work/evidence/2026-09-04-setup-guide.md`; publication-time checks and actual remote CI are recorded separately in `work/evidence/2026-09-08-setup-guide-release.md`. The older browser screenshots below describe the earlier guide, not the changed 0.3.2 HTML/CSS/JS. No new visual or accessibility certification is implied.
 
 ## Direct evidence
 

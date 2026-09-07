@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "0.3.1",
-  "releasedAt": "2026-09-03T23:05:35Z",
+  "version": "0.3.2",
+  "releasedAt": "2026-09-07T22:25:29Z",
   "managedFiles": [
     {
       "path": ".claude/agents/independent-verifier.md",
@@ -4331,9 +4331,9 @@
     },
     {
       "path": "docs/USAGE.md",
-      "sha256": "548543cd81b0faf2604dc60bf7bf9f1fdd899863da995394ef689065252a598a",
+      "sha256": "7cd549dcb336b1eb98c6d350d8c7f6ee758491c6ad242437b806c916f7cabe6b",
       "strategy": "replace",
-      "bytes": 11187,
+      "bytes": 13326,
       "executable": false
     },
     {
@@ -4394,7 +4394,7 @@
     },
     {
       "path": "docs/harness/operations/CLI_REFERENCE.md",
-      "sha256": "21819cbae35c949fa7f9178b9ef1781159d11dd8187f972c0320f00290e41301",
+      "sha256": "f7f1be2c60bf859e31fa5daf0b2a48f0f87f6cdf7aa21c0fe1bd72270b1804df",
       "strategy": "replace",
       "bytes": 11847,
       "executable": false
@@ -4428,6 +4428,13 @@
       "executable": false
     },
     {
+      "path": "docs/harness/operations/SETUP_WALKTHROUGH.md",
+      "sha256": "f1d9bc93eb710a810c9309cc22d4e9b6c8db4c968da8b91ce536135d93fed62c",
+      "strategy": "replace",
+      "bytes": 23137,
+      "executable": false
+    },
+    {
       "path": "docs/harness/operations/THIRD_PARTY_DISTRIBUTION.md",
       "sha256": "55603a012bab6e2f2a6f9d324e991c063f04ee2db8c7937ae99901b477806f5a",
       "strategy": "replace",
@@ -4436,9 +4443,9 @@
     },
     {
       "path": "docs/harness/operations/VALIDATION_STATUS.md",
-      "sha256": "4ff0e3341e9473800c080df268f0206505fd6f9f631f0eac88d59d55e9954d6d",
+      "sha256": "51bff92d037c6572afc475476127f8cfdc1758a35bec28b1e83091319a2c045e",
       "strategy": "replace",
-      "bytes": 7082,
+      "bytes": 7602,
       "executable": false
     },
     {
@@ -4464,28 +4471,28 @@
     },
     {
       "path": "docs/site/guide.css",
-      "sha256": "5f79673688e2ead31d6d34c32a7439e87aa00492728256fb68694629e91a8a8e",
+      "sha256": "a06e9fb011e970b37ed347b8c4324a6a3fdddb92837760f02bac08a2a08df7b7",
       "strategy": "replace",
-      "bytes": 7969,
+      "bytes": 8847,
       "executable": false
     },
     {
       "path": "docs/site/guide.js",
-      "sha256": "b2501faa9dae549f0ac988c811f0bac0808e1db6ab53844f511315f3ce3a7942",
+      "sha256": "1f4cf6e25f78d94e16b97addbcec26e5883c1dc0b41ac4f2dc73a8ac5595d5eb",
       "strategy": "replace",
-      "bytes": 2029,
+      "bytes": 2056,
       "executable": false
     },
     {
       "path": "docs/site/index.html",
-      "sha256": "04c333393429a12aed332a0408a3e3641bc052faae65664ffe59e8a46d14374d",
+      "sha256": "8e618b4b4bc80c26d6cc48f80247ca00d92e0efa49107a8f9a0cb1978188d955",
       "strategy": "replace",
-      "bytes": 14301,
+      "bytes": 23217,
       "executable": false
     },
     {
       "path": "harness.config.json",
-      "sha256": "3eb9c0257fbe500f5566ba60cb3f7358171727f18837b3320935909e39f8aaee",
+      "sha256": "e7ffa738264f4ea9a4e9e17e45744d190d7a2d8f09ca852f99a1e5c1af250287",
       "strategy": "replace",
       "bytes": 1213,
       "executable": false
@@ -4716,9 +4723,9 @@
     },
     {
       "path": "tests/docs.test.mjs",
-      "sha256": "65e39742c02dfddd31a30c2e307301385cf7b50c1f0a148dafcbc64bc2565ca3",
+      "sha256": "cee55d511ce40272c93a45a28093e1506329e8a39a948cb8e6a34dd814f8459c",
       "strategy": "replace",
-      "bytes": 2411,
+      "bytes": 7749,
       "executable": false
     },
     {
