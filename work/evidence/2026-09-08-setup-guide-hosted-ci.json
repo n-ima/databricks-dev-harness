@@ -1,0 +1,20 @@
+{
+  "sourceCommit": "0e321f068e8bd60c668cdcb8793f7fe3973f376a",
+  "repository": "n-ima/databricks-dev-harness",
+  "branch": "main",
+  "isPrivate": true,
+  "isTemplate": true,
+  "workflow": "Copilot setup steps",
+  "event": "workflow_dispatch",
+  "runId": 34166816339,
+  "jobId": 101879391257,
+  "url": "https://github.com/n-ima/databricks-dev-harness/actions/runs/34166816339",
+  "status": "completed",
+  "conclusion": "success",
+  "completedAt": "2026-09-07T22:29:33Z",
+  "environment": "ubuntu-latest, Node.js 24, Python 3.12",
+  "tests": { "total": 315, "passed": 315, "failed": 0, "skipped": 0, "durationMs": 19634.903247 },
+  "automaticPushWorkflowObserved": false,
+  "evidenceSource": "gh run view JSON and hosted test-step logs",
+  "limits": "Hosted deterministic verification of this source commit; not a new semantic release review or evidence for later commits."
+}

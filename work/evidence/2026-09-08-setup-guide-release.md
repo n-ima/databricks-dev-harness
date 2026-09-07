@@ -27,7 +27,16 @@ Date: 2026-09-08 JST. Scope: `work/plans/2026-09-08-setup-guide-release.md`.
 
 ## Remote publication and CI
 
-Not pushed yet. Remote commit and actual hosted-CI results will be recorded after publication.
+- Source commit `0e321f068e8bd60c668cdcb8793f7fe3973f376a` was pushed normally to `origin/main`. `git rev-parse HEAD` and `git ls-remote --heads origin main` returned that exact SHA. The working tree was clean after the source push.
+- GitHub confirmed `isPrivate: true`, `isTemplate: true`, and default branch `main`. The branch remains unprotected; its policy was not changed.
+- No push-triggered workflow appeared in the observed run list. Manually dispatched the existing `Copilot setup steps` workflow against `main`, then verified its `headSha` equals the source commit above.
+- Hosted run [34166816339](https://github.com/n-ima/databricks-dev-harness/actions/runs/34166816339), job 101879391257, completed successfully on Ubuntu with Node.js 24 and Python 3.12. Locked dependency installation, harness conformance, and the complete test suite passed: **315 tests, 315 passed, zero failed, zero skipped**, duration 19,634.903247 ms. Machine-readable result: `work/evidence/2026-09-08-setup-guide-hosted-ci.json`.
+- The automatic 3-OS `Harness conformance` workflow remains unobserved/not-run for this source; the manual Ubuntu run does not establish that trigger or Windows/macOS hosted coverage.
+- This result record and the final session checkpoint are an evidence-only follow-up commit. The 995-file managed payload and version metadata are unchanged from the tested source commit.
+
+## Review and handoff
+
+The requested source push is complete and independently hosted tests passed. The earlier independent review still covers the unchanged guide implementation; the README version/link and new release metadata were checked locally. A fresh independent semantic review of the release records was not performed, and no such reviewer is impersonated. The release session is checkpointed in review phase; formal evidence-sealed session closure can follow that review. This bookkeeping limit does not change the observed push or CI result.
 
 ## Limits
 
