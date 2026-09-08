@@ -9,6 +9,9 @@ export async function policyHash(root) {
   for (const path of ["AGENTS.md", "harness.config.json", "tools/agent-hook.mjs"]) {
     parts.push(path, await readFile(join(root, path), "utf8"));
   }
+  for (const path of ["harness/workloads.json", "harness/router.json"]) {
+    if (await exists(join(root, path))) parts.push(path, await readFile(join(root, path), "utf8"));
+  }
   for (const directory of ["tools/lib", "harness/schemas", "harness/evals"]) {
     if (!(await exists(join(root, directory)))) continue;
     for (const name of (await readdir(join(root, directory))).sort()) {

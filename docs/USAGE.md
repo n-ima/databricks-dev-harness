@@ -1,5 +1,7 @@
 # 利用手順 — Databricks development harness
 
+2026-09-08更新: API-only、Notebook/SQL、ML/Serving、RAG/MCP等は[全領域の開発手順](harness/operations/PLATFORM_PLAYBOOK.md)を参照してください。[最新調査と採用理由](harness/research/2026-09-08-platform-audit.md)、[Claude/Copilot・モデル・版の互換性](harness/operations/PROVIDER_COMPATIBILITY.md)も分けて記録しています。
+
 使い方は、**案件ごとにテンプレートからリポジトリを作り、VS Codeで目的を普通に伝える**ことです。エージェントが要件・設計・モック・実装・検証・記録を進め、人は業務上の判断、画面承認、権限、本番反映に関わります。
 
 [HTMLガイド](site/index.html) / [コマンド詳細](harness/operations/CLI_REFERENCE.md) / [根拠と判断](harness/research/2026-09-04-evidence-review.md)

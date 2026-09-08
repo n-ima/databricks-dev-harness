@@ -109,6 +109,8 @@ Optimize accepted-task success, lead time, human interventions, review findings,
 
 ## Implemented module boundaries
 
+2026-09-08追加: `harness/workloads.json` は16領域の発見・質問・公式技能・検証境界の台帳。`workloads.mjs` はCLI/hook共用のヒント分類器で、明示選択を優先する。intakeは選択内容のsnapshot/hashを持ち、製品設計へ必要な境界だけ展開する。`starters.mjs` はAPI/analysisの非deploy契約fixtureをhash-boundなplanから生成する。ML/Serving/MCP等は公式技能経路で、generatorやlive検証済みを装わない。[設計判断](../decisions/ADR-0005-platform-workloads.md)
+
 `tools/harness.mjs` is the CLI dispatch and bootstrap. `tools/lib/intake.mjs` handles question/approval state; `memory.mjs` handles sessions and knowledge; `databricks.mjs` validates explicit identity; `scaffold.mjs` plans local generation; `loop.mjs` enforces bounded execution; `evidence.mjs` seals independent review snapshots; `evaluation.mjs` compares repeatable trials; `distribution.mjs` preserves downstream changes. `schema.mjs` checks the repository's limited schema vocabulary and rejects unsupported assertion keywords; it is not a general JSON Schema implementation.
 
 UI fixtures are created using an official AppKit starter without live-data plugins. CLI 1.6.0 initialization still requires workspace authentication: both an explicit development profile and expected host are verified before init, even for a mock. Authentication does not authorize live business data. Its Bundle is quarantined under a fixture-only filename. Approved integration is a separate plan and component bundle in `apps/<name>/`; root data/Genie bundles and app component bundles are validated separately. This avoids silently merging independently generated deployment definitions.

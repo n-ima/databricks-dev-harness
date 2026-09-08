@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import process from "node:process";
 import { activeAutoLoop } from "./lib/loop.mjs";
 import { writeJson, timestamp, parseFrontmatter } from "./lib/shared.mjs";
+import { resolveRoute } from "./lib/workloads.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -59,17 +60,7 @@ async function activeSessions() {
 }
 
 async function routePrompt(prompt) {
-  const router = JSON.parse(await readFile(join(root, "harness", "router.json"), "utf8"));
-  const ranked = router.routes
-    .map((route) => ({
-      ...route,
-      score: route.patterns.reduce(
-        (score, pattern) => score + (new RegExp(pattern, "iu").test(prompt) ? 1 : 0),
-        0,
-      ),
-    }))
-    .sort((a, b) => b.score - a.score || a.priority - b.priority);
-  return ranked[0].score ? ranked[0] : router.routes.find((item) => item.id === router.defaultRoute);
+  return resolveRoute(root, prompt);
 }
 
 async function contextMessage() {
@@ -155,19 +146,17 @@ function commandFromInput(input) {
 }
 
 function deny(provider, reason) {
-  if (provider === "copilot") {
-    console.log(JSON.stringify({ permissionDecision: "deny", permissionDecisionReason: reason }));
-  } else {
-    console.log(
-      JSON.stringify({
-        hookSpecificOutput: {
-          hookEventName: "PreToolUse",
-          permissionDecision: "deny",
-          permissionDecisionReason: reason,
-        },
-      }),
-    );
-  }
+  // VS Code imports Copilot CLI and Claude hook configurations. Copilot CLI also
+  // imports Claude settings. Emit one JSON object with both documented envelopes;
+  // every envelope denies, and none can grant approval. Do not infer host from
+  // the configured --provider or snake_case payload alone.
+  const decision = { permissionDecision: "deny", permissionDecisionReason: reason };
+  console.log(JSON.stringify({ ...decision, hookSpecificOutput: { hookEventName: "PreToolUse", ...decision } }));
+}
+
+function emitContext(event, message) {
+  console.log(JSON.stringify({ additionalContext: message,
+    hookSpecificOutput: { hookEventName: event, additionalContext: message } }));
 }
 
 const [action = "context", ...rawArgs] = process.argv.slice(2);
@@ -179,14 +168,11 @@ catch (error) { deny(provider, error.message); process.exit(0); }
 
 if (action === "context") {
   const message = await contextMessage();
-  if (provider === "copilot") console.log(JSON.stringify({ additionalContext: message }));
-  else console.log(message);
+  emitContext("SessionStart", message);
 } else if (action === "route") {
   const prompt = String(input.prompt ?? input.initialPrompt ?? input.initial_prompt ?? "");
   const selected = await routePrompt(prompt);
-  console.log(
-    `Harness route: ${selected.id}. Load skill ${selected.skill}; first gate: ${selected.firstGate}. Start or resume a durable session before changing files.`,
-  );
+  emitContext("UserPromptSubmit", `Harness route: ${selected.id}. Load skill ${selected.skill}; first gate: ${selected.firstGate}. Workloads: ${selected.workload.selectedIds.join(", ") || "unknown"}. This is not execution approval. Start or resume a durable session before changing files.`);
 } else if (action === "policy") {
   if (!input || typeof input !== "object" || Array.isArray(input)) { deny(provider, "Malformed tool hook payload."); process.exit(0); }
   let args = input.toolArgs ?? input.tool_input;
@@ -199,8 +185,14 @@ if (action === "context") {
   const segments = command.split(/[;\r\n|&]/);
   const violation = forbidden.find((item) => segments.some((segment) => item.pattern.test(segment) && !item.except?.(segment)));
   const targets = [args.file_path, args.filePath, args.path, args.filename, args.fileName].filter((value) => typeof value === "string");
+  for (const collection of [args.replacements, args.edits, args.files]) {
+    if (Array.isArray(collection)) for (const item of collection) {
+      if (typeof item === "string") targets.push(item);
+      else if (item && typeof item === "object") targets.push(...[item.file_path, item.filePath, item.path].filter(value => typeof value === "string"));
+    }
+  }
   if (/apply_patch/.test(tool)) for (const match of String(args.patch ?? args.input ?? args.command ?? "").matchAll(/^\*\*\* (?:Add|Update|Delete) File: (.+)$/gm)) targets.push(match[1]);
-  const protectedEdit = /edit|write|create|apply_patch/.test(tool) && targets.some((target) => /(?:^|[\\/])(?:AGENTS\.md|harness\.config\.json|tools[\\/](?:agent-hook\.mjs|lib[\\/])|harness[\\/](?:evals|schemas)|\.claude[\\/]settings|\.github[\\/]hooks)/i.test(target));
+  const protectedEdit = /edit|write|create|apply_patch|replace|insert|delete/.test(tool) && targets.some((target) => /(?:^|[\\/])(?:AGENTS\.md|harness\.config\.json|tools[\\/](?:agent-hook\.mjs|lib[\\/])|harness[\\/](?:evals|schemas|workloads\.json|router\.json)|\.claude[\\/]settings|\.github[\\/]hooks)/i.test(target));
   if (violation) deny(provider, violation.reason);
   else if (protectedEdit && process.env.HARNESS_LOOP_ID) deny(provider, "Autonomous loops may not change their policy, evaluator, or approval gates. Use a separate reviewed harness-maintenance change.");
   else if (provider === "copilot") console.log("{}");
@@ -224,7 +216,7 @@ if (action === "context") {
     if (!/^[\p{L}\p{N}_.-]+$/u.test(id)) throw new Error("Invalid session id in hook environment.");
     await writeJson(join(root, "work/hook-events", `${id}-${action}.json`), { schemaVersion: 1, sessionId: id, event: action, observedAt: timestamp(), checkpointRequired: true });
   }
-  console.log(JSON.stringify({ additionalContext: "Checkpoint the durable session; preserve only sanitized facts, evidence paths, blockers, and next actions. Hook metadata is not a semantic checkpoint." }));
+  emitContext(action === "compact" ? "PreCompact" : "PostToolUseFailure", "Checkpoint the durable session; preserve only sanitized facts, evidence paths, blockers, and next actions. Hook metadata is not a semantic checkpoint.");
 } else {
   console.log(provider === "copilot" ? "{}" : "");
 }

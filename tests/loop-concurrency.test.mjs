@@ -3,6 +3,7 @@ import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promis
 import { dirname, join, resolve, sep } from "node:path";
 import { tmpdir } from "node:os";
 import test from "node:test";
+import { installWorkloadCatalog } from "./helpers/workloads.mjs";
 import { approveLoopGate, initLoop, policyHash, recordLoop, runLoopIteration, setLoopGate, stopLoop } from "../tools/lib/loop.mjs";
 import { policyHash as sharedPolicyHash } from "../tools/lib/policy.mjs";
 import { answerIntake, approveIntake, createIntake } from "../tools/lib/intake.mjs";
@@ -15,6 +16,7 @@ const implementation = "work/evidence/checks.md";
 async function fixture(t) {
   const base = resolve(tmpdir());
   const root = await mkdtemp(join(base, "harness-concurrency-"));
+  await installWorkloadCatalog(root);
   t.mock.method(console, "log", () => {});
   t.after(async () => {
     assert.ok(root.startsWith(`${base}${sep}`));

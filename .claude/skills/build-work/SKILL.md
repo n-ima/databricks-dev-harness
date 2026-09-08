@@ -17,6 +17,8 @@ description: Implement an approved Databricks product requirement through small 
 
 Scaffold only the selected workload using `npm run scaffold -- plan` and inspect missing inputs before apply. App plans use the pinned official manifest and preserve its resource/MUST-rule gates. A scaffold is not a completed product: fill semantic contracts and prove actual behavior.
 
+`--kind api` creates a local HTTP/OpenAPI contract fixture without UI or Databricks auth; it is not a deployable backend. `--kind analysis` creates an executable synthetic-data Notebook/SQL/Python fixture, not remote Spark or an ML model. Both stay under `tests/fixtures/`. For real Apps HTTP, ML/Serving, agents/MCP, ingestion or platform resources, follow the selected catalog skills and `docs/harness/operations/PLATFORM_PLAYBOOK.md`; do not use an unrelated app/data-update generator as a substitute. Never copy fixture authentication or in-memory transactional state into deployment.
+
 For long tasks use `npm run loop -- init --session ID --provider manual` to maintain a bounded assisted loop; run checks with `loop run --id ID --execute`, then record progress or a human gate. Headless Claude/Copilot is opt-in and needs committed feature-worktree isolation and reviewed development-only credentials. CLI flags do not replace an OS sandbox. Do not nest headless loops inside one another.
 
 The independent verifier writes acceptance mappings to `work/reviews/`; `evidence seal` binds the reviewed files. Use that receipt for `session close --outcome completed --verifier-evidence ...`. A not-run platform/UI check is not pass. See `docs/harness/operations/CLI_REFERENCE.md`.

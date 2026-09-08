@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 — 2026-09-08 (local platform-development candidate)
+
+- Added a validated16-workload catalog, shared intent/workload discovery and selected-context requirement/design generation. API-only no longer implies UI; ML registry no longer implies Delta writes; explicit discussion precedes deploy hints.
+- Added hash-bound, non-deployable API HTTP/OpenAPI and Notebook/SQL/Python contract fixtures with actual execution tests and overwrite protection.
+- Added compatible CLI/VS Code hook output envelopes and multi-file-edit policy checks without granting additional permissions.
+- Added primary-source research, provider/model/version compatibility, a Japanese whole-platform playbook and two new golden tasks. Latest tag, official installer selection, adopted pin and beta/runtime evidence remain distinct.
+- Independent forward-tests caught a Python/SQL date-format mismatch; strict date contracts and first-key API concurrency regressions are included.
+- Candidate only: existing0.3.2 payload is retained; live workspace/provider/model matrix and release approval remain separate. See work/evidence/2026-09-08-platform-harness-audit.md.
+
 ## 0.3.2 — 2026-09-08 (private template documentation update)
 
 - Added a concrete Japanese onboarding walkthrough covering template creation, clone location, Windows/shell setup, prerequisites, authentication, and the natural-language agent handoff.

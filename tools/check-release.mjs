@@ -9,6 +9,8 @@ import { fileURLToPath } from "node:url";
 import { commandResult, pathInside, readJson, sha256, writeJson } from "./lib/shared.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const reportPath = process.argv[2] ?? "work/evidence/release-byte-validation.json";
+if (process.argv.length > 3 || !/^work\/evidence\/[a-zA-Z0-9][a-zA-Z0-9._-]*\.json$/.test(reportPath)) throw new Error("Specify one work/evidence/NAME.json report path.");
 const manifest = await readJson(join(root, "harness/base-release.json"));
 assert.equal(manifest.schemaVersion, 1);
 assert.ok(Array.isArray(manifest.managedFiles) && manifest.managedFiles.length);
@@ -45,7 +47,7 @@ try {
     checkoutCoreAutocrlf: true, networkUsed: false, realRepositoryCommitted: false,
     manifestSha256: sha256(await readFile(join(root, "harness/base-release.json"))),
     limitations: ["Local Windows Git roundtrip only; hosted Linux/macOS CI remains separate.", "Byte parity does not authenticate the release publisher or certify product functionality."] };
-  await writeJson(join(root, "work/evidence/release-byte-validation.json"), report);
+  await writeJson(pathInside(root, reportPath), report);
   console.log(JSON.stringify(report, null, 2));
 } finally {
   assert.ok(temporary.startsWith(`${temporaryBase}${sep}`) && temporary.slice(temporaryBase.length + 1).startsWith("harness-release-check-"));
