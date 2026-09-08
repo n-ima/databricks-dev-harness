@@ -11,6 +11,7 @@
 ## 検証
 
 - ローカル全回帰:325件、324成功、失敗0、Windows権限依存skip1。
+- GitHub実CI: [run34280734934](https://github.com/n-ima/databricks-dev-harness/actions/runs/34280734934)、source f90000b1b4ae3ffad9ac810f632822ddfbf65ab2、Ubuntuで325/325成功・失敗0・skip0。既存workflow_dispatchの実行であり、自動3-OS起動や実Copilotモデルの動作検証ではありません。
 - 独立最終重点検証:123/123成功、新生成API HTTP:2/2成功。全回帰と重なるため合算しません。
 - Conformanceと1012管理ファイルのsource/fresh Git byte一致を確認。
 - 詳細:work/evidence/2026-09-09-platform-publication.md、work/reviews/2026-09-08-platform-final-review.md。

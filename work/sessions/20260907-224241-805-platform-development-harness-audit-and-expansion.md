@@ -8,8 +8,8 @@ phase: review
 gate: none
 gate_status: not-applicable
 started: 2026-09-07T22:42:41Z
-updated: 2026-09-07T23:39:46Z
-last_checkpoint: 2026-09-07T23:39:46Z
+updated: 2026-09-08T21:30:09Z
+last_checkpoint: 2026-09-08T21:30:09Z
 requirement: work/plans/2026-09-08-platform-harness.md
 architecture: docs/harness/design/ARCHITECTURE.md
 plan: work/plans/2026-09-08-platform-harness.md
@@ -61,3 +61,9 @@ Audit current official platform and agent capabilities, improve broad Databricks
 - evidence: work/evidence/2026-09-08-platform-harness-audit.md
 - next: 案件repoで本人が明示profileのOAuthを実施し、合成APIかread-only分析のpilotを選ぶ。実Claude/Copilot host・dev integration・66 model trials・3 OSは別証拠。公開は人のレビューと指示後。
 - blocker: 本人Databricks profile未設定。実workspace/provider/modelの認証・費用・resource承認が未実施。ローカル候補作業自体の技術的blockerはなし。
+
+## Checkpoint 2026-09-08T21:30:09Z
+
+- summary: 0.4.0候補はf90000bとしてprivate branchへpush済み、PR #1でレビュー待ち。GitHub Ubuntuで325/325pass。後続の公開記録は20260908-212217-036-platform-source-publication-0-4-0を参照。
+- evidence: work/evidence/2026-09-09-platform-publication.md
+- next: main取込は本人判断。実provider/Databricksのpilotとモデル評価は未実施のまま。

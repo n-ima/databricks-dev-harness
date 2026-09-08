@@ -23,7 +23,12 @@ Date: 2026-09-09 JST. Scope: work/plans/2026-09-09-platform-release.md.
 
 ## Remote results
 
-Pending source commit, push, PR and hosted checks. Record the actual source revision and run URL after execution; do not infer hosted success from local tests.
+- Source commit f90000b1b4ae3ffad9ac810f632822ddfbf65ab2 was normally pushed to origin/codex/platform-development-harness. git ls-remote returned the identical SHA; the worktree was clean after the source commit.
+- Created PR [#1](https://github.com/n-ima/databricks-dev-harness/pull/1), base main, head codex/platform-development-harness. No merge, force push, reviewer impersonation, visibility or branch-policy change was performed.
+- No automatic push/PR run was observed. Actions is enabled and Harness conformance is active; the cause of missing automatic runs was not established. Dispatched the existing Copilot setup steps workflow explicitly against the feature branch.
+- Hosted run [34280734934](https://github.com/n-ima/databricks-dev-harness/actions/runs/34280734934), job102244592960, completed successfully for exactly the source SHA above. Ubuntu, Node24, Python3.12.14:locked install, conformance,325 tests/325 pass/0 fail/0 skip; duration19729.071504ms. The machine-readable API result and observed test counters are in work/evidence/2026-09-09-platform-hosted-ci.json.
+- The hosted workflow's name does not mean a real Copilot model was invoked. Actual coding-provider host/LLM and Databricks checks remain unrun; the automatic3-OS matrix remains unobserved. A manual Ubuntu run does not certify those scopes.
+- This final evidence, PR-description and session update is an evidence-only follow-up to the tested source commit. Managed candidate files and version metadata are unchanged. The follow-up's own SHA is not substituted for the workflow headSha.
 
 ## Next gate
 
