@@ -29,6 +29,7 @@ import { prepareEvaluation, recordEvaluation, compareEvaluations } from "./lib/e
 import { createRelease, registerBaseline, normalizeManagedText, planUpdate, applyUpdate } from "./lib/distribution.mjs";
 import { writeJson as atomicWriteJson } from "./lib/shared.mjs";
 import { stageVendorLegal, verifyVendorLegal } from "./lib/vendor-legal.mjs";
+import { loadWorkloads, resolveWorkloads, resolveRoute } from "./lib/workloads.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const canonicalSkills = join(root, "harness", "skills");
@@ -454,22 +455,14 @@ async function context() {
 async function route(options) {
   const prompt = cleanInline(options.prompt || options._.join(" "));
   if (!prompt) throw new Error("route requires --prompt with a sanitized task summary.");
-  const router = await readJson(join(root, "harness", "router.json"));
-  const ranked = router.routes
-    .map((item) => ({
-      ...item,
-      score: item.patterns.reduce(
-        (score, pattern) => score + (new RegExp(pattern, "iu").test(prompt) ? 1 : 0),
-        0,
-      ),
-    }))
-    .sort((a, b) => b.score - a.score || a.priority - b.priority);
-  const selected = ranked[0].score ? ranked[0] : router.routes.find((item) => item.id === router.defaultRoute);
-  console.log(JSON.stringify({ route: selected.id, skill: selected.skill, firstGate: selected.firstGate }, null, 2));
+  const selected = await resolveRoute(root, prompt, options);
+  console.log(JSON.stringify({ route: selected.id, skill: selected.skill, firstGate: selected.firstGate,
+    reason: selected.reason, workloads: selected.workload.selectedIds, executionAuthorized: false }, null, 2));
 }
 
 async function check({ exitOnFailure = false } = {}) {
   const problems = [];
+  try { await loadWorkloads(root); } catch (error) { problems.push(error.message); }
   problems.push(...await instructionAssets(root));
   problems.push(...await validateDurableArtifacts(root));
   problems.push(...await verifyVendorLegal(root));
@@ -536,9 +529,10 @@ Commands:
   check | doctor [--profile NAME] [--strict] [--json] | context
   connect --profile NAME --host URL [--auth] [--allow-default]
   route --prompt "sanitized task summary"
-  intake create --title TITLE --summary TEXT [--source repo/path] [--name ASCII_NAME]
+  workload list|resolve [--prompt TEXT] [--workload ID (repeat)] [--without ID (repeat)]
+  intake create --title TITLE --summary TEXT [--source repo/path] [--name ASCII_NAME] [--workload ID (repeat)]
   intake show|answer|approve --id ID [--question Q-01 --answer TEXT --actor PERSON]
-  scaffold plan --kind app|data-update|genie|metric-view --name NAME [--feature FEATURE] [--set KEY=VALUE]
+  scaffold plan --kind app|api|analysis|data-update|genie|metric-view --name NAME [--feature FEATURE] [--set KEY=VALUE]
   scaffold apply --plan work/scaffolds/ID.json --yes
   loop init --session ID --provider manual|claude|copilot [--max-iterations 8]
   loop show|run|record|gate|approve|stop --id ID (run defaults to dry-run; --execute opts in)
@@ -573,6 +567,11 @@ try {
   else if (command === "connect") await connectDatabricks(root, parseOptions(process.argv.slice(3)));
   else if (command === "context") await context();
   else if (command === "route") await route(parseOptions(process.argv.slice(3)));
+  else if (command === "workload" && subcommand === "list") console.log(JSON.stringify(await loadWorkloads(root), null, 2));
+  else if (command === "workload" && subcommand === "resolve") {
+    if (!options.prompt && !options.workload) throw new Error("workload resolve requires --prompt or --workload.");
+    console.log(JSON.stringify(await resolveWorkloads(root, options.prompt ?? "", options), null, 2));
+  }
   else if (command === "session" && subcommand === "start") await memory.startSession(root, options);
   else if (command === "session" && subcommand === "checkpoint") await memory.checkpointSession(root, options);
   else if (command === "session" && subcommand === "close") await memory.closeSession(root, options);

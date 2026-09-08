@@ -60,6 +60,28 @@ function assertAllowed(result, message) {
   assert.deepEqual(result.output, {}, message);
 }
 
+test("imported hook configurations preserve both CLI and VS Code decision/context envelopes", async (t) => {
+  const root = await fixture(t);
+  for (const provider of ["claude", "copilot"]) {
+    const denied = invoke(root, provider, "policy", { hook_event_name: "PreToolUse", tool_name: "run_in_terminal", tool_input: { command: "databricks bundle deploy -t prod" } });
+    assertDenied(denied);
+    assert.equal(denied.output.permissionDecision, "deny");
+    assert.equal(denied.output.hookSpecificOutput.permissionDecision, "deny");
+    const context = invoke(root, provider, "context", { hook_event_name: "SessionStart" });
+    assert.match(context.output.additionalContext, /orchestrate-work/);
+    assert.equal(context.output.hookSpecificOutput.additionalContext, context.output.additionalContext);
+  }
+});
+
+test("VS Code multi-file replacements cannot modify loop policy", async (t) => {
+  const root = await fixture(t);
+  for (const key of ["replacements", "edits", "files"]) {
+    assertDenied(invoke(root, "copilot", "policy", {
+      tool_name: "multi_replace_string_in_file", tool_input: { [key]: [{ filePath: "harness/workloads.json", oldString: "x", newString: "y" }] },
+    }, { HARNESS_LOOP_ID: "test-loop" }));
+  }
+});
+
 const safeCommands = [
   "npm run test:harness", "node --test tests/data.test.mjs", "git -C app diff --stat",
   "git -C app push origin feature/report", "databricks --profile DEV bundle validate --target dev",

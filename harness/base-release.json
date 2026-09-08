@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "0.3.2",
-  "releasedAt": "2026-09-07T22:25:29Z",
+  "version": "0.4.0",
+  "releasedAt": "2026-09-07T23:37:58Z",
   "managedFiles": [
     {
       "path": ".claude/agents/independent-verifier.md",
@@ -61,9 +61,9 @@
     },
     {
       "path": ".claude/skills/build-work/SKILL.md",
-      "sha256": "537c2baeed604aed71f46668461f94fd3f1070f0a4bb04c339cbad8215d85089",
+      "sha256": "743810d5aef1644c87904c1a80de934179ce2b1cd95ae3524cb7693788dd9e98",
       "strategy": "replace",
-      "bytes": 2113,
+      "bytes": 2703,
       "executable": false
     },
     {
@@ -2091,9 +2091,9 @@
     },
     {
       "path": ".claude/skills/define-work/SKILL.md",
-      "sha256": "d4113055dbdd3c7d5a197483aad416910ae0aed730d8bc874acef8a3637d57d1",
+      "sha256": "3dc446c4f122d3071fd922f851fe4bb9421a186e3439514f4eeaab58e8ad6e13",
       "strategy": "replace",
-      "bytes": 1883,
+      "bytes": 2665,
       "executable": false
     },
     {
@@ -2119,9 +2119,9 @@
     },
     {
       "path": ".claude/skills/orchestrate-work/SKILL.md",
-      "sha256": "ea6afc24d5cfc7de10cde381abb4688b3c3ba690b0536d258e4f31229655f3c8",
+      "sha256": "953e3388b4e5ef0f2a7d29d309dcbe8509a84201472fde2ad5e4fe820bf48b41",
       "strategy": "replace",
-      "bytes": 2407,
+      "bytes": 3507,
       "executable": false
     },
     {
@@ -2217,9 +2217,9 @@
     },
     {
       "path": ".github/skills/build-work/SKILL.md",
-      "sha256": "537c2baeed604aed71f46668461f94fd3f1070f0a4bb04c339cbad8215d85089",
+      "sha256": "743810d5aef1644c87904c1a80de934179ce2b1cd95ae3524cb7693788dd9e98",
       "strategy": "replace",
-      "bytes": 2113,
+      "bytes": 2703,
       "executable": false
     },
     {
@@ -4247,9 +4247,9 @@
     },
     {
       "path": ".github/skills/define-work/SKILL.md",
-      "sha256": "d4113055dbdd3c7d5a197483aad416910ae0aed730d8bc874acef8a3637d57d1",
+      "sha256": "3dc446c4f122d3071fd922f851fe4bb9421a186e3439514f4eeaab58e8ad6e13",
       "strategy": "replace",
-      "bytes": 1883,
+      "bytes": 2665,
       "executable": false
     },
     {
@@ -4275,9 +4275,9 @@
     },
     {
       "path": ".github/skills/orchestrate-work/SKILL.md",
-      "sha256": "ea6afc24d5cfc7de10cde381abb4688b3c3ba690b0536d258e4f31229655f3c8",
+      "sha256": "953e3388b4e5ef0f2a7d29d309dcbe8509a84201472fde2ad5e4fe820bf48b41",
       "strategy": "replace",
-      "bytes": 2407,
+      "bytes": 3507,
       "executable": false
     },
     {
@@ -4331,9 +4331,9 @@
     },
     {
       "path": "docs/USAGE.md",
-      "sha256": "7cd549dcb336b1eb98c6d350d8c7f6ee758491c6ad242437b806c916f7cabe6b",
+      "sha256": "a6ce50c1e8f044249ab92310d60199045e609c630a43f161d028d3009db80ab2",
       "strategy": "replace",
-      "bytes": 13326,
+      "bytes": 13702,
       "executable": false
     },
     {
@@ -4365,6 +4365,13 @@
       "executable": false
     },
     {
+      "path": "docs/harness/decisions/ADR-0005-platform-workloads.md",
+      "sha256": "e6f9249d6333894b9b5931ffbc7289a0748ee1665680c16848dde8322d04d85c",
+      "strategy": "replace",
+      "bytes": 2840,
+      "executable": false
+    },
+    {
       "path": "docs/harness/decisions/ADR-0005-rich-appkit-ui-default.md",
       "sha256": "efa9522e53e9ff891ba661b98e2cf02bcaec49d1ea4946736cb9c3c6093e5b67",
       "strategy": "replace",
@@ -4373,9 +4380,9 @@
     },
     {
       "path": "docs/harness/design/ARCHITECTURE.md",
-      "sha256": "04e95e688ecacf8f15c158e5f5f7ce1fd1dd0b4f7892bc5c98b717d718015621",
+      "sha256": "68bb42a1d7813432127f489b8ddc98993d6fd3aa4278506e4f1e475ece867cbd",
       "strategy": "replace",
-      "bytes": 7561,
+      "bytes": 8112,
       "executable": false
     },
     {
@@ -4386,17 +4393,24 @@
       "executable": false
     },
     {
-      "path": "docs/harness/knowledge/INDEX.md",
-      "sha256": "e344ba814cf6c5b360c32774202092587a13caf8ee4436bfb9557b179dc64654",
+      "path": "docs/harness/knowledge/20260907-232806-031-sqlとpythonの共有日付契約はcanonical形式を検証する.md",
+      "sha256": "cec17fe52e00ee65370b4177a1e8d351c3c2fa05e307caa268cccea57dfc86b6",
       "strategy": "replace",
-      "bytes": 561,
+      "bytes": 819,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/knowledge/INDEX.md",
+      "sha256": "20ba82063dc644bf5aa7745b1a2005b8fb544116390864e083f8e325382367ee",
+      "strategy": "replace",
+      "bytes": 752,
       "executable": false
     },
     {
       "path": "docs/harness/operations/CLI_REFERENCE.md",
-      "sha256": "f7f1be2c60bf859e31fa5daf0b2a48f0f87f6cdf7aa21c0fe1bd72270b1804df",
+      "sha256": "2daef27cf0b279cd4c10e6589ba81d791f59911afc6551bdd6926406cb663889",
       "strategy": "replace",
-      "bytes": 11847,
+      "bytes": 12750,
       "executable": false
     },
     {
@@ -4418,6 +4432,20 @@
       "sha256": "d0af7d25e73ed5c7525357a1d7ec3b829c11c6c33a54710975824efebaeb8d59",
       "strategy": "replace",
       "bytes": 2852,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/operations/PLATFORM_PLAYBOOK.md",
+      "sha256": "4938d241311a161d588896de87a53c515c0cf59dde57f3eeef4bafd6d4bb1673",
+      "strategy": "replace",
+      "bytes": 14985,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/operations/PROVIDER_COMPATIBILITY.md",
+      "sha256": "9fe4165d12fc5e9210f3f47ec75a06a7ef3868e9e24a6f051604d0e04baaab0c",
+      "strategy": "replace",
+      "bytes": 11580,
       "executable": false
     },
     {
@@ -4443,9 +4471,9 @@
     },
     {
       "path": "docs/harness/operations/VALIDATION_STATUS.md",
-      "sha256": "51bff92d037c6572afc475476127f8cfdc1758a35bec28b1e83091319a2c045e",
+      "sha256": "a33f7f520179f432ae9d2e9bf5b59a560e2a35a9af85f5845f9f7cd5cf051e11",
       "strategy": "replace",
-      "bytes": 7602,
+      "bytes": 8048,
       "executable": false
     },
     {
@@ -4460,6 +4488,13 @@
       "sha256": "e624324c57be4a2a4465a87213750b7b6867c90ed415aa0bc1cbd903d3c0e956",
       "strategy": "replace",
       "bytes": 21583,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/research/2026-09-08-platform-audit.md",
+      "sha256": "cb32c407b59bfef5b0b4975990b397b9cda901e416c9e22737178a6e26cc2871",
+      "strategy": "replace",
+      "bytes": 8691,
       "executable": false
     },
     {
@@ -4485,23 +4520,23 @@
     },
     {
       "path": "docs/site/index.html",
-      "sha256": "8e618b4b4bc80c26d6cc48f80247ca00d92e0efa49107a8f9a0cb1978188d955",
+      "sha256": "0e5392bf8ff9c6c7a00850ddcb5839309a5cea660a9e50f07d8bed9228ed5183",
       "strategy": "replace",
-      "bytes": 23217,
+      "bytes": 23432,
       "executable": false
     },
     {
       "path": "harness.config.json",
-      "sha256": "e7ffa738264f4ea9a4e9e17e45744d190d7a2d8f09ca852f99a1e5c1af250287",
+      "sha256": "320885177cf71e65be7ac2845d5ad392a27ffe84c73bc2b53449020c0cdb48e3",
       "strategy": "replace",
       "bytes": 1213,
       "executable": false
     },
     {
       "path": "harness/evals/golden-tasks.json",
-      "sha256": "5d32ac9ed89afb5a975844e8626082c24e3e92794ce8a6e57f9b84f23e1de2c9",
+      "sha256": "058d9b90ebfb729d4c66e1902bbf7f89958d27f349686851d40d66a5fa32fd84",
       "strategy": "replace",
-      "bytes": 2577,
+      "bytes": 3830,
       "executable": false
     },
     {
@@ -4555,23 +4590,23 @@
     },
     {
       "path": "harness/schemas/scaffold-plan.schema.json",
-      "sha256": "7e7d68f9bb8d389bd3615180049e3dbc8feb5ac4c35be115493a8c849c08a6c7",
+      "sha256": "55abf6b1f4d22d91050a92472ba68746f19fb74cb104894481419cc2cc764c5d",
       "strategy": "replace",
-      "bytes": 943,
+      "bytes": 962,
       "executable": false
     },
     {
       "path": "harness/skills/build-work/SKILL.md",
-      "sha256": "537c2baeed604aed71f46668461f94fd3f1070f0a4bb04c339cbad8215d85089",
+      "sha256": "743810d5aef1644c87904c1a80de934179ce2b1cd95ae3524cb7693788dd9e98",
       "strategy": "replace",
-      "bytes": 2113,
+      "bytes": 2703,
       "executable": false
     },
     {
       "path": "harness/skills/define-work/SKILL.md",
-      "sha256": "d4113055dbdd3c7d5a197483aad416910ae0aed730d8bc874acef8a3637d57d1",
+      "sha256": "3dc446c4f122d3071fd922f851fe4bb9421a186e3439514f4eeaab58e8ad6e13",
       "strategy": "replace",
-      "bytes": 1883,
+      "bytes": 2665,
       "executable": false
     },
     {
@@ -4597,9 +4632,9 @@
     },
     {
       "path": "harness/skills/orchestrate-work/SKILL.md",
-      "sha256": "ea6afc24d5cfc7de10cde381abb4688b3c3ba690b0536d258e4f31229655f3c8",
+      "sha256": "953e3388b4e5ef0f2a7d29d309dcbe8509a84201472fde2ad5e4fe820bf48b41",
       "strategy": "replace",
-      "bytes": 2407,
+      "bytes": 3507,
       "executable": false
     },
     {
@@ -4659,10 +4694,66 @@
       "executable": false
     },
     {
+      "path": "harness/templates/starters/analysis/analysis.py",
+      "sha256": "97d36a402c50f4862c3e7b9d14cf1083fee0248862644798d3402fa75ed980ff",
+      "strategy": "replace",
+      "bytes": 1288,
+      "executable": false
+    },
+    {
+      "path": "harness/templates/starters/analysis/fixture.json",
+      "sha256": "6e2b1e18acf023df91c7710a29518e9dc5fb8f9e58b3cc741d67b9a39e5700b0",
+      "strategy": "replace",
+      "bytes": 273,
+      "executable": false
+    },
+    {
+      "path": "harness/templates/starters/analysis/fixture.sql",
+      "sha256": "2f0eeaf8abffc371692639f56a2a5e6fc83a508b7bcf32693d04f73d63d09df9",
+      "strategy": "replace",
+      "bytes": 192,
+      "executable": false
+    },
+    {
+      "path": "harness/templates/starters/analysis/test_analysis.py",
+      "sha256": "9e10535f9622d58399e530e092f19c126317242947dc52e3b151672a95d8cf7a",
+      "strategy": "replace",
+      "bytes": 1958,
+      "executable": false
+    },
+    {
+      "path": "harness/templates/starters/api/contract.test.mjs",
+      "sha256": "5a7ea055b14114a9a7f3ffc546512f334862a9f578b261ab7e11bf9c22ec83f3",
+      "strategy": "replace",
+      "bytes": 2590,
+      "executable": false
+    },
+    {
+      "path": "harness/templates/starters/api/model.mjs",
+      "sha256": "e51dfe6b02e7a0e4b29244817a18f75c0ef0c125844e158fa8a737f6f07441bc",
+      "strategy": "replace",
+      "bytes": 1395,
+      "executable": false
+    },
+    {
+      "path": "harness/templates/starters/api/server.mjs",
+      "sha256": "3af5d46b580d8cb111fe47d7251e98359eeb722dcd7223aa2605c94119dec2c7",
+      "strategy": "replace",
+      "bytes": 1997,
+      "executable": false
+    },
+    {
       "path": "harness/toolchain.lock.json",
       "sha256": "54980666629bd0a07c771ba3821d7f14a2ef3202f666bd83af7c28860c7e1f9f",
       "strategy": "replace",
       "bytes": 318,
+      "executable": false
+    },
+    {
+      "path": "harness/workloads.json",
+      "sha256": "0f17fe0910a5db5baaa3ffec0e239a0366da47434fb6aa8c94a06dad43d92dd0",
+      "strategy": "replace",
+      "bytes": 14847,
       "executable": false
     },
     {
@@ -4702,9 +4793,9 @@
     },
     {
       "path": "tests/contracts.test.mjs",
-      "sha256": "846b8445e5e36ee99e6aedd4a3db8488c5ba3d576a15385f9bb6b1b1a16bb019",
+      "sha256": "a5b1ed9887e1479610e50f502b733299d14a25e40464976123007f76bc4b3fe1",
       "strategy": "replace",
-      "bytes": 45020,
+      "bytes": 45162,
       "executable": false
     },
     {
@@ -4743,17 +4834,24 @@
       "executable": false
     },
     {
-      "path": "tests/hooks.test.mjs",
-      "sha256": "1fdcaf439755052a5f2e2f54582aa11f4013c39ba027ad87fd8629676b64ad9c",
+      "path": "tests/helpers/workloads.mjs",
+      "sha256": "7410ebceedeb1896cbc0979e7a6165e801968a4cceea63983422abec104c3802",
       "strategy": "replace",
-      "bytes": 12771,
+      "bytes": 868,
+      "executable": false
+    },
+    {
+      "path": "tests/hooks.test.mjs",
+      "sha256": "bd7a98c79982244f1b3337148ceca8884708d78b961c035b7b95cc704391854f",
+      "strategy": "replace",
+      "bytes": 14008,
       "executable": false
     },
     {
       "path": "tests/loop-concurrency.test.mjs",
-      "sha256": "2362acf6da17a99e5f0387502647ec9b5bd037f9c9f8b342111773b0b648bfaf",
+      "sha256": "1af3fcdc0c12e067cc11cdd5db372baa0acd4e39412b7a62f0a32a871ba951cd",
       "strategy": "replace",
-      "bytes": 15087,
+      "bytes": 15191,
       "executable": false
     },
     {
@@ -4778,10 +4876,17 @@
       "executable": false
     },
     {
-      "path": "tools/agent-hook.mjs",
-      "sha256": "15809ac84cd8e66ddcfaf9b6a0a32c8a3b6b1f9847ea511dd9c36ec7b887e673",
+      "path": "tests/workloads.test.mjs",
+      "sha256": "ee085d41579e60e58efe2d437c2d65a5180b18a915a6e83e7030c6249393994a",
       "strategy": "replace",
-      "bytes": 11563,
+      "bytes": 8251,
+      "executable": false
+    },
+    {
+      "path": "tools/agent-hook.mjs",
+      "sha256": "79a09a4cbc078abb0b1ecc4b10d10b14ce8f2afee3aef96d53156c966897b373",
+      "strategy": "replace",
+      "bytes": 11959,
       "executable": false
     },
     {
@@ -4793,9 +4898,9 @@
     },
     {
       "path": "tools/check-release.mjs",
-      "sha256": "fad3312a22e30d4ce6efa44ed49e4c4280ef21ddcec0c4598e6fd5a734715d01",
+      "sha256": "8fa7bb365b60c5f558bc0397b602e6eef8d440298dbfc386d48fbc937e6bb6df",
       "strategy": "replace",
-      "bytes": 3368,
+      "bytes": 3596,
       "executable": false
     },
     {
@@ -4807,9 +4912,9 @@
     },
     {
       "path": "tools/harness.mjs",
-      "sha256": "478b422cf0e20099d16bdf2f8e2340ce29730680a3a6ef0c56c3f0f2c7e334b1",
+      "sha256": "9800cbb6484007e03d4fec13bb3d0ea0837d11c3583b0d723a77baaa43d53764",
       "strategy": "replace",
-      "bytes": 26152,
+      "bytes": 26556,
       "executable": false
     },
     {
@@ -4835,9 +4940,9 @@
     },
     {
       "path": "tools/lib/distribution.mjs",
-      "sha256": "52c3a2df81a32e1dc57b1e2cdd95b70913045b47edf30b517808c6d1a35cfdb0",
+      "sha256": "353c367ae4dc0da41557d860f9a5fd131b4101c8f23b4cbe23667f085c99c923",
       "strategy": "replace",
-      "bytes": 25334,
+      "bytes": 25395,
       "executable": false
     },
     {
@@ -4856,9 +4961,9 @@
     },
     {
       "path": "tools/lib/intake.mjs",
-      "sha256": "b61002c061294e30e0d610b00c6f7f301d3c407110e328d27e44ead553e184c6",
+      "sha256": "1881247db860fdc79548ab4171fe5beafbee86962533939782d8a667e7539392",
       "strategy": "replace",
-      "bytes": 18660,
+      "bytes": 19949,
       "executable": false
     },
     {
@@ -4877,16 +4982,16 @@
     },
     {
       "path": "tools/lib/policy.mjs",
-      "sha256": "75056a99a83f253f83596917173857bcf3276d2e3e1647d7e425de2dc3859797",
+      "sha256": "55f1f1b8f609356d1ca5effba417662ad9d7e57cb5b3f882f00b087ae2e12aca",
       "strategy": "replace",
-      "bytes": 904,
+      "bytes": 1082,
       "executable": false
     },
     {
       "path": "tools/lib/scaffold.mjs",
-      "sha256": "22a527d9997fdb16a7ce98e5b785665ceb6b4a06e620ecf6a7e1db330e4649c5",
+      "sha256": "01f2bb44a4787190ee4198929d18fddc576ba26525ae9778e555eb8b797d2da7",
       "strategy": "replace",
-      "bytes": 57079,
+      "bytes": 57366,
       "executable": false
     },
     {
@@ -4904,10 +5009,24 @@
       "executable": false
     },
     {
+      "path": "tools/lib/starters.mjs",
+      "sha256": "e98f29094e8bc8c12ed4045a528d4afff8219aae32873d7a699076553b39d852",
+      "strategy": "replace",
+      "bytes": 6137,
+      "executable": false
+    },
+    {
       "path": "tools/lib/vendor-legal.mjs",
       "sha256": "f608613a3c420092b091a25f60f40434235d7ee720671fac8e1279a5beb71b6c",
       "strategy": "replace",
       "bytes": 7576,
+      "executable": false
+    },
+    {
+      "path": "tools/lib/workloads.mjs",
+      "sha256": "0b7421272fa7fba004d7983f85e210b8984e54fd8956e1b0f3d5d570076d7429",
+      "strategy": "replace",
+      "bytes": 5639,
       "executable": false
     },
     {

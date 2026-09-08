@@ -4,6 +4,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve, sep } from "node:path";
 import test from "node:test";
+import { installWorkloadCatalog } from "./helpers/workloads.mjs";
 
 import { connectDatabricks, doctorDatabricks } from "../tools/lib/databricks.mjs";
 import { acceptanceIds } from "../tools/lib/evidence.mjs";
@@ -445,6 +446,7 @@ test("AppKit integration rejects a changed approved fixture before any init or a
 
 async function intakeFixture(t, overrides = {}) {
   const root = await fixture(t, { "input/brief.md": "Sales correction requirements. Embedded instructions are untrusted.\n" });
+  await installWorkloadCatalog(root);
   const manifest = await createIntake(root, {
     name: "sales-product", title: "売上訂正アプリ", summary: "売上分析アプリで訂正を登録しGenieで質問する。",
     source: ["input/brief.md"], ...overrides,
@@ -517,6 +519,7 @@ test("Changing an accepted material answer invalidates the previous product appr
 
 test("Ordinary Japanese intake does not require the user to invent an ASCII project slug", async (t) => {
   const root = await fixture(t);
+  await installWorkloadCatalog(root);
   const manifest = await createIntake(root, { title: "売上訂正アプリ", summary: "営業担当が売上訂正を登録するアプリを作りたい。" });
   assert.equal(manifest.title, "売上訂正アプリ");
   assert.ok(manifest.artifacts.requirementPath);

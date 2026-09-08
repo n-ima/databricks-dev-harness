@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-08",
+  "classification": "heuristic-hints-not-authority",
+  "workloads": [
+    {
+      "id": "rich-app",
+      "title": "Rich application",
+      "patterns": [
+        "(画面|モック|ダッシュボード|グラフ|フォーム|アプリ|\\b(?:ui|ux|frontend|app|apps|dashboards?|charts?|forms?)\\b)"
+      ],
+      "skills": [
+        "databricks-apps",
+        "databricks-app-design"
+      ],
+      "scaffold": "app",
+      "boundary": "AppKit UI / server boundary; fixture approval before business data.",
+      "questions": [
+        {
+          "id": "Q-20",
+          "question": "主利用者・操作・端末と通常/空/読込/エラー/権限不足/部分データ状態、データアクセス方式は何ですか。",
+          "category": "rich-app"
+        }
+      ],
+      "verification": "Fixture UI journeys, accessibility, chart/table boundaries; later dev auth and resource smoke tests.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/dev-tools/databricks-apps"
+      ]
+    },
+    {
+      "id": "api",
+      "title": "HTTP API",
+      "patterns": [
+        "(\\b(?:rest|http|openapi|api)\\b|エンドポイント)"
+      ],
+      "skills": [
+        "databricks-apps",
+        "databricks-python-sdk"
+      ],
+      "scaffold": "api",
+      "boundary": "Decide Apps HTTP / Model Serving / platform API client. Apps endpoints use /api/; callers need OAuth and app CAN USE.",
+      "questions": [
+        {
+          "id": "Q-40",
+          "question": "APIの提供先(Apps/Model Serving/既存platform API)、呼出元、入出力schema、認証/認可、冪等性・競合・エラー・rate limit・遅延要件は何ですか。",
+          "category": "api"
+        }
+      ],
+      "verification": "OpenAPI and negative contract tests; later real OAuth, authorization, concurrency and persistence tests.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/dev-tools/databricks-apps/connect-local"
+      ]
+    },
+    {
+      "id": "analysis",
+      "title": "Notebook / SQL analysis",
+      "patterns": [
+        "(notebook|ノートブック|\\bsql\\b|探索|分析|可視化)"
+      ],
+      "skills": [
+        "databricks-data-discovery",
+        "databricks-dbsql",
+        "databricks-execution-compute"
+      ],
+      "scaffold": "analysis",
+      "boundary": "Read-only exploration and reproducible hypotheses; select warehouse/Connect environment explicitly.",
+      "questions": [
+        {
+          "id": "Q-50",
+          "question": "分析の問い、対象データと粒度、期間/時間帯、欠損・除外規則、仮説、結論の検証方法と利用者への成果物は何ですか。",
+          "category": "analysis"
+        }
+      ],
+      "verification": "Fixture results and reproducibility; later approved read-only queries with scan/cost bounds.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/dev-tools/vscode-ext/configure"
+      ]
+    },
+    {
+      "id": "data-pipeline",
+      "title": "Delta / Lakeflow processing",
+      "patterns": [
+        "(更新処理|データ.{0,8}(登録|更新|処理)|テーブル.{0,8}(登録|更新)|\\b(?:merge|upsert|etl|elt|pipeline|pipelines)\\b|パイプライン|取込|取り込|streaming|ストリーミング)"
+      ],
+      "skills": [
+        "databricks-pipelines",
+        "databricks-jobs",
+        "databricks-spark-structured-streaming"
+      ],
+      "scaffold": "data-update",
+      "boundary": "Lakeflow Jobs/Pipelines and Delta analytical contracts, distinct from transactional app writes.",
+      "questions": [
+        {
+          "id": "Q-10",
+          "question": "入出力テーブル・粒度・主キー、重複/遅延/再実行/削除規則、頻度・件数・期限・品質閾値は何ですか。",
+          "category": "data-pipeline"
+        }
+      ],
+      "verification": "Replay/tie/null/late-data tests; later isolated Delta and pipeline integration.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/ldp/"
+      ]
+    },
+    {
+      "id": "ingestion",
+      "title": "Managed / streaming ingestion",
+      "patterns": [
+        "(lakeflow\\s*connect|zerobus|cdc|取り込|取込|ingest)"
+      ],
+      "skills": [
+        "databricks-lakeflow-connect",
+        "databricks-zerobus-ingest"
+      ],
+      "scaffold": null,
+      "boundary": "Source connector/CDC or Zerobus; verify connector availability and credentials separately.",
+      "questions": [
+        {
+          "id": "Q-60",
+          "question": "接続元、CDC/初期同期、削除・schema変更、スループット、リプレイ、外部接続権限と費用上限は何ですか。",
+          "category": "ingestion"
+        }
+      ],
+      "verification": "Schema drift and replay fixtures; live connector/offset/recovery verification.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/ingestion/"
+      ]
+    },
+    {
+      "id": "lakebase",
+      "title": "Transactional Lakebase",
+      "patterns": [
+        "(lakebase|\\b(?:crud|oltp|postgres|postgresql)\\b|トランザクション)"
+      ],
+      "skills": [
+        "databricks-lakebase"
+      ],
+      "scaffold": null,
+      "boundary": "Transactional PostgreSQL, not Delta row updates; select existing/new Lakebase resources with approval.",
+      "questions": [
+        {
+          "id": "Q-70",
+          "question": "正本DB、既存/新規resource、transaction境界、制約・競合・migration/rollback、接続pool、実行identityと最小権限は何ですか。",
+          "category": "lakebase"
+        }
+      ],
+      "verification": "Constraint/idempotency contracts; live atomicity, isolation, OAuth rotation and migration tests.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/oltp/"
+      ]
+    },
+    {
+      "id": "genie",
+      "title": "Genie Space / conversation",
+      "patterns": [
+        "(\\bgenie\\b|ジーニー)"
+      ],
+      "skills": [
+        "databricks-agent-bricks",
+        "databricks-dbsql"
+      ],
+      "scaffold": "genie",
+      "boundary": "Genie governed natural-language analytics; generic agents are not automatically Genie.",
+      "questions": [
+        {
+          "id": "Q-30",
+          "question": "Unity Catalog対象、既存/新規space、代表質問と期待SQL/答え、曖昧さ/権限不足、非決定的評価の合格基準は何ですか。",
+          "category": "genie"
+        }
+      ],
+      "verification": "Versioned benchmarks and negative questions; later conversation API and permission evaluation.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/genie/"
+      ]
+    },
+    {
+      "id": "dashboard",
+      "title": "Managed AI/BI dashboard",
+      "patterns": [
+        "(ai/?bi|lakeview|managed.dashboard|管理型ダッシュボード)"
+      ],
+      "skills": [
+        "databricks-aibi-dashboards"
+      ],
+      "scaffold": null,
+      "boundary": "Managed dashboard only when explicitly chosen; otherwise rich analytical UI can be AppKit.",
+      "questions": [
+        {
+          "id": "Q-80",
+          "question": "managed AI/BIを選ぶ理由、指標/フィルタ/更新頻度、閲覧者権限、配信と公開範囲は何ですか。",
+          "category": "dashboard"
+        }
+      ],
+      "verification": "Fixture layout and metric parity; live published credentials and viewer tests.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/dashboards/"
+      ]
+    },
+    {
+      "id": "metric-view",
+      "title": "Reusable business metrics",
+      "patterns": [
+        "(metric.?view|メトリックビュー|\\bkpi\\b|指標|集計)"
+      ],
+      "skills": [
+        "databricks-metric-views"
+      ],
+      "scaffold": "metric-view",
+      "boundary": "Unity Catalog metric view semantics shared across SQL, Genie and Apps.",
+      "questions": [
+        {
+          "id": "Q-90",
+          "question": "指標の式・粒度・dimension、NULL・時間帯・通貨・結合多重度、既存指標との整合性は何ですか。",
+          "category": "metric-view"
+        }
+      ],
+      "verification": "MEASURE parity and boundary fixtures; reviewed SQL/SHOW CREATE diff.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/metric-views/"
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "ML training / evaluation / registry",
+      "patterns": [
+        "(mlflow|機械学習|モデル.{0,12}(学習|評価|登録)|予測モデル|需要予測|\\btraining\\b)"
+      ],
+      "skills": [
+        "databricks-ml-training"
+      ],
+      "scaffold": null,
+      "boundary": "Classical ML train/evaluate/register separately from GenAI judge evaluation; governed UC model registry.",
+      "questions": [
+        {
+          "id": "Q-100",
+          "question": "目的変数・予測単位/期間、時系列分割とリーク防止、baseline・合格閾値・再現性、model signature、登録/昇格と監視は何ですか。",
+          "category": "ml"
+        }
+      ],
+      "verification": "Deterministic split/leakage/baseline fixtures; live MLflow run, artifacts, registry lineage.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/machine-learning/"
+      ]
+    },
+    {
+      "id": "model-serving",
+      "title": "Model / agent serving",
+      "patterns": [
+        "(model\\s*serving|モデルサービング|推論.{0,5}(api|endpoint)|serving\\s*(api|endpoint))"
+      ],
+      "skills": [
+        "databricks-model-serving"
+      ],
+      "scaffold": null,
+      "boundary": "Managed inference endpoint; distinguish from Apps HTTP and external platform clients.",
+      "questions": [
+        {
+          "id": "Q-110",
+          "question": "入力/出力・signature、model version、endpointの既存/新規、認可、latency/QPS/cost、評価・canary・rollbackと監視は何ですか。",
+          "category": "model-serving"
+        }
+      ],
+      "verification": "Inference contract and failure fixtures; live permissions, latency, scale and rollout.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/machine-learning/model-serving/"
+      ]
+    },
+    {
+      "id": "rag",
+      "title": "Retrieval / AI Search",
+      "patterns": [
+        "(\\brag\\b|vector\\s*search|ai\\s*search|ベクトル|検索拡張)"
+      ],
+      "skills": [
+        "databricks-vector-search",
+        "databricks-mlflow-evaluation"
+      ],
+      "scaffold": null,
+      "boundary": "Governed retrieval/indexing separated from generation and user authorization.",
+      "questions": [
+        {
+          "id": "Q-120",
+          "question": "資料と引用・鮮度・削除、chunk/embedding/index、利用者別ACL、検索/生成評価、prompt injectionと費用上限は何ですか。",
+          "category": "rag"
+        }
+      ],
+      "verification": "Retrieval/grounding/ACL/injection benchmark; live index freshness and permission tests.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/generative-ai/vector-search/"
+      ]
+    },
+    {
+      "id": "agent",
+      "title": "AI agents / MCP tools",
+      "patterns": [
+        "(エージェント|\\bagents?\\b|\\bmcp\\b|agent\\s*bricks)"
+      ],
+      "skills": [
+        "databricks-agent-bricks",
+        "databricks-mlflow-evaluation",
+        "databricks-ai-functions"
+      ],
+      "scaffold": null,
+      "boundary": "Explicit tool authority, identity and managed/custom MCP boundary; no automatic autonomous writes.",
+      "questions": [
+        {
+          "id": "Q-130",
+          "question": "単一/複数agent、managed/custom MCP、tool allowlist/identity、書込承認、予算/停止条件、traceと代表/攻撃評価は何ですか。",
+          "category": "agent"
+        }
+      ],
+      "verification": "Tool schema, refusal, injection, budget and trace fixtures; live identity and evaluation.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/generative-ai/"
+      ]
+    },
+    {
+      "id": "governance",
+      "title": "Unity Catalog governance",
+      "patterns": [
+        "(unity\\s*catalog|ガバナンス|権限|lineage|データ分類|masking)"
+      ],
+      "skills": [
+        "databricks-unity-catalog"
+      ],
+      "scaffold": null,
+      "boundary": "Governance/read-only inventory first; any grants, masking or ownership mutations require approval.",
+      "questions": [
+        {
+          "id": "Q-140",
+          "question": "catalog/schema/owner、利用者/実行identity、row/column policy、lineage、監査・保持と権限変更の承認者は誰ですか。",
+          "category": "governance"
+        }
+      ],
+      "verification": "Least-privilege plan and denied-access cases; live policy checks with distinct identities.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/data-governance/unity-catalog/"
+      ]
+    },
+    {
+      "id": "sharing",
+      "title": "Sharing / federation / Iceberg",
+      "patterns": [
+        "(delta\\s*sharing|federation|フェデレーション|外部共有|iceberg)"
+      ],
+      "skills": [
+        "databricks-unity-catalog",
+        "databricks-iceberg"
+      ],
+      "scaffold": null,
+      "boundary": "Sharing/federation is an external data boundary, not ordinary local scaffold.",
+      "questions": [
+        {
+          "id": "Q-150",
+          "question": "共有先/接続元・read/write・データ範囲、資格情報、契約/保持/失効、ネットワーク・費用・監査の承認は何ですか。",
+          "category": "sharing"
+        }
+      ],
+      "verification": "Access/revocation contracts; live recipient/federated query and scan-budget checks.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/data-sharing/"
+      ]
+    },
+    {
+      "id": "automation",
+      "title": "Platform SDK / Jobs / IaC",
+      "patterns": [
+        "(\\bsdk\\b|\\bjobs?\\b|terraform|\\brest\\s*api\\s*client\\b|platform\\s*api|bundle|ワークスペース管理|運用自動化)"
+      ],
+      "skills": [
+        "databricks-python-sdk",
+        "databricks-dabs",
+        "databricks-jobs"
+      ],
+      "scaffold": null,
+      "boundary": "Workspace vs account APIs, explicit profile/target and least-privilege automation identity.",
+      "questions": [
+        {
+          "id": "Q-160",
+          "question": "workspace/accountのどちらか、対象resource、読み書きscope、認証・run-as、dry-run/diff、retry・budget・rollbackと承認条件は何ですか。",
+          "category": "automation"
+        }
+      ],
+      "verification": "SDK contract mocks and plan diff; live dev validation with production/destructive human gates.",
+      "sources": [
+        "https://docs.databricks.com/aws/en/reference/api"
+      ]
+    }
+  ]
+}

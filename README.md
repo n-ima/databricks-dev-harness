@@ -1,6 +1,6 @@
 # Databricks Development Harness
 
-自然言語の要求から、Databricksのデータ処理、Genie、分析画面、業務アプリを、GitHub CopilotまたはClaude Codeで再現可能に開発するためのリポジトリ内ハーネスです。
+自然言語の要求から、Databricksのデータ処理、Genie、分析画面、業務アプリ、API、Notebook/SQL、ML/Serving、RAG/MCPを、GitHub CopilotまたはClaude Codeで再現可能に開発するためのリポジトリ内ハーネスです。対象別の質問・設計・公式技能・検証へつなぎます。
 
 ## まず使う
 
@@ -23,7 +23,7 @@ Agentモードでは共通instructionsとSkillsが、既存記録、要件・設
 
 ブラウザーで読むには `npm run docs:serve` を実行し、[ローカルHTMLガイド](http://127.0.0.1:4173/site/) を開きます。[コマンド詳細](docs/harness/operations/CLI_REFERENCE.md)、[調査と設計根拠](docs/harness/research/2026-09-04-evidence-review.md)、[検証済み範囲・残る導入条件](docs/harness/operations/VALIDATION_STATUS.md) も参照してください。
 
-状態: **0.3.2 / L1・検証中の実装候補**。GitHubの非公開template配布・CIの実施結果は [今回の配布証跡](work/evidence/2026-09-08-setup-guide-release.md) を参照してください。workspace接続、本番デプロイ、実providerによるgolden評価を実施済みとは扱いません。
+状態: **0.4.0 / L1・ローカル開発候補**。[全領域の開発手順](docs/harness/operations/PLATFORM_PLAYBOOK.md)、[最新調査・判断](docs/harness/research/2026-09-08-platform-audit.md)、[今回の検証証拠](work/evidence/2026-09-08-platform-harness-audit.md)を参照してください。GitHub公開済み0.3.2の[配布証跡](work/evidence/2026-09-08-setup-guide-release.md)と区別します。workspace接続、本番deploy、実providerのgolden評価は未実施で、全機能の実機動作を保証しません。
 
 ## 何が正本か
 

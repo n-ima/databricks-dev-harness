@@ -4,6 +4,19 @@
 
 ## Intake / 人の判断
 
+API/分析/MLなど全対象の具体例は[PLATFORM_PLAYBOOK](PLATFORM_PLAYBOOK.md)へ。対象を複数発見し、必要な質問/公式技能/検証をintakeへ渡せます。分類は承認ではありません。
+
+```text
+npm run harness -- workload list
+npm run harness -- workload resolve --prompt "UI不要のApps REST APIとLakebase"
+npm run harness:route -- --prompt "まず要件を議論したい" --intent define
+npm run intake -- create --title "受注API" --summary "合意前の要求" --workload api --workload lakebase
+npm run scaffold -- plan --kind api --name orders-api
+npm run scaffold -- plan --kind analysis --name demand-exploration
+```
+
+`--workload`の繰返しは完全な明示選択、`--without`は除外です。API/analysis生成物はtests/fixtures内の非deploy契約で、profile不要。実装用runtime・DB・Databricks環境は承認後に別途整えます。
+
 ```text
 npm run intake -- create --title "受注更新" --summary "毎日取り込み再実行可能にする" --source docs/product/intake/brief.md
 npm run intake -- show --id INTAKE_ID

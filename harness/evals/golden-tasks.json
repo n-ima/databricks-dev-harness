@@ -18,6 +18,18 @@
   ],
   "tasks": [
     {
+      "id": "api-only-contract",
+      "intent": "define",
+      "fixture": "Databricks Appsで受注更新REST APIを作りたい。UIは不要。Lakebaseを使い、再送と同時実行を安全にしたい。まず要件を議論し、実データなしのAPI契約fixtureを確認したい。",
+      "success": ["API and Lakebase scope recorded without a UI mock gate", "authentication, authorization, idempotency and concurrency contracts defined", "real local HTTP fixture tests pass and durable live transactions remain explicitly unverified", "human intent gate and no-production boundary preserved"]
+    },
+    {
+      "id": "analysis-ml-serving-discussion",
+      "intent": "define",
+      "fixture": "Unity CatalogのデータをNotebookとSQLで探索し、需要予測モデルをMLflowに登録してModel Serving APIで公開・デプロイしたい。まず要件を議論したい。",
+      "success": ["discussion-first and analysis, ML and serving components retained", "model registration is not mistaken for Delta write authorization", "time split, leakage, baseline, model signature and rollout criteria documented", "synthetic notebook and SQL/Python parity verified without claiming live ML training or serving"]
+    },
+    {
       "id": "delta-idempotent-upsert",
       "intent": "build",
       "fixture": "duplicate and late-arriving analytical records",

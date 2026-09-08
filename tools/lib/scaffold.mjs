@@ -2,6 +2,7 @@ import { readFile, rename, stat } from "node:fs/promises";
 import { randomUUID } from "node:crypto";
 import { join } from "node:path";
 import { profileEnvironment } from "./databricks.mjs";
+import { planStarter, starterArtifacts } from "./starters.mjs";
 import {
   asciiSlug,
   atomicWrite,
@@ -19,7 +20,7 @@ import {
   withFileLock,
 } from "./shared.mjs";
 
-const KINDS = new Set(["app", "data-update", "genie", "metric-view"]);
+const KINDS = new Set(["app", "api", "analysis", "data-update", "genie", "metric-view"]);
 
 function pinnedVersion(value) {
   const version = cleanInline(value);
@@ -416,6 +417,7 @@ export async function planScaffold(root, options, dependencies = {}) {
   const normalized = { ...options, version: cleanInline(options.version, toolchain.appkitTemplateVersion) };
   let plan;
   if (kind === "app") plan = await planApp(root, normalized, base, dependencies);
+  else if (kind === "api" || kind === "analysis") plan = await planStarter(root, kind, base);
   else if (kind === "data-update") plan = planDataUpdate(normalized, base);
   else if (kind === "genie") plan = planGenie(normalized, base);
   else plan = planMetricView(normalized, base);
@@ -867,6 +869,7 @@ ${metricYaml(plan)}$$;
 
 async function applyLocalPlan(root, plan) {
   const artifacts = [];
+  if (plan.kind === "api" || plan.kind === "analysis") artifacts.push(...await starterArtifacts(root, plan));
   const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
   if (plan.kind === "data-update") {
     const testName = `tests/data_products/test_${plan.name.replaceAll("-", "_")}`;

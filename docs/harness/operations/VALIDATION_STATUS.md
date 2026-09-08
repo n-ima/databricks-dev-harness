@@ -1,4 +1,6 @@
-# Validation status — 0.3.2 candidate
+# Validation status — 0.4.0 local candidate
+
+2026-09-08全領域監査: [新しい検証証拠](../../../work/evidence/2026-09-08-platform-harness-audit.md)、[対応/検証境界](PLATFORM_PLAYBOOK.md)、[provider・モデル互換性](PROVIDER_COMPATIBILITY.md)。API/analysisの実行fixtureと16領域のdiscoveryを追加。以下の旧H-01〜H-20 matrixと過去のbrowser/CI証拠は履歴であり、新版のlive/provider検証を代用しません。L1を維持します。
 
 Last checked: 2026-09-08. This is a locally implemented, tested candidate, not a production-certified or published service. Maturity stays **L1** until real provider/workspace evidence supports promotion.
 

@@ -15,7 +15,7 @@
   <div class="sidebar-footer"><span class="status-dot"></span> ローカル開発ガイド<br><a href="../USAGE.md">Markdown版を読む ↗</a></div>
 </aside>
 <main id="main">
-<header><span>INTENT → EVIDENCE</span><a href="../harness/research/2026-09-04-evidence-review.md">設計判断の根拠 ↗</a></header>
+<header><span>INTENT → EVIDENCE</span><a href="../harness/research/2026-09-08-platform-audit.md">最新監査と設計判断 ↗</a></header>
 <section id="overview" class="hero">
   <p class="eyebrow">BUILD WITH CONFIDENCE</p>
   <h1>やりたいことから、<br><em>確かめられる</em>成果へ。</h1>
@@ -127,7 +127,7 @@ npm run setup -- --project-name sales-operations --skip-agent-skills</code></pre
   <p>hookやhashは改変・誤操作の検出に有用ですが、同じOS権限で動くagentへの完全なsecurity境界ではありません。開発限定credentials、OS/container隔離、branch protection、CI、Environment承認を組み合わせます。</p>
   <details><summary>「完了」はどう決まる？</summary><p>受入条件の全項目に、実在する証拠・独立review・変更されていないhashが必要です。not-runはpassになりません。業務上の妥当性とreviewerの本人性は人・CI・組織側の管理で担保します。</p></details>
   <details><summary>どこから始めればいい？</summary><p>まず小さい1案件をテンプレートから作り、要件→mock→dev検証を一巡します。workspace URLと開発profile、案件repo、利用providerを指定すれば、その環境の導入確認へ進めます。</p></details>
-  <div class="reference-links"><a href="../harness/operations/VALIDATION_STATUS.md">検証結果・未検証項目 ↗</a><a href="../harness/research/2026-09-04-evidence-review.md">調査の一次情報と判断 ↗</a><a href="../USAGE.md">運用手順全文 ↗</a></div>
+  <div class="reference-links"><a href="../harness/operations/PLATFORM_PLAYBOOK.md">API・分析・ML・MCPの開発手順 ↗</a><a href="../harness/operations/PROVIDER_COMPATIBILITY.md">Claude・Copilot・最新モデルと版 ↗</a><a href="../harness/operations/VALIDATION_STATUS.md">検証結果・未検証項目 ↗</a><a href="../harness/research/2026-09-08-platform-audit.md">最新調査の一次情報と判断 ↗</a><a href="../USAGE.md">運用手順全文 ↗</a></div>
 </section>
 <footer><span>Databricks Development Harness</span><span>Intent is human. Progress is durable. Completion needs evidence.</span></footer>
 </main><div id="announcement" role="status" aria-live="polite" class="sr-only"></div>
