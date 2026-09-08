@@ -8,8 +8,8 @@ phase: review
 gate: none
 gate_status: not-applicable
 started: 2026-09-07T22:42:41Z
-updated: 2026-09-08T21:30:09Z
-last_checkpoint: 2026-09-08T21:30:09Z
+updated: 2026-09-08T22:00:33Z
+last_checkpoint: 2026-09-08T22:00:33Z
 requirement: work/plans/2026-09-08-platform-harness.md
 architecture: docs/harness/design/ARCHITECTURE.md
 plan: work/plans/2026-09-08-platform-harness.md
@@ -67,3 +67,9 @@ Audit current official platform and agent capabilities, improve broad Databricks
 - summary: 0.4.0候補はf90000bとしてprivate branchへpush済み、PR #1でレビュー待ち。GitHub Ubuntuで325/325pass。後続の公開記録は20260908-212217-036-platform-source-publication-0-4-0を参照。
 - evidence: work/evidence/2026-09-09-platform-publication.md
 - next: main取込は本人判断。実provider/Databricksのpilotとモデル評価は未実施のまま。
+
+## Checkpoint 2026-09-08T22:00:33Z
+
+- summary: 0.4.0は本人承認によりPR #1経由でprivate mainへmerge済み。main実CI325/325pass。現在の公開状態はmain取込証拠を参照。
+- evidence: work/evidence/2026-09-09-platform-main-integration.md
+- next: 別案件pilotの目的と名前を本人に確認する。実provider/Databricksとモデル比較は次段階。

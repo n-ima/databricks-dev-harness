@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "recordedDateJst": "2026-09-09",
+  "mergeCommit": "296d2790717e61e61e21d88498de89418f1e3818",
+  "hostedRun": {
+    "conclusion": "success",
+    "createdAt": "2026-09-08T21:57:22Z",
+    "databaseId": 34283374957,
+    "event": "workflow_dispatch",
+    "headBranch": "main",
+    "headSha": "296d2790717e61e61e21d88498de89418f1e3818",
+    "jobs": [
+      {
+        "completedAt": "2026-09-08T21:58:03Z",
+        "conclusion": "success",
+        "databaseId": 102253178625,
+        "name": "copilot-setup-steps",
+        "startedAt": "2026-09-08T21:57:28Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-09-08T21:57:30Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-09-08T21:57:29Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:57:31Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0",
+            "number": 2,
+            "startedAt": "2026-09-08T21:57:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:57:35Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+            "number": 3,
+            "startedAt": "2026-09-08T21:57:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:57:35Z",
+            "conclusion": "success",
+            "name": "Set up contract-test Python (not Databricks Runtime)",
+            "number": 4,
+            "startedAt": "2026-09-08T21:57:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:57:35Z",
+            "conclusion": "success",
+            "name": "Verify selected Python",
+            "number": 5,
+            "startedAt": "2026-09-08T21:57:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:57:37Z",
+            "conclusion": "success",
+            "name": "Run npm ci --ignore-scripts",
+            "number": 6,
+            "startedAt": "2026-09-08T21:57:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:57:37Z",
+            "conclusion": "success",
+            "name": "Run npm run harness:check",
+            "number": 7,
+            "startedAt": "2026-09-08T21:57:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:57:59Z",
+            "conclusion": "success",
+            "name": "Run npm run test:harness",
+            "number": 8,
+            "startedAt": "2026-09-08T21:57:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:57:59Z",
+            "conclusion": "success",
+            "name": "Post Set up contract-test Python (not Databricks Runtime)",
+            "number": 14,
+            "startedAt": "2026-09-08T21:57:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:58:00Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@820762786026740c76f36085b0efc47a31fe5020",
+            "number": 15,
+            "startedAt": "2026-09-08T21:57:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:58:01Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0",
+            "number": 16,
+            "startedAt": "2026-09-08T21:58:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-09-08T21:58:01Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 17,
+            "startedAt": "2026-09-08T21:58:01Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/n-ima/databricks-dev-harness/actions/runs/34283374957/job/102253178625"
+      }
+    ],
+    "name": "Copilot setup steps",
+    "status": "completed",
+    "updatedAt": "2026-09-08T21:58:04Z",
+    "url": "https://github.com/n-ima/databricks-dev-harness/actions/runs/34283374957"
+  },
+  "testSummary": {
+    "tests": 325,
+    "passed": 325,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 21780.51415
+  },
+  "verificationScope": "Post-merge manual Ubuntu fixture/conformance workflow; not Databricks or a coding-model trial.",
+  "limitations": [
+    "Automatic three-OS run not observed.",
+    "README and work-record follow-up commit is separate from this exact tested merge SHA.",
+    "No Databricks connection, resource/permission change, product creation or model trial."
+  ]
+}

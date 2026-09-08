@@ -23,7 +23,7 @@ Agentモードでは共通instructionsとSkillsが、既存記録、要件・設
 
 ブラウザーで読むには `npm run docs:serve` を実行し、[ローカルHTMLガイド](http://127.0.0.1:4173/site/) を開きます。[コマンド詳細](docs/harness/operations/CLI_REFERENCE.md)、[調査と設計根拠](docs/harness/research/2026-09-04-evidence-review.md)、[検証済み範囲・残る導入条件](docs/harness/operations/VALIDATION_STATUS.md) も参照してください。
 
-状態: **0.4.0 / L1・ローカル開発候補**。[全領域の開発手順](docs/harness/operations/PLATFORM_PLAYBOOK.md)、[最新調査・判断](docs/harness/research/2026-09-08-platform-audit.md)、[今回の検証証拠](work/evidence/2026-09-08-platform-harness-audit.md)を参照してください。GitHub公開済み0.3.2の[配布証跡](work/evidence/2026-09-08-setup-guide-release.md)と区別します。workspace接続、本番deploy、実providerのgolden評価は未実施で、全機能の実機動作を保証しません。
+状態: **0.4.0 / L1・private main反映済み**。[全領域の開発手順](docs/harness/operations/PLATFORM_PLAYBOOK.md)、[最新調査・判断](docs/harness/research/2026-09-08-platform-audit.md)、[main取込・検証証拠](work/evidence/2026-09-09-platform-main-integration.md)を参照してください。docs/harnessのローカル候補評価と[9月8日の監査証拠](work/evidence/2026-09-08-platform-harness-audit.md)は当時の記録です。workspace接続、本番deploy、実providerのgolden評価は未実施で、全機能の実機動作を保証しません。
 
 ## 何が正本か
 

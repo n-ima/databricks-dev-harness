@@ -25,3 +25,9 @@ Destination: https://github.com/n-ima/databricks-dev-harness. Use the existing c
 - Publication evidence: work/evidence/2026-09-09-platform-publication.md.
 
 Hosted checks execute existing read-only-permission Node/Python test workflows without Databricks credentials. If automatic execution is absent, inspect workflow metadata and run the existing workflow_dispatch path against this explicit source branch, without changing repository policy.
+
+## Subsequent owner authorization: PR1 integration
+
+After the assistant explicitly asked whether PR1 could be merged into main, the owner replied to proceed. This authorizes the ordinary merge of PR1 at head f5a7bbbfb44ed456e9b53307b7b717a8c9c3470a, plus verification and publication bookkeeping. The preceding no-merge boundary describes the earlier phase and is superseded for this specific PR only. No reviewer identity is fabricated, and no production or Databricks authority follows from this approval.
+
+Confirm main has not changed unexpectedly, match the reviewed PR head, merge without bypass flags, verify the resulting tree, and record actual post-merge checks. Do not delete branches, change access policies, initialize a product or authenticate to Databricks as part of this source integration.
