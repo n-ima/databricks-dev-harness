@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import { join } from "node:path";
 import { profileEnvironment } from "./databricks.mjs";
 import { planStarter, starterArtifacts } from "./starters.mjs";
+import { assertOutputContinuity, inspectAppOutput, preflightAppOutput } from "./scaffold-output.mjs";
 import {
   asciiSlug,
   atomicWrite,
@@ -945,41 +946,62 @@ async function applyScaffoldLocked(root, options, dependencies) {
   await writeJson(path, plan);
   try {
     if (plan.kind === "app") {
+      stage = "output-preflight";
+      const output = await preflightAppOutput(root, plan);
       stage = "workspace-auth";
       plan.workspaceVerification = await verifyAppWorkspace(root, plan.profile, workspaceHost(plan.host), plan.purpose, dependencies);
-      stage = "init";
-      if (plan.outputDir !== `apps/${plan.name}`) throw new Error("Invalid component output directory.");
-      const output = pathInside(root, plan.outputDir, "AppKit output directory");
-      if (await exists(output)) throw new Error(`App output already exists: ${plan.outputDir}`);
+      stage = "output-preflight";
+      // Authentication can take time; recheck the locked destination immediately before init.
+      await preflightAppOutput(root, plan);
       const run = dependencies.run ?? commandResult;
       const command = appCommand(plan);
       const env = appEnvironment(plan.purpose);
+      stage = "init";
       const result = await run(command[0], command.slice(1), { cwd: root, timeout: 10 * 60_000, env });
       if (!result.ok) throw new Error(`AppKit scaffold failed: ${redactedFailure(result.stderr || result.error || result.stdout)}`);
-      files = [plan.outputDir];
+      files = await exists(output) ? [plan.outputDir] : [];
       plan.generatedFiles = files;
       plan.initCompletedAt = timestamp();
+      stage = "output-inspection";
+      plan.outputInspection = await inspectAppOutput(root, plan);
+      stage = "fixture-quarantine";
+      let expectedControls = plan.outputInspection.controlFiles;
       if (plan.purpose === "mock") {
         const bundle = join(output, "databricks.yml");
         const quarantine = join(output, "databricks.fixture-only.yml");
+        const marker = join(output, ".harness-fixture-only.json");
+        if (await exists(quarantine) || await exists(marker)) throw new Error("Refusing to overwrite existing fixture-only bundle configuration or marker.");
         if (await exists(bundle)) {
-          if (await exists(quarantine)) throw new Error("Refusing to overwrite existing fixture-only bundle configuration.");
+          if (!(await stat(bundle)).isFile()) throw new Error("Generated bundle configuration must be a regular file.");
           await rename(bundle, quarantine);
         }
-        await writeJson(join(output, ".harness-fixture-only.json"), { schemaVersion: 1, purpose: "mock", deployReady: false,
-          instruction: "Development workspace authentication is not approval to connect business data. Use fixtures only; no bundle deployment before a separate approved integration plan." });
+        const markerRecord = { schemaVersion: 1, purpose: "mock", deployReady: false,
+          instruction: "Development workspace authentication is not approval to connect business data. Use fixtures only; no bundle deployment before a separate approved integration plan." };
+        await writeJson(marker, markerRecord);
+        expectedControls = { ".harness-fixture-only.json": sha256(`${JSON.stringify(markerRecord, null, 2)}\n`),
+          ...(plan.outputInspection.controlFiles["databricks.yml"] ? { "databricks.fixture-only.yml": plan.outputInspection.controlFiles["databricks.yml"] } : {}) };
       }
+      stage = "validation-preflight";
+      plan.validationInputInspection = await inspectAppOutput(root, plan);
+      assertOutputContinuity(plan.outputInspection, plan.validationInputInspection, expectedControls);
       stage = "validate";
       const validationCommand = ["databricks", "apps", "validate", "--path", plan.outputDir, ...(plan.profile ? ["--profile", plan.profile] : [])];
       const validate = await run(validationCommand[0], validationCommand.slice(1), { cwd: root, timeout: 15 * 60_000, env });
       plan.validation = { command: validationCommand, status: validate.ok ? "passed" : "failed", exitCode: validate.status ?? null, checkedAt: timestamp() };
       if (!validate.ok) throw new Error(`AppKit scaffold validation failed: ${redactedFailure(validate.stderr || validate.error || validate.stdout)}`);
-      if (!(await exists(join(output, "package.json")))) throw new Error("AppKit validation reported success but the generated package.json is missing.");
+      stage = "output-reinspection";
+      plan.outputReinspection = await inspectAppOutput(root, plan);
+      assertOutputContinuity(plan.validationInputInspection, plan.outputReinspection);
       plan.pendingRules = plan.rules.filter((item) => item.phase !== "before-init" && item.severity === "must").map((item) => item.id);
     } else files = await applyLocalPlan(root, plan);
   } catch (error) {
+    if (error.outputInspection) {
+      plan[stage === "output-reinspection" ? "outputReinspection" : stage === "validation-preflight" ? "validationInputInspection" : "outputInspection"] = error.outputInspection;
+    }
     plan.status = "failed";
-    plan.failureStage = stage;
+    // Keep the existing collision diagnosis for an initial mock marker/quarantine.
+    // Inspection still failed before any writes; post-validation drift keeps its own stage.
+    plan.failureStage = stage === "output-inspection" && plan.purpose === "mock" && error.mockControlCollision ? "fixture-quarantine" : stage;
     plan.failure = redactedFailure(error.message);
     plan.generatedFiles = plan.generatedFiles ?? files;
     plan.updatedAt = timestamp();

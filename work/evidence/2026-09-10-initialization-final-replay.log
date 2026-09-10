@@ -1,0 +1,117 @@
+✔ noncanonical root control DaTaBrIcKs.YmL is rejected before bounded read (10.0881ms)
+✔ noncanonical root control DATABRICKS.FIXTURE-ONLY.YML is rejected before bounded read (7.9448ms)
+✔ noncanonical root control .HARNESS-FIXTURE-ONLY.JSON is rejected before bounded read (7.8314ms)
+✔ noncanonical nested PACKAGE.JSON is rejected without relocating its root (7.895ms)
+✔ uppercase ordinary cache remains outside the reserved alias restriction (16.904ms)
+✔ mixed-case excluded local inputs do not change fresh fixture bytes or source (128.7991ms)
+✔ HI-04: absent root control becoming a directory must not be invisible to continuity (10.5768ms)
+{
+  "plan": "work/scaffolds/20260910-002104-723-app-independent-05706966.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ HI-01: invalid UTF-8 package bytes fail before quarantine or validation (51.0923ms)
+{
+  "plan": "work/scaffolds/20260910-002104-772-app-independent-9ec1ad93.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ HI-02: validator root replacement must not adopt an unvalidated unquarantined root (58.3545ms)
+{
+  "plan": "work/scaffolds/20260910-002104-830-app-independent-3f028b04.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+{
+  "plan": "work/scaffolds/20260910-002104-830-app-independent-3f028b04.json",
+  "status": "applied",
+  "generatedFiles": [
+    "apps/independent"
+  ]
+}
+✔ legal same-root validate file generation and nested package preserve expected validation root (57.9896ms)
+{
+  "plan": "work/scaffolds/20260910-002104-888-app-independent-8a962725.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ second preflight refuses output created by apply authentication fake before init (27.0694ms)
+{
+  "plan": "work/scaffolds/20260910-002104-915-app-independent-897662f8.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ hard-linked generated Bundle refuses before quarantine or validation (32.1916ms)
+{
+  "plan": "work/scaffolds/20260910-002104-948-app-independent-80b44e82.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ validator linked-root replacement is rejected and external local target stays untouched (46.4587ms)
+{
+  "plan": "work/scaffolds/20260910-002104-994-app-independent-db955972.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✖ mock reserved directory collision preserves both original Bundle and collision (28.5934ms)
+✔ package exact byte limit passes and one extra byte fails (16.4385ms)
+✔ fixture initialized-source nested local contamination is excluded deterministically (117.7131ms)
+✔ missing mandatory fixture input refuses before exclusive destination creation (15.0925ms)
+✔ fixture source depth bound refuses before destination creation (72.5466ms)
+✔ fixture source byte bound refuses before destination creation (29.7362ms)
+✔ fixture source entry bound refuses before destination creation (27980.5219ms)
+✔ HI-03: case-alias Bundle restoration cannot bypass Windows control continuity (67.8141ms)
+✔ same-root package mutation after validate is rejected without success evidence (57.5925ms)
+✔ same-root marker mutation after validate is rejected without success evidence (59.6519ms)
+✔ same-root quarantine mutation after validate is rejected without success evidence (48.7352ms)
+✔ same-root bundle-restore mutation after validate is rejected without success evidence (51.1286ms)
+✔ same-root marker-remove mutation after validate is rejected without success evidence (48.2029ms)
+✔ root replacement with identical package and all control bytes is rejected by exact identity (54.922ms)
+✔ same-root same-content package replacement is allowed under byte continuity (50.8028ms)
+✔ missing expected output records no fabricated generated artifact (33.0912ms)
+✔ mock without original Bundle records only the exact generated marker and no Bundle (44.6031ms)
+✔ root control exact 1MiB passes and one extra byte fails before quarantine (16.4396ms)
+✔ valid Unicode and UTF-8 BOM remain valid JSON objects; truncated multibyte is rejected (14.0327ms)
+✔ post-validate marker hard link refuses despite unchanged content hash (50.2047ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 32
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28640.4976
+
+✖ failing tests:
+
+test at work\evidence\2026-09-10-initialization-independent.test.mjs:148:1
+✖ mock reserved directory collision preserves both original Bundle and collision (28.5934ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /already exists|collision|overwrite/i. Input:
+  
+  'Error: AppKit output inspection failed at apps/independent: Root control file must be a regular file, not a directory.. Preserve output and re-plan; no automatic relocation.'
+  
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/2026-09-10-initialization-independent.test.mjs:150:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: AppKit output inspection failed at apps/independent: Root control file must be a regular file, not a directory.. Preserve output and re-plan; no automatic relocation.
+        at applyScaffoldLocked (file:///D:/projects/databricks-dev-harness/tools/lib/scaffold.mjs:1009:11)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/2026-09-10-initialization-independent.test.mjs:150:3)
+        at async Test.run (node:internal/test_runner/test:1208:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:831:7),
+    expected: /already exists|collision|overwrite/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }

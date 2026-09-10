@@ -1,0 +1,43 @@
+✔ candidate binds input roles and ignores only declared generated/dependency roots (60.0618ms)
+✔ successful flow records simulation identity, ordered operations and freshness without claiming live (246.5251ms)
+✔ failure or incomplete terminal at validate stops all downstream calls {"status":"failed"} (55.675ms)
+✔ failure or incomplete terminal at validate stops all downstream calls {"status":"passed","checks":["build","typecheck","lint"]} (57.2182ms)
+✔ failure or incomplete terminal at deploy stops all downstream calls {"status":"failed"} (109.1376ms)
+✔ failure or incomplete terminal at observe stops all downstream calls {"state":"PENDING","deploymentId":"sim-001"} (136.1956ms)
+✔ failure or incomplete terminal at observe stops all downstream calls {"state":"FAILED","deploymentId":"sim-001"} (137.6583ms)
+✔ failure or incomplete terminal at start stops all downstream calls {"state":"STOPPED","deploymentId":"sim-001"} (192.1172ms)
+✔ failure or incomplete terminal at health stops all downstream calls {"status":"unhealthy","deploymentId":"sim-001"} (231.6672ms)
+✔ validate throw or timeout cannot start a later operation (158.4923ms)
+✔ deploy throw or timeout cannot start a later operation (250.4196ms)
+✔ observe throw or timeout cannot start a later operation (309.7713ms)
+✔ start throw or timeout cannot start a later operation (405.6856ms)
+✔ health throw or timeout cannot start a later operation (480.8744ms)
+✔ already aborted invocation calls no adapter (33.5645ms)
+✔ abort during deployment prevents observation and marks reconciliation required (96.2703ms)
+✔ post-validation modify drift blocks deployment (109.285ms)
+✔ post-validation add drift blocks deployment (116.1506ms)
+✔ post-validation remove drift blocks deployment (94.9325ms)
+✔ post-validation validation drift blocks deployment (102.5209ms)
+✔ post-validation requirement drift blocks deployment (108.1922ms)
+✔ post-validation policy drift blocks deployment (113.1966ms)
+✔ post-validation approval drift blocks deployment (122.2141ms)
+✔ unapproved or mismatching scope candidateId calls no adapter (82.0084ms)
+✔ unapproved or mismatching scope session calls no adapter (79.655ms)
+✔ unapproved or mismatching scope identity calls no adapter (86.5747ms)
+✔ unapproved or mismatching scope decision calls no adapter (82.5632ms)
+✔ unapproved or mismatching scope expiresAt calls no adapter (86.0561ms)
+✔ unapproved or mismatching scope kind calls no adapter (79.3332ms)
+✔ mismatched deployment identity is never accepted as terminal success (197.847ms)
+✔ malformed candidate is rejected before any record or callback (36.0434ms)
+✔ record IDs cannot overwrite results or escape the simulation directory (357.6703ms)
+✔ concurrent candidate/target invocation is rejected without duplicate deployment (363.5831ms)
+✔ candidate rejects secret settings and unsafe component roots (56.1006ms)
+✔ candidate rejects junctions including those pointing inside the repository (50.536ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5369.8502

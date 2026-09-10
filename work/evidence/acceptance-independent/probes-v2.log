@@ -1,0 +1,47 @@
+✔ independent positive: mixed grammar, BOM/CRLF, headings and inert examples preserve exact IDs (2.5284ms)
+✔ independent negative parser: empty comment body (0.2463ms)
+✔ independent negative parser: duplicate across sections (0.1485ms)
+✔ independent negative parser: outside section (0.0683ms)
+✔ independent negative parser: shorter closing fence (0.1043ms)
+✔ independent negative parser: invalid review-like list (0.0633ms)
+✔ independent negative parser: unclosed HTML comment (0.0462ms)
+✔ unsupported definition must not silently permit seal and completion: # H-D01 must be verified (21.5744ms)
+ℹ {"tail":"# H-D01 must be verified","rejected":true,"fixtureSessionStatus":"active"}
+✔ unsupported definition must not silently permit seal and completion: # **AC-D01** must be verified (12.5288ms)
+ℹ {"tail":"# **AC-D01** must be verified","rejected":true,"fixtureSessionStatus":"active"}
+✔ unsupported definition must not silently permit seal and completion: • AC-D01: Unicode bullet requirement (14.147ms)
+ℹ {"tail":"• AC-D01: Unicode bullet requirement","rejected":true,"fixtureSessionStatus":"active"}
+✔ ID grammar must reject a final newline rather than accepting a partial-string match (0.289ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: missing (35.7033ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: extra (29.7033ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: duplicate (24.7944ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: empty (31.5199ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: invalid ID (33.4106ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: null result (28.3702ms)
+✔ task completion rejects missing AC-D01 and leaves task plus session bytes unchanged (100.0587ms)
+✔ loop completion rejects missing AC-D01 and preserves loop plus session bytes (54.0614ms)
+✔ final intake reconstruction refuses invalid IDs and preserves every linked artifact plus old approval (206.8329ms)
+✔ product-intent approval must reject a changed requirement content before committing approval (19.9731ms)
+ℹ Approval requirement changed after validation; review the current requirement and retry.
+ℹ {"change":"requirement content","rejected":true,"approvalExists":false,"requirement":"docs/product/requirements/probe.md","gate_status":"not-applicable"}
+✔ product-intent approval must reject a changed session reference before committing approval (23.938ms)
+ℹ Approval requirement changed after validation; review the current requirement and retry.
+ℹ {"change":"session reference","rejected":true,"approvalExists":false,"requirement":"docs/product/requirements/changed.md","gate_status":"not-applicable"}
+✔ receipt validation must parse the same requirement bytes that it checked against the artifact hash (28.5526ms)
+ℹ Missing acceptance criteria: AC-D01; review must cover every requirement acceptance criterion; verification must cover all acceptance criteria
+ℹ {"rejected":true,"currentHashMatches":true,"fixtureSessionStatus":"active","requirementReads":1,"secondReadMutationReached":false}
+✔ seal rejects a changed parsed input and preserves an existing output: docs/product/requirements/probe.md (25.3648ms)
+ℹ {"changedPath":"docs/product/requirements/probe.md","changed":true,"existingOutputPreserved":true,"sessionPreserved":true}
+✔ seal rejects a changed parsed input and preserves an existing output: work/reviews/probe.json (20.0731ms)
+ℹ {"changedPath":"work/reviews/probe.json","changed":true,"existingOutputPreserved":true,"sessionPreserved":true}
+✔ receipt rejects a changed requirement at its first actual read and preserves the session (31.143ms)
+✔ unchanged valid seal and receipt bind the actual review and requirement bytes (29.0855ms)
+✔ new generated-question exception is limited to the expected ledger depth and shape (0.3356ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 852.4755

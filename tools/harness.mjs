@@ -21,6 +21,9 @@ import { createIntake, answerIntake, approveIntake, showIntake } from "./lib/int
 import { initLoop, showLoop, setLoopGate, approveLoopGate, recordLoop, runLoopIteration, stopLoop } from "./lib/loop.mjs";
 import { planScaffold, applyScaffold } from "./lib/scaffold.mjs";
 import * as memory from "./lib/memory.mjs";
+import { sessionRecords as readSessionRecords } from "./lib/session-state.mjs";
+import { workState, renderWorkState, writeStatus } from "./lib/work-state.mjs";
+import { createTask, updateTask, listTasks, taskRecords } from "./lib/tasks.mjs";
 import { sealEvidence } from "./lib/evidence.mjs";
 import { instructionAssets } from "./lib/assets.mjs";
 import { createApproval } from "./lib/approval.mjs";
@@ -30,12 +33,12 @@ import { createRelease, registerBaseline, normalizeManagedText, planUpdate, appl
 import { writeJson as atomicWriteJson } from "./lib/shared.mjs";
 import { stageVendorLegal, verifyVendorLegal } from "./lib/vendor-legal.mjs";
 import { loadWorkloads, resolveWorkloads, resolveRoute } from "./lib/workloads.mjs";
+import { deploymentCommand } from "./lib/deployment-simulation.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const canonicalSkills = join(root, "harness", "skills");
 const vendorSkills = join(root, "vendor", "databricks-skills");
 const skillTargets = [join(root, ".claude", "skills"), join(root, ".github", "skills")];
-const sessionsDir = join(root, "work", "sessions");
 
 const requiredFiles = [
   "README.md",
@@ -389,29 +392,7 @@ async function setup(options) {
 }
 
 async function sessionRecords() {
-  if (!(await exists(sessionsDir))) return [];
-  const files = (await readdir(sessionsDir)).filter(
-    (name) => name.endsWith(".md") && name.toLowerCase() !== "readme.md",
-  );
-  const records = [];
-  for (const name of files) {
-    const path = join(sessionsDir, name);
-    const text = await readFile(path, "utf8");
-    if (!text.startsWith("---")) continue;
-    const field = (key) => text.match(new RegExp(`^${key}:\\s*(.+)$`, "m"))?.[1]?.trim() || "";
-    records.push({
-      id: field("id") || name.replace(/\.md$/, ""),
-      title: field("title"),
-      status: field("status"),
-      intent: field("intent"),
-      updated: field("updated"),
-      path,
-    });
-  }
-  const productPath = join(root, "product.config.json");
-  const initializedAt = await exists(productPath) ? (await readJson(productPath)).initializedAt : null;
-  return records.filter((item) => !(initializedAt && item.intent === "improve-harness" && item.updated < initializedAt))
-    .sort((a, b) => b.updated.localeCompare(a.updated));
+  return readSessionRecords(root);
 }
 
 async function resolveSession(id) {
@@ -432,24 +413,23 @@ async function listSessions() {
   }
 }
 
-async function context() {
+async function context(options = {}) {
+  if (options.write) throw new Error("context is read-only; use status --write explicitly.");
+  const state = await workState(root, options);
+  if (options.json) return console.log(JSON.stringify(state, null, 2));
   const config = await readJson(join(root, "harness.config.json"));
-  const product = (await exists(join(root, "product.config.json")))
-    ? await readJson(join(root, "product.config.json"))
-    : null;
-  const active = (await sessionRecords()).filter((item) => item.status === "active").slice(0, 8);
+  const product = (await exists(join(root, "product.config.json"))) ? await readJson(join(root, "product.config.json")) : null;
   console.log(`Harness ${config.harnessVersion} (${config.maturityLevel})`);
   console.log(`Product: ${product ? `${product.displayName} [${product.name}]` : "not initialized"}`);
   console.log("Canonical product docs: docs/product/");
   console.log("Canonical harness docs: docs/harness/");
-  if (!active.length) console.log("Active sessions: none");
-  else {
-    console.log("Active sessions:");
-    for (const item of active) {
-      console.log(`- ${relative(root, item.path).replaceAll("\\", "/")} [${item.intent}] ${item.title}`);
-    }
-  }
+  console.log(renderWorkState(state));
   console.log("Knowledge indexes: docs/product/knowledge/INDEX.md, docs/harness/knowledge/INDEX.md");
+}
+
+async function status(options = {}) {
+  const state = options.write ? await writeStatus(root, options) : await workState(root, options);
+  console.log(options.json ? JSON.stringify(state, null, 2) : renderWorkState(state));
 }
 
 async function route(options) {
@@ -462,6 +442,7 @@ async function route(options) {
 
 async function check({ exitOnFailure = false } = {}) {
   const problems = [];
+  try { await taskRecords(root); } catch (error) { problems.push(error.message); }
   try { await loadWorkloads(root); } catch (error) { problems.push(error.message); }
   problems.push(...await instructionAssets(root));
   problems.push(...await validateDurableArtifacts(root));
@@ -528,6 +509,11 @@ Commands:
   sync-agent-assets
   check | doctor [--profile NAME] [--strict] [--json] | context
   connect --profile NAME --host URL [--auth] [--allow-default]
+  context [--session ID] [--all] [--json]
+  status [--session ID] [--all] [--json] [--write]
+  task create --id TV-01 --title TEXT --session ID --done-when TEXT [--depends-on TV-00]
+  task list [--session ID] | show --id TV-01
+  task update --id TV-01 --status STATE --expected-revision SHA256 --summary TEXT
   route --prompt "sanitized task summary"
   workload list|resolve [--prompt TEXT] [--workload ID (repeat)] [--without ID (repeat)]
   intake create --title TITLE --summary TEXT [--source repo/path] [--name ASCII_NAME] [--workload ID (repeat)]
@@ -537,6 +523,8 @@ Commands:
   loop init --session ID --provider manual|claude|copilot [--max-iterations 8]
   loop show|run|record|gate|approve|stop --id ID (run defaults to dry-run; --execute opts in)
   evidence seal --review work/reviews/FILE.json --session ID --requirement PATH
+  deployment simulate --id RUN_ID --session SESSION_ID --scenario success|validation-failed|deployment-failed|deployment-pending|start-failed|health-failed|deployment-timeout|scope-mismatch
+  deployment show --id RUN_ID (read-only; synthetic observations, never live)
   approval create --session ID --gate GATE --actor PERSON --evidence PATH --artifact PATH
   eval prepare [--id ID] [--revision COMMIT] | record --plan PATH --result PATH
   eval compare --baseline PATH --candidate PATH
@@ -547,7 +535,7 @@ Commands:
   update apply --plan .harness/updates/PLAN.json --yes
   session start --title TITLE --intent ROUTE --objective OUTCOME [--provider NAME]
   session checkpoint --id ID --summary TEXT --next TEXT [--decision TEXT] [--evidence TEXT]
-                     [--blocker TEXT]
+                     [--blocker TEXT] [--task TASK_ID|none] [--expected-revision SHA256]
   session close --id ID --outcome completed|blocked|superseded --summary TEXT
                 [--verifier-evidence RECEIPT]
   session list
@@ -565,7 +553,14 @@ try {
   else if (command === "check") await check();
   else if (command === "doctor") await doctorDatabricks(root, parseOptions(process.argv.slice(3)));
   else if (command === "connect") await connectDatabricks(root, parseOptions(process.argv.slice(3)));
-  else if (command === "context") await context();
+  else if (command === "context") await context(parseOptions(process.argv.slice(3)));
+  else if (command === "status") await status(parseOptions(process.argv.slice(3)));
+  else if (command === "task" && subcommand === "create") console.log(JSON.stringify(await createTask(root, options), null, 2));
+  else if (command === "task" && subcommand === "update") console.log(JSON.stringify(await updateTask(root, options), null, 2));
+  else if (command === "task" && ["list", "show"].includes(subcommand)) {
+    if (subcommand === "show" && !options.id) throw new Error("task show requires --id.");
+    console.log(JSON.stringify(await listTasks(root, options), null, 2));
+  }
   else if (command === "route") await route(parseOptions(process.argv.slice(3)));
   else if (command === "workload" && subcommand === "list") console.log(JSON.stringify(await loadWorkloads(root), null, 2));
   else if (command === "workload" && subcommand === "resolve") {
@@ -591,6 +586,11 @@ try {
   else if (command === "loop" && subcommand === "approve") await approveLoopGate(root, options);
   else if (command === "loop" && subcommand === "stop") await stopLoop(root, options);
   else if (command === "evidence" && subcommand === "seal") await sealEvidence(root, options);
+  else if (command === "deployment") {
+    const record = await deploymentCommand(root, subcommand, rest);
+    console.log(JSON.stringify(record, null, 2));
+    if (subcommand === "simulate" && record.status !== "simulated-success") process.exitCode = 1;
+  }
   else if (command === "approval" && subcommand === "create") await createApproval(root, options);
   else if (command === "eval" && subcommand === "prepare") await prepareEvaluation(root, options);
   else if (command === "eval" && subcommand === "record") await recordEvaluation(root, options);

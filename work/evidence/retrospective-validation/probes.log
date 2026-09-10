@@ -1,0 +1,22 @@
+{"probe":"HIMP-01-actual-read-only","requirementStatus":"accepted","reviewIds":["AC-D01","AC-D02","AC-D03","AC-D04","AC-D05"],"recognizedIds":[]}
+C:\Users\nimao\AppData\Local\Temp\harness-retrospective-probe-cuMKZT\work\reviews\fixture.receipt.json
+work/sessions/FIXTURE.md
+{"probe":"HIMP-01-supported","recognizedIds":["AC-01"],"receiptStatus":"pass","sessionStatus":"completed","error":null}
+{"probe":"HIMP-01-unsupported-only","recognizedIds":[],"receiptStatus":null,"sessionStatus":"active","error":"Review must cover every requirement acceptance criterion."}
+C:\Users\nimao\AppData\Local\Temp\harness-retrospective-probe-rIFH6q\work\reviews\fixture.receipt.json
+work/sessions/FIXTURE.md
+{"probe":"HIMP-01-mixed-omitted","recognizedIds":["AC-01"],"receiptStatus":"pass","sessionStatus":"completed","error":null}
+C:\Users\nimao\AppData\Local\Temp\harness-retrospective-probe-NlwBjf\work\reviews\fixture.receipt.json
+work/sessions/FIXTURE.md
+{"probe":"HIMP-01-duplicate-requirement","recognizedIds":["AC-01"],"receiptStatus":"pass","sessionStatus":"completed","error":null}
+{"probe":"HIMP-02-hook-static-sequence","provider":"claude","denied":false,"output":"","actualDeployCalls":0,"note":"Only policy inspection; absence of deny is not permission or a deployment result."}
+{"probe":"HIMP-02-hook-static-sequence","provider":"copilot","denied":false,"output":"{}","actualDeployCalls":0,"note":"Only policy inspection; absence of deny is not permission or a deployment result."}
+{
+  "plan": "work/scaffolds/20260909-211253-983-app-fixture-app-b699b9fe.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+{"probe":"HIMP-08-nested-cli-output","expectedRoot":"apps/fixture-app","actualRoot":"apps/fixture-app/fixture-app","status":"failed","failureStage":"validate","error":"AppKit scaffold validation failed: fixture validator: package.json missing at requested component root","validationPath":["databricks","apps","validate","--path","apps/fixture-app","--profile","DEV"],"actualExternalCalls":0,"injectedCallCount":7}
+{"probe":"HIMP-08-current-test-in-initialized-fixture","exitCode":1,"renameGuardObserved":true,"sourceConfigUnchanged":true,"stdout":"✖ fresh template setup and gated durable session lifecycle work end to end (1638.2333ms)\nℹ tests 1\nℹ suites 0\nℹ pass 0\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1725.7966\n\n✖ failing tests:\n\ntest at tests\\harness.test.mjs:82:1\n✖ fresh template setup and gated durable session lifecycle work end to end (1638.2333ms)\n  AssertionError [ERR_ASSERTION]: Harness error: Setup will not rename an existing product. Review product.config.json and Bundle names separately.\n  \n  \n  1 !== 0\n  \n      at TestContext.<anonymous> (file:///C:/Users/nimao/AppData/Local/Temp/harness-retrospective-probe-I1YaA6/tests/harness.test.mjs:109:12)\n      at async Test.run (node:internal/test_runner/test:1208:7)\n      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 1,\n    expected: 0,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n","stderr":""}
+{"summary":"Diagnostic observations complete; not a passing implementation or real acceptance","probes":9}

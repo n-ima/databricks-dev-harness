@@ -1,6 +1,7 @@
 import { copyFile, mkdir, readFile, stat } from "node:fs/promises";
 import { basename, extname, join } from "node:path";
 import { resolveWorkloads } from "./workloads.mjs";
+import { acceptanceIds } from "./acceptance.mjs";
 import {
   asciiSlug,
   cleanInline,
@@ -358,7 +359,9 @@ async function createIntakeLocked(root, options, { title, summary, name }) {
   }
   manifest.artifacts = { requirementPath, architecturePath, planPath, sessionPath };
   manifest.sources = await collectSources(root, id, optionList(options.source));
-  await atomicWrite(join(root, requirementPath), requirementDocument(manifest));
+  const generatedRequirement = requirementDocument(manifest);
+  acceptanceIds(generatedRequirement);
+  await atomicWrite(join(root, requirementPath), generatedRequirement);
   await atomicWrite(join(root, architecturePath), architectureDocument(manifest, requirementPath));
   await atomicWrite(join(root, planPath), executionPlan(manifest, requirementPath, architecturePath));
   await atomicWrite(join(root, sessionPath), sessionDocument(manifest, requirementPath, architecturePath, planPath));
@@ -412,6 +415,7 @@ async function approveIntakeLocked(root, options, { path, manifest }) {
   if (!actor || !evidence) throw new Error("intake approve requires --actor and --evidence.");
   const open = manifest.questions.filter((item) => item.material && item.status !== "answered");
   if (open.length) throw new Error(`Cannot approve while material questions are open: ${open.map((item) => item.id).join(", ")}`);
+  acceptanceIds(await readFile(pathInside(root, manifest.artifacts.requirementPath), "utf8"));
   manifest.status = "accepted";
   manifest.updatedAt = timestamp();
   manifest.approval = { actor, evidence, decidedAt: manifest.updatedAt };
@@ -445,6 +449,7 @@ async function updateArtifacts(root, manifest, approved) {
     [manifest.artifacts.sessionPath, { gate: "product-intent", gate_status: approved ? "approved" : "pending", phase: approved ? (manifest.capabilities.ui ? "mock" : "design") : "define" }],
     [manifest.artifacts.planPath, { status: approved ? "ready" : "blocked-on-intent" }],
   ];
+  const pending = [];
   for (const [relativePath, fields] of entries) {
     const artifact = pathInside(root, relativePath);
     let content = await readFile(artifact, "utf8");
@@ -455,8 +460,11 @@ async function updateArtifacts(root, manifest, approved) {
       content = content.includes("<!-- intake-answers:start -->") ? content.replace(/<!-- intake-answers:start -->[\s\S]*?<!-- intake-answers:end -->/, block) : `${content}\n${block}\n`;
       content = content.replace(/- \[[ x]\] \*\*(Q-\d+)/g, (match, id) => `- [${manifest.questions.find((q) => q.id === id)?.status === "answered" ? "x" : " "}] **${id}`);
     }
-    await atomicWrite(artifact, content);
+    if (approved && relativePath === manifest.artifacts.requirementPath) acceptanceIds(content);
+    pending.push({ artifact, content });
   }
+  // Validate the final rendered requirement before changing any artifact.
+  for (const { artifact, content } of pending) await atomicWrite(artifact, content);
 }
 
 export async function showIntake(root, options) {

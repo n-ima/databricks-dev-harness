@@ -1,0 +1,311 @@
+TAP version 13
+# Subtest: root databricks.yml directory fails pure inspection and is preserved
+ok 1 - root databricks.yml directory fails pure inspection and is preserved
+  ---
+  duration_ms: 9.6331
+  type: 'test'
+  ...
+# Subtest: root databricks.fixture-only.yml directory fails pure inspection and is preserved
+ok 2 - root databricks.fixture-only.yml directory fails pure inspection and is preserved
+  ---
+  duration_ms: 6.0837
+  type: 'test'
+  ...
+# Subtest: root .harness-fixture-only.json directory fails pure inspection and is preserved
+ok 3 - root .harness-fixture-only.json directory fails pure inspection and is preserved
+  ---
+  duration_ms: 6.8231
+  type: 'test'
+  ...
+# Subtest: initial mock databricks.fixture-only.yml directory preserves fixture collision diagnostic without writes
+ok 4 - initial mock databricks.fixture-only.yml directory preserves fixture collision diagnostic without writes
+  ---
+  duration_ms: 53.7039
+  type: 'test'
+  ...
+# Subtest: initial mock .harness-fixture-only.json directory preserves fixture collision diagnostic without writes
+ok 5 - initial mock .harness-fixture-only.json directory preserves fixture collision diagnostic without writes
+  ---
+  duration_ms: 38.7552
+  type: 'test'
+  ...
+# Subtest: initial mock Bundle directory fails inspection before marker or validate
+ok 6 - initial mock Bundle directory fails inspection before marker or validate
+  ---
+  duration_ms: 38.2434
+  type: 'test'
+  ...
+# Subtest: validate cannot make absent databricks.yml into an invisible directory
+ok 7 - validate cannot make absent databricks.yml into an invisible directory
+  ---
+  duration_ms: 57.9223
+  type: 'test'
+  ...
+# Subtest: validate cannot make absent databricks.fixture-only.yml into an invisible directory
+ok 8 - validate cannot make absent databricks.fixture-only.yml into an invisible directory
+  ---
+  duration_ms: 41.7287
+  type: 'test'
+  ...
+# Subtest: normal cache directories and nested control-looking names remain allowed
+ok 9 - normal cache directories and nested control-looking names remain allowed
+  ---
+  duration_ms: 49.8988
+  type: 'test'
+  ...
+# Subtest: noncanonical root control DaTaBrIcKs.YmL is rejected before bounded read
+ok 10 - noncanonical root control DaTaBrIcKs.YmL is rejected before bounded read
+  ---
+  duration_ms: 11.3048
+  type: 'test'
+  ...
+# Subtest: noncanonical root control DATABRICKS.FIXTURE-ONLY.YML is rejected before bounded read
+ok 11 - noncanonical root control DATABRICKS.FIXTURE-ONLY.YML is rejected before bounded read
+  ---
+  duration_ms: 6.722
+  type: 'test'
+  ...
+# Subtest: noncanonical root control .HARNESS-FIXTURE-ONLY.JSON is rejected before bounded read
+ok 12 - noncanonical root control .HARNESS-FIXTURE-ONLY.JSON is rejected before bounded read
+  ---
+  duration_ms: 7.359
+  type: 'test'
+  ...
+# Subtest: noncanonical nested PACKAGE.JSON is rejected without relocating its root
+ok 13 - noncanonical nested PACKAGE.JSON is rejected without relocating its root
+  ---
+  duration_ms: 6.3356
+  type: 'test'
+  ...
+# Subtest: uppercase ordinary cache remains outside the reserved alias restriction
+ok 14 - uppercase ordinary cache remains outside the reserved alias restriction
+  ---
+  duration_ms: 17.0603
+  type: 'test'
+  ...
+# Subtest: mixed-case excluded local inputs do not change fresh fixture bytes or source
+ok 15 - mixed-case excluded local inputs do not change fresh fixture bytes or source
+  ---
+  duration_ms: 129.9583
+  type: 'test'
+  ...
+# Subtest: HI-04: absent root control becoming a directory must not be invisible to continuity
+ok 16 - HI-04: absent root control becoming a directory must not be invisible to continuity
+  ---
+  duration_ms: 11.7147
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-002248-469-app-independent-5843969b.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: HI-01: invalid UTF-8 package bytes fail before quarantine or validation
+ok 17 - HI-01: invalid UTF-8 package bytes fail before quarantine or validation
+  ---
+  duration_ms: 66.0483
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-002248-529-app-independent-54c9493c.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: HI-02: validator root replacement must not adopt an unvalidated unquarantined root
+ok 18 - HI-02: validator root replacement must not adopt an unvalidated unquarantined root
+  ---
+  duration_ms: 53.1392
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-002248-582-app-independent-64f48364.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260910-002248-582-app-independent-64f48364.json",
+#   "status": "applied",
+#   "generatedFiles": [
+#     "apps/independent"
+#   ]
+# }
+# Subtest: legal same-root validate file generation and nested package preserve expected validation root
+ok 19 - legal same-root validate file generation and nested package preserve expected validation root
+  ---
+  duration_ms: 57.1146
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-002248-639-app-independent-86495f80.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: second preflight refuses output created by apply authentication fake before init
+ok 20 - second preflight refuses output created by apply authentication fake before init
+  ---
+  duration_ms: 27.9604
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-002248-667-app-independent-0792b2db.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: hard-linked generated Bundle refuses before quarantine or validation
+ok 21 - hard-linked generated Bundle refuses before quarantine or validation
+  ---
+  duration_ms: 28.3577
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-002248-696-app-independent-f0d669d3.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: validator linked-root replacement is rejected and external local target stays untouched
+ok 22 - validator linked-root replacement is rejected and external local target stays untouched
+  ---
+  duration_ms: 50.8129
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-002248-747-app-independent-b90791ee.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: mock reserved directory collision preserves both original Bundle and collision
+ok 23 - mock reserved directory collision preserves both original Bundle and collision
+  ---
+  duration_ms: 35.672
+  type: 'test'
+  ...
+# Subtest: package exact byte limit passes and one extra byte fails
+ok 24 - package exact byte limit passes and one extra byte fails
+  ---
+  duration_ms: 14.5379
+  type: 'test'
+  ...
+# Subtest: fixture initialized-source nested local contamination is excluded deterministically
+ok 25 - fixture initialized-source nested local contamination is excluded deterministically
+  ---
+  duration_ms: 111.687
+  type: 'test'
+  ...
+# Subtest: missing mandatory fixture input refuses before exclusive destination creation
+ok 26 - missing mandatory fixture input refuses before exclusive destination creation
+  ---
+  duration_ms: 13.7028
+  type: 'test'
+  ...
+# Subtest: fixture source depth bound refuses before destination creation
+ok 27 - fixture source depth bound refuses before destination creation
+  ---
+  duration_ms: 70.9072
+  type: 'test'
+  ...
+# Subtest: fixture source byte bound refuses before destination creation
+ok 28 - fixture source byte bound refuses before destination creation
+  ---
+  duration_ms: 26.6067
+  type: 'test'
+  ...
+# Subtest: fixture source entry bound refuses before destination creation
+ok 29 - fixture source entry bound refuses before destination creation
+  ---
+  duration_ms: 22703.6263
+  type: 'test'
+  ...
+# Subtest: HI-03: case-alias Bundle restoration cannot bypass Windows control continuity
+ok 30 - HI-03: case-alias Bundle restoration cannot bypass Windows control continuity
+  ---
+  duration_ms: 73.7111
+  type: 'test'
+  ...
+# Subtest: same-root package mutation after validate is rejected without success evidence
+ok 31 - same-root package mutation after validate is rejected without success evidence
+  ---
+  duration_ms: 54.0297
+  type: 'test'
+  ...
+# Subtest: same-root marker mutation after validate is rejected without success evidence
+ok 32 - same-root marker mutation after validate is rejected without success evidence
+  ---
+  duration_ms: 58.6377
+  type: 'test'
+  ...
+# Subtest: same-root quarantine mutation after validate is rejected without success evidence
+ok 33 - same-root quarantine mutation after validate is rejected without success evidence
+  ---
+  duration_ms: 50.8421
+  type: 'test'
+  ...
+# Subtest: same-root bundle-restore mutation after validate is rejected without success evidence
+ok 34 - same-root bundle-restore mutation after validate is rejected without success evidence
+  ---
+  duration_ms: 51.0172
+  type: 'test'
+  ...
+# Subtest: same-root marker-remove mutation after validate is rejected without success evidence
+ok 35 - same-root marker-remove mutation after validate is rejected without success evidence
+  ---
+  duration_ms: 43.2099
+  type: 'test'
+  ...
+# Subtest: root replacement with identical package and all control bytes is rejected by exact identity
+ok 36 - root replacement with identical package and all control bytes is rejected by exact identity
+  ---
+  duration_ms: 48.4901
+  type: 'test'
+  ...
+# Subtest: same-root same-content package replacement is allowed under byte continuity
+ok 37 - same-root same-content package replacement is allowed under byte continuity
+  ---
+  duration_ms: 45.269
+  type: 'test'
+  ...
+# Subtest: missing expected output records no fabricated generated artifact
+ok 38 - missing expected output records no fabricated generated artifact
+  ---
+  duration_ms: 32.817
+  type: 'test'
+  ...
+# Subtest: mock without original Bundle records only the exact generated marker and no Bundle
+ok 39 - mock without original Bundle records only the exact generated marker and no Bundle
+  ---
+  duration_ms: 37.7779
+  type: 'test'
+  ...
+# Subtest: root control exact 1MiB passes and one extra byte fails before quarantine
+ok 40 - root control exact 1MiB passes and one extra byte fails before quarantine
+  ---
+  duration_ms: 16.5028
+  type: 'test'
+  ...
+# Subtest: valid Unicode and UTF-8 BOM remain valid JSON objects; truncated multibyte is rejected
+ok 41 - valid Unicode and UTF-8 BOM remain valid JSON objects; truncated multibyte is rejected
+  ---
+  duration_ms: 14.2991
+  type: 'test'
+  ...
+# Subtest: post-validate marker hard link refuses despite unchanged content hash
+ok 42 - post-validate marker hard link refuses despite unchanged content hash
+  ---
+  duration_ms: 48.4219
+  type: 'test'
+  ...
+1..42
+# tests 42
+# suites 0
+# pass 42
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 23528.4877

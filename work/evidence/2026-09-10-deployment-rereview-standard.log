@@ -1,0 +1,382 @@
+TAP version 13
+# Subtest: session reference drift stops before deploy even with identical requirement bytes
+ok 1 - session reference drift stops before deploy even with identical requirement bytes
+  ---
+  duration_ms: 143.3332
+  type: 'test'
+  ...
+# Subtest: session inactive drift stops before deploy even with identical requirement bytes
+ok 2 - session inactive drift stops before deploy even with identical requirement bytes
+  ---
+  duration_ms: 141.0256
+  type: 'test'
+  ...
+# Subtest: session gate drift stops before deploy even with identical requirement bytes
+ok 3 - session gate drift stops before deploy even with identical requirement bytes
+  ---
+  duration_ms: 122.3944
+  type: 'test'
+  ...
+# Subtest: session progress text can change without changing bound intent
+ok 4 - session progress text can change without changing bound intent
+  ---
+  duration_ms: 571.5895
+  type: 'test'
+  ...
+# Subtest: rejects junction at excluded root or output ancestor: app/node_modules
+ok 5 - rejects junction at excluded root or output ancestor: app/node_modules
+  ---
+  duration_ms: 66.8821
+  type: 'test'
+  ...
+# Subtest: rejects junction at excluded root or output ancestor: work/simulations
+ok 6 - rejects junction at excluded root or output ancestor: work/simulations
+  ---
+  duration_ms: 52.157
+  type: 'test'
+  ...
+# Subtest: rejects junction at excluded root or output ancestor: .harness/runtime
+ok 7 - rejects junction at excluded root or output ancestor: .harness/runtime
+  ---
+  duration_ms: 43.0189
+  type: 'test'
+  ...
+# Subtest: nested src/build is source, not a generated-root exclusion
+ok 8 - nested src/build is source, not a generated-root exclusion
+  ---
+  duration_ms: 83.209
+  type: 'test'
+  ...
+# Subtest: sync work past stage deadline cannot win Promise.race
+ok 9 - sync work past stage deadline cannot win Promise.race
+  ---
+  duration_ms: 164.6472
+  type: 'test'
+  ...
+# Subtest: overall deadline includes preflight and no late result can restore success
+ok 10 - overall deadline includes preflight and no late result can restore success
+  ---
+  duration_ms: 176.8719
+  type: 'test'
+  ...
+# Subtest: lost result and stop writes leave durable deployment entry uncertain with no downstream calls
+ok 11 - lost result and stop writes leave durable deployment entry uncertain with no downstream calls
+  ---
+  duration_ms: 252.6415
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: run
+ok 12 - rejects untrusted health result: run
+  ---
+  duration_ms: 549.0023
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: extra
+ok 13 - rejects untrusted health result: extra
+  ---
+  duration_ms: 557.1695
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: future
+ok 14 - rejects untrusted health result: future
+  ---
+  duration_ms: 804.8621
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: old
+ok 15 - rejects untrusted health result: old
+  ---
+  duration_ms: 811.5384
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: calendar
+ok 16 - rejects untrusted health result: calendar
+  ---
+  duration_ms: 784.1279
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: live-url
+ok 17 - rejects untrusted health result: live-url
+  ---
+  duration_ms: 808.6707
+  type: 'test'
+  ...
+# Subtest: show rejects altered schema, event order and success fields even after hash recomputation
+ok 18 - show rejects altered schema, event order and success fields even after hash recomputation
+  ---
+  duration_ms: 998.7713
+  type: 'test'
+  ...
+# Subtest: CLI rejects unknown, duplicate, missing and live options before creating records
+ok 19 - CLI rejects unknown, duplicate, missing and live options before creating records
+  ---
+  duration_ms: 77.5876
+  type: 'test'
+  ...
+# Subtest: fixed CLI scenarios cannot promote a synthetic observation into live success
+ok 20 - fixed CLI scenarios cannot promote a synthetic observation into live success
+  ---
+  duration_ms: 4085.678
+  type: 'test'
+  ...
+# Subtest: public CLI uses real dispatcher and safe exit codes on isolated fixtures
+ok 21 - public CLI uses real dispatcher and safe exit codes on isolated fixtures
+  ---
+  duration_ms: 2451.3454
+  type: 'test'
+  ...
+# Subtest: policy directory junction is rejected capture even with equal bytes
+ok 22 - policy directory junction is rejected capture even with equal bytes
+  ---
+  duration_ms: 93.9451
+  type: 'test'
+  ...
+# Subtest: policy directory junction is rejected validate even with equal bytes
+ok 23 - policy directory junction is rejected validate even with equal bytes
+  ---
+  duration_ms: 213.3801
+  type: 'test'
+  ...
+# Subtest: policy raw byte changes invalidate candidate even when legacy UTF-8 digest collides
+ok 24 - policy raw byte changes invalidate candidate even when legacy UTF-8 digest collides
+  ---
+  duration_ms: 324.4266
+  type: 'test'
+  ...
+# Subtest: dispatcher bytes are bound independently of the legacy verifier policy hash
+ok 25 - dispatcher bytes are bound independently of the legacy verifier policy hash
+  ---
+  duration_ms: 244.5815
+  type: 'test'
+  ...
+# Subtest: synthetic health cannot store a path payload
+ok 26 - synthetic health cannot store a path payload
+  ---
+  duration_ms: 813.445
+  type: 'test'
+  ...
+# Subtest: stopped event cannot jump over unentered stages even with a recomputed hash
+ok 27 - stopped event cannot jump over unentered stages even with a recomputed hash
+  ---
+  duration_ms: 194.2985
+  type: 'test'
+  ...
+# Subtest: candidate binds input roles and ignores only declared generated/dependency roots
+ok 28 - candidate binds input roles and ignores only declared generated/dependency roots
+  ---
+  duration_ms: 125.0325
+  type: 'test'
+  ...
+# Subtest: successful flow records simulation identity, ordered operations and freshness without claiming live
+ok 29 - successful flow records simulation identity, ordered operations and freshness without claiming live
+  ---
+  duration_ms: 894.6278
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at validate stops all downstream calls {"status":"failed"}
+ok 30 - failure or incomplete terminal at validate stops all downstream calls {"status":"failed"}
+  ---
+  duration_ms: 199.9003
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at validate stops all downstream calls {"status":"passed","checks":["build","typecheck","lint"]}
+ok 31 - failure or incomplete terminal at validate stops all downstream calls {"status":"passed","checks":["build","typecheck","lint"]}
+  ---
+  duration_ms: 171.2428
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at deploy stops all downstream calls {"status":"failed"}
+ok 32 - failure or incomplete terminal at deploy stops all downstream calls {"status":"failed"}
+  ---
+  duration_ms: 358.1376
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at observe stops all downstream calls {"state":"PENDING","deploymentId":"sim-001"}
+ok 33 - failure or incomplete terminal at observe stops all downstream calls {"state":"PENDING","deploymentId":"sim-001"}
+  ---
+  duration_ms: 488.1413
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at observe stops all downstream calls {"state":"FAILED","deploymentId":"sim-001"}
+ok 34 - failure or incomplete terminal at observe stops all downstream calls {"state":"FAILED","deploymentId":"sim-001"}
+  ---
+  duration_ms: 473.6413
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at start stops all downstream calls {"state":"STOPPED","deploymentId":"sim-001"}
+ok 35 - failure or incomplete terminal at start stops all downstream calls {"state":"STOPPED","deploymentId":"sim-001"}
+  ---
+  duration_ms: 638.8453
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at health stops all downstream calls {"status":"unhealthy","deploymentId":"sim-001"}
+ok 36 - failure or incomplete terminal at health stops all downstream calls {"status":"unhealthy","deploymentId":"sim-001"}
+  ---
+  duration_ms: 853.0857
+  type: 'test'
+  ...
+# Subtest: validate throw or timeout cannot start a later operation
+ok 37 - validate throw or timeout cannot start a later operation
+  ---
+  duration_ms: 395.0588
+  type: 'test'
+  ...
+# Subtest: deploy throw or timeout cannot start a later operation
+ok 38 - deploy throw or timeout cannot start a later operation
+  ---
+  duration_ms: 683.7073
+  type: 'test'
+  ...
+# Subtest: observe throw or timeout cannot start a later operation
+ok 39 - observe throw or timeout cannot start a later operation
+  ---
+  duration_ms: 1023.8025
+  type: 'test'
+  ...
+# Subtest: start throw or timeout cannot start a later operation
+ok 40 - start throw or timeout cannot start a later operation
+  ---
+  duration_ms: 1315.7036
+  type: 'test'
+  ...
+# Subtest: health throw or timeout cannot start a later operation
+ok 41 - health throw or timeout cannot start a later operation
+  ---
+  duration_ms: 1636.9792
+  type: 'test'
+  ...
+# Subtest: already aborted invocation calls no adapter
+ok 42 - already aborted invocation calls no adapter
+  ---
+  duration_ms: 81.7874
+  type: 'test'
+  ...
+# Subtest: abort during deployment prevents observation and marks reconciliation required
+ok 43 - abort during deployment prevents observation and marks reconciliation required
+  ---
+  duration_ms: 312.2501
+  type: 'test'
+  ...
+# Subtest: post-validation modify drift blocks deployment
+ok 44 - post-validation modify drift blocks deployment
+  ---
+  duration_ms: 217.2177
+  type: 'test'
+  ...
+# Subtest: post-validation add drift blocks deployment
+ok 45 - post-validation add drift blocks deployment
+  ---
+  duration_ms: 197.3732
+  type: 'test'
+  ...
+# Subtest: post-validation remove drift blocks deployment
+ok 46 - post-validation remove drift blocks deployment
+  ---
+  duration_ms: 240.3872
+  type: 'test'
+  ...
+# Subtest: post-validation validation drift blocks deployment
+ok 47 - post-validation validation drift blocks deployment
+  ---
+  duration_ms: 234.7591
+  type: 'test'
+  ...
+# Subtest: post-validation requirement drift blocks deployment
+ok 48 - post-validation requirement drift blocks deployment
+  ---
+  duration_ms: 228.321
+  type: 'test'
+  ...
+# Subtest: post-validation policy drift blocks deployment
+ok 49 - post-validation policy drift blocks deployment
+  ---
+  duration_ms: 237.0771
+  type: 'test'
+  ...
+# Subtest: post-validation approval drift blocks deployment
+ok 50 - post-validation approval drift blocks deployment
+  ---
+  duration_ms: 245.5959
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope candidateId calls no adapter
+ok 51 - unapproved or mismatching scope candidateId calls no adapter
+  ---
+  duration_ms: 118.9556
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope session calls no adapter
+ok 52 - unapproved or mismatching scope session calls no adapter
+  ---
+  duration_ms: 116.6736
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope identity calls no adapter
+ok 53 - unapproved or mismatching scope identity calls no adapter
+  ---
+  duration_ms: 123.2646
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope decision calls no adapter
+ok 54 - unapproved or mismatching scope decision calls no adapter
+  ---
+  duration_ms: 144.8364
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope expiresAt calls no adapter
+ok 55 - unapproved or mismatching scope expiresAt calls no adapter
+  ---
+  duration_ms: 143.332
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope kind calls no adapter
+ok 56 - unapproved or mismatching scope kind calls no adapter
+  ---
+  duration_ms: 135.0335
+  type: 'test'
+  ...
+# Subtest: mismatched deployment identity is never accepted as terminal success
+ok 57 - mismatched deployment identity is never accepted as terminal success
+  ---
+  duration_ms: 531.0496
+  type: 'test'
+  ...
+# Subtest: malformed candidate is rejected before any record or callback
+ok 58 - malformed candidate is rejected before any record or callback
+  ---
+  duration_ms: 57.6449
+  type: 'test'
+  ...
+# Subtest: record IDs cannot overwrite results or escape the simulation directory
+ok 59 - record IDs cannot overwrite results or escape the simulation directory
+  ---
+  duration_ms: 847.5012
+  type: 'test'
+  ...
+# Subtest: concurrent candidate/target invocation is rejected without duplicate deployment
+ok 60 - concurrent candidate/target invocation is rejected without duplicate deployment
+  ---
+  duration_ms: 831.2895
+  type: 'test'
+  ...
+# Subtest: candidate rejects secret settings and unsafe component roots
+ok 61 - candidate rejects secret settings and unsafe component roots
+  ---
+  duration_ms: 78.3324
+  type: 'test'
+  ...
+# Subtest: candidate rejects junctions including those pointing inside the repository
+ok 62 - candidate rejects junctions including those pointing inside the repository
+  ---
+  duration_ms: 70.368
+  type: 'test'
+  ...
+1..62
+# tests 62
+# suites 0
+# pass 62
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 30157.8834

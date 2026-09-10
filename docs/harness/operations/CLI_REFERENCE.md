@@ -66,6 +66,10 @@ local scaffoldもdraftです。dataは生成Python契約試験と実Delta試験�
 
 ## Sessions / knowledge
 
+配備停止制御の固定fixture試験は [DEPLOYMENT_SIMULATION](DEPLOYMENT_SIMULATION.md) を参照。`deployment simulate` は合成結果だけを使い、Databricksを操作しない。実アプリのbuild/testやlive稼働の証拠ではない。
+
+タスク一覧・現在地・focus付き再開は[TASK_VISIBILITY](TASK_VISIBILITY.md)を参照。通常はagentが`task create/update`を操作し、`status`の同じ記録からチャットの一覧を返す。`context --session ID`は読み取りのみ、`status --write`だけが`work/STATUS.md`を生成する。
+
 ```text
 npm run session:checkpoint -- --id SESSION_ID --summary "確認済み現状" --next "次の具体的な行動" --evidence work/evidence/test-run.md
 npm run knowledge:add -- --scope product --title "営業日境界" --body "業務日をAsia/Tokyo 05:00で区切る" --confidence high --source docs/product/decisions/ADR-0001.md --applies-to "受注集計のみ" --review-after 2026-12-01

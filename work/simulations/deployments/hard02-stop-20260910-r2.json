@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "mode": "simulation",
+  "liveDeployment": false,
+  "id": "hard02-stop-20260910-r2",
+  "candidate": {
+    "schemaVersion": 1,
+    "mode": "simulation",
+    "adapter": "fixture-v1",
+    "session": "20260909-214048-619-retrospective-hardening",
+    "sessionBinding": {
+      "path": "work/sessions/20260909-214048-619-retrospective-hardening.md",
+      "id": "20260909-214048-619-retrospective-hardening",
+      "status": "active",
+      "requirement": "docs/harness/requirements/retrospective-hardening.md",
+      "gate": "none",
+      "gateStatus": "not-applicable"
+    },
+    "component": "harness/fixtures/deployment-component",
+    "requirement": {
+      "path": "docs/harness/requirements/retrospective-hardening.md",
+      "sha256": "de27edccfda277d8d655e67c635e8bbd2bb5cd43994c742ff182400cf20dbf64"
+    },
+    "identity": {
+      "host": "https://workspace.invalid",
+      "workspaceId": "simulation-workspace",
+      "profile": "simulation-profile",
+      "target": "simulation",
+      "resource": "simulation-app",
+      "principal": "simulation-principal",
+      "operations": [
+        "deploy",
+        "start"
+      ],
+      "costLimitUsd": 0
+    },
+    "excludedRoots": [
+      ".git",
+      "node_modules",
+      "dist",
+      "build",
+      "coverage"
+    ],
+    "inventory": [
+      {
+        "path": "README.md",
+        "bytes": 197,
+        "sha256": "c6444a86fa1ed85ed6b911a6822ae178e9d6e433fa9b180aa71cebdbb0e8fb53",
+        "role": "source"
+      },
+      {
+        "path": "src/main.ts",
+        "bytes": 94,
+        "sha256": "91c441856a5a56f94de7f94200a78174746aad01d6962c9fe30216cdeb1733d6",
+        "role": "source"
+      },
+      {
+        "path": "tests/main.test.ts",
+        "bytes": 119,
+        "sha256": "2df039b164b0ebd19f1ddfb5e7e1b249ec7c202b7fa123efd791532a60eb337f",
+        "role": "validation"
+      }
+    ],
+    "policyInputs": [
+      {
+        "path": "AGENTS.md",
+        "bytes": 3638,
+        "sha256": "6fda1b7a9700098303d2aec6211578ecf3c8a8ddea20fdb7c3a294a6cb612a4b"
+      },
+      {
+        "path": "harness.config.json",
+        "bytes": 1213,
+        "sha256": "320885177cf71e65be7ac2845d5ad392a27ffe84c73bc2b53449020c0cdb48e3"
+      },
+      {
+        "path": "harness/evals/golden-tasks.json",
+        "bytes": 3830,
+        "sha256": "058d9b90ebfb729d4c66e1902bbf7f89958d27f349686851d40d66a5fa32fd84"
+      },
+      {
+        "path": "harness/router.json",
+        "bytes": 1929,
+        "sha256": "82cbbd5d1c03569ad428ebb6f6f2df40b0b54002a5f3974da5fefc15a9bc3ec2"
+      },
+      {
+        "path": "harness/schemas/approval.schema.json",
+        "bytes": 1074,
+        "sha256": "fa30abe33051755615fd3b01d9877fbee2d59769dc33ac70d9600f5ac1a405d7"
+      },
+      {
+        "path": "harness/schemas/eval-result.schema.json",
+        "bytes": 1325,
+        "sha256": "a96d4618c60bdc702006a5e7348e4cc414c05fd32990676e150aaf5ca035fa5f"
+      },
+      {
+        "path": "harness/schemas/intake.schema.json",
+        "bytes": 946,
+        "sha256": "afec71bccf34edd10c12af93c962d87dbb3ecf6f5fbe7c0042a6d5f2762ee99e"
+      },
+      {
+        "path": "harness/schemas/loop.schema.json",
+        "bytes": 2010,
+        "sha256": "b4ae2915977964cc6e00a212041c0c66ff53eb48f2274f5dd38d6e91dff29ef2"
+      },
+      {
+        "path": "harness/schemas/release-manifest.schema.json",
+        "bytes": 712,
+        "sha256": "5655d995d89a2786f662e30f17f7a6a3c4d4f87eb0225ee12f3e10fdb065c814"
+      },
+      {
+        "path": "harness/schemas/scaffold-plan.schema.json",
+        "bytes": 962,
+        "sha256": "55abf6b1f4d22d91050a92472ba68746f19fb74cb104894481419cc2cc764c5d"
+      },
+      {
+        "path": "harness/workloads.json",
+        "bytes": 14847,
+        "sha256": "0f17fe0910a5db5baaa3ffec0e239a0366da47434fb6aa8c94a06dad43d92dd0"
+      },
+      {
+        "path": "tools/agent-hook.mjs",
+        "bytes": 10780,
+        "sha256": "6b30cb667d0f5af3a3c3e9b0e70dcbc00ad8f47ef90476b7d97ba8d3adc29f16"
+      },
+      {
+        "path": "tools/harness.mjs",
+        "bytes": 27554,
+        "sha256": "3d21e195346750d83fd1e49e0c23d3550fbf4ed89e356b9b7a2e69dfb61eecf1"
+      },
+      {
+        "path": "tools/lib/acceptance.mjs",
+        "bytes": 7249,
+        "sha256": "a4785ef8688781d3be53724f301d20e6b051d778b9f947f23102431dc2c4b8f0"
+      },
+      {
+        "path": "tools/lib/approval.mjs",
+        "bytes": 3772,
+        "sha256": "bf59255bd69ee57b24c18e1f9bdd7d44930cf81e0dfd36d43ec59c63f6355471"
+      },
+      {
+        "path": "tools/lib/assets.mjs",
+        "bytes": 933,
+        "sha256": "fc1c9ac7f628b07871fd7285e8bb3853decf20278d0b3bb12bde63bcebba6c26"
+      },
+      {
+        "path": "tools/lib/databricks.mjs",
+        "bytes": 15258,
+        "sha256": "0ad4ad5e367a8c9d218b144021488c23221ff1780d620dc4bc23c4d614ebf89e"
+      },
+      {
+        "path": "tools/lib/deployment-simulation.mjs",
+        "bytes": 29456,
+        "sha256": "74cae5533b5cc990a13ee8c0206aabd9e23b97897b42c01057c6ce8d450011ca"
+      },
+      {
+        "path": "tools/lib/distribution.mjs",
+        "bytes": 25395,
+        "sha256": "353c367ae4dc0da41557d860f9a5fd131b4101c8f23b4cbe23667f085c99c923"
+      },
+      {
+        "path": "tools/lib/evaluation.mjs",
+        "bytes": 25944,
+        "sha256": "34b738447b611d40036c3ec2293a956543d133db7f395a4ac38a22008c404b69"
+      },
+      {
+        "path": "tools/lib/evidence.mjs",
+        "bytes": 6088,
+        "sha256": "10d68be98ac11c0c17921573d9f02ff23843f0b8b236a851fc9bb8c03d850e7d"
+      },
+      {
+        "path": "tools/lib/intake.mjs",
+        "bytes": 20464,
+        "sha256": "b18e116ad6541034e0ee3b554cf795bf260defaa9ae492d7d6cd9c33ed2bfb63"
+      },
+      {
+        "path": "tools/lib/loop.mjs",
+        "bytes": 20640,
+        "sha256": "71ea6817a53faad5804605ea46c08d1f7c73cd835a8361c33a9ba88c9148bad9"
+      },
+      {
+        "path": "tools/lib/memory.mjs",
+        "bytes": 10661,
+        "sha256": "a12149f1db2e4442ef12e2778423701b97272a4dc4daf3bebcb6163570db9801"
+      },
+      {
+        "path": "tools/lib/policy.mjs",
+        "bytes": 1082,
+        "sha256": "55f1f1b8f609356d1ca5effba417662ad9d7e57cb5b3f882f00b087ae2e12aca"
+      },
+      {
+        "path": "tools/lib/scaffold.mjs",
+        "bytes": 57366,
+        "sha256": "01f2bb44a4787190ee4198929d18fddc576ba26525ae9778e555eb8b797d2da7"
+      },
+      {
+        "path": "tools/lib/schema.mjs",
+        "bytes": 4569,
+        "sha256": "41a88b01e90c3f0a707ff956753d79058ae0b825f5d6c19f4a4f7849f402e758"
+      },
+      {
+        "path": "tools/lib/session-state.mjs",
+        "bytes": 3452,
+        "sha256": "ad009bc5727ee8d70c48139932aa805de5ed75f0d8a63cefbe95b998f804fbde"
+      },
+      {
+        "path": "tools/lib/shared.mjs",
+        "bytes": 7745,
+        "sha256": "d1ba0fc8078775b62fd7ddfe3776e3d36c718b78f31aa410fd9a16b9a0d5b251"
+      },
+      {
+        "path": "tools/lib/starters.mjs",
+        "bytes": 6137,
+        "sha256": "e98f29094e8bc8c12ed4045a528d4afff8219aae32873d7a699076553b39d852"
+      },
+      {
+        "path": "tools/lib/tasks.mjs",
+        "bytes": 12117,
+        "sha256": "402264587bca1058e03751fd95a10a53f782dfbb36b0c04fc08b07fdef6d2b87"
+      },
+      {
+        "path": "tools/lib/vendor-legal.mjs",
+        "bytes": 7576,
+        "sha256": "f608613a3c420092b091a25f60f40434235d7ee720671fac8e1279a5beb71b6c"
+      },
+      {
+        "path": "tools/lib/work-state.mjs",
+        "bytes": 5987,
+        "sha256": "a5c029dc58294e894d0c2a7a9db3492a336f16edbf3a215447667b3f06b73459"
+      },
+      {
+        "path": "tools/lib/workloads.mjs",
+        "bytes": 5639,
+        "sha256": "0b7421272fa7fba004d7983f85e210b8984e54fd8956e1b0f3d5d570076d7429"
+      }
+    ],
+    "policyHash": "1c08b7c8539c538ae052d9e3c05e9d41556739bb3dc3390b705d503292b5852a",
+    "id": "30e113af4c63d15f7276330b07fbad19352002930cc5e8a2553aba099f4df9f7"
+  },
+  "approvalPath": "work/simulations/deployment-inputs/hard02-stop-20260910-r2.approval.json",
+  "approvalHash": "690c1fa9ff4bf275bfb6681c33491efee7ebbc3d3323a9516c2550748680da0f",
+  "status": "stopped",
+  "stage": "validate",
+  "reason": "validation-incomplete-or-failed",
+  "simulatedCalls": [
+    "validate"
+  ],
+  "events": [
+    {
+      "stage": "validate",
+      "event": "entered",
+      "at": "2026-09-09T23:18:13.290Z"
+    },
+    {
+      "stage": "validate",
+      "event": "stopped",
+      "at": "2026-09-09T23:18:13.323Z"
+    }
+  ],
+  "deploymentId": null,
+  "health": null,
+  "reconciliationRequired": false,
+  "startedAt": "2026-09-09T23:18:13.259Z",
+  "updatedAt": "2026-09-09T23:18:13.323Z",
+  "integrity": "497ac0aa151e9f6768527daaadd551d6c1f69cdf790c172be730cced7f6fe0af"
+}

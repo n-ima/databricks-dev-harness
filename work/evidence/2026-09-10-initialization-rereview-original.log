@@ -1,0 +1,137 @@
+TAP version 13
+# {
+#   "plan": "work/scaffolds/20260910-000830-224-app-independent-2867c8f7.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: HI-01: invalid UTF-8 package bytes fail before quarantine or validation
+ok 1 - HI-01: invalid UTF-8 package bytes fail before quarantine or validation
+  ---
+  duration_ms: 47.1905
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-000830-265-app-independent-c44f95c9.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: HI-02: validator root replacement must not adopt an unvalidated unquarantined root
+ok 2 - HI-02: validator root replacement must not adopt an unvalidated unquarantined root
+  ---
+  duration_ms: 45.4813
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-000830-311-app-independent-e4fbdaed.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260910-000830-311-app-independent-e4fbdaed.json",
+#   "status": "applied",
+#   "generatedFiles": [
+#     "apps/independent"
+#   ]
+# }
+# Subtest: legal same-root validate file generation and nested package preserve expected validation root
+ok 3 - legal same-root validate file generation and nested package preserve expected validation root
+  ---
+  duration_ms: 42.7627
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-000830-353-app-independent-61e42547.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: second preflight refuses output created by apply authentication fake before init
+ok 4 - second preflight refuses output created by apply authentication fake before init
+  ---
+  duration_ms: 19.5317
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-000830-373-app-independent-199d38da.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: hard-linked generated Bundle refuses before quarantine or validation
+ok 5 - hard-linked generated Bundle refuses before quarantine or validation
+  ---
+  duration_ms: 23.5882
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-000830-397-app-independent-a5b8f6c3.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: validator linked-root replacement is rejected and external local target stays untouched
+ok 6 - validator linked-root replacement is rejected and external local target stays untouched
+  ---
+  duration_ms: 35.5502
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260910-000830-433-app-independent-a977d620.json",
+#   "status": "ready",
+#   "missing": [],
+#   "rules": []
+# }
+# Subtest: mock reserved directory collision preserves both original Bundle and collision
+ok 7 - mock reserved directory collision preserves both original Bundle and collision
+  ---
+  duration_ms: 28.2662
+  type: 'test'
+  ...
+# Subtest: package exact byte limit passes and one extra byte fails
+ok 8 - package exact byte limit passes and one extra byte fails
+  ---
+  duration_ms: 11.3631
+  type: 'test'
+  ...
+# Subtest: fixture initialized-source nested local contamination is excluded deterministically
+ok 9 - fixture initialized-source nested local contamination is excluded deterministically
+  ---
+  duration_ms: 86.3186
+  type: 'test'
+  ...
+# Subtest: missing mandatory fixture input refuses before exclusive destination creation
+ok 10 - missing mandatory fixture input refuses before exclusive destination creation
+  ---
+  duration_ms: 11.1468
+  type: 'test'
+  ...
+# Subtest: fixture source depth bound refuses before destination creation
+ok 11 - fixture source depth bound refuses before destination creation
+  ---
+  duration_ms: 41.8869
+  type: 'test'
+  ...
+# Subtest: fixture source byte bound refuses before destination creation
+ok 12 - fixture source byte bound refuses before destination creation
+  ---
+  duration_ms: 17.3123
+  type: 'test'
+  ...
+# Subtest: fixture source entry bound refuses before destination creation
+ok 13 - fixture source entry bound refuses before destination creation
+  ---
+  duration_ms: 27407.9153
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 28064.3779

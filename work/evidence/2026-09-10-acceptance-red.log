@@ -1,0 +1,377 @@
+✖ acceptance grammar preserves legacy IDs and recognizes namespaced IDs and checkboxes (1.9083ms)
+✖ acceptance examples in fenced blocks are not live criteria (0.214ms)
+✖ acceptance rejects empty rather than silently dropping criteria (0.3073ms)
+✖ acceptance rejects invalid ID rather than silently dropping criteria (0.0831ms)
+✖ acceptance rejects duplicate rather than silently dropping criteria (0.0717ms)
+✖ acceptance rejects empty body rather than silently dropping criteria (0.0629ms)
+✖ acceptance rejects lowercase rather than silently dropping criteria (0.0581ms)
+✖ acceptance rejects missing colon rather than silently dropping criteria (0.0506ms)
+✖ acceptance rejects numbered rather than silently dropping criteria (0.069ms)
+✖ acceptance rejects table rather than silently dropping criteria (0.2986ms)
+✖ acceptance rejects formatted rather than silently dropping criteria (0.1143ms)
+✖ acceptance rejects plain bullet rather than silently dropping criteria (0.0652ms)
+✖ acceptance rejects unclosed fence rather than silently dropping criteria (0.0536ms)
+✔ AC-D01 survives seal, validate, and session completion with full independent fixture evidence (83.8954ms)
+✖ seal rejects mixed omitted without writing a receipt or changing session (27.306ms)
+✖ seal rejects extra without writing a receipt or changing session (25.723ms)
+✖ seal rejects invalid without writing a receipt or changing session (28.5303ms)
+✔ seal rejects duplicate review without writing a receipt or changing session (19.7093ms)
+✖ duplicate requirement definitions cannot be sealed (22.3413ms)
+✖ receipt use revalidates exact coverage and refuses completing a forged incomplete receipt (42.9433ms)
+✖ existing requirement approval rejects invalid definitions before any record changes (21.1641ms)
+✖ intake generation uses valid IDs and approval rejects malformed edited requirements before mutation (251.2666ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 2
+ℹ fail 20
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 610.8812
+
+✖ failing tests:
+
+test at tests\acceptance.test.mjs:40:1
+✖ acceptance grammar preserves legacy IDs and recognizes namespaced IDs and checkboxes (1.9083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'H-01',
+  -   'AC-D01',
+  -   'AC-DATA-02'
+    ]
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:41:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'H-01' ],
+    expected: [ 'H-01', 'AC-D01', 'AC-DATA-02' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:44:1
+✖ acceptance examples in fenced blocks are not live criteria (0.214ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'EX-01',
+      'AC-01'
+    ]
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:45:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'EX-01', 'AC-01' ],
+    expected: [ 'AC-01' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects empty rather than silently dropping criteria (0.3073ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /No acceptance criteria/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects invalid ID rather than silently dropping criteria (0.0831ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance.*line 7/i,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects duplicate rather than silently dropping criteria (0.0717ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Duplicate acceptance.*AC-01/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects empty body rather than silently dropping criteria (0.0629ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Empty acceptance.*AC-01/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects lowercase rather than silently dropping criteria (0.0581ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects missing colon rather than silently dropping criteria (0.0506ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects numbered rather than silently dropping criteria (0.069ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects table rather than silently dropping criteria (0.2986ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects formatted rather than silently dropping criteria (0.1143ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects plain bullet rather than silently dropping criteria (0.0652ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:61:3
+✖ acceptance rejects unclosed fence rather than silently dropping criteria (0.0536ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:61:95)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Unclosed.*fence/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:79:3
+✖ seal rejects mixed omitted without writing a receipt or changing session (27.306ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:82:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Missing acceptance.*AC-D01/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:79:3
+✖ seal rejects extra without writing a receipt or changing session (25.723ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:82:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Unexpected acceptance.*AC-99/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:79:3
+✖ seal rejects invalid without writing a receipt or changing session (28.5303ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:82:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:87:1
+✖ duplicate requirement definitions cannot be sealed (22.3413ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:90:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Duplicate acceptance/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:93:1
+✖ receipt use revalidates exact coverage and refuses completing a forged incomplete receipt (42.9433ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:100:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Missing acceptance.*AC-D01/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:103:1
+✖ existing requirement approval rejects invalid definitions before any record changes (21.1641ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:106:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:110:1
+✖ intake generation uses valid IDs and approval rejects malformed edited requirements before mutation (251.2666ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:122:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'rejects',
+    diff: 'simple'
+  }

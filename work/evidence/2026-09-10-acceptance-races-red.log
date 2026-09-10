@@ -1,0 +1,209 @@
+✔ acceptance grammar preserves legacy IDs and recognizes namespaced IDs and checkboxes (2.0393ms)
+✔ acceptance examples in fenced blocks are not live criteria (0.1775ms)
+✔ frontmatter and comments are inert, and setext/ATX section boundaries are explicit (0.4056ms)
+✔ legacy headingless mode rejects ambiguous definition "- ac-02: lowercase.\n" (0.0972ms)
+✔ legacy headingless mode rejects ambiguous definition "1. AC-D01: ordered.\n" (0.0787ms)
+✔ legacy headingless mode rejects ambiguous definition "| AC-D01 | table |\n" (0.1077ms)
+✔ legacy headingless mode rejects ambiguous definition "- **AC-D01**: formatted.\n" (0.1089ms)
+✔ legacy headingless mode rejects ambiguous definition "- AC-D01：fullwidth colon.\n" (0.0629ms)
+✔ legacy headingless mode rejects ambiguous definition "    - AC-D01: indented.\n" (0.0776ms)
+✔ legacy headingless mode rejects ambiguous definition "> - AC-D01: quoted.\n" (0.0926ms)
+✔ legacy headingless mode rejects ambiguous definition "- [✓] AC-D01: unsupported checkbox.\n" (0.0693ms)
+✔ legacy headingless mode rejects ambiguous definition "- AC​-02: hidden character.\n" (0.1435ms)
+✔ legacy headingless mode rejects ambiguous definition "- ＡＣ-０２: non-ASCII.\n" (0.0423ms)
+✔ legacy headingless mode rejects ambiguous definition "  - AC-D01: nested.\n" (0.0325ms)
+✔ legacy headingless mode rejects ambiguous definition "### AC-D01: heading.\n" (0.0324ms)
+✔ legacy headingless mode rejects ambiguous definition "<div>\n- AC-D01: HTML.\n</div>\n" (0.0269ms)
+✖ legacy headingless mode rejects ambiguous definition "# H-D01 must be verified\n" (0.3981ms)
+✖ legacy headingless mode rejects ambiguous definition "# **AC-D01** must be verified\n" (0.1069ms)
+✖ legacy headingless mode rejects ambiguous definition "• AC-D01: Unicode bullet requirement\n" (0.0997ms)
+✖ legacy headingless mode rejects ambiguous definition "​• AC-D01: hidden prefix\n" (0.0668ms)
+✔ malformed metadata, comments and example fences are rejected, not used to hide criteria (0.1552ms)
+✔ acceptance rejects empty rather than silently dropping criteria (0.0649ms)
+✔ acceptance rejects invalid ID rather than silently dropping criteria (0.0655ms)
+✔ acceptance rejects duplicate rather than silently dropping criteria (0.0546ms)
+✔ acceptance rejects empty body rather than silently dropping criteria (0.0513ms)
+✔ acceptance rejects lowercase rather than silently dropping criteria (0.0335ms)
+✔ acceptance rejects missing colon rather than silently dropping criteria (0.0331ms)
+✔ acceptance rejects numbered rather than silently dropping criteria (0.0288ms)
+✔ acceptance rejects table rather than silently dropping criteria (0.026ms)
+✔ acceptance rejects formatted rather than silently dropping criteria (0.0372ms)
+✔ acceptance rejects plain bullet rather than silently dropping criteria (0.0293ms)
+✔ acceptance rejects unclosed fence rather than silently dropping criteria (0.0517ms)
+✔ AC-D01 survives seal, validate, and session completion with full independent fixture evidence (65.9631ms)
+✔ seal rejects mixed omitted without writing a receipt or changing session (13.2506ms)
+✔ seal rejects extra without writing a receipt or changing session (12.6494ms)
+✔ seal rejects invalid without writing a receipt or changing session (12.0612ms)
+✔ seal rejects duplicate review without writing a receipt or changing session (16.6437ms)
+✔ duplicate requirement definitions cannot be sealed (12.2809ms)
+✔ receipt use revalidates exact coverage and refuses completing a forged incomplete receipt (34.2099ms)
+✔ existing requirement approval rejects invalid definitions before any record changes (11.5677ms)
+✔ intake generation uses valid IDs and approval rejects malformed edited requirements before mutation (196.2579ms)
+✔ intake validates its final rendered answer ledger before changing any artifact or existing approval (195.906ms)
+✖ product approval rejects concurrent requirement contents without approving (20.4438ms)
+✖ product approval rejects concurrent session requirement pointer without approving (21.2239ms)
+✖ seal rejects changed validated input docs/product/requirements/fixture.md (23.8127ms)
+✖ seal rejects changed validated input work/reviews/fixture.json (20.0979ms)
+✖ receipt coverage is parsed from the same bytes as its validated requirement hash (44.5561ms)
+ℹ tests 47
+ℹ suites 0
+ℹ pass 38
+ℹ fail 9
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 785.6994
+
+✖ failing tests:
+
+test at tests\acceptance.test.mjs:63:3
+✖ legacy headingless mode rejects ambiguous definition "# H-D01 must be verified\n" (0.3981ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:64:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:63:3
+✖ legacy headingless mode rejects ambiguous definition "# **AC-D01** must be verified\n" (0.1069ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:64:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:63:3
+✖ legacy headingless mode rejects ambiguous definition "• AC-D01: Unicode bullet requirement\n" (0.0997ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:64:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:63:3
+✖ legacy headingless mode rejects ambiguous definition "​• AC-D01: hidden prefix\n" (0.0668ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:64:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Invalid acceptance/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:180:3
+✖ product approval rejects concurrent requirement contents without approving (20.4438ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:187:7
+      at async interceptedRead (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:176:16)
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:186:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /requirement.*changed/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:180:3
+✖ product approval rejects concurrent session requirement pointer without approving (21.2239ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:187:7
+      at async interceptedRead (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:176:16)
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:186:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /requirement.*changed/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:204:3
+✖ seal rejects changed validated input docs/product/requirements/fixture.md (23.8127ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:209:7
+      at async interceptedRead (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:176:16)
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:208:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /(?:Verified input|Evidence input).*changed/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:204:3
+✖ seal rejects changed validated input work/reviews/fixture.json (20.0979ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:209:7
+      at async interceptedRead (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:176:16)
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:208:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /(?:Verified input|Evidence input).*changed/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\acceptance.test.mjs:221:1
+✖ receipt coverage is parsed from the same bytes as its validated requirement hash (44.5561ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:230:5
+      at async interceptedRead (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:176:16)
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/acceptance.test.mjs:229:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /Missing acceptance.*AC-D01|Verified artifact changed/,
+    operator: 'rejects',
+    diff: 'simple'
+  }

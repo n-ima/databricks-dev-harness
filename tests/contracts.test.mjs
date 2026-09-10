@@ -342,15 +342,21 @@ test("AppKit validation failure is persisted as a failed scaffold, not a reusabl
   const plan = await planScaffold(context.root, appOptions(), context);
   const planPath = `work/scaffolds/${plan.id}.json`;
   const calls = [];
-  const run = (command, args) => {
+  const run = async (command, args) => {
     calls.push({ command, args: [...args] });
     const auth = appAuthResponse(args);
     if (auth) return auth;
-    return args[1] === "init" ? commandSuccess() : commandFailure("invalid generated app contract");
+    if (args[1] === "init") {
+      // A successful init must produce the expected root before validation is meaningful.
+      await writeJson(join(context.root, plan.outputDir, "package.json"), { name: plan.name });
+      return commandSuccess();
+    }
+    return commandFailure("invalid generated app contract");
   };
   await assert.rejects(applyScaffold(context.root, { plan: planPath, yes: true }, { run }), /validation failed/);
   assert.deepEqual(calls.filter((item) => item.args[0] === "apps").map((item) => item.args[1]), ["init", "validate"]);
   assert.equal((await readJson(join(context.root, planPath))).status, "failed");
+  assert.equal((await readJson(join(context.root, planPath))).failureStage, "validate");
 });
 
 function mockManifest() {

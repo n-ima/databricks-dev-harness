@@ -1,4 +1,6 @@
 * text=auto eol=lf
+# Verification logs are immutable byte evidence, including original line endings.
+work/evidence/**/*.log -text
 *.sh text eol=lf
 *.ps1 text eol=lf
 *.png binary

@@ -1,0 +1,33 @@
+{
+  "observedAt": "2026-09-09T20:41:17.070Z",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "files": {
+    "tools/lib/session-state.mjs": "ad009bc5727ee8d70c48139932aa805de5ed75f0d8a63cefbe95b998f804fbde",
+    "tools/lib/tasks.mjs": "402264587bca1058e03751fd95a10a53f782dfbb36b0c04fc08b07fdef6d2b87",
+    "tools/lib/work-state.mjs": "a5c029dc58294e894d0c2a7a9db3492a336f16edbf3a215447667b3f06b73459",
+    "tools/lib/memory.mjs": "a12149f1db2e4442ef12e2778423701b97272a4dc4daf3bebcb6163570db9801",
+    "tools/harness.mjs": "11fd7be9073f164cf7e9df3f568791cff299b6fe31595a9afa33db90e8f59862",
+    "tools/agent-hook.mjs": "6b30cb667d0f5af3a3c3e9b0e70dcbc00ad8f47ef90476b7d97ba8d3adc29f16",
+    "harness/skills/orchestrate-work/SKILL.md": "e4bc674a9130f1d5a387c0e5bccc628cc364dc08588a3fe2a9272f7338f41361",
+    ".claude/skills/orchestrate-work/SKILL.md": "e4bc674a9130f1d5a387c0e5bccc628cc364dc08588a3fe2a9272f7338f41361",
+    ".github/skills/orchestrate-work/SKILL.md": "e4bc674a9130f1d5a387c0e5bccc628cc364dc08588a3fe2a9272f7338f41361",
+    "tests/task-visibility.test.mjs": "fe0b974640f4897d212ed3a06aeff5b5600317139aff01dda2ff8359078252cf",
+    "tests/fixtures/task-visibility/golden-task.md": "9454f511592909632c7a4f2b1c2b30a0b997a9c993ca040ecdbc49b4b6018f5d",
+    "docs/harness/requirements/task-visibility.md": "eebd8b222a5e6539d706dac408d70510b768200033ba2e644a133a968c9d6a6c",
+    "docs/harness/design/TASK_VISIBILITY.md": "234f3edc197a0d7b1f708f2802b98fc7b9e739a59818c13850a69b3d3cb5b9db",
+    "docs/harness/operations/TASK_VISIBILITY.md": "22908356cf0aebcebc559f5fd638f8dc6d75ed80f1ebc21904261b9c99a74cc1",
+    "docs/harness/operations/CLI_REFERENCE.md": "8a895dde26c1b7323838ff5d741f8f1ac66beb19b45b3569b295219895f8cdbc",
+    "docs/harness/operations/SESSION_AND_KNOWLEDGE.md": "9cbe7995cdcbe32bce63e040375292eaeef1197249362411fa862afe7ee7902e",
+    "docs/harness/operations/VALIDATION_STATUS.md": "56c5ea5e883f83499af96ecb591e57134c6b7d1faef13d2d783871c7e1c0d2cd",
+    "tools/lib/shared.mjs": "d1ba0fc8078775b62fd7ddfe3776e3d36c718b78f31aa410fd9a16b9a0d5b251",
+    "tools/lib/evidence.mjs": "9f5b4e070f72c8ff12c9dbd527c5a8296a4b414dd7d1f1d745c7ab2d8c24fb1a",
+    "tools/lib/approval.mjs": "b016d7900394e17630cb038c583e6a899b3c94c777b8ef3434fb7bd76ef1fdc8",
+    "tools/lib/loop.mjs": "71ea6817a53faad5804605ea46c08d1f7c73cd835a8361c33a9ba88c9148bad9",
+    "harness.config.json": "320885177cf71e65be7ac2845d5ad392a27ffe84c73bc2b53449020c0cdb48e3",
+    "harness/router.json": "82cbbd5d1c03569ad428ebb6f6f2df40b0b54002a5f3974da5fefc15a9bc3ec2",
+    "AGENTS.md": "6fda1b7a9700098303d2aec6211578ecf3c8a8ddea20fdb7c3a294a6cb612a4b",
+    "package.json": "caf07e882d7034c099a5e78ebc460b1351bbf381a4bb68f25d1fe59b1d0d3eeb",
+    "work/evidence/visibility-review/probes.mjs": "82ee3c70d1f969c00fe35d679db694be9433c236cef9a3c5d19950a03dd309cf"
+  }
+}

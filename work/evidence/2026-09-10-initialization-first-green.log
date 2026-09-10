@@ -1,0 +1,35 @@
+✔ routes Japanese UI work to the mock-first workflow (81.3587ms)
+✔ Copilot session hook injects durable-context guidance (90.9352ms)
+✔ Copilot policy hook denies production deploy (64.0843ms)
+✔ Copilot policy hook does not pre-approve a development deploy (66.9961ms)
+✔ Claude and Copilot wire policy, stop, compaction, and failure lifecycle hooks (2.8487ms)
+✔ fresh template setup and gated durable session lifecycle work end to end (12016.404ms)
+✔ fresh fixture excludes initialized source product state without modifying it (2571.9043ms)
+✔ data scaffold generates executable composite-key fixtures without running external tools (52.2076ms)
+✔ generated Python unittest executes real record transitions and the actual Delta builder (261.6646ms)
+✔ generated data job refuses execution without an explicit approved-write switch (195.8888ms)
+✔ fixture field generation remains correct when product columns collide with sample names (277.352ms)
+✔ data planning rejects ambiguous keys, unsafe names, identical tables and missing inputs (21.9395ms)
+✔ local generation preflights all paths and never overwrites an existing artifact (30.9893ms)
+✔ AppKit mock requires an explicit verified workspace but no prior UI approval or data resources (82.6984ms)
+✔ mock AppKit plans reject profiles and mandatory or optional live-data plugins (11.4241ms)
+✔ AppKit validates the selected profile host before authentication and rechecks before init (36.3013ms)
+✔ AppKit commands cannot inherit custom template overrides or resource-validation bypasses (99.5993ms)
+✔ AppKit auto-approve is plan-time opt-in and nested integration bundles remain intact (54.4073ms)
+✔ AppKit success remains a starter with pending after-init MUST rules, not deploy-ready (63.072ms)
+✔ AppKit refuses changed plans and changed approval evidence before invoking init (65.4774ms)
+✔ AppKit integration binds the reviewed mock and rechecks its hashes before init (66.1757ms)
+✔ AppKit init failure and post-init validation failure persist distinct failed states (95.2514ms)
+✔ local AppKit manifest provenance must bind the exact pinned version (52.6855ms)
+✔ Genie and metric scaffolds are explicit drafts, outside automatic deployment paths (67.9427ms)
+✔ AppKit nested-only output stops before quarantine and validation (44.6487ms)
+✔ AppKit parallel apply locks the same plan (57.2921ms)
+✔ AppKit parallel apply locks different plans sharing the output (65.0831ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12403.5636

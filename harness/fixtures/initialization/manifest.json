@@ -1,0 +1,18 @@
+{
+  "fixtureVersion": 1,
+  "files": [
+    "AGENTS.md", "ARCHITECTURE.md", "CLAUDE.md", "harness.config.json",
+    ".claude/settings.json", ".github/copilot-instructions.md",
+    "vendor/databricks-skills.lock.json", "vendor/README.md", "docs/USAGE.md"
+  ],
+  "directories": [
+    "tools", "harness", "vendor/databricks-skills", "docs/harness", "docs/product/standards",
+    ".claude/agents", ".github/agents", ".github/hooks"
+  ],
+  "fixedFiles": {
+    "README.md": "# Offline harness fixture\n\nNo product data or live connection.\n",
+    "docs/product/README.md": "# Product fixture\n\nRequirements and design have not been defined.\n",
+    "package.json": "{\"name\":\"harness-offline-fixture\",\"private\":true,\"type\":\"module\"}\n",
+    "package-lock.json": "{\"name\":\"harness-offline-fixture\",\"lockfileVersion\":3,\"requires\":true,\"packages\":{}}\n"
+  }
+}

@@ -1,0 +1,141 @@
+✔ independent positive: mixed grammar, BOM/CRLF, headings and inert examples preserve exact IDs (1.8668ms)
+✔ independent negative parser: empty comment body (0.2513ms)
+✔ independent negative parser: duplicate across sections (0.1476ms)
+✔ independent negative parser: outside section (0.0653ms)
+✔ independent negative parser: shorter closing fence (0.1396ms)
+✔ independent negative parser: invalid review-like list (0.0754ms)
+✔ independent negative parser: unclosed HTML comment (0.0593ms)
+✖ unsupported definition must not silently permit seal and completion: # H-D01 must be verified (44.239ms)
+ℹ {"tail":"# H-D01 must be verified","rejected":false,"fixtureSessionStatus":"completed"}
+✖ unsupported definition must not silently permit seal and completion: # **AC-D01** must be verified (30.1434ms)
+ℹ {"tail":"# **AC-D01** must be verified","rejected":false,"fixtureSessionStatus":"completed"}
+✖ unsupported definition must not silently permit seal and completion: • AC-D01: Unicode bullet requirement (33.096ms)
+ℹ {"tail":"• AC-D01: Unicode bullet requirement","rejected":false,"fixtureSessionStatus":"completed"}
+✔ ID grammar must reject a final newline rather than accepting a partial-string match (0.3586ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: missing (32.5352ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: extra (31.0382ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: duplicate (24.5989ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: empty (31.5431ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: invalid ID (32.066ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: null result (23.063ms)
+✔ task completion rejects missing AC-D01 and leaves task plus session bytes unchanged (85.8626ms)
+✔ loop completion rejects missing AC-D01 and preserves loop plus session bytes (43.9443ms)
+✔ final intake reconstruction refuses invalid IDs and preserves every linked artifact plus old approval (183.8641ms)
+✖ product-intent approval must reject a changed requirement content before committing approval (25.15ms)
+ℹ {"change":"requirement content","rejected":false,"approvalExists":true,"requirement":"docs/product/requirements/probe.md","gate_status":"approved"}
+✖ product-intent approval must reject a changed session reference before committing approval (26.2025ms)
+ℹ {"change":"session reference","rejected":false,"approvalExists":true,"requirement":"docs/product/requirements/changed.md","gate_status":"approved"}
+✖ receipt validation must parse the same requirement bytes that it checked against the artifact hash (37.6687ms)
+ℹ {"rejected":false,"currentHashMatches":false,"fixtureSessionStatus":"completed","requirementReads":2}
+ℹ tests 23
+ℹ suites 0
+ℹ pass 17
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 761.2426
+
+✖ failing tests:
+
+test at work\evidence\acceptance-independent\probes.test.mjs:94:3
+✖ unsupported definition must not silently permit seal and completion: # H-D01 must be verified (44.239ms)
+  AssertionError [ERR_ASSERTION]: Unsupported real definition was dropped; incomplete review sealed and fixture completed.
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/acceptance-independent/probes.test.mjs:107:12)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at work\evidence\acceptance-independent\probes.test.mjs:94:3
+✖ unsupported definition must not silently permit seal and completion: # **AC-D01** must be verified (30.1434ms)
+  AssertionError [ERR_ASSERTION]: Unsupported real definition was dropped; incomplete review sealed and fixture completed.
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/acceptance-independent/probes.test.mjs:107:12)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at work\evidence\acceptance-independent\probes.test.mjs:94:3
+✖ unsupported definition must not silently permit seal and completion: • AC-D01: Unicode bullet requirement (33.096ms)
+  AssertionError [ERR_ASSERTION]: Unsupported real definition was dropped; incomplete review sealed and fixture completed.
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/acceptance-independent/probes.test.mjs:107:12)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at work\evidence\acceptance-independent\probes.test.mjs:183:3
+✖ product-intent approval must reject a changed requirement content before committing approval (25.15ms)
+  AssertionError [ERR_ASSERTION]: Approval committed after its validated requirement changed.
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/acceptance-independent/probes.test.mjs:205:12)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at work\evidence\acceptance-independent\probes.test.mjs:183:3
+✖ product-intent approval must reject a changed session reference before committing approval (26.2025ms)
+  AssertionError [ERR_ASSERTION]: Approval committed after its validated requirement changed.
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/acceptance-independent/probes.test.mjs:205:12)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at work\evidence\acceptance-independent\probes.test.mjs:211:1
+✖ receipt validation must parse the same requirement bytes that it checked against the artifact hash (37.6687ms)
+  AssertionError [ERR_ASSERTION]: Incomplete receipt completed after requirement changed between hash and parse.
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/acceptance-independent/probes.test.mjs:232:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,115 @@
+✔ data scaffold generates executable composite-key fixtures without running external tools (46.933ms)
+✔ generated Python unittest executes real record transitions and the actual Delta builder (257.317ms)
+✔ generated data job refuses execution without an explicit approved-write switch (181.4037ms)
+✔ fixture field generation remains correct when product columns collide with sample names (259.4461ms)
+✔ data planning rejects ambiguous keys, unsafe names, identical tables and missing inputs (23.9366ms)
+✔ local generation preflights all paths and never overwrites an existing artifact (26.7693ms)
+✔ AppKit mock requires an explicit verified workspace but no prior UI approval or data resources (93.6461ms)
+✔ mock AppKit plans reject profiles and mandatory or optional live-data plugins (10.1436ms)
+✔ AppKit validates the selected profile host before authentication and rechecks before init (33.7635ms)
+✔ AppKit commands cannot inherit custom template overrides or resource-validation bypasses (108.816ms)
+✔ AppKit auto-approve is plan-time opt-in and nested integration bundles remain intact (62.6528ms)
+✔ AppKit success remains a starter with pending after-init MUST rules, not deploy-ready (72.8376ms)
+✔ AppKit refuses changed plans and changed approval evidence before invoking init (63.6237ms)
+✔ AppKit integration binds the reviewed mock and rechecks its hashes before init (63.5791ms)
+✔ AppKit init failure and post-init validation failure persist distinct failed states (103.5487ms)
+✔ local AppKit manifest provenance must bind the exact pinned version (43.9987ms)
+✔ Genie and metric scaffolds are explicit drafts, outside automatic deployment paths (66.8188ms)
+✔ AppKit nested-only output stops before quarantine and validation (40.8093ms)
+✔ AppKit missing-root fails before quarantine or validate (38.6032ms)
+✔ AppKit missing-package fails before quarantine or validate (43.2189ms)
+✔ AppKit null-package fails before quarantine or validate (38.5263ms)
+✔ AppKit linked-child fails before quarantine or validate (44.8357ms)
+✔ AppKit linked-root fails before quarantine or validate (38.8795ms)
+✔ AppKit directory-package fails before quarantine or validate (39.6465ms)
+✔ AppKit mock databricks.fixture-only.yml collision preserves all bytes (43.4829ms)
+✔ AppKit mock .harness-fixture-only.json collision preserves all bytes (41.5716ms)
+✔ AppKit existing preflight calls neither auth nor init (33.367ms)
+✔ AppKit ancestor-junction preflight calls neither auth nor init (34.2922ms)
+✔ AppKit dangling-junction preflight calls neither auth nor init (35.0597ms)
+✔ AppKit successful validate cannot mask package removal (52.0759ms)
+✔ AppKit parallel apply locks the same plan (77.9928ms)
+✔ AppKit parallel apply locks different plans sharing the output (70.9062ms)
+✔ expected component root with nested packages is inspected, not relocated (13.6176ms)
+✔ output rejects non-object package: not (11.1405ms)
+✔ output rejects non-object package: null (6.3458ms)
+✔ output rejects non-object package: [] (6.8357ms)
+✔ output rejects non-object package: 1 (6.2941ms)
+✔ output rejects non-object package: "text" (9.9794ms)
+✔ output rejects missing root, missing package and directory package (11.7366ms)
+✔ invalid UTF-8 package bytes are rejected without normalization (6.4759ms)
+✔ output refuses ancestor, descendant and dangling junctions (9.6718ms)
+✔ output refuses hard-linked files without changing their source (5.2579ms)
+✔ output package size and total byte limits fail closed on sparse files (7.7815ms)
+✔ output depth limit is bounded (14.0517ms)
+✔ output entry limit is bounded (7625.3796ms)
+{
+  "plan": "work/scaffolds/20260910-000619-092-app-independent-bf7d21b5.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ HI-01: invalid UTF-8 package bytes fail before quarantine or validation (43.6036ms)
+{
+  "plan": "work/scaffolds/20260910-000619-134-app-independent-027f14e5.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ HI-02: validator root replacement must not adopt an unvalidated unquarantined root (47.7562ms)
+{
+  "plan": "work/scaffolds/20260910-000619-181-app-independent-61769c94.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+{
+  "plan": "work/scaffolds/20260910-000619-181-app-independent-61769c94.json",
+  "status": "applied",
+  "generatedFiles": [
+    "apps/independent"
+  ]
+}
+✔ legal same-root validate file generation and nested package preserve expected validation root (50.831ms)
+{
+  "plan": "work/scaffolds/20260910-000619-232-app-independent-758624a7.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ second preflight refuses output created by apply authentication fake before init (27.3683ms)
+{
+  "plan": "work/scaffolds/20260910-000619-260-app-independent-0a9e715a.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ hard-linked generated Bundle refuses before quarantine or validation (31.7907ms)
+{
+  "plan": "work/scaffolds/20260910-000619-292-app-independent-8e3b32ae.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ validator linked-root replacement is rejected and external local target stays untouched (50.3514ms)
+{
+  "plan": "work/scaffolds/20260910-000619-343-app-independent-7e89815f.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ mock reserved directory collision preserves both original Bundle and collision (42.0464ms)
+✔ package exact byte limit passes and one extra byte fails (16.4506ms)
+✔ fixture initialized-source nested local contamination is excluded deterministically (116.9728ms)
+✔ missing mandatory fixture input refuses before exclusive destination creation (14.9792ms)
+✔ fixture source depth bound refuses before destination creation (71.9159ms)
+✔ fixture source byte bound refuses before destination creation (27.1819ms)
+✔ fixture source entry bound refuses before destination creation (29119.5061ms)
+ℹ tests 58
+ℹ suites 0
+ℹ pass 58
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29764.0977

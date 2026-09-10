@@ -1,0 +1,174 @@
+✖ F-01 rejects outside verifier references before every writable transition (56.0897ms)
+✖ F-01 public CLI rejects bad verifier input and leaves both start hooks usable (249.3141ms)
+✖ F-02 legacy omitted blockers inherit the last explicit value, including none, without writes (194.2157ms)
+work/sessions/S-1.md
+✖ F-03 initial blocker content is archived before replacement (37.8204ms)
+work/sessions/S-1.md
+work/sessions/S-1.md
+work/sessions/S-1.md
+✖ F-03 manually added blockers survive later checkpoints and unchanged bodies are not rearchived (51.7481ms)
+work/sessions/S-1.md
+✖ F-03 pre-fix format-2 sessions archive a blocker not present in earlier checkpoints (34.7455ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 0
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 686.0642
+
+✖ failing tests:
+
+test at tests\task-visibility.test.mjs:330:1
+✖ F-01 rejects outside verifier references before every writable transition (56.0897ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/task-visibility.test.mjs:341:7)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /inside the repository/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\task-visibility.test.mjs:350:1
+✖ F-01 public CLI rejects bad verifier input and leaves both start hooks usable (249.3141ms)
+  AssertionError [ERR_ASSERTION]: {
+    "id": "TV-01",
+    "title": "Verify visible work",
+    "session": "S-1",
+    "requirement": "docs/harness/requirements/work.md",
+    "architecture": "docs/harness/design/work.md",
+    "done_when": "Observable fixture matches AC-01",
+    "risk": "low",
+    "status": "ready",
+    "depends_on": [],
+    "evidence": [],
+    "verifier_evidence": "../outside.json",
+    "created": "2026-09-09T20:32:53Z",
+    "updated": "2026-09-09T20:32:54Z",
+    "revision": "f1fb5551f964d481d4b6f3ae3aba1c31532344bd5550012940711e7c3eb2f58b"
+  }
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/task-visibility.test.mjs:358:12)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\task-visibility.test.mjs:374:1
+✖ F-02 legacy omitted blockers inherit the last explicit value, including none, without writes (194.2157ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'Initial blocker'
+  - 'Waiting for existing user decision'
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/task-visibility.test.mjs:392:16)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Initial blocker',
+    expected: 'Waiting for existing user decision',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\task-visibility.test.mjs:405:1
+✖ F-03 initial blocker content is archived before replacement (37.8204ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(after.includes("### Previous blockers and human gates\n\n" + oldBody))
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/task-visibility.test.mjs:412:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\task-visibility.test.mjs:416:1
+✖ F-03 manually added blockers survive later checkpoints and unchanged bodies are not rearchived (51.7481ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(after.includes("### Previous blockers and human gates\n\n" + manual))
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/task-visibility.test.mjs:426:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\task-visibility.test.mjs:432:1
+✖ F-03 pre-fix format-2 sessions archive a blocker not present in earlier checkpoints (34.7455ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /### Previous blockers and human gates\s+- Unarchived legacy blocker/. Input:
+  
+  '---\n' +
+    'id: S-1\n' +
+    'title: Session 1\n' +
+    'status: active\n' +
+    'checkpoint_format: 2\n' +
+    'intent: investigate\n' +
+    'provider: codex\n' +
+    'phase: define\n' +
+    'gate: product-intent\n' +
+    'gate_status: approved\n' +
+    'updated: 2026-09-09T20:32:54Z\n' +
+    'last_checkpoint: 2026-09-09T20:32:54Z\n' +
+    'requirement: docs/harness/requirements/work.md\n' +
+    'architecture: docs/harness/design/work.md\n' +
+    '---\n' +
+    '\n' +
+    '# Session 1\n' +
+    '\n' +
+    '## Verified current state\n' +
+    '\n' +
+    '- New state\n' +
+    '\n' +
+    '## Next actions\n' +
+    '\n' +
+    '- New next\n' +
+    '\n' +
+    '## Blockers and human gates\n' +
+    '\n' +
+    '- none\n' +
+    '\n' +
+    '## Checkpoint 2026-09-10T00:00:00Z\n' +
+    '\n' +
+    '- summary: Initial state 1\n' +
+    '- next: Initial next 1\n' +
+    '\n' +
+    '## Checkpoint 2026-09-09T20:32:54Z\n' +
+    '\n' +
+    '- summary: New state\n' +
+    '- next: New next\n' +
+    '- blocker: none\n'
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/task-visibility.test.mjs:441:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '---\nid: S-1\ntitle: Session 1\nstatus: active\ncheckpoint_format: 2\nintent: investigate\nprovider: codex\nphase: define\ngate: product-intent\ngate_status: approved\nupdated: 2026-09-09T20:32:54Z\nlast_checkpoint: 2026-09-09T20:32:54Z\nrequirement: docs/harness/requirements/work.md\narchitecture: docs/harness/design/work.md\n---\n\n# Session 1\n\n## Verified current state\n\n- New state\n\n## Next actions\n\n- New next\n\n## Blockers and human gates\n\n- none\n\n## Checkpoint 2026-09-10T00:00:00Z\n\n- summary: Initial state 1\n- next: Initial next 1\n\n## Checkpoint 2026-09-09T20:32:54Z\n\n- summary: New state\n- next: New next\n- blocker: none\n',
+    expected: /### Previous blockers and human gates\s+- Unarchived legacy blocker/,
+    operator: 'match',
+    diff: 'simple'
+  }

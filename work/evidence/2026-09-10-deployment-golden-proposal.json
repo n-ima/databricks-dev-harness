@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "proposed-not-promoted",
+  "id": "deployment-simulation-stop-boundary",
+  "intent": "improve-harness",
+  "fixture": "検証失敗・scope変更・timeout・中断後に後続を開始しないことを、固定fixtureで確認する。実Databricksへの操作はしない。",
+  "deterministicCommand": "node --test tests/deployment-simulation.test.mjs",
+  "success": [
+    "Failed validation has zero deploy calls",
+    "Changed source, validation input or session requirement cannot deploy",
+    "Timeout or missing durable results never become success",
+    "CLI and shown records remain simulation-only"
+  ],
+  "providers": [
+    "claude-code",
+    "github-copilot"
+  ],
+  "providerRuns": "not-run",
+  "baseline": "work/evidence/2026-09-10-deployment-red.log",
+  "note": "提案のみ。既存のreleasePolicy・budget・受入条件は変更しない。"
+}

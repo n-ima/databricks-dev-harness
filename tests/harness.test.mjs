@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
-import { cp, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { dirname, join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { tmpdir } from "node:os";
 import test from "node:test";
+import { freshTemplateFixture } from "./helpers/initialization.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -83,16 +84,7 @@ test("fresh template setup and gated durable session lifecycle work end to end",
   const temporaryParent = await mkdtemp(join(tmpdir(), "databricks-harness-"));
   const project = join(temporaryParent, "smoke-project");
   try {
-    await cp(root, project, {
-      recursive: true,
-      filter: (source) =>
-        !source.includes(`${sep}.git${sep}`) &&
-        !source.endsWith(`${sep}.git`) &&
-        !source.includes(`${sep}node_modules${sep}`) &&
-        !source.endsWith(`${sep}node_modules`) &&
-        !source.includes(`${sep}.harness${sep}`) &&
-        !source.endsWith(`${sep}.harness`),
-    });
+    await freshTemplateFixture(root, project);
     const originalInstructions = await readFile(join(project, "AGENTS.md"));
     const originalHash = createHash("sha256").update(originalInstructions).digest("hex");
     const upstreamManifest = {
@@ -130,6 +122,13 @@ test("fresh template setup and gated durable session lifecycle work end to end",
     const afterUpdateSetup = spawnSync(process.execPath, ["tools/harness.mjs", "setup", "--project-name", "smoke-project", "--skip-agent-skills"], { cwd: project, encoding: "utf8", shell: false });
     assert.equal(afterUpdateSetup.status, 0, afterUpdateSetup.stderr || afterUpdateSetup.stdout);
     assert.equal(await readFile(baselinePath, "utf8"), newerInstalled, "Rerun must not restore the older embedded baseline after a reviewed update.");
+
+    const renameAttempt = spawnSync(process.execPath, ["tools/harness.mjs", "setup", "--project-name", "different-product", "--skip-agent-skills"], { cwd: project, encoding: "utf8", shell: false });
+    assert.notEqual(renameAttempt.status, 0);
+    assert.match(renameAttempt.stderr + renameAttempt.stdout, /will not rename an existing product/);
+    assert.equal(await readFile(join(project, "product.config.json"), "utf8"), productBefore);
+    assert.equal(await readFile(join(project, "databricks.yml"), "utf8"), bundleWithUserChange);
+    assert.equal(await readFile(baselinePath, "utf8"), newerInstalled);
 
     const started = spawnSync(
       "node",

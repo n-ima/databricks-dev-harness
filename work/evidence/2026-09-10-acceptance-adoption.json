@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "recordType": "harness-adoption-decision",
+  "status": "adopted",
+  "recordedAt": "2026-09-09T22:32:06Z",
+  "localDate": "2026-09-10",
+  "sessionId": "20260909-214048-619-retrospective-hardening",
+  "taskId": "HARD-01",
+  "requirementScope": [
+    "HIMP-01"
+  ],
+  "decisionPath": "docs/harness/decisions/ADR-0006-acceptance-integrity-adoption.md",
+  "authorization": {
+    "source": "current-thread explicit user reply",
+    "quote": "正式採用してよい",
+    "scope": "Local harness acceptance-integrity specification and independently reviewed implementation",
+    "identityAuthenticatedByThisFile": false
+  },
+  "independentReview": {
+    "path": "work/reviews/2026-09-10-acceptance-implementation-rereview.md",
+    "sha256": "bd36425c0645bbe2232a0f7ce38520fab0fbe3e4bb68487bbec0d30bcaded0c7",
+    "result": "IR-01 through IR-03 resolved; 28 independent tests passed"
+  },
+  "reviewedSnapshot": [
+    {
+      "path": "docs/harness/requirements/retrospective-hardening.md",
+      "sha256": "8c32add25200e9f5d58f15c0540158ddd5dbd1f87f8a84093e71ac5c64e731c0"
+    },
+    {
+      "path": "docs/harness/design/RETROSPECTIVE_HARDENING.md",
+      "sha256": "1c47fdabe27e989c286551961e0a122ba3a93fe6adb0bde7afe4fd80db95ea1a"
+    },
+    {
+      "path": "docs/harness/operations/ACCEPTANCE_CONTRACT.md",
+      "sha256": "70927bf744944fb0cfdd144b48664e38fb6325c3662a342b28e10bb3a3e471c6"
+    },
+    {
+      "path": "tools/lib/acceptance.mjs",
+      "sha256": "a4785ef8688781d3be53724f301d20e6b051d778b9f947f23102431dc2c4b8f0"
+    },
+    {
+      "path": "tools/lib/evidence.mjs",
+      "sha256": "10d68be98ac11c0c17921573d9f02ff23843f0b8b236a851fc9bb8c03d850e7d"
+    },
+    {
+      "path": "tools/lib/intake.mjs",
+      "sha256": "b18e116ad6541034e0ee3b554cf795bf260defaa9ae492d7d6cd9c33ed2bfb63"
+    },
+    {
+      "path": "tools/lib/approval.mjs",
+      "sha256": "bf59255bd69ee57b24c18e1f9bdd7d44930cf81e0dfd36d43ec59c63f6355471"
+    },
+    {
+      "path": "tests/acceptance.test.mjs",
+      "sha256": "871176e7db53b007cf7e165c889507503c8c7d58d03081a5a005131764d7f96b"
+    }
+  ],
+  "reviewedSnapshotMatchedBeforeAdoption": true,
+  "excluded": [
+    "HIMP-02 through HIMP-08 completion",
+    "commit/push/versioned release",
+    "downstream product changes",
+    "Databricks/DB operations",
+    "provider/model canaries",
+    "budget or permission changes"
+  ],
+  "semanticImplementationChangesThisTurn": false,
+  "completionReceipt": false,
+  "boundary": "Human adoption record only; not an execution approval or a passing verification receipt. Runtime and test bytes remain at the reviewed snapshot. Document status/link changes do not alter the acceptance criteria."
+}

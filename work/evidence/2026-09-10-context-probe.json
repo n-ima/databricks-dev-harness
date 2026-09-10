@@ -1,0 +1,33 @@
+{
+  "observedAt": "2026-09-09T15:38:59.600Z",
+  "scope": "Isolated fixture; no provider model, authentication, network, or product state.",
+  "fixtureRoot": "C:\\Users\\nimao\\AppData\\Local\\Temp\\databricks-reaudit-TwPfTA",
+  "sessionCount": 9,
+  "findings": {
+    "cliListsNewestSession": true,
+    "hookListsNewestSession": false,
+    "cliExposesCurrentSlice": false,
+    "cliExposesNextAction": false,
+    "cliExposesPendingGate": false,
+    "hookExposesPendingGate": false,
+    "ordinaryStopBlocksWithoutCheckpoint": false,
+    "cliExplainsTruncation": false,
+    "hookExplainsTruncation": false
+  },
+  "outputs": {
+    "context": "Harness 0.4.0 (L1)\nProduct: not initialized\nCanonical product docs: docs/product/\nCanonical harness docs: docs/harness/\nActive sessions:\n- work/sessions/session-09.md [mock-ui] Audit task 9\n- work/sessions/session-08.md [mock-ui] Audit task 8\n- work/sessions/session-07.md [mock-ui] Audit task 7\n- work/sessions/session-06.md [mock-ui] Audit task 6\n- work/sessions/session-05.md [mock-ui] Audit task 5\n- work/sessions/session-04.md [mock-ui] Audit task 4\n- work/sessions/session-03.md [mock-ui] Audit task 3\n- work/sessions/session-02.md [mock-ui] Audit task 2\nKnowledge indexes: docs/product/knowledge/INDEX.md, docs/harness/knowledge/INDEX.md",
+    "sessionStart": {
+      "additionalContext": "Databricks harness context:\nRead AGENTS.md and load the orchestrate-work skill for every non-trivial request.\nTreat chat as transport, not memory. Start/resume a work/sessions file and checkpoint it before handoff or completion.\nHarness design belongs under docs/harness/; target product design belongs under docs/product/.\nActive durable sessions: work/sessions/session-01.md [mock-ui] Audit task 1; work/sessions/session-02.md [mock-ui] Audit task 2; work/sessions/session-03.md [mock-ui] Audit task 3; work/sessions/session-04.md [mock-ui] Audit task 4; work/sessions/session-05.md [mock-ui] Audit task 5; work/sessions/session-06.md [mock-ui] Audit task 6; work/sessions/session-07.md [mock-ui] Audit task 7; work/sessions/session-08.md [mock-ui] Audit task 8",
+      "hookSpecificOutput": {
+        "hookEventName": "SessionStart",
+        "additionalContext": "Databricks harness context:\nRead AGENTS.md and load the orchestrate-work skill for every non-trivial request.\nTreat chat as transport, not memory. Start/resume a work/sessions file and checkpoint it before handoff or completion.\nHarness design belongs under docs/harness/; target product design belongs under docs/product/.\nActive durable sessions: work/sessions/session-01.md [mock-ui] Audit task 1; work/sessions/session-02.md [mock-ui] Audit task 2; work/sessions/session-03.md [mock-ui] Audit task 3; work/sessions/session-04.md [mock-ui] Audit task 4; work/sessions/session-05.md [mock-ui] Audit task 5; work/sessions/session-06.md [mock-ui] Audit task 6; work/sessions/session-07.md [mock-ui] Audit task 7; work/sessions/session-08.md [mock-ui] Audit task 8"
+      }
+    },
+    "ordinaryStop": {}
+  },
+  "interpretation": [
+    "These are observations of current behavior, not a certification of a new acceptance contract.",
+    "A plain Stop hook is not a semantic checkpoint mechanism; blocking is scoped to matched automatic loops.",
+    "Context retrieval and human-facing project progress are different responsibilities."
+  ]
+}

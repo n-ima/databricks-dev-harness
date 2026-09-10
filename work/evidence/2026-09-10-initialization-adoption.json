@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "recordType": "harness-adoption-decision",
+  "status": "adopted",
+  "localDate": "2026-09-10",
+  "sessionId": "20260909-214048-619-retrospective-hardening",
+  "taskIds": ["HARD-08"],
+  "requirementScope": ["HIMP-08"],
+  "requirementCoverage": "local-fixture-and-generated-root-safety-only",
+  "decisionPath": "docs/harness/decisions/ADR-0008-initialization-safety-adoption.md",
+  "authorization": {
+    "source": "current-thread explicit user reply",
+    "quote": "採用してOK\nここで１度pushしてください。リモートへ。",
+    "scope": "Adopt reviewed local HARD-08 slice and push accumulated harness source/evidence to existing private origin/main",
+    "identityAuthenticatedByThisFile": false
+  },
+  "independentReview": {
+    "path": "work/reviews/2026-09-10-initialization-final-review.md",
+    "sha256": "4220e6213ce940db76b23a080fd621684511722cdf99b6e1f5661147f07efe81",
+    "result": "HI-01 through HI-04 resolved; 42 independent probes passed",
+    "snapshotSource": "Snapshot and preserved evidence (SHA-256) table in the immutable review",
+    "snapshotEntryCount": 26
+  },
+  "approvedDocumentAnnotations": [],
+  "semanticImplementationChangesThisTurn": false,
+  "completionReceipt": false,
+  "executionApproval": false,
+  "publicationAuthorization": {
+    "remote": "https://github.com/n-ima/databricks-dev-harness.git",
+    "branch": "main",
+    "visibility": "PRIVATE",
+    "mode": "normal-fast-forward-source-push",
+    "versionedRelease": false
+  },
+  "excluded": [
+    "Databricks authentication, real CLI generation, DB operations and deployment",
+    "downstream product changes",
+    "provider/model canaries and spending",
+    "version/tag, repository visibility, permission or subscription changes",
+    "whole all-eight-requirement completion or maturity promotion"
+  ],
+  "historicalEvidenceErratum": "work/evidence/2026-09-10-initialization-log-erratum.md",
+  "boundary": "Human adoption and private source-push authorization record only. The immutable final review and its 26 fixed targets match byte-for-byte. One older alias-review log reference is unavailable and excluded as documented in the erratum; no reconstruction is claimed. Historical pending-adoption labels are superseded by ADR-0008, not rewritten."
+}

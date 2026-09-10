@@ -1,0 +1,46 @@
+✔ nine-session CLI and both hooks include newest, gate/current/next and explicit truncation (517.7699ms)
+✔ explicit focus wins over recency and environment; bad focus never falls back (803.4485ms)
+✔ legacy latest checkpoint overrides stale initial summary in read-only context (288.0459ms)
+work/sessions/S-1.md
+work/sessions/S-1.md
+✔ checkpoint refreshes current sections, preserves initial history, checks revision and gate (116.3708ms)
+work/sessions/S-1.md
+✔ task persists linked scope and appears in context; checkpoint focus must belong to session (391.8698ms)
+✔ task writes reject duplicate, unknown session, secrets, outside paths, stale revisions and active locks (120.0032ms)
+✔ dependencies and transitions are checked, including hand-edited cycles and missing IDs (150.2755ms)
+C:\Users\nimao\AppData\Local\Temp\harness-visibility-eLaV6j\work\reviews\receipt.json
+✔ done requires current independent receipt and evidence and never approves session (425.169ms)
+✔ status reads do not write; explicit snapshot generation protects existing non-generated file (384.0503ms)
+✔ context remains bounded and treats markdown/terminal content as data (291.6191ms)
+work/sessions/S-1.md
+work/sessions/S-1.md
+✔ task focus survives task truncation, can be cleared, and status snapshot resists edits (1526.8753ms)
+✔ inherited old harness sessions stay excluded after template initialization (545.7621ms)
+✔ pending gates block task execution and terminal sessions cannot be used as focus (365.0996ms)
+✔ task CRUD works through the public CLI and supports CRLF histories (583.6038ms)
+✔ task reader refuses duplicate dependencies and cross-session references (179.3519ms)
+work/sessions/S-1.md
+work/sessions/S-1.md
+✔ manual current-state edits are archived on a later checkpoint rather than discarded (99.9993ms)
+✔ task scalars round-trip YAML-sensitive punctuation as data (85.7171ms)
+✔ boolean flags with values refuse instead of silently changing read/write intent (445.0795ms)
+✔ F-01 rejects outside verifier references before every writable transition (4124.7354ms)
+✔ F-01 public CLI rejects bad verifier input and leaves both start hooks usable (1419.0245ms)
+✔ F-02 legacy omitted blockers inherit the last explicit value, including none, without writes (1803.8456ms)
+work/sessions/S-1.md
+✔ F-03 initial blocker content is archived before replacement (70.1493ms)
+work/sessions/S-1.md
+work/sessions/S-1.md
+work/sessions/S-1.md
+work/sessions/S-1.md
+✔ F-03 manually added blockers survive later checkpoints and unchanged bodies are not rearchived (136.7665ms)
+work/sessions/S-1.md
+✔ F-03 pre-fix format-2 sessions archive a blocker not present in earlier checkpoints (73.9641ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15037.4844

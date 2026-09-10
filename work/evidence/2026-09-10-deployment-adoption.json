@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "recordType": "harness-adoption-decision",
+  "status": "adopted",
+  "recordedAt": "2026-09-09T23:31:46.968Z",
+  "localDate": "2026-09-10",
+  "sessionId": "20260909-214048-619-retrospective-hardening",
+  "taskIds": [
+    "HARD-02",
+    "HARD-07"
+  ],
+  "relatedRequirements": [
+    "HIMP-02",
+    "HIMP-07"
+  ],
+  "requirementCoverage": "partial-simulation-only",
+  "decisionPath": "docs/harness/decisions/ADR-0007-deployment-simulation-adoption.md",
+  "authorization": {
+    "source": "current-thread explicit user reply",
+    "quote": "正式採用してよい",
+    "questionContext": "今回のローカル模擬試験機能を正式採用してよいですか。実配備・公開の承認は含みません。",
+    "scope": "Local simulation runner/CLI, candidate identification and synthetic observations with reviewed tests/documentation",
+    "identityAuthenticatedByThisFile": false
+  },
+  "independentReview": {
+    "path": "work/reviews/2026-09-10-deployment-simulation-rereview.md",
+    "sha256": "9f1cc0999c94ae7d40c83520d081e7daa33378db3cccfb1236486b755c472d8f",
+    "result": "IR-01 through IR-04 resolved; 62 dedicated and 32 independent probes passed"
+  },
+  "reviewedSnapshot": [
+    {
+      "path": "tools/lib/deployment-simulation.mjs",
+      "sha256": "74cae5533b5cc990a13ee8c0206aabd9e23b97897b42c01057c6ce8d450011ca"
+    },
+    {
+      "path": "tests/deployment-simulation.test.mjs",
+      "sha256": "9c941357e099040605bca2d940d21d76f071b262424beb02d8894ad2d2962221"
+    },
+    {
+      "path": "docs/harness/design/DEPLOYMENT_EXECUTION_CONTRACT.md",
+      "sha256": "12bd5388473b6ac9d6602a28a09670b094780507af0f27f8e6a54f0f510c3d65"
+    },
+    {
+      "path": "docs/harness/operations/DEPLOYMENT_SIMULATION.md",
+      "sha256": "48aba4cbc1d16baa01cd892446ea3e24a9d5a4c8c5bb595e408f63dd5944220f"
+    },
+    {
+      "path": "tools/harness.mjs",
+      "sha256": "3d21e195346750d83fd1e49e0c23d3550fbf4ed89e356b9b7a2e69dfb61eecf1"
+    },
+    {
+      "path": "tools/lib/policy.mjs",
+      "sha256": "55f1f1b8f609356d1ca5effba417662ad9d7e57cb5b3f882f00b087ae2e12aca"
+    },
+    {
+      "path": "docs/harness/operations/CLI_REFERENCE.md",
+      "sha256": "290b9dfefa42105a802c1653640fdb61622251f4c27771b0fec2aadc1ed12544"
+    },
+    {
+      "path": "work/evidence/2026-09-10-deployment-golden-proposal.json",
+      "sha256": "157d7b85b60c65a816e26f55cd61f36b17238f103507b99a5b0a4c3b121f86cd"
+    },
+    {
+      "path": "harness/fixtures/deployment-component/README.md",
+      "sha256": "c6444a86fa1ed85ed6b911a6822ae178e9d6e433fa9b180aa71cebdbb0e8fb53"
+    },
+    {
+      "path": "harness/fixtures/deployment-component/src/main.ts",
+      "sha256": "91c441856a5a56f94de7f94200a78174746aad01d6962c9fe30216cdeb1733d6"
+    },
+    {
+      "path": "harness/fixtures/deployment-component/tests/main.test.ts",
+      "sha256": "2df039b164b0ebd19f1ddfb5e7e1b249ec7c202b7fa123efd791532a60eb337f"
+    }
+  ],
+  "reviewedSnapshotMatchedBeforeAdoption": true,
+  "approvedDocumentAnnotations": [
+    {
+      "path": "docs/harness/design/DEPLOYMENT_EXECUTION_CONTRACT.md",
+      "before": "状態: proposed / HIMP-02 + HIMP-07 のsimulation-only実装候補。live配備や全要件完了の証拠ではない。",
+      "after": "状態: simulation-only実装範囲を正式採用（2026-09-10、[ADR-0007](../decisions/ADR-0007-deployment-simulation-adoption.md)）。live配備の設計部分は提案のまま。全要件完了の証拠ではない。"
+    },
+    {
+      "path": "docs/harness/operations/DEPLOYMENT_SIMULATION.md",
+      "before": "状態: 実装候補 / simulation-only。HIMP-02・HIMP-07全体の完了、正式採用、実配備の証明ではない。",
+      "after": "状態: ローカル模擬試験機能として正式採用済み（2026-09-10、[ADR-0007](../decisions/ADR-0007-deployment-simulation-adoption.md)）。未公開。HIMP-02・HIMP-07全体の完了や実配備の証明ではない。"
+    }
+  ],
+  "excluded": [
+    "live CLI adapter and real deployment",
+    "real authorization/permissions/cost scope",
+    "downstream product changes",
+    "commit/push/versioned release",
+    "provider/model canaries",
+    "canonical golden-task promotion",
+    "whole HIMP-02/HIMP-07 or all-eight-requirement completion"
+  ],
+  "previousAdoption": "docs/harness/decisions/ADR-0006-acceptance-integrity-adoption.md",
+  "semanticImplementationChangesThisTurn": false,
+  "completionReceipt": false,
+  "executionApproval": false,
+  "boundary": "Human adoption record for the reviewed local simulation feature only. Not a live approval, fixture approval, release, identity authentication or completion receipt. Runtime, tests, original review and observations remain unchanged."
+}

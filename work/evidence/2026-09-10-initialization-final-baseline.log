@@ -1,0 +1,898 @@
+TAP version 13
+# Subtest: shared option parsing preserves repeated assignments and rejects escaping paths
+ok 1 - shared option parsing preserves repeated assignments and rejects escaping paths
+  ---
+  duration_ms: 6.7867
+  type: 'test'
+  ...
+# Subtest: Harness requirements expose all 20 stable acceptance IDs to the completion verifier
+ok 2 - Harness requirements expose all 20 stable acceptance IDs to the completion verifier
+  ---
+  duration_ms: 2.7634
+  type: 'test'
+  ...
+# Subtest: Databricks connect rejects a profile/host mismatch before identity lookup or persistence
+ok 3 - Databricks connect rejects a profile/host mismatch before identity lookup or persistence
+  ---
+  duration_ms: 1.8765
+  type: 'test'
+  ...
+# Subtest: Databricks connect rejects malformed auth JSON without recording a verified connection
+ok 4 - Databricks connect rejects malformed auth JSON without recording a verified connection
+  ---
+  duration_ms: 1.5754
+  type: 'test'
+  ...
+# Subtest: Databricks connect rejects auth JSON reporting an error even when the process exited zero
+ok 5 - Databricks connect rejects auth JSON reporting an error even when the process exited zero
+  ---
+  duration_ms: 1.4982
+  type: 'test'
+  ...
+# Subtest: Databricks connect requires a host on the selected profile to prove workspace identity
+ok 6 - Databricks connect requires a host on the selected profile to prove workspace identity
+  ---
+  duration_ms: 1.8773
+  type: 'test'
+  ...
+# Subtest: Databricks connect persists only non-secret verified connection metadata
+ok 7 - Databricks connect persists only non-secret verified connection metadata
+  ---
+  duration_ms: 10.4899
+  type: 'test'
+  ...
+# Subtest: Databricks doctor detects project/profile host mismatch and does not validate the wrong workspace
+ok 8 - Databricks doctor detects project/profile host mismatch and does not validate the wrong workspace
+  ---
+  duration_ms: 15.9978
+  type: 'test'
+  ...
+# Subtest: Databricks doctor uses strict Bundle validation with the explicitly selected profile and target
+ok 9 - Databricks doctor uses strict Bundle validation with the explicitly selected profile and target
+  ---
+  duration_ms: 11.392
+  type: 'test'
+  ...
+# Subtest: AppKit manifest contracts preserve required plugins, optional selection, resource origins, and scoped rules
+ok 10 - AppKit manifest contracts preserve required plugins, optional selection, resource origins, and scoped rules
+  ---
+  duration_ms: 37.1868
+  type: 'test'
+  ...
+# Subtest: AppKit planning reports required user resources but never demands optional/platform/local/fixed values
+ok 11 - AppKit planning reports required user resources but never demands optional/platform/local/fixed values
+  ---
+  duration_ms: 36.2533
+  type: 'test'
+  ...
+# Subtest: AppKit planning refuses unknown optional plugins and undeclared resource assignments
+ok 12 - AppKit planning refuses unknown optional plugins and undeclared resource assignments
+  ---
+  duration_ms: 19.0618
+  type: 'test'
+  ...
+# Subtest: AppKit planning refuses contradictory must and never manifest rules
+ok 13 - AppKit planning refuses contradictory must and never manifest rules
+  ---
+  duration_ms: 17.5
+  type: 'test'
+  ...
+# Subtest: AppKit mandatory data plugins require the same data-access decision as optional selections
+ok 14 - AppKit mandatory data plugins require the same data-access decision as optional selections
+  ---
+  duration_ms: 32.5252
+  type: 'test'
+  ...
+# Subtest: AppKit optional resources become required only when that resource group is selected
+ok 15 - AppKit optional resources become required only when that resource group is selected
+  ---
+  duration_ms: 32.4129
+  type: 'test'
+  ...
+# Subtest: AppKit refuses caller assignments to platform-managed manifest fields
+ok 16 - AppKit refuses caller assignments to platform-managed manifest fields
+  ---
+  duration_ms: 18.5171
+  type: 'test'
+  ...
+# Subtest: AppKit planning waits for mock approval and before-init MUST evidence
+ok 17 - AppKit planning waits for mock approval and before-init MUST evidence
+  ---
+  duration_ms: 27.5808
+  type: 'test'
+  ...
+# Subtest: AppKit rule approval must bind the exact manifest snapshot
+ok 18 - AppKit rule approval must bind the exact manifest snapshot
+  ---
+  duration_ms: 34.8716
+  type: 'test'
+  ...
+# Subtest: AppKit planning rejects mutable template versions before consulting a manifest
+ok 19 - AppKit planning rejects mutable template versions before consulting a manifest
+  ---
+  duration_ms: 18.4747
+  type: 'test'
+  ...
+# Subtest: AppKit validation failure is persisted as a failed scaffold, not a reusable ready plan
+ok 20 - AppKit validation failure is persisted as a failed scaffold, not a reusable ready plan
+  ---
+  duration_ms: 90.0618
+  type: 'test'
+  ...
+# Subtest: AppKit fixture-only mock still requires explicit workspace authentication, not business-data access
+ok 21 - AppKit fixture-only mock still requires explicit workspace authentication, not business-data access
+  ---
+  duration_ms: 27.9752
+  type: 'test'
+  ...
+# Subtest: AppKit mock does not invent a profile or authenticate when profile and host are omitted
+ok 22 - AppKit mock does not invent a profile or authenticate when profile and host are omitted
+  ---
+  duration_ms: 40.3901
+  type: 'test'
+  ...
+# Subtest: AppKit mock rejects DEFAULT and implicit authentication requests
+ok 23 - AppKit mock rejects DEFAULT and implicit authentication requests
+  ---
+  duration_ms: 19.3472
+  type: 'test'
+  ...
+# Subtest: AppKit profile-host mismatch is rejected before authenticating the unexpected workspace
+ok 24 - AppKit profile-host mismatch is rejected before authenticating the unexpected workspace
+  ---
+  duration_ms: 36.0376
+  type: 'test'
+  ...
+# Subtest: AppKit rechecks workspace identity immediately before init
+ok 25 - AppKit rechecks workspace identity immediately before init
+  ---
+  duration_ms: 74.4839
+  type: 'test'
+  ...
+# Subtest: AppKit integration rejects mock approval without executable artifact hashes
+ok 26 - AppKit integration rejects mock approval without executable artifact hashes
+  ---
+  duration_ms: 34.4866
+  type: 'test'
+  ...
+# Subtest: AppKit integration rejects a changed approved fixture before any init or auth recheck
+ok 27 - AppKit integration rejects a changed approved fixture before any init or auth recheck
+  ---
+  duration_ms: 61.9478
+  type: 'test'
+  ...
+# Subtest: Intake copies repository sources with hashes and an explicit untrusted-input classification
+ok 28 - Intake copies repository sources with hashes and an explicit untrusted-input classification
+  ---
+  duration_ms: 68.6991
+  type: 'test'
+  ...
+# Subtest: Intake refuses product approval while any material question is unanswered
+ok 29 - Intake refuses product approval while any material question is unanswered
+  ---
+  duration_ms: 117.0706
+  type: 'test'
+  ...
+# Subtest: Intake approval succeeds only after all material answers and records actor/evidence
+ok 30 - Intake approval succeeds only after all material answers and records actor/evidence
+  ---
+  duration_ms: 413.4445
+  type: 'test'
+  ...
+# Subtest: Intake approval updates the canonical requirement and durable session gate consistently
+ok 31 - Intake approval updates the canonical requirement and durable session gate consistently
+  ---
+  duration_ms: 411.2334
+  type: 'test'
+  ...
+# Subtest: Changing an accepted material answer invalidates the previous product approval
+ok 32 - Changing an accepted material answer invalidates the previous product approval
+  ---
+  duration_ms: 445.7245
+  type: 'test'
+  ...
+# Subtest: Ordinary Japanese intake does not require the user to invent an ASCII project slug
+ok 33 - Ordinary Japanese intake does not require the user to invent an ASCII project slug
+  ---
+  duration_ms: 54.5537
+  type: 'test'
+  ...
+# Subtest: Loop initialization rejects non-integer iteration budgets
+ok 34 - Loop initialization rejects non-integer iteration budgets
+  ---
+  duration_ms: 22.9639
+  type: 'test'
+  ...
+# Subtest: Loop-generated budget fields conform to the published closed budget schema
+ok 35 - Loop-generated budget fields conform to the published closed budget schema
+  ---
+  duration_ms: 28.3739
+  type: 'test'
+  ...
+# Subtest: Loop iteration budget exhaustion is durable and starts no provider process
+ok 36 - Loop iteration budget exhaustion is durable and starts no provider process
+  ---
+  duration_ms: 40.9226
+  type: 'test'
+  ...
+# Subtest: Loop wall-clock budget exhaustion is durable and starts no provider process
+ok 37 - Loop wall-clock budget exhaustion is durable and starts no provider process
+  ---
+  duration_ms: 40.3615
+  type: 'test'
+  ...
+# Subtest: Loop process timeouts are capped by the remaining wall-clock budget
+ok 38 - Loop process timeouts are capped by the remaining wall-clock budget
+  ---
+  duration_ms: 50.128
+  type: 'test'
+  ...
+# Subtest: Loop policy hash changes block execution before a provider is started
+ok 39 - Loop policy hash changes block execution before a provider is started
+  ---
+  duration_ms: 40.1611
+  type: 'test'
+  ...
+# Subtest: Loop detects policy tampering performed during the provider iteration
+ok 40 - Loop detects policy tampering performed during the provider iteration
+  ---
+  duration_ms: 44.6077
+  type: 'test'
+  ...
+# Subtest: Loop pending human gates block all provider execution
+ok 41 - Loop pending human gates block all provider execution
+  ---
+  duration_ms: 37.9962
+  type: 'test'
+  ...
+# Subtest: Loop refuses a second iteration while the previous iteration has not been recorded
+ok 42 - Loop refuses a second iteration while the previous iteration has not been recorded
+  ---
+  duration_ms: 49.6029
+  type: 'test'
+  ...
+# Subtest: Loop provider failure persists a terminal failure and skips deterministic checks
+ok 43 - Loop provider failure persists a terminal failure and skips deterministic checks
+  ---
+  duration_ms: 46.5772
+  type: 'test'
+  ...
+# Subtest: Loop completion refuses missing implementation or verifier evidence and remains unfinished
+ok 44 - Loop completion refuses missing implementation or verifier evidence and remains unfinished
+  ---
+  duration_ms: 54.5519
+  type: 'test'
+  ...
+# Subtest: Loop completion refuses evidence paths that do not exist
+ok 45 - Loop completion refuses evidence paths that do not exist
+  ---
+  duration_ms: 58.8403
+  type: 'test'
+  ...
+# Subtest: Loop completion refuses failed deterministic checks even when evidence files exist
+ok 46 - Loop completion refuses failed deterministic checks even when evidence files exist
+  ---
+  duration_ms: 58.7209
+  type: 'test'
+  ...
+# Subtest: Loop completion does not treat an empty verifier file as independent verification
+ok 47 - Loop completion does not treat an empty verifier file as independent verification
+  ---
+  duration_ms: 62.3118
+  type: 'test'
+  ...
+# Subtest: Loop completion does not accept a directory as implementation evidence
+ok 48 - Loop completion does not accept a directory as implementation evidence
+  ---
+  duration_ms: 53.1481
+  type: 'test'
+  ...
+# Subtest: Loop completion rechecks the policy hash after implementation and before achievement
+ok 49 - Loop completion rechecks the policy hash after implementation and before achievement
+  ---
+  duration_ms: 52.1512
+  type: 'test'
+  ...
+# Subtest: Loop achievement accepts a matching independent receipt covering every requirement criterion
+ok 50 - Loop achievement accepts a matching independent receipt covering every requirement criterion
+  ---
+  duration_ms: 80.3965
+  type: 'test'
+  ...
+# Subtest: Loop achievement rejects an independent receipt missing an acceptance criterion
+ok 51 - Loop achievement rejects an independent receipt missing an acceptance criterion
+  ---
+  duration_ms: 78.3311
+  type: 'test'
+  ...
+# Subtest: Loop achievement rejects a receipt from the implementing provider
+ok 52 - Loop achievement rejects a receipt from the implementing provider
+  ---
+  duration_ms: 68.418
+  type: 'test'
+  ...
+# Subtest: Loop achievement rejects evidence changed after independent review
+ok 53 - Loop achievement rejects evidence changed after independent review
+  ---
+  duration_ms: 70.0139
+  type: 'test'
+  ...
+# Subtest: Loop achievement rejects acceptance evidence that is missing or not bound by an artifact hash
+ok 54 - Loop achievement rejects acceptance evidence that is missing or not bound by an artifact hash
+  ---
+  duration_ms: 73.3524
+  type: 'test'
+  ...
+# Subtest: Loop record rejects undeclared outcome values instead of silently treating them as progress
+ok 55 - Loop record rejects undeclared outcome values instead of silently treating them as progress
+  ---
+  duration_ms: 52.5802
+  type: 'test'
+  ...
+# Subtest: Operator stop cannot bypass the evidence-backed achieved transition
+ok 56 - Operator stop cannot bypass the evidence-backed achieved transition
+  ---
+  duration_ms: 41.8419
+  type: 'test'
+  ...
+# Subtest: release owns only harness assets, hashes payload bytes and leaves product/local files out
+ok 57 - release owns only harness assets, hashes payload bytes and leaves product/local files out
+  ---
+  duration_ms: 112.8942
+  type: 'test'
+  ...
+# Subtest: release rejects mismatched versions and escaping outputs
+ok 58 - release rejects mismatched versions and escaping outputs
+  ---
+  duration_ms: 15.7136
+  type: 'test'
+  ...
+# Subtest: normalization requires explicit yes, includes provider text and preserves product files and original baseline bytes
+ok 59 - normalization requires explicit yes, includes provider text and preserves product files and original baseline bytes
+  ---
+  duration_ms: 182.1433
+  type: 'test'
+  ...
+# Subtest: release refuses CRLF text until normalization, but binary extensions, NUL and invalid UTF-8 remain byte-identical
+ok 60 - release refuses CRLF text until normalization, but binary extensions, NUL and invalid UTF-8 remain byte-identical
+  ---
+  duration_ms: 272.3255
+  type: 'test'
+  ...
+# Subtest: normalization rejects managed junctions before writing any text
+ok 61 - normalization rejects managed junctions before writing any text
+  ---
+  duration_ms: 45.1301
+  type: 'test'
+  ...
+# Subtest: a dry-run plan makes no managed changes and application needs explicit yes
+ok 62 - a dry-run plan makes no managed changes and application needs explicit yes
+  ---
+  duration_ms: 190.8745
+  type: 'test'
+  ...
+# Subtest: matching first-template bytes are adopted while unmatched existing files conflict
+ok 63 - matching first-template bytes are adopted while unmatched existing files conflict
+  ---
+  duration_ms: 171.5915
+  type: 'test'
+  ...
+# Subtest: upgrade preserves excluded files and backs up every replaced or deleted file
+ok 64 - upgrade preserves excluded files and backs up every replaced or deleted file
+  ---
+  duration_ms: 409.4228
+  type: 'test'
+  ...
+# Subtest: downstream modified and deleted files are conflicts, never silently overwritten
+ok 65 - downstream modified and deleted files are conflicts, never silently overwritten
+  ---
+  duration_ms: 324.9302
+  type: 'test'
+  ...
+# Subtest: edits after planning invalidate application before managed writes
+ok 66 - edits after planning invalidate application before managed writes
+  ---
+  duration_ms: 347.5198
+  type: 'test'
+  ...
+# Subtest: source payload tampering after planning is rejected
+ok 67 - source payload tampering after planning is rejected
+  ---
+  duration_ms: 321.6111
+  type: 'test'
+  ...
+# Subtest: malicious manifests cannot own product, local config, case collisions or escaping paths
+ok 68 - malicious manifests cannot own product, local config, case collisions or escaping paths
+  ---
+  duration_ms: 815.8537
+  type: 'test'
+  ...
+# Subtest: same-version mutation and downgrade are rejected
+ok 69 - same-version mutation and downgrade are rejected
+  ---
+  duration_ms: 464.6765
+  type: 'test'
+  ...
+# Subtest: update plan edits and wrong target repository are rejected
+ok 70 - update plan edits and wrong target repository are rejected
+  ---
+  duration_ms: 329.6797
+  type: 'test'
+  ...
+# Subtest: managed symlinks and junctions are rejected in release and destination
+ok 71 - managed symlinks and junctions are rejected in release and destination # SKIP This host does not permit test symlinks.
+  ---
+  duration_ms: 16.4962
+  type: 'test'
+  ...
+# Subtest: directory junctions are rejected even on Windows without file-symlink privilege
+ok 72 - directory junctions are rejected even on Windows without file-symlink privilege
+  ---
+  duration_ms: 188.0914
+  type: 'test'
+  ...
+# Subtest: new upstream files do not overwrite untracked downstream additions
+ok 73 - new upstream files do not overwrite untracked downstream additions
+  ---
+  duration_ms: 339.2634
+  type: 'test'
+  ...
+# Subtest: installed baseline changes invalidate a previously reviewed plan
+ok 74 - installed baseline changes invalidate a previously reviewed plan
+  ---
+  duration_ms: 276.3647
+  type: 'test'
+  ...
+# Subtest: case-colliding payload paths are rejected on every operating system
+ok 75 - case-colliding payload paths are rejected on every operating system
+  ---
+  duration_ms: 97.6676
+  type: 'test'
+  ...
+# Subtest: release/apply keeps provider rules, the complete harness guide and harness test files together
+ok 76 - release/apply keeps provider rules, the complete harness guide and harness test files together
+  ---
+  duration_ms: 943.5082
+  type: 'test'
+  ...
+# Subtest: registering original upstream metadata preserves pre-existing downstream changes as update conflicts
+ok 77 - registering original upstream metadata preserves pre-existing downstream changes as update conflicts
+  ---
+  duration_ms: 270.7636
+  type: 'test'
+  ...
+# Subtest: baseline registration is idempotent only for the original manifest and refuses overwrite
+ok 78 - baseline registration is idempotent only for the original manifest and refuses overwrite
+  ---
+  duration_ms: 242.0494
+  type: 'test'
+  ...
+# Subtest: base-release metadata is excluded from snapshots to avoid self-hashing
+ok 79 - base-release metadata is excluded from snapshots to avoid self-hashing
+  ---
+  duration_ms: 210.2882
+  type: 'test'
+  ...
+# Subtest: baseline registration rejects escaping and invalid upstream manifests
+ok 80 - baseline registration rejects escaping and invalid upstream manifests
+  ---
+  duration_ms: 5.044
+  type: 'test'
+  ...
+# Subtest: routes Japanese UI work to the mock-first workflow
+ok 81 - routes Japanese UI work to the mock-first workflow
+  ---
+  duration_ms: 79.3265
+  type: 'test'
+  ...
+# Subtest: Copilot session hook injects durable-context guidance
+ok 82 - Copilot session hook injects durable-context guidance
+  ---
+  duration_ms: 86.9456
+  type: 'test'
+  ...
+# Subtest: Copilot policy hook denies production deploy
+ok 83 - Copilot policy hook denies production deploy
+  ---
+  duration_ms: 67.6404
+  type: 'test'
+  ...
+# Subtest: Copilot policy hook does not pre-approve a development deploy
+ok 84 - Copilot policy hook does not pre-approve a development deploy
+  ---
+  duration_ms: 62.3179
+  type: 'test'
+  ...
+# Subtest: Claude and Copilot wire policy, stop, compaction, and failure lifecycle hooks
+ok 85 - Claude and Copilot wire policy, stop, compaction, and failure lifecycle hooks
+  ---
+  duration_ms: 2.6174
+  type: 'test'
+  ...
+# Subtest: fresh template setup and gated durable session lifecycle work end to end
+ok 86 - fresh template setup and gated durable session lifecycle work end to end
+  ---
+  duration_ms: 11991.4048
+  type: 'test'
+  ...
+# Subtest: fresh fixture excludes initialized source product state without modifying it
+ok 87 - fresh fixture excludes initialized source product state without modifying it
+  ---
+  duration_ms: 3367.8559
+  type: 'test'
+  ...
+# Subtest: fixture refuses existing, overlapping and missing-input sources without writes
+ok 88 - fixture refuses existing, overlapping and missing-input sources without writes
+  ---
+  duration_ms: 8.3459
+  type: 'test'
+  ...
+# Subtest: fresh fixture excludes case aliases of local state and original baseline
+ok 89 - fresh fixture excludes case aliases of local state and original baseline
+  ---
+  duration_ms: 3170.8567
+  type: 'test'
+  ...
+# Subtest: fixture refuses source and destination ancestor junctions and dangling outputs
+ok 90 - fixture refuses source and destination ancestor junctions and dangling outputs
+  ---
+  duration_ms: 5.7845
+  type: 'test'
+  ...
+# Subtest: fixture refuses a linked allowlisted input before creating its destination
+ok 91 - fixture refuses a linked allowlisted input before creating its destination
+  ---
+  duration_ms: 1348.4453
+  type: 'test'
+  ...
+# Subtest: data scaffold generates executable composite-key fixtures without running external tools
+ok 92 - data scaffold generates executable composite-key fixtures without running external tools
+  ---
+  duration_ms: 55.9563
+  type: 'test'
+  ...
+# Subtest: generated Python unittest executes real record transitions and the actual Delta builder
+ok 93 - generated Python unittest executes real record transitions and the actual Delta builder
+  ---
+  duration_ms: 289.0667
+  type: 'test'
+  ...
+# Subtest: generated data job refuses execution without an explicit approved-write switch
+ok 94 - generated data job refuses execution without an explicit approved-write switch
+  ---
+  duration_ms: 204.0257
+  type: 'test'
+  ...
+# Subtest: fixture field generation remains correct when product columns collide with sample names
+ok 95 - fixture field generation remains correct when product columns collide with sample names
+  ---
+  duration_ms: 299.8351
+  type: 'test'
+  ...
+# Subtest: data planning rejects ambiguous keys, unsafe names, identical tables and missing inputs
+ok 96 - data planning rejects ambiguous keys, unsafe names, identical tables and missing inputs
+  ---
+  duration_ms: 23.6745
+  type: 'test'
+  ...
+# Subtest: local generation preflights all paths and never overwrites an existing artifact
+ok 97 - local generation preflights all paths and never overwrites an existing artifact
+  ---
+  duration_ms: 31.9482
+  type: 'test'
+  ...
+# Subtest: AppKit mock requires an explicit verified workspace but no prior UI approval or data resources
+ok 98 - AppKit mock requires an explicit verified workspace but no prior UI approval or data resources
+  ---
+  duration_ms: 103.2275
+  type: 'test'
+  ...
+# Subtest: mock AppKit plans reject profiles and mandatory or optional live-data plugins
+ok 99 - mock AppKit plans reject profiles and mandatory or optional live-data plugins
+  ---
+  duration_ms: 11.0609
+  type: 'test'
+  ...
+# Subtest: AppKit validates the selected profile host before authentication and rechecks before init
+ok 100 - AppKit validates the selected profile host before authentication and rechecks before init
+  ---
+  duration_ms: 36.3149
+  type: 'test'
+  ...
+# Subtest: AppKit commands cannot inherit custom template overrides or resource-validation bypasses
+ok 101 - AppKit commands cannot inherit custom template overrides or resource-validation bypasses
+  ---
+  duration_ms: 138.2861
+  type: 'test'
+  ...
+# Subtest: AppKit auto-approve is plan-time opt-in and nested integration bundles remain intact
+ok 102 - AppKit auto-approve is plan-time opt-in and nested integration bundles remain intact
+  ---
+  duration_ms: 79.0723
+  type: 'test'
+  ...
+# Subtest: AppKit success remains a starter with pending after-init MUST rules, not deploy-ready
+ok 103 - AppKit success remains a starter with pending after-init MUST rules, not deploy-ready
+  ---
+  duration_ms: 84.5765
+  type: 'test'
+  ...
+# Subtest: AppKit refuses changed plans and changed approval evidence before invoking init
+ok 104 - AppKit refuses changed plans and changed approval evidence before invoking init
+  ---
+  duration_ms: 80.5307
+  type: 'test'
+  ...
+# Subtest: AppKit integration binds the reviewed mock and rechecks its hashes before init
+ok 105 - AppKit integration binds the reviewed mock and rechecks its hashes before init
+  ---
+  duration_ms: 82.0441
+  type: 'test'
+  ...
+# Subtest: AppKit init failure and post-init validation failure persist distinct failed states
+ok 106 - AppKit init failure and post-init validation failure persist distinct failed states
+  ---
+  duration_ms: 120.9754
+  type: 'test'
+  ...
+# Subtest: local AppKit manifest provenance must bind the exact pinned version
+ok 107 - local AppKit manifest provenance must bind the exact pinned version
+  ---
+  duration_ms: 50.4766
+  type: 'test'
+  ...
+# Subtest: Genie and metric scaffolds are explicit drafts, outside automatic deployment paths
+ok 108 - Genie and metric scaffolds are explicit drafts, outside automatic deployment paths
+  ---
+  duration_ms: 73.7954
+  type: 'test'
+  ...
+# Subtest: AppKit nested-only output stops before quarantine and validation
+ok 109 - AppKit nested-only output stops before quarantine and validation
+  ---
+  duration_ms: 64.1541
+  type: 'test'
+  ...
+# Subtest: AppKit missing-root fails before quarantine or validate
+ok 110 - AppKit missing-root fails before quarantine or validate
+  ---
+  duration_ms: 40.4969
+  type: 'test'
+  ...
+# Subtest: AppKit missing-package fails before quarantine or validate
+ok 111 - AppKit missing-package fails before quarantine or validate
+  ---
+  duration_ms: 49.0799
+  type: 'test'
+  ...
+# Subtest: AppKit null-package fails before quarantine or validate
+ok 112 - AppKit null-package fails before quarantine or validate
+  ---
+  duration_ms: 46.3004
+  type: 'test'
+  ...
+# Subtest: AppKit linked-child fails before quarantine or validate
+ok 113 - AppKit linked-child fails before quarantine or validate
+  ---
+  duration_ms: 49.7571
+  type: 'test'
+  ...
+# Subtest: AppKit linked-root fails before quarantine or validate
+ok 114 - AppKit linked-root fails before quarantine or validate
+  ---
+  duration_ms: 46.8457
+  type: 'test'
+  ...
+# Subtest: AppKit directory-package fails before quarantine or validate
+ok 115 - AppKit directory-package fails before quarantine or validate
+  ---
+  duration_ms: 48.0205
+  type: 'test'
+  ...
+# Subtest: AppKit mock databricks.fixture-only.yml collision preserves all bytes
+ok 116 - AppKit mock databricks.fixture-only.yml collision preserves all bytes
+  ---
+  duration_ms: 47.9723
+  type: 'test'
+  ...
+# Subtest: AppKit mock .harness-fixture-only.json collision preserves all bytes
+ok 117 - AppKit mock .harness-fixture-only.json collision preserves all bytes
+  ---
+  duration_ms: 49.7922
+  type: 'test'
+  ...
+# Subtest: AppKit existing preflight calls neither auth nor init
+ok 118 - AppKit existing preflight calls neither auth nor init
+  ---
+  duration_ms: 38.5742
+  type: 'test'
+  ...
+# Subtest: AppKit ancestor-junction preflight calls neither auth nor init
+ok 119 - AppKit ancestor-junction preflight calls neither auth nor init
+  ---
+  duration_ms: 36.0697
+  type: 'test'
+  ...
+# Subtest: AppKit dangling-junction preflight calls neither auth nor init
+ok 120 - AppKit dangling-junction preflight calls neither auth nor init
+  ---
+  duration_ms: 36.3403
+  type: 'test'
+  ...
+# Subtest: AppKit successful validate cannot mask package removal
+ok 121 - AppKit successful validate cannot mask package removal
+  ---
+  duration_ms: 65.7941
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed same-byte-root
+ok 122 - AppKit validation cannot adopt changed same-byte-root
+  ---
+  duration_ms: 77.9218
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed package
+ok 123 - AppKit validation cannot adopt changed package
+  ---
+  duration_ms: 64.327
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed marker
+ok 124 - AppKit validation cannot adopt changed marker
+  ---
+  duration_ms: 61.9797
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed quarantine
+ok 125 - AppKit validation cannot adopt changed quarantine
+  ---
+  duration_ms: 66.6713
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed bundle-restored
+ok 126 - AppKit validation cannot adopt changed bundle-restored
+  ---
+  duration_ms: 65.7719
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed case-alias-bundle
+ok 127 - AppKit validation cannot adopt changed case-alias-bundle
+  ---
+  duration_ms: 62.9391
+  type: 'test'
+  ...
+# Subtest: AppKit same-root validation cache writes remain allowed
+ok 128 - AppKit same-root validation cache writes remain allowed
+  ---
+  duration_ms: 54.8184
+  type: 'test'
+  ...
+# Subtest: AppKit parallel apply locks the same plan
+ok 129 - AppKit parallel apply locks the same plan
+  ---
+  duration_ms: 68.9214
+  type: 'test'
+  ...
+# Subtest: AppKit parallel apply locks different plans sharing the output
+ok 130 - AppKit parallel apply locks different plans sharing the output
+  ---
+  duration_ms: 88.2675
+  type: 'test'
+  ...
+# Subtest: expected component root with nested packages is inspected, not relocated
+ok 131 - expected component root with nested packages is inspected, not relocated
+  ---
+  duration_ms: 17.3008
+  type: 'test'
+  ...
+# Subtest: output rejects non-object package: not
+ok 132 - output rejects non-object package: not
+  ---
+  duration_ms: 12.8241
+  type: 'test'
+  ...
+# Subtest: output rejects non-object package: null
+ok 133 - output rejects non-object package: null
+  ---
+  duration_ms: 7.9013
+  type: 'test'
+  ...
+# Subtest: output rejects non-object package: []
+ok 134 - output rejects non-object package: []
+  ---
+  duration_ms: 8.0285
+  type: 'test'
+  ...
+# Subtest: output rejects non-object package: 1
+ok 135 - output rejects non-object package: 1
+  ---
+  duration_ms: 8.2608
+  type: 'test'
+  ...
+# Subtest: output rejects non-object package: "text"
+ok 136 - output rejects non-object package: "text"
+  ---
+  duration_ms: 7.2492
+  type: 'test'
+  ...
+# Subtest: output rejects missing root, missing package and directory package
+ok 137 - output rejects missing root, missing package and directory package
+  ---
+  duration_ms: 14.2492
+  type: 'test'
+  ...
+# Subtest: invalid UTF-8 package bytes are rejected without normalization
+ok 138 - invalid UTF-8 package bytes are rejected without normalization
+  ---
+  duration_ms: 7.2729
+  type: 'test'
+  ...
+# Subtest: output refuses ancestor, descendant and dangling junctions
+ok 139 - output refuses ancestor, descendant and dangling junctions
+  ---
+  duration_ms: 11.998
+  type: 'test'
+  ...
+# Subtest: output refuses hard-linked files without changing their source
+ok 140 - output refuses hard-linked files without changing their source
+  ---
+  duration_ms: 7.356
+  type: 'test'
+  ...
+# Subtest: output package size and total byte limits fail closed on sparse files
+ok 141 - output package size and total byte limits fail closed on sparse files
+  ---
+  duration_ms: 9.6277
+  type: 'test'
+  ...
+# Subtest: output depth limit is bounded
+ok 142 - output depth limit is bounded
+  ---
+  duration_ms: 17.6638
+  type: 'test'
+  ...
+# Subtest: case alias DATABRICKS.YML is rejected consistently on every OS
+ok 143 - case alias DATABRICKS.YML is rejected consistently on every OS
+  ---
+  duration_ms: 6.8056
+  type: 'test'
+  ...
+# Subtest: case alias DataBricks.Fixture-Only.yml is rejected consistently on every OS
+ok 144 - case alias DataBricks.Fixture-Only.yml is rejected consistently on every OS
+  ---
+  duration_ms: 6.2269
+  type: 'test'
+  ...
+# Subtest: case alias .HARNESS-FIXTURE-ONLY.JSON is rejected consistently on every OS
+ok 145 - case alias .HARNESS-FIXTURE-ONLY.JSON is rejected consistently on every OS
+  ---
+  duration_ms: 6.4063
+  type: 'test'
+  ...
+# Subtest: case alias PACKAGE.JSON is rejected consistently on every OS
+ok 146 - case alias PACKAGE.JSON is rejected consistently on every OS
+  ---
+  duration_ms: 7.4196
+  type: 'test'
+  ...
+# Subtest: root control file content reads have a separate bound
+ok 147 - root control file content reads have a separate bound
+  ---
+  duration_ms: 6.8545
+  type: 'test'
+  ...
+# Subtest: output entry limit is bounded
+ok 148 - output entry limit is bounded
+  ---
+  duration_ms: 8154.0283
+  type: 'test'
+  ...
+1..148
+# tests 148
+# suites 0
+# pass 147
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 12398.1253

@@ -1,0 +1,43 @@
+✖ fresh fixture excludes initialized source product state without modifying it (19.8111ms)
+✖ AppKit nested-only output stops before quarantine and validation (42.8013ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 127.1489
+
+✖ failing tests:
+
+test at tests\initialization.test.mjs:8:1
+✖ fresh fixture excludes initialized source product state without modifying it (19.8111ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/initialization.test.mjs:20:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'ENOENT' },
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\scaffold-data.test.mjs:396:1
+✖ AppKit nested-only output stops before quarantine and validation (42.8013ms)
+  AssertionError [ERR_ASSERTION]: unknown output must stop before validation
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scaffold-data.test.mjs:408:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

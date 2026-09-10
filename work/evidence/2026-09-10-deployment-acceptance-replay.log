@@ -1,0 +1,94 @@
+✔ acceptance grammar preserves legacy IDs and recognizes namespaced IDs and checkboxes (2.4178ms)
+✔ acceptance examples in fenced blocks are not live criteria (0.1731ms)
+✔ frontmatter and comments are inert, and setext/ATX section boundaries are explicit (0.3891ms)
+✔ legacy headingless mode rejects ambiguous definition "- ac-02: lowercase.\n" (0.0889ms)
+✔ legacy headingless mode rejects ambiguous definition "1. AC-D01: ordered.\n" (0.0746ms)
+✔ legacy headingless mode rejects ambiguous definition "| AC-D01 | table |\n" (0.1062ms)
+✔ legacy headingless mode rejects ambiguous definition "- **AC-D01**: formatted.\n" (0.0755ms)
+✔ legacy headingless mode rejects ambiguous definition "- AC-D01：fullwidth colon.\n" (0.0682ms)
+✔ legacy headingless mode rejects ambiguous definition "    - AC-D01: indented.\n" (0.0949ms)
+✔ legacy headingless mode rejects ambiguous definition "> - AC-D01: quoted.\n" (0.1036ms)
+✔ legacy headingless mode rejects ambiguous definition "- [✓] AC-D01: unsupported checkbox.\n" (0.1104ms)
+✔ legacy headingless mode rejects ambiguous definition "- AC​-02: hidden character.\n" (0.096ms)
+✔ legacy headingless mode rejects ambiguous definition "- ＡＣ-０２: non-ASCII.\n" (0.1062ms)
+✔ legacy headingless mode rejects ambiguous definition "  - AC-D01: nested.\n" (0.0367ms)
+✔ legacy headingless mode rejects ambiguous definition "### AC-D01: heading.\n" (0.037ms)
+✔ legacy headingless mode rejects ambiguous definition "<div>\n- AC-D01: HTML.\n</div>\n" (0.0284ms)
+✔ legacy headingless mode rejects ambiguous definition "# H-D01 must be verified\n" (0.0315ms)
+✔ legacy headingless mode rejects ambiguous definition "# **AC-D01** must be verified\n" (0.0256ms)
+✔ legacy headingless mode rejects ambiguous definition "• AC-D01: Unicode bullet requirement\n" (0.0278ms)
+✔ legacy headingless mode rejects ambiguous definition "​• AC-D01: hidden prefix\n" (0.0311ms)
+✔ malformed metadata, comments and example fences are rejected, not used to hide criteria (0.1347ms)
+✔ acceptance rejects empty rather than silently dropping criteria (0.0626ms)
+✔ acceptance rejects invalid ID rather than silently dropping criteria (0.0514ms)
+✔ acceptance rejects duplicate rather than silently dropping criteria (0.049ms)
+✔ acceptance rejects empty body rather than silently dropping criteria (0.0547ms)
+✔ acceptance rejects lowercase rather than silently dropping criteria (0.0354ms)
+✔ acceptance rejects missing colon rather than silently dropping criteria (0.0374ms)
+✔ acceptance rejects numbered rather than silently dropping criteria (0.0304ms)
+✔ acceptance rejects table rather than silently dropping criteria (0.0409ms)
+✔ acceptance rejects formatted rather than silently dropping criteria (0.0301ms)
+✔ acceptance rejects plain bullet rather than silently dropping criteria (0.0474ms)
+✔ acceptance rejects unclosed fence rather than silently dropping criteria (0.0529ms)
+✔ AC-D01 survives seal, validate, and session completion with full independent fixture evidence (67.4385ms)
+✔ seal rejects mixed omitted without writing a receipt or changing session (15.5132ms)
+✔ seal rejects extra without writing a receipt or changing session (12.1596ms)
+✔ seal rejects invalid without writing a receipt or changing session (16.7879ms)
+✔ seal rejects duplicate review without writing a receipt or changing session (16.2266ms)
+✔ duplicate requirement definitions cannot be sealed (13.4396ms)
+✔ receipt use revalidates exact coverage and refuses completing a forged incomplete receipt (34.2796ms)
+✔ existing requirement approval rejects invalid definitions before any record changes (12.3397ms)
+✔ intake generation uses valid IDs and approval rejects malformed edited requirements before mutation (214.3017ms)
+✔ intake validates its final rendered answer ledger before changing any artifact or existing approval (202.9368ms)
+✔ product approval rejects concurrent requirement contents without approving (18.5768ms)
+✔ product approval rejects concurrent session requirement pointer without approving (19.7345ms)
+✔ seal rejects changed validated input docs/product/requirements/fixture.md (23.159ms)
+✔ seal rejects changed validated input work/reviews/fixture.json (18.7527ms)
+✔ receipt coverage is parsed from the same bytes as its validated requirement hash (41.1047ms)
+✔ independent positive: mixed grammar, BOM/CRLF, headings and inert examples preserve exact IDs (2.558ms)
+✔ independent negative parser: empty comment body (0.2861ms)
+✔ independent negative parser: duplicate across sections (0.1684ms)
+✔ independent negative parser: outside section (0.0798ms)
+✔ independent negative parser: shorter closing fence (0.1063ms)
+✔ independent negative parser: invalid review-like list (0.0596ms)
+✔ independent negative parser: unclosed HTML comment (0.0511ms)
+✔ unsupported definition must not silently permit seal and completion: # H-D01 must be verified (25.9778ms)
+ℹ {"tail":"# H-D01 must be verified","rejected":true,"fixtureSessionStatus":"active"}
+✔ unsupported definition must not silently permit seal and completion: # **AC-D01** must be verified (13.6484ms)
+ℹ {"tail":"# **AC-D01** must be verified","rejected":true,"fixtureSessionStatus":"active"}
+✔ unsupported definition must not silently permit seal and completion: • AC-D01: Unicode bullet requirement (13.5171ms)
+ℹ {"tail":"• AC-D01: Unicode bullet requirement","rejected":true,"fixtureSessionStatus":"active"}
+✔ ID grammar must reject a final newline rather than accepting a partial-string match (0.2452ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: missing (38.7796ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: extra (33.5374ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: duplicate (28.9663ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: empty (35.5542ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: invalid ID (36.874ms)
+✔ direct receipt bypassing seal is rejected without completion mutation: null result (27.0237ms)
+✔ task completion rejects missing AC-D01 and leaves task plus session bytes unchanged (111.0667ms)
+✔ loop completion rejects missing AC-D01 and preserves loop plus session bytes (58.7729ms)
+✔ final intake reconstruction refuses invalid IDs and preserves every linked artifact plus old approval (214.4724ms)
+✔ product-intent approval must reject a changed requirement content before committing approval (23.9413ms)
+ℹ Approval requirement changed after validation; review the current requirement and retry.
+ℹ {"change":"requirement content","rejected":true,"approvalExists":false,"requirement":"docs/product/requirements/probe.md","gate_status":"not-applicable"}
+✔ product-intent approval must reject a changed session reference before committing approval (23.1844ms)
+ℹ Approval requirement changed after validation; review the current requirement and retry.
+ℹ {"change":"session reference","rejected":true,"approvalExists":false,"requirement":"docs/product/requirements/changed.md","gate_status":"not-applicable"}
+✔ receipt validation must parse the same requirement bytes that it checked against the artifact hash (30.7988ms)
+ℹ Missing acceptance criteria: AC-D01; review must cover every requirement acceptance criterion; verification must cover all acceptance criteria
+ℹ {"rejected":true,"currentHashMatches":true,"fixtureSessionStatus":"active","requirementReads":1,"secondReadMutationReached":false}
+✔ seal rejects a changed parsed input and preserves an existing output: docs/product/requirements/probe.md (25.5666ms)
+ℹ {"changedPath":"docs/product/requirements/probe.md","changed":true,"existingOutputPreserved":true,"sessionPreserved":true}
+✔ seal rejects a changed parsed input and preserves an existing output: work/reviews/probe.json (19.1795ms)
+ℹ {"changedPath":"work/reviews/probe.json","changed":true,"existingOutputPreserved":true,"sessionPreserved":true}
+✔ receipt rejects a changed requirement at its first actual read and preserves the session (30.0428ms)
+✔ unchanged valid seal and receipt bind the actual review and requirement bytes (28.0317ms)
+✔ new generated-question exception is limited to the expected ledger depth and shape (0.4569ms)
+ℹ tests 75
+ℹ suites 0
+ℹ pass 75
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 909.0497

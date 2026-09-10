@@ -290,6 +290,8 @@ test("release/apply keeps provider rules, the complete harness guide and harness
     "tests/harness.test.mjs", "tests/contracts.test.mjs", "tests/evaluation.test.mjs", "tests/distribution.test.mjs",
     "tests/hooks.test.mjs", "tests/memory.test.mjs", "tests/scaffold-data.test.mjs", "tests/docs.test.mjs", "tests/loop-concurrency.test.mjs",
     "tests/approval.test.mjs",
+    "tests/initialization.test.mjs", "tests/helpers/initialization.mjs", "tests/scaffold-output.test.mjs",
+    "harness/fixtures/initialization/manifest.json", "tools/lib/scaffold-output.mjs",
   ];
   for (const path of required) {
     await mkdir(dirname(join(source, path)), { recursive: true });

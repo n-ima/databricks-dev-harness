@@ -1,0 +1,106 @@
+TAP version 13
+# Subtest: dispatcher change now invalidates candidate while legacy policyHash remains stable
+ok 1 - dispatcher change now invalidates candidate while legacy policyHash remains stable
+  ---
+  duration_ms: 35.8257
+  type: 'test'
+  ...
+# Subtest: dispatcher change during validation stops before deploy
+ok 2 - dispatcher change during validation stops before deploy
+  ---
+  duration_ms: 42.4517
+  type: 'test'
+  ...
+# Subtest: optional dispatcher deletion is part of policy inventory drift
+ok 3 - optional dispatcher deletion is part of policy inventory drift
+  ---
+  duration_ms: 17.8518
+  type: 'test'
+  ...
+# Subtest: policy directory ancestor junction is rejected
+ok 4 - policy directory ancestor junction is rejected
+  ---
+  duration_ms: 8.7111
+  type: 'test'
+  ...
+# Subtest: policy entry junction is rejected even with a nonpolicy extension
+ok 5 - policy entry junction is rejected even with a nonpolicy extension
+  ---
+  duration_ms: 9.2497
+  type: 'test'
+  ...
+# Subtest: directory posing as policy JSON is rejected as nonfile
+ok 6 - directory posing as policy JSON is rejected as nonfile
+  ---
+  duration_ms: 10.6143
+  type: 'test'
+  ...
+# Subtest: single policy file larger than 8 MiB is rejected before candidate
+ok 7 - single policy file larger than 8 MiB is rejected before candidate
+  ---
+  duration_ms: 15.0381
+  type: 'test'
+  ...
+# Subtest: aggregate policy bytes larger than 8 MiB are rejected
+ok 8 - aggregate policy bytes larger than 8 MiB are rejected
+  ---
+  duration_ms: 19.4571
+  type: 'test'
+  ...
+# Subtest: malformed duplicate policy inventory is rejected on read even after hashes recomputed
+ok 9 - malformed duplicate policy inventory is rejected on read even after hashes recomputed
+  ---
+  duration_ms: 131.4452
+  type: 'test'
+  ...
+# Subtest: existing record with path payload URL is rejected on show
+ok 10 - existing record with path payload URL is rejected on show
+  ---
+  duration_ms: 131.2976
+  type: 'test'
+  ...
+# Subtest: noncanonical synthetic origin URL is rejected before recording health
+ok 11 - noncanonical synthetic origin URL is rejected before recording health
+  ---
+  duration_ms: 110.7413
+  type: 'test'
+  ...
+# Subtest: legal stop at initial validation preflight remains readable
+ok 12 - legal stop at initial validation preflight remains readable
+  ---
+  duration_ms: 26.7749
+  type: 'test'
+  ...
+# Subtest: legal stop at next-stage preflight after passed result remains readable
+ok 13 - legal stop at next-stage preflight after passed result remains readable
+  ---
+  duration_ms: 59.8452
+  type: 'test'
+  ...
+# Subtest: legal stop after validate passed-result save failure remains readable
+ok 14 - legal stop after validate passed-result save failure remains readable
+  ---
+  duration_ms: 75.4003
+  type: 'test'
+  ...
+# Subtest: legal stop after health passed-result save failure remains readable
+ok 15 - legal stop after health passed-result save failure remains readable
+  ---
+  duration_ms: 198.384
+  type: 'test'
+  ...
+# Subtest: strict stopped stages still reject a jump on preflight failure
+ok 16 - strict stopped stages still reject a jump on preflight failure
+  ---
+  duration_ms: 34.1785
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 996.619

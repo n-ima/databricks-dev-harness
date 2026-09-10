@@ -1,0 +1,63 @@
+TAP version 13
+# Subtest: noncanonical root control DaTaBrIcKs.YmL is rejected before bounded read
+ok 1 - noncanonical root control DaTaBrIcKs.YmL is rejected before bounded read
+  ---
+  duration_ms: 9.4365
+  type: 'test'
+  ...
+# Subtest: noncanonical root control DATABRICKS.FIXTURE-ONLY.YML is rejected before bounded read
+ok 2 - noncanonical root control DATABRICKS.FIXTURE-ONLY.YML is rejected before bounded read
+  ---
+  duration_ms: 5.6565
+  type: 'test'
+  ...
+# Subtest: noncanonical root control .HARNESS-FIXTURE-ONLY.JSON is rejected before bounded read
+ok 3 - noncanonical root control .HARNESS-FIXTURE-ONLY.JSON is rejected before bounded read
+  ---
+  duration_ms: 5.1583
+  type: 'test'
+  ...
+# Subtest: noncanonical nested PACKAGE.JSON is rejected without relocating its root
+ok 4 - noncanonical nested PACKAGE.JSON is rejected without relocating its root
+  ---
+  duration_ms: 6.0924
+  type: 'test'
+  ...
+# Subtest: uppercase ordinary cache remains outside the reserved alias restriction
+ok 5 - uppercase ordinary cache remains outside the reserved alias restriction
+  ---
+  duration_ms: 17.7447
+  type: 'test'
+  ...
+# Subtest: mixed-case excluded local inputs do not change fresh fixture bytes or source
+ok 6 - mixed-case excluded local inputs do not change fresh fixture bytes or source
+  ---
+  duration_ms: 92.6278
+  type: 'test'
+  ...
+# Subtest: HI-04: absent root control becoming a directory must not be invisible to continuity
+not ok 7 - HI-04: absent root control becoming a directory must not be invisible to continuity
+  ---
+  duration_ms: 9.3938
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\work\\evidence\\2026-09-10-initialization-final.test.mjs:61:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'rejects'
+  stack: |-
+    async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/2026-09-10-initialization-final.test.mjs:65:3)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 6
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 216.0699

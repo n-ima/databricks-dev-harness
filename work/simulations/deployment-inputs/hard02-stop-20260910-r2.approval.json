@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "kind": "fixture-approval",
+  "mode": "simulation",
+  "decision": "approved",
+  "actor": "fixture-generator",
+  "candidateId": "30e113af4c63d15f7276330b07fbad19352002930cc5e8a2553aba099f4df9f7",
+  "session": "20260909-214048-619-retrospective-hardening",
+  "identity": {
+    "host": "https://workspace.invalid",
+    "workspaceId": "simulation-workspace",
+    "profile": "simulation-profile",
+    "target": "simulation",
+    "resource": "simulation-app",
+    "principal": "simulation-principal",
+    "operations": [
+      "deploy",
+      "start"
+    ],
+    "costLimitUsd": 0
+  },
+  "issuedAt": "2026-09-09T23:18:13.254Z",
+  "expiresAt": "2026-09-09T23:23:13.254Z"
+}

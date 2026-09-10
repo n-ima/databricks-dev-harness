@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile, symlink } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve, sep } from "node:path";
@@ -391,6 +391,161 @@ test("Genie and metric scaffolds are explicit drafts, outside automatic deployme
   assert.match(await readFile(join(root, "src/metrics/sales-metrics.draft.sql"), "utf8"), /DRAFT ONLY/);
   assert.match(await readFile(join(root, "src/metrics/sales-metrics.metric.yml"), "utf8"), /expr: "SUM\(amount\)"/);
   await assert.rejects(planScaffold(root, { kind: "metric-view", name: "invalid", source_table: "dev.sales.orders", dimension: ["Region=region"], measure: ["Revenue=SUM(amount); DROP TABLE x"] }), /one SQL expression/);
+});
+
+test("AppKit nested-only output stops before quarantine and validation", async (t) => {
+  const context = await appFixture(t);
+  const plan = await planScaffold(context.root, context.options, context);
+  const run = async (command, args, execution) => {
+    if (args[1] === "init") {
+      await writeJson(join(context.root, plan.outputDir, "nested/package.json"), { name: "nested" });
+      await writeFile(join(context.root, plan.outputDir, "nested/databricks.yml"), "bundle:\n  name: nested\n");
+      return success();
+    }
+    return context.run(command, args, execution);
+  };
+  await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, { run }));
+  assert.equal(context.calls.some((call) => call.args[1] === "validate"), false, "unknown output must stop before validation");
+  assert.equal(await exists(join(context.root, plan.outputDir, ".harness-fixture-only.json")), false);
+  assert.equal(await readFile(join(context.root, plan.outputDir, "nested/databricks.yml"), "utf8"), "bundle:\n  name: nested\n");
+  const failed = await readJson(join(context.root, planPath(plan)));
+  assert.equal(failed.failureStage, "output-inspection");
+  assert.equal(failed.outputInspection.expectedRoot, plan.outputDir);
+  assert.deepEqual(failed.outputInspection.candidateRoots, [`${plan.outputDir}/nested`]);
+});
+
+for (const invalid of ["missing-root", "missing-package", "null-package", "linked-child", "linked-root", "directory-package"]) {
+  test(`AppKit ${invalid} fails before quarantine or validate`, async (t) => {
+    const context = await appFixture(t);
+    const plan = await planScaffold(context.root, context.options, context);
+    const output = join(context.root, plan.outputDir);
+    const run = async (command, args, execution) => {
+      if (args[1] === "init") {
+        if (invalid === "missing-root") return success();
+        await context.run(command, args, execution);
+        if (invalid === "missing-package" || invalid === "directory-package") await rm(join(output, "package.json"));
+        if (invalid === "directory-package") await mkdir(join(output, "package.json"));
+        if (invalid === "null-package") await writeFile(join(output, "package.json"), "null");
+        if (invalid === "linked-child") await symlink(join(context.root, "apps/mock-ui"), join(output, "linked"), "junction");
+        if (invalid === "linked-root") {
+          // Delete only our just-created fixture files before replacing its empty directory.
+          await rm(join(output, "package.json"));
+          await rm(join(output, "databricks.yml"));
+          const { rmdir } = await import("node:fs/promises");
+          await rmdir(output);
+          await symlink(join(context.root, "apps/mock-ui"), output, "junction");
+        }
+        return success();
+      }
+      return context.run(command, args, execution);
+    };
+    await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, { run }), /output inspection failed/);
+    assert.equal(context.calls.some((call) => call.args[1] === "validate"), false);
+    assert.equal(await exists(join(output, ".harness-fixture-only.json")), false);
+    const failed = await readJson(join(context.root, planPath(plan)));
+    assert.equal(failed.failureStage, "output-inspection");
+    assert.equal(failed.status, "failed");
+    assert.equal(failed.appliedAt, undefined);
+  });
+}
+
+for (const collision of ["databricks.fixture-only.yml", ".harness-fixture-only.json"]) {
+  test(`AppKit mock ${collision} collision preserves all bytes`, async (t) => {
+    const context = await appFixture(t);
+    const plan = await planScaffold(context.root, context.options, context);
+    const output = join(context.root, plan.outputDir);
+    const run = async (command, args, execution) => {
+      const result = await context.run(command, args, execution);
+      if (args[1] === "init") await writeFile(join(output, collision), "existing fixture sentinel");
+      return result;
+    };
+    await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, { run }), /Refusing to overwrite/);
+    assert.equal(await readFile(join(output, collision), "utf8"), "existing fixture sentinel");
+    assert.equal(await readFile(join(output, "databricks.yml"), "utf8"), "bundle:\n  name: fixture-app\n");
+    assert.equal(context.calls.some((call) => call.args[1] === "validate"), false);
+    assert.equal((await readJson(join(context.root, planPath(plan)))).failureStage, "fixture-quarantine");
+  });
+}
+
+for (const kind of ["existing", "ancestor-junction", "dangling-junction"]) {
+  test(`AppKit ${kind} preflight calls neither auth nor init`, async (t) => {
+    const context = await appFixture(t);
+    const plan = await planScaffold(context.root, context.options, context);
+    if (kind === "existing") await mkdir(join(context.root, plan.outputDir));
+    if (kind === "dangling-junction") await symlink(join(context.root, "missing"), join(context.root, plan.outputDir), "junction");
+    if (kind === "ancestor-junction") {
+      // Test apps ancestor safety in a second fixture root without any real files being moved.
+      const { rename } = await import("node:fs/promises");
+      await rename(join(context.root, "apps"), join(context.root, "fixture-apps"));
+      await symlink(join(context.root, "fixture-apps"), join(context.root, "apps"), "junction");
+    }
+    const callsBefore = context.calls.length;
+    await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, context), /exists|[Ss]ymlink|junction/);
+    assert.equal(context.calls.length, callsBefore);
+    assert.equal((await readJson(join(context.root, planPath(plan)))).failureStage, "output-preflight");
+  });
+}
+
+test("AppKit successful validate cannot mask package removal", async (t) => {
+  const context = await appFixture(t);
+  const plan = await planScaffold(context.root, context.options, context);
+  const output = join(context.root, plan.outputDir);
+  const run = async (command, args, execution) => {
+    if (args[1] === "validate") { await rm(join(output, "package.json")); return success(); }
+    return context.run(command, args, execution);
+  };
+  await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, { run }), /output inspection failed/);
+  const failed = await readJson(join(context.root, planPath(plan)));
+  assert.equal(failed.status, "failed");
+  assert.equal(failed.failureStage, "output-reinspection");
+  assert.equal(failed.validation.status, "passed");
+  assert.equal(failed.outputInspection.status, "passed");
+  assert.equal(failed.outputReinspection.status, "failed");
+  assert.equal(failed.appliedAt, undefined);
+});
+
+for (const drift of ["same-byte-root", "package", "marker", "quarantine", "bundle-restored", "case-alias-bundle", "bundle-directory"]) {
+  test(`AppKit validation cannot adopt changed ${drift}`, async (t) => {
+    const context = await appFixture(t);
+    const plan = await planScaffold(context.root, context.options, context);
+    const output = join(context.root, plan.outputDir);
+    const run = async (command, args, execution) => {
+      if (args[1] === "validate") {
+        if (drift === "same-byte-root") {
+          const { cp, rename } = await import("node:fs/promises");
+          const preserved = join(context.root, "preserved-root");
+          await rename(output, preserved);
+          await cp(preserved, output, { recursive: true });
+        } else if (drift === "package") await writeJson(join(output, "package.json"), { name: "changed-valid-object" });
+        else if (drift === "marker") await writeJson(join(output, ".harness-fixture-only.json"), { deployReady: true });
+        else if (drift === "quarantine") await writeFile(join(output, "databricks.fixture-only.yml"), "bundle:\n  name: changed\n");
+        else if (drift === "case-alias-bundle") await writeFile(join(output, "DATABRICKS.YML"), "bundle:\n  name: restored\n");
+        else if (drift === "bundle-directory") await mkdir(join(output, "databricks.yml"));
+        else await writeFile(join(output, "databricks.yml"), "bundle:\n  name: restored\n");
+        return success();
+      }
+      return context.run(command, args, execution);
+    };
+    await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, { run }), /output inspection failed/);
+    const failed = await readJson(join(context.root, planPath(plan)));
+    assert.equal(failed.status, "failed");
+    assert.equal(failed.failureStage, "output-reinspection");
+    assert.equal(failed.outputReinspection.status, "failed");
+    assert.equal(failed.appliedAt, undefined);
+    if (drift === "same-byte-root") assert.match(failed.failure, /root identity changed/);
+  });
+}
+
+test("AppKit same-root validation cache writes remain allowed", async (t) => {
+  const context = await appFixture(t);
+  const plan = await planScaffold(context.root, context.options, context);
+  const run = async (command, args, execution) => {
+    if (args[1] === "validate") await writeFile(join(context.root, plan.outputDir, "build-cache.txt"), "local generated cache");
+    return context.run(command, args, execution);
+  };
+  const applied = await applyScaffold(context.root, { plan: planPath(plan), yes: true }, { run });
+  assert.equal(applied.status, "applied");
+  assert.deepEqual(applied.validationInputInspection.rootIdentity, applied.outputReinspection.rootIdentity);
 });
 
 for (const samePlan of [true, false]) {

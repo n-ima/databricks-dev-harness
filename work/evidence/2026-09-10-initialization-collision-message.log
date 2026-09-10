@@ -1,0 +1,16 @@
+✔ HI-04: absent root control becoming a directory must not be invisible to continuity (12.0889ms)
+{
+  "plan": "work/scaffolds/20260910-002156-225-app-independent-f3da0798.json",
+  "status": "ready",
+  "missing": [],
+  "rules": []
+}
+✔ mock reserved directory collision preserves both original Bundle and collision (41.1323ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122.4833

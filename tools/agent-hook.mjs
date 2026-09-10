@@ -1,24 +1,15 @@
 #!/usr/bin/env node
 
-import { access, readFile, readdir } from "node:fs/promises";
-import { constants } from "node:fs";
-import { dirname, join, relative, resolve } from "node:path";
+import { readFile } from "node:fs/promises";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import process from "node:process";
 import { activeAutoLoop } from "./lib/loop.mjs";
 import { writeJson, timestamp, parseFrontmatter } from "./lib/shared.mjs";
 import { resolveRoute } from "./lib/workloads.mjs";
+import { workState, renderWorkState } from "./lib/work-state.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-
-async function exists(path) {
-  try {
-    await access(path, constants.F_OK);
-    return true;
-  } catch {
-    return false;
-  }
-}
 
 async function stdinJson() {
   let raw = "";
@@ -40,40 +31,18 @@ function parseArgs(args) {
   return result;
 }
 
-async function activeSessions() {
-  const directory = join(root, "work", "sessions");
-  if (!(await exists(directory))) return [];
-  const active = [];
-  const productPath = join(root, "product.config.json");
-  const initializedAt = await exists(productPath) ? JSON.parse(await readFile(productPath, "utf8")).initializedAt : null;
-  for (const name of await readdir(directory)) {
-    if (!name.endsWith(".md")) continue;
-    const path = join(directory, name);
-    const text = await readFile(path, "utf8");
-    if (!/^status:\s*active\s*$/m.test(text)) continue;
-    const title = text.match(/^title:\s*(.+)$/m)?.[1]?.trim() || name;
-    const intent = text.match(/^intent:\s*(.+)$/m)?.[1]?.trim() || "unknown";
-    if (initializedAt && intent === "improve-harness" && (parseFrontmatter(text).updated || "") < initializedAt) continue;
-    active.push({ path: relative(root, path).replaceAll("\\", "/"), title, intent });
-  }
-  return active.slice(0, 8);
-}
-
 async function routePrompt(prompt) {
   return resolveRoute(root, prompt);
 }
 
 async function contextMessage() {
-  const active = await activeSessions();
-  const sessionText = active.length
-    ? active.map((item) => `${item.path} [${item.intent}] ${item.title}`).join("; ")
-    : "none";
+  const state = await workState(root, { session: options.session || process.env.HARNESS_SESSION_ID });
   return [
     "Databricks harness context:",
     "Read AGENTS.md and load the orchestrate-work skill for every non-trivial request.",
     "Treat chat as transport, not memory. Start/resume a work/sessions file and checkpoint it before handoff or completion.",
     "Harness design belongs under docs/harness/; target product design belongs under docs/product/.",
-    `Active durable sessions: ${sessionText}`,
+    renderWorkState(state),
   ].join("\n");
 }
 

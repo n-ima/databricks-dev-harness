@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "mode": "simulation",
+  "liveDeployment": false,
+  "id": "hard02-success-20260910-01",
+  "candidate": {
+    "schemaVersion": 1,
+    "mode": "simulation",
+    "adapter": "fixture-v1",
+    "session": "20260909-214048-619-retrospective-hardening",
+    "sessionBinding": {
+      "path": "work/sessions/20260909-214048-619-retrospective-hardening.md",
+      "id": "20260909-214048-619-retrospective-hardening",
+      "status": "active",
+      "requirement": "docs/harness/requirements/retrospective-hardening.md",
+      "gate": "none",
+      "gateStatus": "not-applicable"
+    },
+    "component": "harness/fixtures/deployment-component",
+    "requirement": {
+      "path": "docs/harness/requirements/retrospective-hardening.md",
+      "sha256": "de27edccfda277d8d655e67c635e8bbd2bb5cd43994c742ff182400cf20dbf64"
+    },
+    "identity": {
+      "host": "https://workspace.invalid",
+      "workspaceId": "simulation-workspace",
+      "profile": "simulation-profile",
+      "target": "simulation",
+      "resource": "simulation-app",
+      "principal": "simulation-principal",
+      "operations": [
+        "deploy",
+        "start"
+      ],
+      "costLimitUsd": 0
+    },
+    "excludedRoots": [
+      ".git",
+      "node_modules",
+      "dist",
+      "build",
+      "coverage"
+    ],
+    "inventory": [
+      {
+        "path": "README.md",
+        "bytes": 197,
+        "sha256": "c6444a86fa1ed85ed6b911a6822ae178e9d6e433fa9b180aa71cebdbb0e8fb53",
+        "role": "source"
+      },
+      {
+        "path": "src/main.ts",
+        "bytes": 94,
+        "sha256": "91c441856a5a56f94de7f94200a78174746aad01d6962c9fe30216cdeb1733d6",
+        "role": "source"
+      },
+      {
+        "path": "tests/main.test.ts",
+        "bytes": 119,
+        "sha256": "2df039b164b0ebd19f1ddfb5e7e1b249ec7c202b7fa123efd791532a60eb337f",
+        "role": "validation"
+      }
+    ],
+    "policyHash": "e9a4258270872d6ad575b2387926b44a7926c7a27ecbea96228502cf5f31d10d",
+    "id": "c164e76988f542e47440b7eee44b3cd1517a623a966d3db86efbd3a8d0691a26"
+  },
+  "approvalPath": "work/simulations/deployment-inputs/hard02-success-20260910-01.approval.json",
+  "approvalHash": "29c79d7644ec8b12c8dff73fbbc734f6fe1786f5af4473bf5bc3b47d6306d34f",
+  "status": "simulated-success",
+  "stage": "health",
+  "reason": null,
+  "simulatedCalls": [
+    "validate",
+    "deploy",
+    "observe",
+    "start",
+    "health"
+  ],
+  "events": [
+    {
+      "stage": "validate",
+      "event": "entered",
+      "at": "2026-09-09T23:08:11.787Z"
+    },
+    {
+      "stage": "validate",
+      "event": "passed",
+      "at": "2026-09-09T23:08:11.809Z"
+    },
+    {
+      "stage": "deploy",
+      "event": "entered",
+      "at": "2026-09-09T23:08:11.821Z"
+    },
+    {
+      "stage": "deploy",
+      "event": "passed",
+      "at": "2026-09-09T23:08:11.843Z"
+    },
+    {
+      "stage": "observe",
+      "event": "entered",
+      "at": "2026-09-09T23:08:11.854Z"
+    },
+    {
+      "stage": "observe",
+      "event": "passed",
+      "at": "2026-09-09T23:08:11.876Z"
+    },
+    {
+      "stage": "start",
+      "event": "entered",
+      "at": "2026-09-09T23:08:11.887Z"
+    },
+    {
+      "stage": "start",
+      "event": "passed",
+      "at": "2026-09-09T23:08:11.909Z"
+    },
+    {
+      "stage": "health",
+      "event": "entered",
+      "at": "2026-09-09T23:08:11.921Z"
+    },
+    {
+      "stage": "health",
+      "event": "passed",
+      "at": "2026-09-09T23:08:11.943Z"
+    }
+  ],
+  "deploymentId": "sim-4b26c64ae7fb7ef8c1fbdad6",
+  "health": {
+    "url": "https://fixture-app.invalid/",
+    "observedAt": "2026-09-09T23:08:11.932Z",
+    "validUntil": "2026-09-09T23:09:11.932Z",
+    "mode": "simulation"
+  },
+  "reconciliationRequired": false,
+  "startedAt": "2026-09-09T23:08:11.774Z",
+  "updatedAt": "2026-09-09T23:08:11.944Z",
+  "integrity": "25d21c746a3f52801575335e21ab33aff1529b42cddbc0b9163ecd50f2257629"
+}

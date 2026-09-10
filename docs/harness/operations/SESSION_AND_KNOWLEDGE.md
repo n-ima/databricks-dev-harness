@@ -35,6 +35,8 @@ session start -> inspect -> checkpoint after meaningful state change
 
 Provider lifecycle hooks inject active-session paths but do not write raw prompts. The agent creates and summarizes the durable record because it can distinguish intent, evidence, and discarded hypotheses.
 
+Task identity and user-visible progress are separate from a session lifecycle. See [Task visibility](TASK_VISIBILITY.md) for the shared CLI/hook projection, explicit focus, truncation, and revision-checked writes. Checkpoints refresh the current-state and next-action sections while retaining initial state and prior checkpoints. `active` or a task's `running` is stored state, not an observed live process.
+
 ## Knowledge promotion
 
 A session statement moves to knowledge only when it is reusable and supported by a source or reproducible evidence.

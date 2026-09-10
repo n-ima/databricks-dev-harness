@@ -1,5 +1,9 @@
 # Validation status — 0.4.0 local candidate
 
+2026-09-10 HARD-08正式採用: [採用判断](../decisions/ADR-0008-initialization-safety-adoption.md)、[初期化fixtureと生成root検査の証拠](../../../work/evidence/2026-09-10-initialization-hardening.md)。既存案件の設定混入を防止し、生成rootの型・上限・同一性を検証。独立指摘HI-01〜04を修正、全体504 pass / 0 fail / 1既存skip、独立42 pass。privateソースpushは別途承認済み。実CLI/AppKit生成や実providerの適合証拠ではなく、L1を維持する。
+
+2026-09-10追加（未公開候補）: [task可視化・再開の実装証拠](../../../work/evidence/2026-09-10-task-visibility.md)。永続task、共通status/context、focus、明示省略、checkpoint現状更新を追加。初回独立レビューでP1 1件/P2 2件を検出し、ユーザーの依頼で修正・追加6試験を実施。最新の修正・再レビュー結果は上記証拠を参照。初回全体342 pass / 0 fail / 1 skipだけでは合格としない。実provider canaryは未実施、L1のまま。以下の日付とmatrixは以前の観測であり、新機能の実環境受入を意味しない。
+
 2026-09-08全領域監査: [新しい検証証拠](../../../work/evidence/2026-09-08-platform-harness-audit.md)、[対応/検証境界](PLATFORM_PLAYBOOK.md)、[provider・モデル互換性](PROVIDER_COMPATIBILITY.md)。API/analysisの実行fixtureと16領域のdiscoveryを追加。以下の旧H-01〜H-20 matrixと過去のbrowser/CI証拠は履歴であり、新版のlive/provider検証を代用しません。L1を維持します。
 
 Last checked: 2026-09-08. This is a locally implemented, tested candidate, not a production-certified or published service. Maturity stays **L1** until real provider/workspace evidence supports promotion.

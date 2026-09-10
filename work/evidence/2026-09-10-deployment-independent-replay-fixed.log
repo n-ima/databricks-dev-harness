@@ -1,0 +1,13 @@
+✔ IR-policy-directory-link: policy input junction is rejected at capture (23.0881ms)
+✔ IR-policy-link-replacement: replacing policy directory with equal-byte junction blocks deploy (57.4484ms)
+✔ IR-policy-bytes: invalid UTF-8 policy byte change invalidates candidate (49.7806ms)
+✔ IR-health-secret: untrusted synthetic URL must not persist a secret-shaped payload (139.933ms)
+✔ IR-event-stage: stopped event cannot jump from validate to health (41.77ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 379.0913

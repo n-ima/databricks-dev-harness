@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "mode": "simulation",
+  "liveDeployment": false,
+  "id": "hard02-stop-20260910-01",
+  "candidate": {
+    "schemaVersion": 1,
+    "mode": "simulation",
+    "adapter": "fixture-v1",
+    "session": "20260909-214048-619-retrospective-hardening",
+    "sessionBinding": {
+      "path": "work/sessions/20260909-214048-619-retrospective-hardening.md",
+      "id": "20260909-214048-619-retrospective-hardening",
+      "status": "active",
+      "requirement": "docs/harness/requirements/retrospective-hardening.md",
+      "gate": "none",
+      "gateStatus": "not-applicable"
+    },
+    "component": "harness/fixtures/deployment-component",
+    "requirement": {
+      "path": "docs/harness/requirements/retrospective-hardening.md",
+      "sha256": "de27edccfda277d8d655e67c635e8bbd2bb5cd43994c742ff182400cf20dbf64"
+    },
+    "identity": {
+      "host": "https://workspace.invalid",
+      "workspaceId": "simulation-workspace",
+      "profile": "simulation-profile",
+      "target": "simulation",
+      "resource": "simulation-app",
+      "principal": "simulation-principal",
+      "operations": [
+        "deploy",
+        "start"
+      ],
+      "costLimitUsd": 0
+    },
+    "excludedRoots": [
+      ".git",
+      "node_modules",
+      "dist",
+      "build",
+      "coverage"
+    ],
+    "inventory": [
+      {
+        "path": "README.md",
+        "bytes": 197,
+        "sha256": "c6444a86fa1ed85ed6b911a6822ae178e9d6e433fa9b180aa71cebdbb0e8fb53",
+        "role": "source"
+      },
+      {
+        "path": "src/main.ts",
+        "bytes": 94,
+        "sha256": "91c441856a5a56f94de7f94200a78174746aad01d6962c9fe30216cdeb1733d6",
+        "role": "source"
+      },
+      {
+        "path": "tests/main.test.ts",
+        "bytes": 119,
+        "sha256": "2df039b164b0ebd19f1ddfb5e7e1b249ec7c202b7fa123efd791532a60eb337f",
+        "role": "validation"
+      }
+    ],
+    "policyHash": "e9a4258270872d6ad575b2387926b44a7926c7a27ecbea96228502cf5f31d10d",
+    "id": "c164e76988f542e47440b7eee44b3cd1517a623a966d3db86efbd3a8d0691a26"
+  },
+  "approvalPath": "work/simulations/deployment-inputs/hard02-stop-20260910-01.approval.json",
+  "approvalHash": "993ea12d5764b785518c0da145b5d2ed3cf3933328e9e5619df4f621b13dd302",
+  "status": "stopped",
+  "stage": "validate",
+  "reason": "validation-incomplete-or-failed",
+  "simulatedCalls": [
+    "validate"
+  ],
+  "events": [
+    {
+      "stage": "validate",
+      "event": "entered",
+      "at": "2026-09-09T23:08:12.105Z"
+    },
+    {
+      "stage": "validate",
+      "event": "stopped",
+      "at": "2026-09-09T23:08:12.119Z"
+    }
+  ],
+  "deploymentId": null,
+  "health": null,
+  "reconciliationRequired": false,
+  "startedAt": "2026-09-09T23:08:12.092Z",
+  "updatedAt": "2026-09-09T23:08:12.119Z",
+  "integrity": "b8e9b2b8913f0ced0b38f2307c3567a4f847f4df56cd4bc3bef5dcbe6f7ca914"
+}

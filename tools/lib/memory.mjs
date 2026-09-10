@@ -1,24 +1,20 @@
-import { mkdir, readFile, readdir } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 import { basename, join, sep } from "node:path";
-import { atomicWrite, cleanInline, compactTimestamp, exists, parseFrontmatter, pathInside, replaceFrontmatterField, repoRelative, slugify, timestamp, withFileLock, assertNoSecrets } from "./shared.mjs";
+import { atomicWrite, cleanInline, compactTimestamp, exists, pathInside, replaceFrontmatterField, repoRelative, slugify, timestamp, withFileLock, assertNoSecrets } from "./shared.mjs";
 import { validateReceipt, fileHash } from "./evidence.mjs";
+import { sha256 } from "./shared.mjs";
+import { sectionBody, replaceSection, currentCheckpoint, sessionRecords } from "./session-state.mjs";
+import { taskRecords } from "./tasks.mjs";
 
 export async function sessions(root) {
-  const directory = join(root, "work", "sessions");
-  if (!(await exists(directory))) return [];
-  const result = [];
-  for (const name of (await readdir(directory)).filter((name) => name.endsWith(".md") && name.toLowerCase() !== "readme.md")) {
-    const path = join(directory, name);
-    const text = await readFile(path, "utf8");
-    const fields = parseFrontmatter(text);
-    if (fields.id) result.push({ ...fields, path, text });
-  }
-  return result.sort((a, b) => (b.updated || "").localeCompare(a.updated || ""));
+  return sessionRecords(root, { filterProduct: false });
 }
 
 async function findSession(root, id) {
   if (!id) throw new Error("Specify --id.");
-  const matches = (await sessions(root)).filter((session) => session.id === id || session.id.startsWith(id));
+  const records = await sessions(root);
+  const exact = records.filter(session => session.id === id);
+  const matches = exact.length ? exact : records.filter(session => session.id.startsWith(id));
   if (matches.length !== 1) throw new Error(`Session not found or ambiguous: ${id}`);
   return matches[0];
 }
@@ -47,6 +43,11 @@ export async function checkpointSession(root, options) {
     const record = await findSession(root, options.id);
     if (record.status !== "active") throw new Error("Checkpoint requires an active session.");
     if (!options.summary || !options.next) throw new Error("A resumable checkpoint requires --summary and --next (use --next 'none; waiting for ...' at a gate).");
+    if (options.expected_revision !== undefined && options.expected_revision !== sha256(record.text)) throw new Error("Session revision changed; re-read before checkpointing.");
+    if (options.task && options.task !== "none") {
+      const task = (await taskRecords(root)).find(item => item.id === options.task);
+      if (!task || task.session !== record.id) throw new Error("Focus task must belong to this session.");
+    }
     const now = timestamp();
     let text = record.text;
     for (const [key, value] of Object.entries({ updated: now, last_checkpoint: now })) text = replaceFrontmatterField(text, key, value);
@@ -56,8 +57,22 @@ export async function checkpointSession(root, options) {
       if (record.gate_status === "pending" && ["implement", "verify", "release"].includes(options.phase)) throw new Error("Resolve the pending human gate before advancing.");
       text = replaceFrontmatterField(text, "phase", options.phase);
     }
-    const fields = ["summary", "decision", "evidence", "next", "blocker"];
+    const prior = currentCheckpoint(record.text);
+    const currentBody = sectionBody(record.text, "Verified current state");
+    const nextBody = sectionBody(record.text, "Next actions");
+    const blockerBody = sectionBody(record.text, "Blockers and human gates");
+    const nextBlockerBody = options.blocker ? `- ${cleanInline(options.blocker)}` : blockerBody;
+    if (record.checkpoint_format !== "2" || currentBody !== `- ${prior.current}` || nextBody !== `- ${prior.next}` || blockerBody !== nextBlockerBody) {
+      text += `\n## Previous state archived ${now}\n\n### Previous verified current state\n\n${currentBody}\n\n### Previous next actions\n\n${nextBody}\n\n### Previous blockers and human gates\n\n${blockerBody}\n`;
+      text = replaceFrontmatterField(text, "checkpoint_format", "2");
+    }
+    text = replaceSection(text, "Verified current state", `- ${cleanInline(options.summary)}`);
+    text = replaceSection(text, "Next actions", `- ${cleanInline(options.next)}`);
+    if (options.blocker) text = replaceSection(text, "Blockers and human gates", nextBlockerBody);
+    if (options.task) text = replaceFrontmatterField(text, "focus_task", options.task === "none" ? "unassigned" : options.task);
+    const fields = ["summary", "decision", "evidence", "next", "blocker", "task"];
     text += `\n## Checkpoint ${now}\n\n${fields.filter((key) => options[key]).map((key) => `- ${key}: ${cleanInline(options[key])}`).join("\n")}\n`;
+    if (sha256(await readFile(record.path, "utf8")) !== sha256(record.text)) throw new Error("Session revision changed during checkpoint.");
     await atomicWrite(record.path, text);
     console.log(repoRelative(root, record.path));
   });

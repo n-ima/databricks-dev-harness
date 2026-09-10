@@ -1,0 +1,99 @@
+TAP version 13
+# Subtest: HI-03: case-alias Bundle restoration cannot bypass Windows control continuity
+not ok 1 - HI-03: case-alias Bundle restoration cannot bypass Windows control continuity
+  ---
+  duration_ms: 45.861
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\work\\evidence\\2026-09-10-initialization-rereview.test.mjs:43:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected rejection.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'rejects'
+  stack: |-
+    async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/2026-09-10-initialization-rereview.test.mjs:46:3)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)
+  ...
+# Subtest: same-root package mutation after validate is rejected without success evidence
+ok 2 - same-root package mutation after validate is rejected without success evidence
+  ---
+  duration_ms: 39.9459
+  type: 'test'
+  ...
+# Subtest: same-root marker mutation after validate is rejected without success evidence
+ok 3 - same-root marker mutation after validate is rejected without success evidence
+  ---
+  duration_ms: 45.3754
+  type: 'test'
+  ...
+# Subtest: same-root quarantine mutation after validate is rejected without success evidence
+ok 4 - same-root quarantine mutation after validate is rejected without success evidence
+  ---
+  duration_ms: 37.2849
+  type: 'test'
+  ...
+# Subtest: same-root bundle-restore mutation after validate is rejected without success evidence
+ok 5 - same-root bundle-restore mutation after validate is rejected without success evidence
+  ---
+  duration_ms: 36.5934
+  type: 'test'
+  ...
+# Subtest: same-root marker-remove mutation after validate is rejected without success evidence
+ok 6 - same-root marker-remove mutation after validate is rejected without success evidence
+  ---
+  duration_ms: 36.3539
+  type: 'test'
+  ...
+# Subtest: root replacement with identical package and all control bytes is rejected by exact identity
+ok 7 - root replacement with identical package and all control bytes is rejected by exact identity
+  ---
+  duration_ms: 37.9358
+  type: 'test'
+  ...
+# Subtest: same-root same-content package replacement is allowed under byte continuity
+ok 8 - same-root same-content package replacement is allowed under byte continuity
+  ---
+  duration_ms: 34.6544
+  type: 'test'
+  ...
+# Subtest: missing expected output records no fabricated generated artifact
+ok 9 - missing expected output records no fabricated generated artifact
+  ---
+  duration_ms: 26.9799
+  type: 'test'
+  ...
+# Subtest: mock without original Bundle records only the exact generated marker and no Bundle
+ok 10 - mock without original Bundle records only the exact generated marker and no Bundle
+  ---
+  duration_ms: 31.935
+  type: 'test'
+  ...
+# Subtest: root control exact 1MiB passes and one extra byte fails before quarantine
+ok 11 - root control exact 1MiB passes and one extra byte fails before quarantine
+  ---
+  duration_ms: 10.6463
+  type: 'test'
+  ...
+# Subtest: valid Unicode and UTF-8 BOM remain valid JSON objects; truncated multibyte is rejected
+ok 12 - valid Unicode and UTF-8 BOM remain valid JSON objects; truncated multibyte is rejected
+  ---
+  duration_ms: 17.6592
+  type: 'test'
+  ...
+# Subtest: post-validate marker hard link refuses despite unchanged content hash
+ok 13 - post-validate marker hard link refuses despite unchanged content hash
+  ---
+  duration_ms: 34.5587
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 12
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 506.3158
