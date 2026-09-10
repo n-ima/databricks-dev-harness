@@ -4,12 +4,12 @@ title: retrospective-hardening
 status: active
 intent: improve-harness
 provider: codex
-phase: release
+phase: review
 gate: none
 gate_status: not-applicable
 started: 2026-09-09T21:40:48Z
-updated: 2026-09-10T00:47:43Z
-last_checkpoint: 2026-09-10T00:47:43Z
+updated: 2026-09-10T00:55:45Z
+last_checkpoint: 2026-09-10T00:55:45Z
 requirement: docs/harness/requirements/retrospective-hardening.md
 architecture: docs/harness/design/RETROSPECTIVE_HARDENING.md
 plan: work/plans/2026-09-10-retrospective-hardening.md
@@ -28,7 +28,7 @@ focus_task: HARD-08
 
 ## Verified current state
 
-- HARD-08採用済み。push直前全体505tests/504pass/0fail/1skip、harness check成功。最終独立26対象と既存採用範囲は不変。過去log1件の再利用による証拠欠落を追補に明記して除外し、Git改行変換から証跡を保護した。
+- HARD-08正式採用と累積改善198filesをprivate origin/mainへpush済み。source commit 41138482f68417d8cca20c9a4b836d1c9d34f34d、remote一致・PRIVATE維持を確認。全体504pass/0fail/1skip、独立reviewと採用snapshot不変。GitHub CIは対象SHAでrun/check 0件のため起動・成功未確認。全8完了・実配備は未主張。
 
 ## Decisions
 
@@ -40,11 +40,11 @@ focus_task: HARD-08
 
 ## Next actions
 
-- 独立出版前reviewとステージbytes一致を確認後、承認済みprivate origin/mainへ通常commit/pushする。remote SHA/CI観測を記録。次の実装対象HARD-03/04/07は今回の送信後に別途再開する。
+- 次回はGitHub CI起動未確認を再確認し、HARD-03/04/07（承認範囲と稼働状況表示）のローカル改善を再開する。HARD-08の限定採用は再承認不要。過去証拠logの排他的出力も後続改善。
 
 ## Blockers and human gates
 
-- none
+- ソースpushのblockerなし。hosted CIの起動・成功は未確認（原因未特定）。実環境適合/配備には別途承認と検証が必要。
 
 ## Handoff
 
@@ -305,4 +305,26 @@ focus_task: HARD-08
 - evidence: work/evidence/2026-09-10-private-source-push.md
 - next: 独立出版前reviewとステージbytes一致を確認後、承認済みprivate origin/mainへ通常commit/pushする。remote SHA/CI観測を記録。次の実装対象HARD-03/04/07は今回の送信後に別途再開する。
 - blocker: none
+- task: HARD-08
+
+## Previous state archived 2026-09-10T00:55:45Z
+
+### Previous verified current state
+
+- HARD-08採用済み。push直前全体505tests/504pass/0fail/1skip、harness check成功。最終独立26対象と既存採用範囲は不変。過去log1件の再利用による証拠欠落を追補に明記して除外し、Git改行変換から証跡を保護した。
+
+### Previous next actions
+
+- 独立出版前reviewとステージbytes一致を確認後、承認済みprivate origin/mainへ通常commit/pushする。remote SHA/CI観測を記録。次の実装対象HARD-03/04/07は今回の送信後に別途再開する。
+
+### Previous blockers and human gates
+
+- none
+
+## Checkpoint 2026-09-10T00:55:45Z
+
+- summary: HARD-08正式採用と累積改善198filesをprivate origin/mainへpush済み。source commit 41138482f68417d8cca20c9a4b836d1c9d34f34d、remote一致・PRIVATE維持を確認。全体504pass/0fail/1skip、独立reviewと採用snapshot不変。GitHub CIは対象SHAでrun/check 0件のため起動・成功未確認。全8完了・実配備は未主張。
+- evidence: work/evidence/2026-09-10-private-source-push.md
+- next: 次回はGitHub CI起動未確認を再確認し、HARD-03/04/07（承認範囲と稼働状況表示）のローカル改善を再開する。HARD-08の限定採用は再承認不要。過去証拠logの排他的出力も後続改善。
+- blocker: ソースpushのblockerなし。hosted CIの起動・成功は未確認（原因未特定）。実環境適合/配備には別途承認と検証が必要。
 - task: HARD-08

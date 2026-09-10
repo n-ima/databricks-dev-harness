@@ -37,3 +37,20 @@
 独立の送信前確認は [private-source-push-review](../reviews/2026-09-10-private-source-push-review.md) を参照。
 ステージbytes照合、commit、remote送信結果とhosted CIは後段で確認する。
 ローカル試験を3OS hosted CI成功・実provider動作・実Databricks受入の代わりにしない。
+
+## 送信結果
+
+- ソースcommit: `41138482f68417d8cca20c9a4b836d1c9d34f34d`。
+- 最終198ファイルの全staged blobと作業コピーが一致。独立出版レビューhash
+  `9bf92fd9b1605a8f9acda662b3d6944cc5db9842df8299ed84c38ef31e30aa29`も確認。
+- `git push origin main`: exit 0、`2ee3e75..4113848 main -> main`。
+- `git ls-remote origin refs/heads/main`で同じfull SHAを確認。
+- GitHub repoは送信後も`PRIVATE` / template `true`。
+- 送信直後の作業ツリーはclean。この結果追記とsession/status更新だけを追加commitする。
+- 対象SHAの`gh run list`は空配列、check-runs APIも0件。
+  `Harness conformance`はactiveでmain push triggerが定義されているが、
+  この確認時点では起動・成功を観測できていない。原因は未特定。
+  CI成功とは主張せず、設定変更・課金・再実行はしていない。
+
+ソース保存は完了。残るCIの観測と後続HARD-03/04/07の実装は別の作業である。
+履歴証拠の排他的出力も後続課題として追補に記録済み。
