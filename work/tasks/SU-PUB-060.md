@@ -6,12 +6,12 @@ requirement: "docs/harness/requirements/2026-09-15-safe-update-publication.md"
 architecture: "docs/harness/design/SAFE_LOCAL_UPDATE.md"
 done_when: "P060-01〜04を独立確認しremote SHAと実施範囲を記録する"
 risk: "low"
-status: "verifying"
+status: "blocked"
 depends_on: []
-evidence: ["work/evidence/2026-09-15-publication-060-independent-forward-result.json"]
+evidence: ["work/evidence/2026-09-15-publication-060-seal-blocker.md"]
 verifier_evidence: "none"
 created: "2026-09-15T01:43:12Z"
-updated: "2026-09-15T02:01:02Z"
+updated: "2026-09-15T02:15:30Z"
 ---
 
 # Task SU-PUB-060: 安全更新0.6.0の採用とprivate公開
@@ -25,3 +25,5 @@ updated: "2026-09-15T02:01:02Z"
 - 2026-09-15T01:53:18Z: ready -> running; 0.6.0公開用snapshotで581件成功、1067管理ファイルのsource/Git照合完了。独立旧版更新試験中
 
 - 2026-09-15T02:01:02Z: running -> verifying; 公開0.4/0.5からの独立更新、案件保持・backup・導入後CLIと競合停止を確認。最終レビュー記録とpush後remote確認を残す
+
+- 2026-09-15T02:15:30Z: verifying -> blocked; 公開済みだがP060-01のID形式がsealに拒否。検証器/immutable配布物を変えず、次patch版で形式訂正と再検証を残す

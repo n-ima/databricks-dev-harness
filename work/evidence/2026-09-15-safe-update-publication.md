@@ -4,7 +4,11 @@
 
 ## 現在
 
-採用と0.6.0の版上げを記録。公開用snapshotの構造確認・全回帰・byte検証・独立更新試験を完了。レビュー記録確定中で、pushとCIはまだ未確認。成功とは扱わない。
+安全更新0.6.0を正式採用し、private origin/mainへ通常pushした。公開commitは`69ebf2ebe33da2bc3a551970e40fb5edca9667b7`。独立レビューでもremoteと全管理blobの一致を確認。ただし公開要件のID形式に不備があり、SU-PUB-060の機械受入記録と完了処理は未完了。[残作業](2026-09-15-publication-060-seal-blocker.md)。機能SUの受入と、公開記録の未完了を区別する。
+
+## リモートとCI
+
+[公開後の独立確認](../reviews/2026-09-15-publication-060-push-review.md)でprivate/template=true、main、全1,067blobとmanifest一致。full commit SHAのworkflow runs/check-runsは0件。Actionsは有効だが、このpushのCI未実行理由は断定できない。hosted CIの成功は主張しない。GitHub設定変更やworkflow手動実行は行っていない。
 
 ## 配布と再現
 

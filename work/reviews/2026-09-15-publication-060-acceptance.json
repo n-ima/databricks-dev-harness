@@ -7,12 +7,27 @@
   "sessionId": "20260915-013942-357-publish-safe-update-0-6-0",
   "snapshot": ".harness/runtime/publish-0.6.0",
   "manifestSha256": "4f5b27da15fc53f59a69b230bca0e8bf83319d2147ed36ad9c478aaf1637209c",
-  "unresolvedFindings": [],
+  "semanticVerification": "pass",
+  "machineAcceptance": {
+    "status": "blocked",
+    "receiptIssued": false,
+    "evidence": "work/evidence/2026-09-15-publication-060-seal-blocker.md",
+    "error": "Invalid acceptance ID at line 12: P060-01",
+    "basis": "公開0.6.0のacceptance.mjsはIDのprefixに数字を許可しない。P060-01〜04は観測内容として確認済みだが、この要件形式ではevidence sealを通らない。",
+    "nextAction": "次版で受入IDの形式訂正と旧新IDの対応をレビューし、公開要件・証拠を再検証する。公開済み0.6.0、検証器、受入条件をこのturnで変更しない。"
+  },
+  "unresolvedFindings": [
+    {
+      "id": "PUBLICATION-RECEIPT-01",
+      "severity": "P2",
+      "status": "open",
+      "finding": "公開内容の検証とは別に、P060の受入ID形式が既存parserに不適合で機械receiptを発行できない。公開機能は維持し、公開作業の機械的な受入完了は未完了とする。"
+    }
+  ],
   "environment": "Windows / PowerShell / Node.js v24.15.0",
   "notVerified": [
     "実provider/実案件/Databricks",
-    "他OS/Node22実機/hosted CI",
-    "P060-04 remote push（この記録時点はpush前）"
+    "他OS/Node22実機/hosted CI"
   ],
   "requirement": "docs/harness/requirements/2026-09-15-safe-update-publication.md",
   "requirementSha256": "15987f8d186a76f2988727e53faeda3e3e864e972b43b810eabdde91b68ce026",
@@ -52,9 +67,23 @@
     },
     {
       "id": "P060-04",
-      "status": "not-run",
-      "evidence": [],
-      "rationale": "push前。remote commit・private・CIはpush後にread-onlyで確認する。"
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-15-publication-060-push-review.md",
+        "work/evidence/2026-09-15-publication-060-independent-remote.json"
+      ],
+      "rationale": "private origin/mainが69ebf2ebe33da2bc3a551970e40fb5edca9667b7と一致。公開commit全1067管理blob・manifestは公開前snapshotと一致しHARD-03なし。full SHAのCLI/Actions/check-runs APIでCI未観測を記録し、成功とは報告しない。"
     }
-  ]
+  ],
+  "publishedSnapshot": {
+    "commit": "69ebf2ebe33da2bc3a551970e40fb5edca9667b7",
+    "remoteMain": "69ebf2ebe33da2bc3a551970e40fb5edca9667b7",
+    "private": true,
+    "template": true,
+    "defaultBranch": "main",
+    "manifestSha256": "4f5b27da15fc53f59a69b230bca0e8bf83319d2147ed36ad9c478aaf1637209c",
+    "managedFiles": 1067,
+    "ci": "full SHA workflow/check runs未観測",
+    "pushReview": "work/reviews/2026-09-15-publication-060-push-review.md"
+  }
 }
