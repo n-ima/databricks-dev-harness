@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/main_adoption_review",
+  "context": "2026-09-16-main-adoption-independent",
+  "independent": true,
+  "observedAt": "2026-09-15T16:55:31.531Z",
+  "baselineCommit": "acc506aa4de4e28e15400b92da06df2c2dfa2a8e",
+  "previousMain": "a77c96ac3bf48cd7033688e38449f320407611d3",
+  "criteria": [
+    { "id": "MAIN-01", "status": "pass", "evidence": "採用要件/ADR/opsと旧session・UIF taskの現在欄を独立照合。範囲・非互換・未検証を区別。" },
+    { "id": "MAIN-02", "status": "pass", "evidence": "非文書1,042 tracked filesはbaseline blobとのraw bytes一致。全4,204公開payloadと4manifest一致。harness:check/diff --check成功。" },
+    { "id": "MAIN-03", "status": "not-run", "evidence": "push後のremote確認待ち。" }
+  ],
+  "findings": [],
+  "nonDocumentationFiles": 1042,
+  "rawByteMismatches": [],
+  "documents": [
+    { "path": "docs/harness/requirements/2026-09-16-adopt-main.md", "sha256": "41bfd93ba3d2dd1add54c257e35e5ea2e5c054b5e33488b5f09d67a3d6c3fbe6" },
+    { "path": "docs/harness/decisions/ADR-0012-ui-scope-adoption.md", "sha256": "6e50d6ae3a0e55888d4ee40da5873d45bf4389017c8637648c37cee4acaf2aab" },
+    { "path": "docs/harness/operations/CLI_REFERENCE.md", "sha256": "bf7b07d134732e99e6fd00b0368b81d2d1ddf9e281344715db5673247904468f" },
+    { "path": "docs/harness/operations/SCOPED_APPROVALS.md", "sha256": "1c0da64b2c1b9203eadd290a505d714b8da0fa83612f9a4c9aa4dd2654e0003f" },
+    { "path": "docs/harness/operations/UI_RUNTIME_FIDELITY.md", "sha256": "612c0cfabe9e41c100ad0792b10b88964033921272557fce280ca182e8c276f3" }
+  ],
+  "releases": [
+    { "version": "0.4.0", "files": 1012, "manifestSha256": "90f06b95119d9c3d5f04d6e4d9863a310bea24851af06b7c12fb3ff1323b5b8c" },
+    { "version": "0.5.0", "files": 1057, "manifestSha256": "28ac2790d76abe0ba49b3e05bcb1680b255d374572ae5c9700ed9be3388d4d18" },
+    { "version": "0.6.0", "files": 1067, "manifestSha256": "4f5b27da15fc53f59a69b230bca0e8bf83319d2147ed36ad9c478aaf1637209c" },
+    { "version": "0.6.1", "files": 1068, "manifestSha256": "d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d" }
+  ],
+  "parentRegression": { "independentlyRerun": false, "logInspected": true, "tests": 711, "pass": 709, "fail": 0, "skipped": 2, "path": "work/evidence/2026-09-16-adopt-main-tests.log", "sha256": "4f211f1cf8943f09eec1208d4b191bab1537d3403bf5a63dc3136a39bb0859ae" },
+  "remoteVerification": null,
+  "liveProviderTested": false,
+  "databricksTested": false,
+  "releaseReissued": false
+}

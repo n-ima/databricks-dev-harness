@@ -8,8 +8,8 @@ phase: review
 gate: none
 gate_status: not-applicable
 started: 2026-09-09T21:40:48Z
-updated: 2026-09-10T14:24:39Z
-last_checkpoint: 2026-09-10T14:24:39Z
+updated: 2026-09-15T16:53:32Z
+last_checkpoint: 2026-09-15T16:53:32Z
 requirement: docs/harness/requirements/retrospective-hardening.md
 architecture: docs/harness/design/RETROSPECTIVE_HARDENING.md
 plan: work/plans/2026-09-10-retrospective-hardening.md
@@ -28,7 +28,7 @@ focus_task: HARD-03
 
 ## Verified current state
 
-- HARD-03の承認scope台帳・照合をローカル実装し独立再レビュー済み。SIR-01時計巻戻りを修正、専用52pass・独立32pass・全回帰556pass/0fail/1skip。報告と18対象hash一致。旧gateは不変、実行権限やハーネスのDatabricks配備を追加しない。限定候補の正式採用待ち。
+- HARD-03のローカル承認台帳・照合・撤回を2026-09-16の利用者指示で正式採用。実装・独立再レビュー済み。採用待ちは解消。実行権限追加・live adapter・費用強制制御は含まない。
 
 ## Decisions
 
@@ -40,11 +40,11 @@ focus_task: HARD-03
 
 ## Next actions
 
-- 今回のローカル承認記録・照合範囲を正式採用してよいか人に確認。承認後は対象snapshotを採用記録へ結び付け、HARD-04/07の案件稼働観測表示へ進む。
+- main統合は20260915-165017-749-adopt-reviewed-mainで実施。HARD全体の未完了項目や実環境検証は別工程。
 
 ## Blockers and human gates
 
-- 改善手順により新しい承認制御の正式採用は人の判断待ち。独立技術指摘は解消。実環境操作・案件変更・pushはしない。
+- none
 
 ## Handoff
 
@@ -416,3 +416,25 @@ focus_task: HARD-03
 - next: 今回のローカル承認記録・照合範囲を正式採用してよいか人に確認。承認後は対象snapshotを採用記録へ結び付け、HARD-04/07の案件稼働観測表示へ進む。
 - blocker: 改善手順により新しい承認制御の正式採用は人の判断待ち。独立技術指摘は解消。実環境操作・案件変更・pushはしない。
 - task: HARD-03
+
+## Previous state archived 2026-09-15T16:53:32Z
+
+### Previous verified current state
+
+- HARD-03の承認scope台帳・照合をローカル実装し独立再レビュー済み。SIR-01時計巻戻りを修正、専用52pass・独立32pass・全回帰556pass/0fail/1skip。報告と18対象hash一致。旧gateは不変、実行権限やハーネスのDatabricks配備を追加しない。限定候補の正式採用待ち。
+
+### Previous next actions
+
+- 今回のローカル承認記録・照合範囲を正式採用してよいか人に確認。承認後は対象snapshotを採用記録へ結び付け、HARD-04/07の案件稼働観測表示へ進む。
+
+### Previous blockers and human gates
+
+- 改善手順により新しい承認制御の正式採用は人の判断待ち。独立技術指摘は解消。実環境操作・案件変更・pushはしない。
+
+## Checkpoint 2026-09-15T16:53:32Z
+
+- summary: HARD-03のローカル承認台帳・照合・撤回を2026-09-16の利用者指示で正式採用。実装・独立再レビュー済み。採用待ちは解消。実行権限追加・live adapter・費用強制制御は含まない。
+- decision: ADR-0012の限定範囲を正式採用。同じ採用判断を再要求しない。
+- evidence: docs/harness/decisions/ADR-0012-ui-scope-adoption.md
+- next: main統合は20260915-165017-749-adopt-reviewed-mainで実施。HARD全体の未完了項目や実環境検証は別工程。
+- blocker: none

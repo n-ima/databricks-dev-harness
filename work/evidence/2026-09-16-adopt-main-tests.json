@@ -1,0 +1,16 @@
+{
+  "observedAt": "2026-09-15T16:55:49.548Z",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "command": "node --test --test-reporter=tap tests/*.test.mjs",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "tests": 711,
+  "pass": 709,
+  "fail": 0,
+  "skipped": 2,
+  "log": "work/evidence/2026-09-16-adopt-main-tests.log",
+  "liveProviderTested": false,
+  "databricksTested": false
+}

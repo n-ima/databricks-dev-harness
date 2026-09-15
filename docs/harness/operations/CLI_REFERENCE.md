@@ -35,13 +35,13 @@ npm run harness -- approval create --session SESSION_ID --gate ui-mock --actor p
 npm run harness -- delivery ui-approval-check --approval work/approvals/SESSION_ID/ui-mock.json --session SESSION_ID --app-root apps/sales
 ```
 
-reviewにはjourney・状態・desktop/narrow/keyboard証拠・人の決定を記載。hashは変更を検出しますが本人認証ではありません。UI設計からApps/実部品を既定とする[UI対応契約](UI_RUNTIME_FIDELITY.md)のローカル候補では、契約と独立レビューも必要です。通常buildの前に現session/appと承認の一致を再検査します。旧承認は保存して再確認します。
+reviewにはjourney・状態・desktop/narrow/keyboard証拠・人の決定を記載。hashは変更を検出しますが本人認証ではありません。正式採用した[UI対応契約](UI_RUNTIME_FIDELITY.md)では、UI設計からApps/実部品を既定とし、契約と独立レビューも必要です。通常buildの前に現session/appと承認の一致を再検査します。旧承認は保存して再確認します。
 
 ## Scaffold — planを確認してからapply
 
-案件の環境・操作・権限・費用・期限を持つ新しい承認台帳のローカル候補は
+案件の環境・操作・権限・費用・期限を持つ承認台帳は
 [SCOPED_APPROVALS](SCOPED_APPROVALS.md)を参照。`approval-scope record/check/revoke`は
-旧gateを解除せず、実行許可・実CLI/DB操作を行わない。正式採用前の限定機能である。
+旧gateを解除せず、実行許可・実CLI/DB操作を行わない。ローカルの記録・照合・撤回までを正式採用した限定機能である。
 
 ```text
 npm run scaffold -- plan --kind app --purpose mock --name sales-insights --profile sales-dev --host https://YOUR-WORKSPACE.cloud.databricks.com
