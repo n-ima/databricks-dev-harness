@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "20260915-162340-458-push-truth-review-branch",
+  "requirement": "docs/harness/requirements/2026-09-16-push-review-branch.md",
+  "status": "pass",
+  "reviewer": "/root/push_snapshot_review",
+  "provider": "codex",
+  "independent": true,
+  "provenance": {
+    "type": "review-record",
+    "source": "work/reviews/2026-09-16-push-review-independent.json",
+    "identityAuthenticated": false
+  },
+  "acceptance": [
+    {
+      "id": "PUSH-01",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-push-review-independent.md",
+        "work/evidence/2026-09-16-push-review.md",
+        "docs/harness/requirements/2026-09-16-push-review-branch.md"
+      ]
+    },
+    {
+      "id": "PUSH-02",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-push-review-independent.md",
+        "work/evidence/2026-09-16-push-review.md",
+        "work/evidence/2026-09-16-push-review-screen.mjs",
+        "work/evidence/2026-09-16-push-review-screen.json",
+        "work/evidence/2026-09-16-push-index.mjs",
+        "work/evidence/2026-09-16-push-index.json",
+        "work/reviews/20260915-153857-861-truth-repair.receipt.json"
+      ]
+    },
+    {
+      "id": "PUSH-03",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-push-review-independent.md",
+        "work/evidence/2026-09-16-push-review.md",
+        "docs/harness/requirements/2026-09-16-push-review-branch.md"
+      ]
+    }
+  ],
+  "artifactHashes": {
+    "work/reviews/2026-09-16-push-review-independent.json": "d1c683db2bb8428e3cde38b701fd70a22fb77f02da88fdee60f5638e844c314f",
+    "docs/harness/requirements/2026-09-16-push-review-branch.md": "a4499983ec08511964025b3e5a19a45b559a2de73672fef622877dbdcbb2367b",
+    "work/reviews/2026-09-16-push-review-independent.md": "8dfac6b6cc2acc33efa47c5ac5c9b6a64263d2bcb593e2c1591aec4b7f64d076",
+    "work/evidence/2026-09-16-push-review.md": "5ef4e71e9472cd4649ee47e27cafdcaa6ee6398995696882abe8330947342b1b",
+    "work/evidence/2026-09-16-push-review-screen.mjs": "3fc9e813a0b6f7b075316d510ac617a63f091e1002d4cbf1c29224e2e9770015",
+    "work/evidence/2026-09-16-push-review-screen.json": "1bd392991f63ace130defb581de24fae15d45804d6350c3756dcdf7b1c561dab",
+    "work/evidence/2026-09-16-push-index.mjs": "b08f50cb518d3e0685960c2aeb7e12fb88bb21319362d18fb5e2b30c61c35d68",
+    "work/evidence/2026-09-16-push-index.json": "89786d620ec65efa726cb8481cdb18e55a58225cdf9374e80424ea79ea715e0d",
+    "work/reviews/20260915-153857-861-truth-repair.receipt.json": "862ab68418da8af6b6c7cdf4ee4a30f4b8e39d913e586837481bc0ee6357b0f1"
+  },
+  "policyHash": "9363ec7a77ca45add682aada5670265bc54117eb4ceefd58c91be06d8d91c407",
+  "createdAt": "2026-09-15T16:35:52Z"
+}

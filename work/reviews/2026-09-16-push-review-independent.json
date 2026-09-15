@@ -1,0 +1,39 @@
+{
+  "reviewer": "/root/push_snapshot_review",
+  "provider": "codex",
+  "independent": true,
+  "scope": "PUSH-01〜03。privateレビュー用branchへの修正snapshot 2fe169392ff5595d57ae3a7bdfdf4b1f018ebf1f の保存とmain不変。正式採用、release、実案件更新を含まない。",
+  "acceptance": [
+    {
+      "id": "PUSH-01",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-push-review-independent.md",
+        "work/evidence/2026-09-16-push-review.md",
+        "docs/harness/requirements/2026-09-16-push-review-branch.md"
+      ]
+    },
+    {
+      "id": "PUSH-02",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-push-review-independent.md",
+        "work/evidence/2026-09-16-push-review.md",
+        "work/evidence/2026-09-16-push-review-screen.mjs",
+        "work/evidence/2026-09-16-push-review-screen.json",
+        "work/evidence/2026-09-16-push-index.mjs",
+        "work/evidence/2026-09-16-push-index.json",
+        "work/reviews/20260915-153857-861-truth-repair.receipt.json"
+      ]
+    },
+    {
+      "id": "PUSH-03",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-push-review-independent.md",
+        "work/evidence/2026-09-16-push-review.md",
+        "docs/harness/requirements/2026-09-16-push-review-branch.md"
+      ]
+    }
+  ]
+}
