@@ -24,6 +24,12 @@
 
 ## remoteと未検証範囲
 
-公開前は`origin/main = 0d77f62514cafd00f4dc00d190e955a99a0acd35`。`n-ima/databricks-dev-harness`はprivate・template、既定mainと確認。push後のSHAとCIはこの記録に追記する。
+公開前は`origin/main = 0d77f62514cafd00f4dc00d190e955a99a0acd35`。`n-ima/databricks-dev-harness`はprivate・template、既定mainと確認。
+
+2026-09-15、採用ソースcommit `ea55f49a815152a9e6fe609f0390fe9b6a155aae` を通常pushし、`git ls-remote origin refs/heads/main`が同SHAであることを確認。90ファイルをcommit。push後もprivate/templateを維持。未採用HARD-03の3混在hunk・専用実装/試験/文書/記録、および従来のwork/STATUS変更はローカルに保持した。
+
+対象SHAのGitHub Actions runは0件、check-runsも0件。Actions設定自体はenabledを確認したが、起動・成功は未確認であり原因を断定しない。過去の別SHAでの成功を今回のCI成功に流用しない。今回の完了は許可されたsource pushと更新案内の提供であり、hosted CIの成功認定ではない。
+
+この後に追記する独立公開照合・session完了記録だけのcommitは、配布payloadを変更しない。今回の公開receiptは公開作業の記録を封印するもので、案件の更新承認・本番配備承認・候補HARD-03の採用証明に転用しない。
 
 Linux/macOSのhosted CI、実providerのcanary、実Databricks適合、全改善の完了、世界最高の客観的証明を、このローカル検証で主張しない。

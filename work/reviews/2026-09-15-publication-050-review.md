@@ -70,3 +70,15 @@
 このレビューはWindowsローカルの公開snapshot・模擬案件を対象とする。fresh Git checkoutのbyte再現試験と全567試験は公開担当の記録を参照し、自分の独立実行は上記の86試験と追加probeに限定する。実Claude Code/Copilotの振る舞い、実Databricks接続・deploy・費用、実案件固有の試験、他OS、publisher本人認証、GitHub remote SHA/private設定/CIはまだ確認していない。成熟度L1を超える認定はしない。
 
 push後にremote SHA・公開範囲・private設定を読取専用で照合し、CIは観測した状態を記録する。成功していないCIや未実行の環境を成功へ補完しない。
+
+## push後の独立確認（PUB-04）
+
+以下の追記により、上記の公開前時点で未確認だったPUB-04を確認済みとする。採用済みsourceのprivate pushと更新案内の範囲は確認済み。hosted CI成功と既存実案件への適用は含まない。
+
+- source commit: `ea55f49a815152a9e6fe609f0390fe9b6a155aae`。公開前の `0d77f62514cafd00f4dc00d190e955a99a0acd35` から採用済み変更90ファイルを含む通常commit。
+- `git ls-remote origin refs/heads/main` の結果は同じ `ea55f49a815152a9e6fe609f0390fe9b6a155aae`。
+- `gh repo view n-ima/databricks-dev-harness --json nameWithOwner,isPrivate,isTemplate,defaultBranchRef` の結果は `isPrivate:true`、`isTemplate:true`、既定branch `main`。
+- `git cat-file --batch` で当該commitの全1,057管理blobを読み、最終manifest内のSHA-256へ独立照合し全件一致。commitの `harness/base-release.json` も `28ac2790d76abe0ba49b3e05bcb1680b255d374572ae5c9700ed9be3388d4d18` と一致。
+- `git ls-tree -r --name-only` で当該commitに `scoped-approval` / `SCOPED_APPROVALS` の候補パスがないことを確認。原作業ツリーには候補が残るため、原作業ツリーのtoolsを公開コードの代わりに認定しない。
+- `gh run list --repo n-ima/databricks-dev-harness --commit ea55f49a815152a9e6fe609f0390fe9b6a155aae --json databaseId,headSha,name,status,conclusion,url,event` は `[]`。CI runを観測していないため、成功・失敗のいずれにも補完しない。PUB-04は未実行CIを成功と報告しない条件を含み、hosted CI成功そのものを要求しない。
+- 上記は2026-09-15のsource push後のread-only確認。後続の完了記録のみのcommit/pushは別記録であり、ここで照合したsource commitと配布manifestを置き換えない。実案件更新・Databricks配備・tag/Release公開は行っていない。

@@ -8,8 +8,8 @@ phase: define
 gate: none
 gate_status: not-applicable
 started: 2026-09-14T23:51:02Z
-updated: 2026-09-15T00:04:51Z
-last_checkpoint: 2026-09-15T00:04:51Z
+updated: 2026-09-15T00:13:40Z
+last_checkpoint: 2026-09-15T00:13:40Z
 requirement: docs/harness/requirements/2026-09-15-private-publication.md
 architecture: docs/harness/operations/UPDATING_EXISTING_PROJECTS.md
 plan: work/plans/2026-09-15-private-publication.md
@@ -28,7 +28,7 @@ focus_task: PUB-050
 
 ## 確認済みの状態
 
-- 公開前の独立確認は阻害指摘なし。旧0.4→新版API更新90files、全1057hash一致、案件保持と競合拒否を確認。private push直前
+- 採用済み0.5.0 source ea55f49をprivate mainへpush済み、PUB01〜04独立確認済み。手書き公開要件末尾説明の書式により機械receipt発行は拒否。taskはverifyingを維持
 
 ## 判断記録
 
@@ -40,11 +40,11 @@ focus_task: PUB-050
 
 ## 次の作業
 
-- 独立レビューをcommitへ含めて通常pushし、remote SHAとCIを照合
+- 案件の実更新は未実施。次の保守版で公開要件の書式だけを修正し、受入ID不変の独立確認後に形式的な完了記録を処理。0.5.0の配布bytesは変更しない
 
 ## 停止理由と人の判断
 
-- none
+- 公開は成功。公開作業の要件書19行目の説明を別見出しへ移す書式修正が必要。公開済み同版を作り直さず次の保守版で扱う
 
 ## 引継ぎ
 
@@ -78,4 +78,26 @@ focus_task: PUB-050
 - evidence: work/evidence/2026-09-15-private-publication.md
 - next: 独立レビューをcommitへ含めて通常pushし、remote SHAとCIを照合
 - blocker: none
+- task: PUB-050
+
+## Previous state archived 2026-09-15T00:13:40Z
+
+### Previous verified current state
+
+- 公開前の独立確認は阻害指摘なし。旧0.4→新版API更新90files、全1057hash一致、案件保持と競合拒否を確認。private push直前
+
+### Previous next actions
+
+- 独立レビューをcommitへ含めて通常pushし、remote SHAとCIを照合
+
+### Previous blockers and human gates
+
+- none
+
+## Checkpoint 2026-09-15T00:13:40Z
+
+- summary: 採用済み0.5.0 source ea55f49をprivate mainへpush済み、PUB01〜04独立確認済み。手書き公開要件末尾説明の書式により機械receipt発行は拒否。taskはverifyingを維持
+- evidence: work/evidence/2026-09-15-publication-050-handoff.md
+- next: 案件の実更新は未実施。次の保守版で公開要件の書式だけを修正し、受入ID不変の独立確認後に形式的な完了記録を処理。0.5.0の配布bytesは変更しない
+- blocker: 公開は成功。公開作業の要件書19行目の説明を別見出しへ移す書式修正が必要。公開済み同版を作り直さず次の保守版で扱う
 - task: PUB-050

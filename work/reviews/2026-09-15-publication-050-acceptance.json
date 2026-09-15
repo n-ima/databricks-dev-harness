@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/publication_050_review",
+  "provider": "codex",
+  "independent": true,
+  "reviewDate": "2026-09-15",
+  "requirement": "docs/harness/requirements/2026-09-15-private-publication.md",
+  "sessionId": "20260914-235102-763-publish-adopted-harness-0-5-0",
+  "scope": "PUB-01〜04。採用済み0.5.0のprivate GitHub source pushと既存案件への更新案内。実案件への適用、hosted CI成功、Databricks配備、未採用HARD-03は含めない。",
+  "conclusion": "独立fixture検証、公開snapshotと配布manifestの照合、push後のread-only確認で、この限定範囲の受入条件を満たす。旧0.4.0 updaterの拒否問題は新版配布APIを使う案内へ訂正され、未解消の阻害指摘はない。CI runは未観測として維持する。",
+  "acceptance": [
+    {
+      "id": "PUB-01",
+      "status": "pass",
+      "evidence": ["work/reviews/2026-09-15-publication-050-review.md", "work/evidence/2026-09-15-private-publication.md", "harness/base-release.json"],
+      "rationale": "採用対象の公開snapshot・index・最終commitを照合し、候補scoped-approvalのパスとCLI接続がないことを確認。原作業ツリーの候補4ファイルは独立試験前後のhash不変。主担当の構造検査と567件全回帰の証拠を読み、別contextでは更新済みfixtureで86件中85pass/0fail/既存skip1と追加probeを実行した。"
+    },
+    {
+      "id": "PUB-02",
+      "status": "pass",
+      "evidence": ["work/reviews/2026-09-15-publication-050-review.md", "work/evidence/2026-09-15-release-050-byte-validation-final.json", "harness/base-release.json"],
+      "rationale": "最終manifestの1,057管理対象についてsnapshot・配布payload・push済みcommit blobを独立してSHA-256照合し全件一致。主担当のWindows fresh Git checkout/core.autocrlf=trueのbyte検証結果と同manifestを照合した。旧0.4.0配布物はread-onlyで1,012ファイルのhash一致を確認し、別fixtureで使用した。"
+    },
+    {
+      "id": "PUB-03",
+      "status": "pass",
+      "evidence": ["work/reviews/2026-09-15-publication-050-review.md", "work/evidence/2026-09-15-private-publication.md", "harness/base-release.json"],
+      "rationale": "0.4.0 CLIが新版追加テストを許可対象外として拒否する問題を再現。検証済み0.5.0配布APIへ案件rootを明示するガイドを再確認し、0.4.0から90管理ファイルを更新して全hash一致。15種類の案件ファイル、過去文書・証拠・session・旧baselineを保持し、日本語新規生成が成功。競合と計画後変更を拒否。実案件を変更せず、手動移行・バックアップ・再開の説明をAPI実装と照合した。"
+    },
+    {
+      "id": "PUB-04",
+      "status": "pass",
+      "evidence": ["work/reviews/2026-09-15-publication-050-review.md", "work/evidence/2026-09-15-private-publication.md", "harness/base-release.json"],
+      "rationale": "git ls-remoteでprivate origin/mainがsource commit ea55f49a815152a9e6fe609f0390fe9b6a155aaeと一致。GitHub read-only照合でprivate/templateと既定mainを確認。commit内全1,057管理blobが最終manifestと一致しscope候補パスなし。対象SHAのCI runは空配列で、未実行・未成功を成功とは報告していない。"
+    }
+  ],
+  "resolvedFindings": [
+    {"id": "PUB-UPD-01", "severity": "P2", "status": "resolved", "basis": "旧CLIの許可リストを緩めず、新版payloadのdistribution APIからprocess.cwd()へ計画・適用する案内に修正。独立fixtureと案内相当one-linerで確認。"}
+  ],
+  "unresolvedFindings": [],
+  "publishedSnapshot": {
+    "repository": "n-ima/databricks-dev-harness",
+    "sourceCommit": "ea55f49a815152a9e6fe609f0390fe9b6a155aae",
+    "observedRemoteMain": "ea55f49a815152a9e6fe609f0390fe9b6a155aae",
+    "private": true,
+    "template": true,
+    "defaultBranch": "main",
+    "managedFiles": 1057,
+    "manifestSha256": "28ac2790d76abe0ba49b3e05bcb1680b255d374572ae5c9700ed9be3388d4d18",
+    "workingTreeBoundary": "原作業ツリーのtools/harness.mjs、tools/lib/distribution.mjs、docs/harness/operations/CLI_REFERENCE.mdには未採用hunkが残る。公開対象はcommit/manifest/snapshotで識別し、原作業ツリー全体を採用したとは扱わない。"
+  },
+  "verification": {
+    "environment": "Windows / PowerShell / Node.js v24.15.0",
+    "independentRegression": "86 tests / 85 pass / 0 fail / 1 existing skip / 4117.1042 ms。更新済みfixtureでdistribution/human-documents/delivery-assurance/delivery-independentの4群を実行。",
+    "independentProbes": "旧CLI拒否、新版API plan/apply、競合拒否、stale plan拒否、全managedhash一致、15ファイル保持、日本語intake、旧session読取、同版one-liner適用を確認。",
+    "publisherEvidence": "主担当の構造検査・567 tests / 566 pass / 0 fail / 1 existing skip・fresh Git checkout bytesは専用記録を照合。独立実行数と混同しない。",
+    "ci": "source SHAのgh run listは[]。run起動・成功は未観測。"
+  },
+  "reviewedEvidenceHashes": {
+    "docs/harness/requirements/2026-09-15-private-publication.md": "db05538fb0bfbf9a245d80e8e906b13305c4b64f091dfe5957ef5a730c5f4a4d",
+    "work/reviews/2026-09-15-publication-050-review.md": "52305d9995b76b0e7aa04ccaafd680a8e56f49e61f5116fe06263b88e86cb3f5",
+    "work/evidence/2026-09-15-private-publication.md": "8db0a90f36719792c01ee11c723ee80d3358c62b19d38f217a95570ba40b4e66",
+    "work/evidence/2026-09-15-release-050-byte-validation-final.json": "a0ce21c5f6d97d264e058e4da4853c98ed0eeab0852e46af5d440c61a8463973",
+    "harness/base-release.json": "28ac2790d76abe0ba49b3e05bcb1680b255d374572ae5c9700ed9be3388d4d18"
+  },
+  "notVerified": [
+    "今回SHAのhosted CI成功、Linux/macOSの実行。",
+    "実Claude Code/Copilot canary、実Databricks接続・権限・データ・配備・課金。",
+    "実案件への更新適用と案件固有の業務受入。",
+    "HARD-03の正式採用。原作業ツリーに保持された候補の公開は認めない。",
+    "後続の完了記録のみのcommit/push。source commitと配布payloadは上記で固定する。"
+  ],
+  "handoff": "独立review記録のみ作成。主担当がこれを参照して公開作業のreceipt/task/sessionを記録する。receiptはhash整合記録であり、案件更新承認・production承認・候補採用・本人認証の証明に転用しない。"
+}
