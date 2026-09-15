@@ -1,0 +1,134 @@
+{
+  "at": "2026-09-15T02:56:57.522Z",
+  "reviewer": "/root/publication_061_review",
+  "status": "pass",
+  "commit": "8bdfce99da6ca9d2829d88aa8704266a5c0b4586",
+  "parent": "0944aeb2b7ca46dde609c3d257b7419b021946d1",
+  "remoteMain": "8bdfce99da6ca9d2829d88aa8704266a5c0b4586",
+  "repository": {
+    "defaultBranchRef": {
+      "name": "main"
+    },
+    "isPrivate": true,
+    "isTemplate": true,
+    "nameWithOwner": "n-ima/databricks-dev-harness"
+  },
+  "manifestSha256": "d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d",
+  "managedFiles": 1068,
+  "allPublishedBlobBytesAndSizesMatch": true,
+  "allSnapshotManagedBytesMatch": true,
+  "batchVerification": {
+    "command": [
+      "git",
+      "cat-file",
+      "--batch"
+    ],
+    "inputs": "公開commitとmanifest全管理pathを1回のbatchへ渡す",
+    "verified": 1068,
+    "rawOutputSha256": "32a1883673f19addd2a9e9b2d263f212c9d1f55a05d32b1689a69a7270732820",
+    "networkPerFile": false
+  },
+  "hard03PathsAndDispatchAbsent": true,
+  "observations": [
+    {
+      "at": "2026-09-15T02:56:50.939Z",
+      "command": [
+        "git",
+        "ls-remote",
+        "origin",
+        "refs/heads/main"
+      ],
+      "cwd": "D:\\projects\\databricks-dev-harness",
+      "exitCode": 0,
+      "stdout": "8bdfce99da6ca9d2829d88aa8704266a5c0b4586\trefs/heads/main\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-09-15T02:56:51.434Z",
+      "command": [
+        "gh",
+        "repo",
+        "view",
+        "n-ima/databricks-dev-harness",
+        "--json",
+        "nameWithOwner,isPrivate,isTemplate,defaultBranchRef"
+      ],
+      "cwd": "D:\\projects\\databricks-dev-harness",
+      "exitCode": 0,
+      "stdout": "{\"defaultBranchRef\":{\"name\":\"main\"},\"isPrivate\":true,\"isTemplate\":true,\"nameWithOwner\":\"n-ima/databricks-dev-harness\"}\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-09-15T02:56:51.474Z",
+      "command": [
+        "git",
+        "show",
+        "-s",
+        "--format=%P",
+        "8bdfce99da6ca9d2829d88aa8704266a5c0b4586"
+      ],
+      "cwd": "D:\\projects\\databricks-dev-harness",
+      "exitCode": 0,
+      "stdout": "0944aeb2b7ca46dde609c3d257b7419b021946d1\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-09-15T02:56:56.686Z",
+      "command": [
+        "gh",
+        "run",
+        "list",
+        "--repo",
+        "n-ima/databricks-dev-harness",
+        "--commit",
+        "8bdfce99da6ca9d2829d88aa8704266a5c0b4586",
+        "--json",
+        "databaseId,headSha,name,status,conclusion,url,event"
+      ],
+      "cwd": "D:\\projects\\databricks-dev-harness",
+      "exitCode": 0,
+      "stdout": "[]\n",
+      "stderr": ""
+    },
+    {
+      "at": "2026-09-15T02:56:57.077Z",
+      "command": [
+        "gh",
+        "api",
+        "repos/n-ima/databricks-dev-harness/actions/runs?head_sha=8bdfce99da6ca9d2829d88aa8704266a5c0b4586&per_page=100"
+      ],
+      "cwd": "D:\\projects\\databricks-dev-harness",
+      "exitCode": 0,
+      "stdout": "{\"total_count\":0,\"workflow_runs\":[]}",
+      "stderr": ""
+    },
+    {
+      "at": "2026-09-15T02:56:57.522Z",
+      "command": [
+        "gh",
+        "api",
+        "repos/n-ima/databricks-dev-harness/commits/8bdfce99da6ca9d2829d88aa8704266a5c0b4586/check-runs",
+        "-H",
+        "Accept: application/vnd.github+json"
+      ],
+      "cwd": "D:\\projects\\databricks-dev-harness",
+      "exitCode": 0,
+      "stdout": "{\"total_count\":0,\"check_runs\":[]}",
+      "stderr": ""
+    }
+  ],
+  "ci": {
+    "fullShaCliRuns": [],
+    "workflowRunCount": 0,
+    "checkRunCount": 0,
+    "workflowRuns": [],
+    "checkRuns": [],
+    "meaning": "観測された状態だけを記録。0件はCI成功・失敗を示さない。手動起動していない。"
+  },
+  "remoteMutated": false,
+  "notVerified": [
+    "hosted CI成功",
+    "実案件/実provider/Databricks",
+    "今後のwork-only追補commit/push"
+  ]
+}

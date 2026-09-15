@@ -1,15 +1,15 @@
 ---
 id: 20260915-022729-254-publish-receipt-correction-0-6-1
 title: publish-receipt-correction-0-6-1
-status: active
+status: completed
 intent: improve-harness
 provider: unspecified
 phase: define
 gate: none
 gate_status: not-applicable
 started: 2026-09-15T02:27:29Z
-updated: 2026-09-15T02:51:09Z
-last_checkpoint: 2026-09-15T02:51:09Z
+updated: 2026-09-15T02:59:53Z
+last_checkpoint: 2026-09-15T02:54:05Z
 requirement: docs/harness/requirements/2026-09-15-publication-receipt-correction.md
 architecture: docs/harness/design/SAFE_LOCAL_UPDATE.md
 plan: work/plans/2026-09-15-publication-061.md
@@ -28,7 +28,7 @@ focus_task: PUB-061
 
 ## 確認済みの状態
 
-- 独立更新試験と正式JSONの事前seal完了。公開用policyで旧SU-PUB-060を完了。新PUB-061は未pushのためverifyingを維持
+- 0.6.1をprivate mainへ通常push済み。source SHA 8bdfce99da6ca9d2829d88aa8704266a5c0b4586とorigin/main一致。独立remote確認中、旧SU-PUB-060完了
 
 ## 判断記録
 
@@ -40,7 +40,7 @@ focus_task: PUB-061
 
 ## 次の作業
 
-- 承認済み0.6.1を通常pushしremote/CIを独立確認後、新task/sessionを閉じ完了記録を追補pushする
+- 独立remote/CI確認とFIX pass receiptの後、PUB-061/task/sessionを閉じwork-only完了記録を追補pushする
 
 ## 停止理由と人の判断
 
@@ -85,3 +85,17 @@ focus_task: PUB-061
 - next: 承認済み0.6.1を通常pushしremote/CIを独立確認後、新task/sessionを閉じ完了記録を追補pushする
 - blocker: none
 - task: PUB-061
+
+## Checkpoint 2026-09-15T02:54:05Z
+
+- summary: 0.6.1をprivate mainへ通常push済み。source SHA 8bdfce99da6ca9d2829d88aa8704266a5c0b4586とorigin/main一致。独立remote確認中、旧SU-PUB-060完了
+- evidence: work/evidence/2026-09-15-publication-061-final-preflight.json
+- next: 独立remote/CI確認とFIX pass receiptの後、PUB-061/task/sessionを閉じwork-only完了記録を追補pushする
+- blocker: none
+- task: PUB-061
+
+## Closed 2026-09-15T02:59:53Z
+
+- Outcome: completed
+- Summary: 0.6.1表記訂正・再検証・private公開とFIX全4条件の独立確認を完了。旧PUBもpass receiptで完了。CI成功と実案件/Databricks検証は未主張。完了記録のみ追補pushする
+- Independent evidence: work/reviews/2026-09-15-publication-061.receipt.json

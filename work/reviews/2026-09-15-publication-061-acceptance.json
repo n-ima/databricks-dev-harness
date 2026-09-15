@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/publication_061_review",
+  "provider": "codex",
+  "independent": true,
+  "requirement": "docs/harness/requirements/2026-09-15-publication-receipt-correction.md",
+  "snapshot": ".harness/runtime/publish-0.6.1-final",
+  "publishedCommit": "8bdfce99da6ca9d2829d88aa8704266a5c0b4586",
+  "manifestSha256": "d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d",
+  "acceptance": [
+    { "id": "FIX-01", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-061-independent-final-audit.json", "work/reviews/2026-09-15-publication-061-review.md"], "rationale": "原公開要件の全文は4ID以外完全一致。既存parser/seal不変と成功・旧ID/欠落/重複/未知ID拒否、not-run完了拒否を独立実行。" },
+    { "id": "FIX-02", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-061-red.log", "work/evidence/2026-09-15-publication-061-green.log", "work/evidence/2026-09-15-publication-061-full.log", "work/evidence/2026-09-15-publication-061-independent-final-check.json", "work/evidence/2026-09-15-publication-061-independent-final-contracts.json", "work/reviews/2026-09-15-publication-061-review.md"], "rationale": "実文書2red→2greenと最終584件/583pass/0fail/1skipを確認。独立check・contracts58件成功。" },
+    { "id": "FIX-03", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-061-bytes.json", "work/evidence/2026-09-15-publication-061-independent-final-audit.json", "work/evidence/2026-09-15-publication-061-independent-final-forward.json", "work/reviews/2026-09-15-publication-061-review.md"], "rationale": "最終1068source/payload/index一致、隔離0.6.0→0.6.1の案件12files保持・競合拒否・backup・導入版・次回planを確認。旧3配布物と元候補保持。" },
+    { "id": "FIX-04", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-061-independent-postpush.json", "work/evidence/2026-09-15-publication-061-final-preflight.json", "work/reviews/2026-09-15-publication-061-postpush.md"], "rationale": "通常parentの公開full SHAとprivate/mainが一致。全1068公開blobを独立照合。公開前の正式JSONをfinal policyでsealしnot-run完了拒否を確認。対象SHAのworkflow/check runs各0を記録しCI成功と扱わない。実案件/Databricks未実施。" }
+  ]
+}
