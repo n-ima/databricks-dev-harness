@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const manifestBytes=readFileSync('harness/base-release.json'); const m=JSON.parse(manifestBytes);
+const receipt=JSON.parse(readFileSync('work/reviews/20260915-010502-538-safe-local-harness-update.receipt.json'));
+const quality=JSON.parse(readFileSync('work/quality/safe-local-update.json'));
+const expected=new Map(m.managedFiles.map(f=>[f.path,f.sha256]));
+expected.set('harness/base-release.json',hash(manifestBytes));
+for(const [p,s] of Object.entries(receipt.artifactHashes))expected.set(p,s);
+for(const r of [...quality.artifacts,quality.requirement,...quality.testCases.flatMap(c=>c.result.evidence),...quality.operations.map(o=>o.document),...quality.reviews.flatMap(r=>r.evidence)].filter(Boolean))expected.set(r.path,r.sha256);
+const batch=execFileSync('git',['cat-file','--batch'],{input:[...expected.keys()].map(p=>':'+p).join('\n')+'\n',maxBuffer:268435456});
+let offset=0;for(const [p,s] of expected){const end=batch.indexOf(10,offset);const match=batch.subarray(offset,end).toString().match(/^[a-f0-9]+ blob (\d+)$/);assert.ok(match,p);const size=Number(match[1]);offset=end+1;assert.equal(hash(batch.subarray(offset,offset+size)),s,'Staged proof mismatch: '+p);offset+=size+1;}assert.equal(offset,batch.length);
+const assembly=JSON.parse(readFileSync('work/evidence/2026-09-15-publication-060-assembly.json'));for(const [p,s] of Object.entries(assembly.preserved))assert.equal(hash(readFileSync(p)),s,p);
+const added=execFileSync('git',['diff','--cached','--unified=0'],{maxBuffer:67108864}).toString().split('\n').filter(l=>l.startsWith('+')&&!l.startsWith('+++'));
+const patterns=[/gh[pousr]_[A-Za-z0-9]{30,}/,/github_pat_[A-Za-z0-9_]{30,}/,/dapi[a-f0-9]{32}/,/-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----/];assert.equal(added.filter(l=>patterns.some(p=>p.test(l))).length,0,'Credential-pattern match');
+console.log(JSON.stringify({status:'pass',managedFiles:m.managedFiles.length,indexAndProofFiles:expected.size,workingCandidatePreserved:true,credentialPatterns:0}));

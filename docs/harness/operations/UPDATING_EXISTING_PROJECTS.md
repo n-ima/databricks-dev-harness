@@ -2,7 +2,9 @@
 
 ハーネス元のGitHubへpushしても、テンプレートから作った案件は自動更新されない。案件を作り直したり、setupをやり直したりする必要はない。案件の開発ブランチとは分けて、レビュー可能な更新差分を作る。
 
-## 通常は案件のチャットから依頼する
+## 旧0.4/0.5から初回更新するときの橋渡し
+
+現在の推奨は[0.6.0の短い更新入口](SAFE_LOCAL_UPDATE.md)です。旧0.4/0.5から直接0.6.0へ進めます。以下は0.5.0へ更新する場合の履歴・元版登録手順として残します。保持は従来のupdaterにも組み込まれており、この文章を書き忘れると保護が外れる仕様ではありません。
 
 ```text
 この案件のハーネスを、承認済みの0.5.0へ更新したい。
@@ -57,10 +59,11 @@ node --input-type=module -e "import {pathToFileURL} from 'node:url'; const sourc
 
 ```text
 node --input-type=module -e "import {pathToFileURL} from 'node:url'; const source=process.argv[1]; const {applyUpdate}=await import(pathToFileURL(source+'/files/tools/lib/distribution.mjs')); await applyUpdate(process.cwd(), {plan:process.argv[2], yes:true});" D:/projects/databricks-dev-harness/.harness/releases/0.5.0 .harness/updates/実際の計画ファイル名.json
-npm run agent-assets:sync
 npm run harness:check
 npm run test:harness
 ```
+
+provider向け生成済みファイルも配布物に含まれるため、更新後に`agent-assets:sync`を無条件実行する必要はない。この同期は生成先を作り直すため、案件独自のskill等があれば削除される恐れがある。checkで独自ファイルによる不一致が出ても自動修復せず、保持したまま差分をレビューする。
 
 加えて、案件のunit/API/UI/受入試験と独立レビューを行い、差分を確認して更新ブランチを統合する。計画作成後に対象が変われば適用は拒否されるので再計画する。変更前の管理ファイルは`.harness/backups/`へ保存されるが、自動ロールバックではない。中断時は`recovery.json`とGit差分を調べ、案件の変更を残して復旧する。
 

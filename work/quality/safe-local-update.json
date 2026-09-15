@@ -1,0 +1,511 @@
+{
+  "schemaVersion": 1,
+  "producer": {
+    "actor": "codex-root",
+    "context": "20260915-013942-357-publish-safe-update-0-6-0"
+  },
+  "requirement": {
+    "path": "docs/harness/requirements/2026-09-15-safe-local-update.md",
+    "sha256": "3728bfa0ca57e19d7bf7e2491a563746a184b30a25a8dfa8de58ec11b01f978d"
+  },
+  "artifacts": [
+    {
+      "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+      "sha256": "36a8849808e819876217edf94ca533f19342fe1c8a5e38e3c4d5b41e5fa0441a"
+    },
+    {
+      "path": "tests/update-entry.test.mjs",
+      "sha256": "9e3cd3c78580a26069c5dacf1a5fc266970ba7657d4b725ac270f1a2528736ae"
+    },
+    {
+      "path": "tools/update-harness.mjs",
+      "sha256": "08f36fded24a7dcb412b5336e4de7609690e573c18205a696195678425d217f7"
+    },
+    {
+      "path": "tools/lib/distribution.mjs",
+      "sha256": "27fd3aa1f7f722852bd1ed6c6ee511a68d09d62ec48c9bddb63b33b0089213da"
+    },
+    {
+      "path": "harness/skills/update-harness/SKILL.md",
+      "sha256": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367"
+    },
+    {
+      "path": "harness/skills/orchestrate-work/SKILL.md",
+      "sha256": "6409c1c887eb0cc2b5b9d7e90abb2ac5e192188012c88cd8af7f0b70ba1d3492"
+    },
+    {
+      "path": "harness/router.json",
+      "sha256": "7681d0cf9445cc6676d9a2a3f30b53bdb52c342ddcb8ce850069266c96584cfc"
+    },
+    {
+      "path": "docs/harness/operations/SAFE_LOCAL_UPDATE.md",
+      "sha256": "704971b5e303239ec013934d4e9806855afca828ddea37df2555f68d205bf6a0"
+    },
+    {
+      "path": "docs/harness/operations/UPDATING_EXISTING_PROJECTS.md",
+      "sha256": "dc3c68428deebd2f281974a6966d1256768ab448efa71d4f95ccb65321ddc741"
+    },
+    {
+      "path": "docs/harness/operations/CLI_REFERENCE.md",
+      "sha256": "7c41f42a704f02dd8bd2722735295c2592ac340e4f53c67aad46045fc9d952eb"
+    },
+    {
+      "path": "tools/lib/shared.mjs",
+      "sha256": "d1ba0fc8078775b62fd7ddfe3776e3d36c718b78f31aa410fd9a16b9a0d5b251"
+    },
+    {
+      "path": "harness.config.json",
+      "sha256": "0c155b702af554a0790add3fbbca3bf0baa9fee419a0e807720d7b0d414a352a"
+    },
+    {
+      "path": "harness/base-release.json",
+      "sha256": "4f5b27da15fc53f59a69b230bca0e8bf83319d2147ed36ad9c478aaf1637209c"
+    },
+    {
+      "path": "package.json",
+      "sha256": "699f560f65bf8b8ff64417a64242b4f86516945f0087ab4d79863380dd6d4244"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "4971d432b04d0ab9fa72a6163cfc8b6d8c072a97fdcc998a368de232f1911371"
+    },
+    {
+      "path": "docs/harness/decisions/ADR-0011-safe-local-update-adoption.md",
+      "sha256": "258f2eb3cd2c3fd75b7fe3add6e92f3bd60c7633fae20015c478756a9095b27f"
+    },
+    {
+      "path": "work/evidence/2026-09-15-publication-060-independent-runner.mjs",
+      "sha256": "84281bda5c79699ab4bae1161f6bcaf2bfa5bba25e74e4cc1f1f169cd1245bd8"
+    },
+    {
+      "path": "work/evidence/2026-09-15-publication-060-independent.test.mjs",
+      "sha256": "6ea3a57fe1613be4245453c3be4d4b8f54bf580a712aec5b2c5d0f4b7e91480f"
+    }
+  ],
+  "requirements": [
+    "SU-01",
+    "SU-02",
+    "SU-03",
+    "SU-04",
+    "SU-05"
+  ],
+  "risks": [
+    {
+      "id": "RISK-OWNERSHIP",
+      "description": "案件改変と独自設定の喪失",
+      "testIds": [
+        "TC-SU-02"
+      ]
+    },
+    {
+      "id": "RISK-SOURCE",
+      "description": "元版/更新元/対象の取り違えと改変payload",
+      "testIds": [
+        "TC-SU-01",
+        "TC-SU-03",
+        "TC-SU-06"
+      ]
+    },
+    {
+      "id": "RISK-COMPLETION",
+      "description": "不完全更新を成功・案件受入と誤認",
+      "testIds": [
+        "TC-SU-04",
+        "TC-SU-05",
+        "TC-SU-07"
+      ]
+    }
+  ],
+  "interfaces": [],
+  "testCases": [
+    {
+      "id": "TC-SU-01",
+      "requirements": [
+        "SU-01"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "Gitなしのsourceと同版配布物、1.0導入済みfixture",
+      "steps": [
+        "両形式でplanし管理bytesを比較"
+      ],
+      "expected": "同じoperations。適用前bytes不変。元sourceの後編集は固定snapshotへ影響しない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "46b50104476578f8335e4d8e4da15761280492f87c1b56fbfbf55674ae57840b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-tests.json",
+            "sha256": "68d14aa2e89f2d1b365e5eea1476305ab89505500d8157b7d42388e532278c66"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-forward-result.json",
+            "sha256": "c5655d6611969b6760e77e3896a65c2aef7ecdbab72c48e9abe586ca0b79149b"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-summary.json",
+            "sha256": "f861c622b821d1c171bac5ba890694d53631a3f558d04d86f6856036d60f4ae3"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-full.log",
+            "sha256": "7c4cc62922dc0d652fd064f2feee3de27569b3c769a8f7219fb4115638de0c4f"
+          }
+        ],
+        "command": "node work/evidence/2026-09-15-publication-060-independent-runner.mjs audit; 同runner prepare → 計画確認 → apply（証拠JSONに完全argv）",
+        "versions": "Windows / Node.js v24.15.0 / 公開0.6.0 snapshot。独立27pass、旧0.4/0.5隔離更新。実Claude Code/Copilot・実案件・Databricksは未実行"
+      }
+    },
+    {
+      "id": "TC-SU-02",
+      "requirements": [
+        "SU-02"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "案件の独自ファイルと管理ファイルの変更・削除・衝突fixture",
+      "steps": [
+        "保持フラグなしでplan/applyし各元bytesを照合"
+      ],
+      "expected": "案件ファイルは全て不変。競合1件でも管理ファイルを変更せず拒否",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "46b50104476578f8335e4d8e4da15761280492f87c1b56fbfbf55674ae57840b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-tests.json",
+            "sha256": "68d14aa2e89f2d1b365e5eea1476305ab89505500d8157b7d42388e532278c66"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-forward-result.json",
+            "sha256": "c5655d6611969b6760e77e3896a65c2aef7ecdbab72c48e9abe586ca0b79149b"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-summary.json",
+            "sha256": "f861c622b821d1c171bac5ba890694d53631a3f558d04d86f6856036d60f4ae3"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-full.log",
+            "sha256": "7c4cc62922dc0d652fd064f2feee3de27569b3c769a8f7219fb4115638de0c4f"
+          }
+        ],
+        "command": "node work/evidence/2026-09-15-publication-060-independent-runner.mjs audit; 同runner prepare → 計画確認 → apply（証拠JSONに完全argv）",
+        "versions": "Windows / Node.js v24.15.0 / 公開0.6.0 snapshot。独立27pass、旧0.4/0.5隔離更新。実Claude Code/Copilot・実案件・Databricksは未実行"
+      }
+    },
+    {
+      "id": "TC-SU-03",
+      "requirements": [
+        "SU-03"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "元版欠落、source重複、junction、改変、無承認、古い計画fixture",
+      "steps": [
+        "各不正入力でCLI/APIを起動"
+      ],
+      "expected": "非0または例外で停止。管理ファイルを変更しない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "46b50104476578f8335e4d8e4da15761280492f87c1b56fbfbf55674ae57840b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-tests.json",
+            "sha256": "68d14aa2e89f2d1b365e5eea1476305ab89505500d8157b7d42388e532278c66"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-forward-result.json",
+            "sha256": "c5655d6611969b6760e77e3896a65c2aef7ecdbab72c48e9abe586ca0b79149b"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-summary.json",
+            "sha256": "f861c622b821d1c171bac5ba890694d53631a3f558d04d86f6856036d60f4ae3"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-full.log",
+            "sha256": "7c4cc62922dc0d652fd064f2feee3de27569b3c769a8f7219fb4115638de0c4f"
+          }
+        ],
+        "command": "node work/evidence/2026-09-15-publication-060-independent-runner.mjs audit; 同runner prepare → 計画確認 → apply（証拠JSONに完全argv）",
+        "versions": "Windows / Node.js v24.15.0 / 公開0.6.0 snapshot。独立27pass、旧0.4/0.5隔離更新。実Claude Code/Copilot・実案件・Databricksは未実行"
+      }
+    },
+    {
+      "id": "TC-SU-04",
+      "requirements": [
+        "SU-04"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "競合なしの管理更新fixture",
+      "steps": [
+        "apply後に全管理hash、導入版、backupの元bytesを照合"
+      ],
+      "expected": "全管理hash一致、backupが元byteと同一、導入版1.1。案件受入は別",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "46b50104476578f8335e4d8e4da15761280492f87c1b56fbfbf55674ae57840b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-tests.json",
+            "sha256": "68d14aa2e89f2d1b365e5eea1476305ab89505500d8157b7d42388e532278c66"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-forward-result.json",
+            "sha256": "c5655d6611969b6760e77e3896a65c2aef7ecdbab72c48e9abe586ca0b79149b"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-summary.json",
+            "sha256": "f861c622b821d1c171bac5ba890694d53631a3f558d04d86f6856036d60f4ae3"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-full.log",
+            "sha256": "7c4cc62922dc0d652fd064f2feee3de27569b3c769a8f7219fb4115638de0c4f"
+          }
+        ],
+        "command": "node work/evidence/2026-09-15-publication-060-independent-runner.mjs audit; 同runner prepare → 計画確認 → apply（証拠JSONに完全argv）",
+        "versions": "Windows / Node.js v24.15.0 / 公開0.6.0 snapshot。独立27pass、旧0.4/0.5隔離更新。実Claude Code/Copilot・実案件・Databricksは未実行"
+      }
+    },
+    {
+      "id": "TC-SU-05",
+      "requirements": [
+        "SU-05"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "日本語workflowと生成済みClaude/Copilotコピー",
+      "steps": [
+        "別contextの独立担当が短い日本語/英語表記依頼のrouteをCLIで確認し、明示されたローカルfixtureをplan/applyする",
+        "導入後のcanonical/Claude/Copilot skillの全bytesと初回/次回の日本語運用を照合する"
+      ],
+      "expected": "3表記の短い指示がupdate-harnessへrouteされexecutionAuthorized=false。安全なCLI適用/停止と生成skill同一を確認。実providerモデルの振る舞いは未検証",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "46b50104476578f8335e4d8e4da15761280492f87c1b56fbfbf55674ae57840b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-tests.json",
+            "sha256": "68d14aa2e89f2d1b365e5eea1476305ab89505500d8157b7d42388e532278c66"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-forward-result.json",
+            "sha256": "c5655d6611969b6760e77e3896a65c2aef7ecdbab72c48e9abe586ca0b79149b"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-summary.json",
+            "sha256": "f861c622b821d1c171bac5ba890694d53631a3f558d04d86f6856036d60f4ae3"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-full.log",
+            "sha256": "7c4cc62922dc0d652fd064f2feee3de27569b3c769a8f7219fb4115638de0c4f"
+          }
+        ],
+        "command": "node work/evidence/2026-09-15-publication-060-independent-runner.mjs audit; 同runner prepare → 計画確認 → apply（証拠JSONに完全argv）",
+        "versions": "Windows / Node.js v24.15.0 / 公開0.6.0 snapshot。独立27pass、旧0.4/0.5隔離更新。実Claude Code/Copilot・実案件・Databricksは未実行"
+      }
+    },
+    {
+      "id": "TC-SU-06",
+      "requirements": [
+        "SU-01",
+        "SU-03",
+        "SU-05"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "A: 真正な公開0.4.0/0.5.0全manifest/payloadから作る別々の隔離案件と、採用0.6.0のGitなしclean sourceおよび配布物。B: 公開snapshot CLIを含む合成版の隔離fixture。実案件ではない",
+      "steps": [
+        "A: 旧案件CLIで真正な元baselineを登録。信頼済み0.6外部CLIと明示targetで両source形式のplan operations一致・計画前後bytes不変を確認",
+        "A: 0.4はclean source CLI、0.5は配布CLIから0.6へ更新。全1067管理hash、各20案件files、旧base manifest、更新前backup47/11と旧installed bytesを照合",
+        "A: 導入済み案件内CLIを案件cwdで起動し次回0.6 planが1067keepになることを確認。前後check/案件2tests・既存session読取・3表記route・provider skill同一を確認",
+        "B: 専用試験で1.2から次版1.3のplan、独立IND-05で案件内CLIによる0.6から合成0.7のplan/applyを実行"
+      ],
+      "expected": "公開旧版のallowlistやbaselineを書換えず直接0.6へ移行。案件を保持し競合/無承認/staleを拒否。次回入口が導入される。将来の本物の未公開版や実案件の成功とはしない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "46b50104476578f8335e4d8e4da15761280492f87c1b56fbfbf55674ae57840b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-tests.json",
+            "sha256": "68d14aa2e89f2d1b365e5eea1476305ab89505500d8157b7d42388e532278c66"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-forward-result.json",
+            "sha256": "c5655d6611969b6760e77e3896a65c2aef7ecdbab72c48e9abe586ca0b79149b"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-summary.json",
+            "sha256": "f861c622b821d1c171bac5ba890694d53631a3f558d04d86f6856036d60f4ae3"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-full.log",
+            "sha256": "7c4cc62922dc0d652fd064f2feee3de27569b3c769a8f7219fb4115638de0c4f"
+          }
+        ],
+        "command": "node work/evidence/2026-09-15-publication-060-independent-runner.mjs audit; 同runner prepare → 計画確認 → apply（証拠JSONに完全argv）",
+        "versions": "Windows / Node.js v24.15.0 / 公開0.6.0 snapshot。独立27pass、旧0.4/0.5隔離更新。実Claude Code/Copilot・実案件・Databricksは未実行"
+      }
+    },
+    {
+      "id": "TC-SU-07",
+      "requirements": [
+        "SU-04"
+      ],
+      "level": "recovery",
+      "environment": "local",
+      "preconditions": "更新途中のrename完了直後に、別writerによるkeepファイル改変を決定的に注入する隔離fixture",
+      "steps": [
+        "applyを実行しpost-write hash検査を失敗させる",
+        "旧baseline、backup、journalと同一plan再適用の拒否を照合"
+      ],
+      "expected": "旧baselineはbyte不変、変更前backup保持、journal interrupted、再適用拒否。自動rollbackも完了扱いもしない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "46b50104476578f8335e4d8e4da15761280492f87c1b56fbfbf55674ae57840b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-publication-060-independent-tests.json",
+            "sha256": "68d14aa2e89f2d1b365e5eea1476305ab89505500d8157b7d42388e532278c66"
+          },
+          {
+            "path": "work/evidence/2026-09-15-publication-060-full.log",
+            "sha256": "7c4cc62922dc0d652fd064f2feee3de27569b3c769a8f7219fb4115638de0c4f"
+          }
+        ],
+        "command": "node work/evidence/2026-09-15-publication-060-independent-runner.mjs audit",
+        "versions": "Windows / Node.js v24.15.0 / 公開0.6.0 snapshot。独立27pass、旧0.4/0.5隔離更新。実Claude Code/Copilot・実案件・Databricksは未実行"
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "ownership",
+      "status": "applicable",
+      "reason": "案件とハーネス管理対象をmanifest allowlistで分離",
+      "testIds": [
+        "TC-SU-02"
+      ],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "36a8849808e819876217edf94ca533f19342fe1c8a5e38e3c4d5b41e5fa0441a"
+      }
+    },
+    {
+      "id": "monitoring",
+      "status": "applicable",
+      "reason": "終了値とplan/journalで失敗と成功を観測",
+      "testIds": [
+        "TC-SU-03",
+        "TC-SU-04"
+      ],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "36a8849808e819876217edf94ca533f19342fe1c8a5e38e3c4d5b41e5fa0441a"
+      }
+    },
+    {
+      "id": "recovery",
+      "status": "applicable",
+      "reason": "更新前backupを照合し中断時は人が復旧",
+      "testIds": [
+        "TC-SU-04",
+        "TC-SU-07"
+      ],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "36a8849808e819876217edf94ca533f19342fe1c8a5e38e3c4d5b41e5fa0441a"
+      }
+    },
+    {
+      "id": "data-protection",
+      "status": "applicable",
+      "reason": "秘密情報や案件の全非管理ファイルは対象外",
+      "testIds": [
+        "TC-SU-02"
+      ],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "36a8849808e819876217edf94ca533f19342fe1c8a5e38e3c4d5b41e5fa0441a"
+      }
+    },
+    {
+      "id": "cost",
+      "status": "applicable",
+      "reason": "ローカルI/Oとsnapshot容量。無限ループ/課金なし",
+      "testIds": [],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "36a8849808e819876217edf94ca533f19342fe1c8a5e38e3c4d5b41e5fa0441a"
+      }
+    },
+    {
+      "id": "dependency-updates",
+      "status": "applicable",
+      "reason": "Node標準APIのみ。案件packageは保持",
+      "testIds": [
+        "TC-SU-02"
+      ],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "36a8849808e819876217edf94ca533f19342fe1c8a5e38e3c4d5b41e5fa0441a"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "actor": "codex-publication-060-independent-reviewer",
+      "context": "/root/publication_060_review",
+      "independent": true,
+      "status": "pass",
+      "reviewedSha256": "d15e1b76a4d92bdad016225d269fc6bbb30b9f4a76eaea8b009447d8d9b3309f",
+      "coverage": {
+        "requirements": [
+          "SU-01",
+          "SU-02",
+          "SU-03",
+          "SU-04",
+          "SU-05"
+        ],
+        "risks": [
+          "RISK-OWNERSHIP",
+          "RISK-SOURCE",
+          "RISK-COMPLETION"
+        ],
+        "interfaces": [],
+        "operations": [
+          "ownership",
+          "monitoring",
+          "recovery",
+          "data-protection",
+          "cost",
+          "dependency-updates"
+        ]
+      },
+      "evidence": [
+        {
+          "path": "work/reviews/2026-09-15-publication-060-review.md",
+          "sha256": "9246d8fcf81bbc7fbcab44a1b4243ae0986e3eac84fecafe903ac437749e9cb3"
+        },
+        {
+          "path": "work/evidence/2026-09-15-publication-060-independent-tests.json",
+          "sha256": "68d14aa2e89f2d1b365e5eea1476305ab89505500d8157b7d42388e532278c66"
+        },
+        {
+          "path": "work/evidence/2026-09-15-publication-060-independent-forward-result.json",
+          "sha256": "c5655d6611969b6760e77e3896a65c2aef7ecdbab72c48e9abe586ca0b79149b"
+        },
+        {
+          "path": "work/evidence/2026-09-15-publication-060-independent-summary.json",
+          "sha256": "f861c622b821d1c171bac5ba890694d53631a3f558d04d86f6856036d60f4ae3"
+        }
+      ]
+    }
+  ]
+}

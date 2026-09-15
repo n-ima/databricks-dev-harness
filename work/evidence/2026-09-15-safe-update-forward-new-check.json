@@ -1,0 +1,15 @@
+{
+  "label": "new-check",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-DC37Di\\legacy project\\tools\\harness.mjs",
+    "check"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-DC37Di\\legacy project",
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "stdout": "",
+  "stderr": "Harness check failed:\n- .github\\skills file list differs from canonical skill sources\n",
+  "at": "2026-09-15T01:21:50.128Z"
+}

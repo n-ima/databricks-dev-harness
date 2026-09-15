@@ -1,0 +1,15 @@
+{
+  "label": "old-context",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-DC37Di\\legacy project\\tools\\harness.mjs",
+    "context"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-DC37Di\\legacy project",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "Harness 0.4.0 (L1)\nProduct: undefined [undefined]\nCanonical product docs: docs/product/\nCanonical harness docs: docs/harness/\nActive sessions:\n- work/sessions/forward-fixture.md [review] fixture checkpoint\nKnowledge indexes: docs/product/knowledge/INDEX.md, docs/harness/knowledge/INDEX.md\n",
+  "stderr": "",
+  "at": "2026-09-15T01:20:18.932Z"
+}

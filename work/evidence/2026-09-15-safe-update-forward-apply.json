@@ -1,0 +1,20 @@
+{
+  "label": "apply",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "D:\\projects\\databricks-dev-harness\\tools\\update-harness.mjs",
+    "apply",
+    "--plan",
+    ".harness/updates/update-20260915-012041-430-111f809b.json",
+    "--yes",
+    "--target",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-DC37Di\\legacy project"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-DC37Di\\legacy project",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "{\n  \"status\": \"ファイル更新・hash確認済み\",\n  \"version\": \"0.5.0\",\n  \"backupPath\": \".harness/backups/update-20260915-012041-430-111f809b\",\n  \"changedFiles\": 90,\n  \"deletedFiles\": [],\n  \"managedFilesVerified\": 1057,\n  \"humanReviewRequired\": true,\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\safe-update-forward-DC37Di\\\\legacy project\",\n  \"next\": \"案件試験と独立レビュー後に開発を再開してください。受入完了・配備ではありません。\"\n}\n",
+  "stderr": "",
+  "at": "2026-09-15T01:21:39.951Z"
+}

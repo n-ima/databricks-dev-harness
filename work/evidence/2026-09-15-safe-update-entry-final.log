@@ -1,0 +1,23 @@
+✔ SU-05 natural update requests route to the updater without granting execution permission (274.138ms)
+✔ SU-01/02 source tree without Git and release payload make equivalent dry plans; defaults preserve product bytes (315.7614ms)
+✔ SU-01 clean expanded source needs no cached release; source snapshot remains fixed after original changes (295.3531ms)
+✔ SU-01 dirty source uses only a matching stamped immutable payload, not dirty bytes (372.6436ms)
+✔ SU-02 local edit refuses all managed writes without preserve flag (251.1042ms)
+✔ SU-02 local delete refuses all managed writes without preserve flag (229.7791ms)
+✔ SU-02 local collision refuses all managed writes without preserve flag (296.7882ms)
+✔ SU-03 unknown baseline and non-product target fail closed (174.4583ms)
+✔ SU-03 same or nested source and target are refused (184.7576ms)
+✔ SU-03 modified release and mismatched stamped cache are refused (182.1078ms)
+✔ SU-03 snapshot tampering, missing approval and stale target refuse application (264.7078ms)
+✔ SU-03 source junction is rejected (172.2302ms)
+✔ SU-03/05 portable CLI targets cwd, rejects unknown/duplicate arguments and does not execute source code (543.5325ms)
+✔ SU-04 post-write corruption records interruption, keeps old baseline and original backups, and rejects replay (257.7738ms)
+✔ SU-05 legacy project bootstraps from external runner then uses its own installed runner for next update (662.6394ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4550.1851

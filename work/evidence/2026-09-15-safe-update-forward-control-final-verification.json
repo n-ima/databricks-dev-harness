@@ -1,0 +1,25 @@
+{
+  "at": "2026-09-15T01:26:26.297Z",
+  "allManagedMatchAfterTests": true,
+  "managedCount": 1057,
+  "allProtectedMatchAfterTests": true,
+  "protectedCount": 20,
+  "sourceHasGit": false,
+  "targetHasGit": false,
+  "providerSkillBytesEqual": true,
+  "sourceHashes": {
+    "tools/update-harness.mjs": "08f36fded24a7dcb412b5336e4de7609690e573c18205a696195678425d217f7",
+    "tools/lib/distribution.mjs": "9f16b9413b38cb9f616e0c1ca416b383f9223e70f88252d258e76d6fa5798bb5",
+    "tools/lib/shared.mjs": "d1ba0fc8078775b62fd7ddfe3776e3d36c718b78f31aa410fd9a16b9a0d5b251",
+    "harness/router.json": "7681d0cf9445cc6676d9a2a3f30b53bdb52c342ddcb8ce850069266c96584cfc",
+    "tests/update-entry.test.mjs": "9e3cd3c78580a26069c5dacf1a5fc266970ba7657d4b725ac270f1a2528736ae",
+    "harness/skills/update-harness/SKILL.md": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367",
+    ".claude/skills/update-harness/SKILL.md": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367",
+    ".github/skills/update-harness/SKILL.md": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367",
+    "docs/harness/operations/SAFE_LOCAL_UPDATE.md": "9398e4eaf52d3629e0a5454ffca6b9435143ab3cbeeb1630bba8c447bb0b17a6",
+    "docs/harness/operations/UPDATING_EXISTING_PROJECTS.md": "07e92cbfd418bfeec078f183dd462bfc6d95facdf75dcf686308b7de5d7b7870"
+  },
+  "providerModelsExecuted": false,
+  "liveProjectExecuted": false,
+  "externalNetworkUsed": false
+}

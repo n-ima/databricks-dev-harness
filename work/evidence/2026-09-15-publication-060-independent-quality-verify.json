@@ -1,0 +1,19 @@
+{
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.0\\tools\\harness.mjs",
+    "delivery",
+    "check",
+    "--contract",
+    "work/quality/safe-local-update.json",
+    "--phase",
+    "verify"
+  ],
+  "cwd": "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.0",
+  "exitCode": 0,
+  "stdout": "{\n  \"mode\": \"advisory\",\n  \"certifiesAcceptance\": false,\n  \"phase\": \"verify\",\n  \"findings\": [],\n  \"recordedExecutions\": 7,\n  \"summary\": \"構造上の指摘はありません。業務受入・実行事実・実環境の成功を証明するものではありません。\"\n}\n",
+  "stderr": "",
+  "at": "2026-09-15T02:04:00.889Z",
+  "basisSha256": "46b50104476578f8335e4d8e4da15761280492f87c1b56fbfbf55674ae57840b",
+  "reviewedSha256": "d15e1b76a4d92bdad016225d269fc6bbb30b9f4a76eaea8b009447d8d9b3309f"
+}

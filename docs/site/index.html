@@ -119,6 +119,8 @@ npm run setup -- --project-name sales-operations --skip-agent-skills</code></pre
   <ol class="quality-loop"><li><strong>失敗を残す</strong><span>最小の再現例と人の手戻り</span></li><li><strong>小さく変える</strong><span>test・schema・hook・generator</span></li><li><strong>同じ課題で測る</strong><span>providerごと3回以上・独立判定</span></li><li><strong>差分で配る</strong><span>version固定・conflict検出・backup</span></li></ol>
   <p>通常はassisted mode。headless loopはopt-inで、反復数・壁時計・process時間を制限します。pending gate・policy変更・失敗で停止。未記録の中断反復を黙って再実行しません。費用のsoft limitをhard capとは扱いません。</p>
   <p>更新は案件側の変更を保護します。案件コード、product設計、work記録、接続設定はupdaterの所有外です。snapshot作成だけで公開や品質認定はされません。</p>
+  <p>0.6.0からは、ローカルのclone／ZIP展開先を指定して更新できます。「案件固有は保持」と毎回書く必要はありません。競合時は停止し、適用前backupと適用後hash照合を行います。旧版案件も新版実行器から直接更新できます。</p>
+  <a class="text-link" href="../harness/operations/SAFE_LOCAL_UPDATE.md">初回・次回の安全な更新手順 →</a>
   <a class="text-link" href="../harness/operations/CLI_REFERENCE.md">詳しいコマンドとreceipt形式 →</a>
 </section>
 <section id="limits">

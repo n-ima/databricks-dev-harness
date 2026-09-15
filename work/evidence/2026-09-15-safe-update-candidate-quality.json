@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 1,
+  "producer": {
+    "actor": "codex-root",
+    "context": "20260915-010502-538-safe-local-harness-update"
+  },
+  "requirement": {
+    "path": "docs/harness/requirements/2026-09-15-safe-local-update.md",
+    "sha256": "07801964853e43955379263ec64964cc1e66d8e1f826a4213fb77437c94922ec"
+  },
+  "artifacts": [
+    {
+      "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+      "sha256": "3817fb3072453b7b9bba4b1637b0f2e103ee91487a6a799b07abba8384fdba92"
+    },
+    {
+      "path": "tests/update-entry.test.mjs",
+      "sha256": "9e3cd3c78580a26069c5dacf1a5fc266970ba7657d4b725ac270f1a2528736ae"
+    },
+    {
+      "path": "tools/update-harness.mjs",
+      "sha256": "08f36fded24a7dcb412b5336e4de7609690e573c18205a696195678425d217f7"
+    },
+    {
+      "path": "tools/lib/distribution.mjs",
+      "sha256": "9f16b9413b38cb9f616e0c1ca416b383f9223e70f88252d258e76d6fa5798bb5"
+    },
+    {
+      "path": "harness/skills/update-harness/SKILL.md",
+      "sha256": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367"
+    },
+    {
+      "path": "harness/skills/orchestrate-work/SKILL.md",
+      "sha256": "6409c1c887eb0cc2b5b9d7e90abb2ac5e192188012c88cd8af7f0b70ba1d3492"
+    },
+    {
+      "path": "harness/router.json",
+      "sha256": "7681d0cf9445cc6676d9a2a3f30b53bdb52c342ddcb8ce850069266c96584cfc"
+    },
+    {
+      "path": "docs/harness/operations/SAFE_LOCAL_UPDATE.md",
+      "sha256": "9398e4eaf52d3629e0a5454ffca6b9435143ab3cbeeb1630bba8c447bb0b17a6"
+    },
+    {
+      "path": "docs/harness/operations/UPDATING_EXISTING_PROJECTS.md",
+      "sha256": "07e92cbfd418bfeec078f183dd462bfc6d95facdf75dcf686308b7de5d7b7870"
+    },
+    {
+      "path": "docs/harness/operations/CLI_REFERENCE.md",
+      "sha256": "688da078ae78ce33d7edb6fb7ad5d08f7b19e305014468f900f1013d5a84d028"
+    },
+    {
+      "path": "tools/lib/shared.mjs",
+      "sha256": "d1ba0fc8078775b62fd7ddfe3776e3d36c718b78f31aa410fd9a16b9a0d5b251"
+    }
+  ],
+  "requirements": [
+    "SU-01",
+    "SU-02",
+    "SU-03",
+    "SU-04",
+    "SU-05"
+  ],
+  "risks": [
+    {
+      "id": "RISK-OWNERSHIP",
+      "description": "案件改変と独自設定の喪失",
+      "testIds": [
+        "TC-SU-02"
+      ]
+    },
+    {
+      "id": "RISK-SOURCE",
+      "description": "元版/更新元/対象の取り違えと改変payload",
+      "testIds": [
+        "TC-SU-01",
+        "TC-SU-03",
+        "TC-SU-06"
+      ]
+    },
+    {
+      "id": "RISK-COMPLETION",
+      "description": "不完全更新を成功・案件受入と誤認",
+      "testIds": [
+        "TC-SU-04",
+        "TC-SU-05",
+        "TC-SU-07"
+      ]
+    }
+  ],
+  "interfaces": [],
+  "testCases": [
+    {
+      "id": "TC-SU-01",
+      "requirements": [
+        "SU-01"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "Gitなしのsourceと同版配布物、1.0導入済みfixture",
+      "steps": [
+        "両形式でplanし管理bytesを比較"
+      ],
+      "expected": "同じoperations。適用前bytes不変。元sourceの後編集は固定snapshotへ影響しない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "d1f9842860727aaab7652801c062967bce29b7369e516a038c6474962417fc2b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-safe-update-entry-final.log",
+            "sha256": "a8d47b6309c7ee5aa82a224ab841e27bc417250eb0ba9ac0a5c930cce2961d73"
+          }
+        ],
+        "command": "node --test tests/update-entry.test.mjs",
+        "versions": "Windows / Node.js v24.15.0; 隔離fixture。実Claude Code/Copilot未起動"
+      }
+    },
+    {
+      "id": "TC-SU-02",
+      "requirements": [
+        "SU-02"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "案件の独自ファイルと管理ファイルの変更・削除・衝突fixture",
+      "steps": [
+        "保持フラグなしでplan/applyし各元bytesを照合"
+      ],
+      "expected": "案件ファイルは全て不変。競合1件でも管理ファイルを変更せず拒否",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "d1f9842860727aaab7652801c062967bce29b7369e516a038c6474962417fc2b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-safe-update-entry-final.log",
+            "sha256": "a8d47b6309c7ee5aa82a224ab841e27bc417250eb0ba9ac0a5c930cce2961d73"
+          }
+        ],
+        "command": "node --test tests/update-entry.test.mjs",
+        "versions": "Windows / Node.js v24.15.0; 隔離fixture。実Claude Code/Copilot未起動"
+      }
+    },
+    {
+      "id": "TC-SU-03",
+      "requirements": [
+        "SU-03"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "元版欠落、source重複、junction、改変、無承認、古い計画fixture",
+      "steps": [
+        "各不正入力でCLI/APIを起動"
+      ],
+      "expected": "非0または例外で停止。管理ファイルを変更しない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "d1f9842860727aaab7652801c062967bce29b7369e516a038c6474962417fc2b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-safe-update-entry-final.log",
+            "sha256": "a8d47b6309c7ee5aa82a224ab841e27bc417250eb0ba9ac0a5c930cce2961d73"
+          }
+        ],
+        "command": "node --test tests/update-entry.test.mjs",
+        "versions": "Windows / Node.js v24.15.0; 隔離fixture。実Claude Code/Copilot未起動"
+      }
+    },
+    {
+      "id": "TC-SU-04",
+      "requirements": [
+        "SU-04"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "競合なしの管理更新fixture",
+      "steps": [
+        "apply後に全管理hash、導入版、backupの元bytesを照合"
+      ],
+      "expected": "全管理hash一致、backupが元byteと同一、導入版1.1。案件受入は別",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "d1f9842860727aaab7652801c062967bce29b7369e516a038c6474962417fc2b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-safe-update-entry-final.log",
+            "sha256": "a8d47b6309c7ee5aa82a224ab841e27bc417250eb0ba9ac0a5c930cce2961d73"
+          }
+        ],
+        "command": "node --test tests/update-entry.test.mjs",
+        "versions": "Windows / Node.js v24.15.0; 隔離fixture。実Claude Code/Copilot未起動"
+      }
+    },
+    {
+      "id": "TC-SU-05",
+      "requirements": [
+        "SU-05"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "日本語workflowと生成済みClaude/Copilotコピー",
+      "steps": [
+        "別contextで自然言語依頼からローカルfixtureへ更新"
+      ],
+      "expected": "短い指示でplanへ到達し安全な適用/停止。実provider検証とは呼ばない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "d1f9842860727aaab7652801c062967bce29b7369e516a038c6474962417fc2b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-safe-update-entry-final.log",
+            "sha256": "a8d47b6309c7ee5aa82a224ab841e27bc417250eb0ba9ac0a5c930cce2961d73"
+          },
+          {
+            "path": "work/evidence/2026-09-15-safe-update-forward-provider-skills.json",
+            "sha256": "5b15efb1f2bd477561d2702e3a20dddfcb7e1d941471c60ca9fa77914c5387e2"
+          }
+        ],
+        "command": "node --test tests/update-entry.test.mjs",
+        "versions": "Windows / Node.js v24.15.0; 隔離fixture。実Claude Code/Copilot未起動"
+      }
+    },
+    {
+      "id": "TC-SU-06",
+      "requirements": [
+        "SU-01",
+        "SU-03",
+        "SU-05"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "A: 公開済み0.4.0の全manifest/payloadで作る隔離案件と、0.5.0のGitなし展開source。B: 今回CLIを含む合成1.x配布物と隔離案件。いずれも実案件ではない",
+      "steps": [
+        "A: 信頼済み候補CLIを外部から起動し、公開0.4→0.5をplan/applyして元版・全管理hash・案件保持を照合する。公開0.5自体には候補CLIを含めない",
+        "B: 合成fixtureで外部CLIから1.2へ導入し、案件内へ導入されたCLIを起動して1.3のplanを作る"
+      ],
+      "expected": "対象cwd/targetを誤らず案件保持。旧版allowlistを変更しない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "d1f9842860727aaab7652801c062967bce29b7369e516a038c6474962417fc2b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-safe-update-entry-final.log",
+            "sha256": "a8d47b6309c7ee5aa82a224ab841e27bc417250eb0ba9ac0a5c930cce2961d73"
+          },
+          {
+            "path": "work/evidence/2026-09-15-safe-update-forward-apply-verification.json",
+            "sha256": "8305f2f05d04e39f231724e427be7af1173ae89b03fff783c97a511c1a481cb7"
+          }
+        ],
+        "command": "node --test tests/update-entry.test.mjs; 公開0.4→0.5の外部CLI plan/apply（forward証拠のargv参照）",
+        "versions": "Windows / Node.js v24.15.0; 隔離fixture。実Claude Code/Copilot未起動"
+      }
+    },
+    {
+      "id": "TC-SU-07",
+      "requirements": [
+        "SU-04"
+      ],
+      "level": "recovery",
+      "environment": "local",
+      "preconditions": "更新途中のrename完了直後に、別writerによるkeepファイル改変を決定的に注入する隔離fixture",
+      "steps": [
+        "applyを実行しpost-write hash検査を失敗させる",
+        "旧baseline、backup、journalと同一plan再適用の拒否を照合"
+      ],
+      "expected": "旧baselineはbyte不変、変更前backup保持、journal interrupted、再適用拒否。自動rollbackも完了扱いもしない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "d1f9842860727aaab7652801c062967bce29b7369e516a038c6474962417fc2b",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-safe-update-entry-final.log",
+            "sha256": "a8d47b6309c7ee5aa82a224ab841e27bc417250eb0ba9ac0a5c930cce2961d73"
+          }
+        ],
+        "command": "node --test tests/update-entry.test.mjs",
+        "versions": "Windows / Node.js v24.15.0; 隔離fixture。実Claude Code/Copilot未起動"
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "ownership",
+      "status": "applicable",
+      "reason": "案件とハーネス管理対象をmanifest allowlistで分離",
+      "testIds": [
+        "TC-SU-02"
+      ],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "3817fb3072453b7b9bba4b1637b0f2e103ee91487a6a799b07abba8384fdba92"
+      }
+    },
+    {
+      "id": "monitoring",
+      "status": "applicable",
+      "reason": "終了値とplan/journalで失敗と成功を観測",
+      "testIds": [
+        "TC-SU-03",
+        "TC-SU-04"
+      ],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "3817fb3072453b7b9bba4b1637b0f2e103ee91487a6a799b07abba8384fdba92"
+      }
+    },
+    {
+      "id": "recovery",
+      "status": "applicable",
+      "reason": "更新前backupを照合し中断時は人が復旧",
+      "testIds": [
+        "TC-SU-04",
+        "TC-SU-07"
+      ],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "3817fb3072453b7b9bba4b1637b0f2e103ee91487a6a799b07abba8384fdba92"
+      }
+    },
+    {
+      "id": "data-protection",
+      "status": "applicable",
+      "reason": "秘密情報や案件の全非管理ファイルは対象外",
+      "testIds": [
+        "TC-SU-02"
+      ],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "3817fb3072453b7b9bba4b1637b0f2e103ee91487a6a799b07abba8384fdba92"
+      }
+    },
+    {
+      "id": "cost",
+      "status": "applicable",
+      "reason": "ローカルI/Oとsnapshot容量。無限ループ/課金なし",
+      "testIds": [],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "3817fb3072453b7b9bba4b1637b0f2e103ee91487a6a799b07abba8384fdba92"
+      }
+    },
+    {
+      "id": "dependency-updates",
+      "status": "applicable",
+      "reason": "Node標準APIのみ。案件packageは保持",
+      "testIds": [
+        "TC-SU-02"
+      ],
+      "document": {
+        "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+        "sha256": "3817fb3072453b7b9bba4b1637b0f2e103ee91487a6a799b07abba8384fdba92"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "actor": "codex-safe-update-independent-reviewer",
+      "context": "/root/safe_update_code_review",
+      "independent": true,
+      "status": "pass",
+      "reviewedSha256": "0af6e517e299a70b509c02dc9081dab64292fd74bc922c5a2666ff0a8fc2b9b4",
+      "coverage": {
+        "requirements": ["SU-01", "SU-02", "SU-03", "SU-04", "SU-05"],
+        "risks": ["RISK-OWNERSHIP", "RISK-SOURCE", "RISK-COMPLETION"],
+        "interfaces": [],
+        "operations": ["ownership", "monitoring", "recovery", "data-protection", "cost", "dependency-updates"]
+      },
+      "evidence": [
+        {
+          "path": "work/reviews/2026-09-15-safe-update-code-review.md",
+          "sha256": "9288c53b32faf8475dd9afcfbc59d15b592302a9fbc845f6d930e9e8f915a7ff"
+        },
+        {
+          "path": "work/evidence/2026-09-15-safe-update-independent-final.log",
+          "sha256": "316dc766a58820bde36f25779827b963939168d9b5f7d072da7507f6afd9d198"
+        }
+      ]
+    }
+  ]
+}

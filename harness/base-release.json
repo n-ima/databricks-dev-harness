@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "0.5.0",
-  "releasedAt": "2026-09-15T00:01:23Z",
+  "version": "0.6.0",
+  "releasedAt": "2026-09-15T01:46:45Z",
   "managedFiles": [
     {
       "path": ".claude/agents/independent-verifier.md",
@@ -2119,9 +2119,9 @@
     },
     {
       "path": ".claude/skills/orchestrate-work/SKILL.md",
-      "sha256": "c0e42b8305fdc1360bbc320f7b24b32c81ab4dfe8266196d5378ac5ff2f2d7eb",
+      "sha256": "6409c1c887eb0cc2b5b9d7e90abb2ac5e192188012c88cd8af7f0b70ba1d3492",
       "strategy": "replace",
-      "bytes": 4291,
+      "bytes": 4552,
       "executable": false
     },
     {
@@ -2136,6 +2136,13 @@
       "sha256": "a8d7578dfe1dfdde34a3a484dae4af648e15f55fd99c0ac64891dcd8633452ae",
       "strategy": "replace",
       "bytes": 1786,
+      "executable": false
+    },
+    {
+      "path": ".claude/skills/update-harness/SKILL.md",
+      "sha256": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367",
+      "strategy": "replace",
+      "bytes": 2554,
       "executable": false
     },
     {
@@ -4275,9 +4282,9 @@
     },
     {
       "path": ".github/skills/orchestrate-work/SKILL.md",
-      "sha256": "c0e42b8305fdc1360bbc320f7b24b32c81ab4dfe8266196d5378ac5ff2f2d7eb",
+      "sha256": "6409c1c887eb0cc2b5b9d7e90abb2ac5e192188012c88cd8af7f0b70ba1d3492",
       "strategy": "replace",
-      "bytes": 4291,
+      "bytes": 4552,
       "executable": false
     },
     {
@@ -4292,6 +4299,13 @@
       "sha256": "a8d7578dfe1dfdde34a3a484dae4af648e15f55fd99c0ac64891dcd8633452ae",
       "strategy": "replace",
       "bytes": 1786,
+      "executable": false
+    },
+    {
+      "path": ".github/skills/update-harness/SKILL.md",
+      "sha256": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367",
+      "strategy": "replace",
+      "bytes": 2554,
       "executable": false
     },
     {
@@ -4331,9 +4345,9 @@
     },
     {
       "path": "docs/USAGE.md",
-      "sha256": "0cac42d54e9237fefbcf1040954e0c543767fdbd32620d71507073f646589cd1",
+      "sha256": "ca71a420995218688fa3e5cd67433d7cb91bd49c413cdfd23c0fc40b7034c742",
       "strategy": "replace",
-      "bytes": 14394,
+      "bytes": 14562,
       "executable": false
     },
     {
@@ -4407,6 +4421,13 @@
       "executable": false
     },
     {
+      "path": "docs/harness/decisions/ADR-0011-safe-local-update-adoption.md",
+      "sha256": "258f2eb3cd2c3fd75b7fe3add6e92f3bd60c7633fae20015c478756a9095b27f",
+      "strategy": "replace",
+      "bytes": 1754,
+      "executable": false
+    },
+    {
       "path": "docs/harness/design/ARCHITECTURE.md",
       "sha256": "68bb42a1d7813432127f489b8ddc98993d6fd3aa4278506e4f1e475ece867cbd",
       "strategy": "replace",
@@ -4446,6 +4467,13 @@
       "sha256": "8e59c473ca5bdb6fa80d78560f69703353c4479c4a5d76ed5ef6d0281e171557",
       "strategy": "replace",
       "bytes": 4726,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+      "sha256": "36a8849808e819876217edf94ca533f19342fe1c8a5e38e3c4d5b41e5fa0441a",
+      "strategy": "replace",
+      "bytes": 5439,
       "executable": false
     },
     {
@@ -4492,9 +4520,9 @@
     },
     {
       "path": "docs/harness/operations/CLI_REFERENCE.md",
-      "sha256": "755accd117f74f677aaaf5904d25e9a3e370bd593b46d48e5e03f4143353c377",
+      "sha256": "7c41f42a704f02dd8bd2722735295c2592ac340e4f53c67aad46045fc9d952eb",
       "strategy": "replace",
-      "bytes": 13735,
+      "bytes": 14074,
       "executable": false
     },
     {
@@ -4554,6 +4582,13 @@
       "executable": false
     },
     {
+      "path": "docs/harness/operations/SAFE_LOCAL_UPDATE.md",
+      "sha256": "704971b5e303239ec013934d4e9806855afca828ddea37df2555f68d205bf6a0",
+      "strategy": "replace",
+      "bytes": 7258,
+      "executable": false
+    },
+    {
       "path": "docs/harness/operations/SESSION_AND_KNOWLEDGE.md",
       "sha256": "9cbe7995cdcbe32bce63e040375292eaeef1197249362411fa862afe7ee7902e",
       "strategy": "replace",
@@ -4583,16 +4618,16 @@
     },
     {
       "path": "docs/harness/operations/UPDATING_EXISTING_PROJECTS.md",
-      "sha256": "e71eb7bdeffa2cbf9995b592da6d57625f3cc981698aa65e454f855246532abe",
+      "sha256": "dc3c68428deebd2f281974a6966d1256768ab448efa71d4f95ccb65321ddc741",
       "strategy": "replace",
-      "bytes": 7952,
+      "bytes": 8672,
       "executable": false
     },
     {
       "path": "docs/harness/operations/VALIDATION_STATUS.md",
-      "sha256": "4301c40648f7280b727fd3a7ed769b4fbead734c20d0e38785785d8007a782ec",
+      "sha256": "0be6295a5506308319ee14cde3977f159bf50e924dcd60dfd624f4898f85402a",
       "strategy": "replace",
-      "bytes": 9851,
+      "bytes": 10402,
       "executable": false
     },
     {
@@ -4614,6 +4649,20 @@
       "sha256": "db05538fb0bfbf9a245d80e8e906b13305c4b64f091dfe5957ef5a730c5f4a4d",
       "strategy": "replace",
       "bytes": 1554,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/requirements/2026-09-15-safe-local-update.md",
+      "sha256": "3728bfa0ca57e19d7bf7e2491a563746a184b30a25a8dfa8de58ec11b01f978d",
+      "strategy": "replace",
+      "bytes": 2656,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/requirements/2026-09-15-safe-update-publication.md",
+      "sha256": "15987f8d186a76f2988727e53faeda3e3e864e972b43b810eabdde91b68ce026",
+      "strategy": "replace",
+      "bytes": 1276,
       "executable": false
     },
     {
@@ -4702,14 +4751,14 @@
     },
     {
       "path": "docs/site/index.html",
-      "sha256": "0e5392bf8ff9c6c7a00850ddcb5839309a5cea660a9e50f07d8bed9228ed5183",
+      "sha256": "a94f05e54761d545fb5878ac136185a45195af00b53781e15e07d534fbb4774a",
       "strategy": "replace",
-      "bytes": 23432,
+      "bytes": 23862,
       "executable": false
     },
     {
       "path": "harness.config.json",
-      "sha256": "877b306b561c6f8d05585f6530d5e549e7fdfcd6bbc4fa368f352030be7ece1d",
+      "sha256": "0c155b702af554a0790add3fbbca3bf0baa9fee419a0e807720d7b0d414a352a",
       "strategy": "replace",
       "bytes": 1213,
       "executable": false
@@ -4758,9 +4807,9 @@
     },
     {
       "path": "harness/router.json",
-      "sha256": "82cbbd5d1c03569ad428ebb6f6f2df40b0b54002a5f3974da5fefc15a9bc3ec2",
+      "sha256": "7681d0cf9445cc6676d9a2a3f30b53bdb52c342ddcb8ce850069266c96584cfc",
       "strategy": "replace",
-      "bytes": 1929,
+      "bytes": 2245,
       "executable": false
     },
     {
@@ -4842,9 +4891,9 @@
     },
     {
       "path": "harness/skills/orchestrate-work/SKILL.md",
-      "sha256": "c0e42b8305fdc1360bbc320f7b24b32c81ab4dfe8266196d5378ac5ff2f2d7eb",
+      "sha256": "6409c1c887eb0cc2b5b9d7e90abb2ac5e192188012c88cd8af7f0b70ba1d3492",
       "strategy": "replace",
-      "bytes": 4291,
+      "bytes": 4552,
       "executable": false
     },
     {
@@ -4859,6 +4908,13 @@
       "sha256": "a8d7578dfe1dfdde34a3a484dae4af648e15f55fd99c0ac64891dcd8633452ae",
       "strategy": "replace",
       "bytes": 1786,
+      "executable": false
+    },
+    {
+      "path": "harness/skills/update-harness/SKILL.md",
+      "sha256": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367",
+      "strategy": "replace",
+      "bytes": 2554,
       "executable": false
     },
     {
@@ -5128,6 +5184,13 @@
       "executable": false
     },
     {
+      "path": "tests/update-entry.test.mjs",
+      "sha256": "9e3cd3c78580a26069c5dacf1a5fc266970ba7657d4b725ac270f1a2528736ae",
+      "strategy": "replace",
+      "bytes": 12953,
+      "executable": false
+    },
+    {
       "path": "tests/vendor-legal.test.mjs",
       "sha256": "9a5149fd49f956485337264d71afec9ea325f3395fa7ba7f278e057e3c75603b",
       "strategy": "replace",
@@ -5220,9 +5283,9 @@
     },
     {
       "path": "tools/lib/distribution.mjs",
-      "sha256": "2504cee85e34935dbbbf61a3170aa71bb47f175d3863ac973eafbe3ea28a2e83",
+      "sha256": "27fd3aa1f7f722852bd1ed6c6ee511a68d09d62ec48c9bddb63b33b0089213da",
       "strategy": "replace",
-      "bytes": 25612,
+      "bytes": 30713,
       "executable": false
     },
     {
@@ -5342,6 +5405,13 @@
       "sha256": "0b7421272fa7fba004d7983f85e210b8984e54fd8956e1b0f3d5d570076d7429",
       "strategy": "replace",
       "bytes": 5639,
+      "executable": false
+    },
+    {
+      "path": "tools/update-harness.mjs",
+      "sha256": "08f36fded24a7dcb412b5336e4de7609690e573c18205a696195678425d217f7",
+      "strategy": "replace",
+      "bytes": 3441,
       "executable": false
     },
     {

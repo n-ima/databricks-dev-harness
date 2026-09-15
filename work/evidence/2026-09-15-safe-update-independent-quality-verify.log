@@ -1,0 +1,12 @@
+
+> databricks-dev-harness@0.5.0 harness
+> node tools/harness.mjs delivery check --contract work/quality/safe-local-update.json --phase verify
+
+{
+  "mode": "advisory",
+  "certifiesAcceptance": false,
+  "phase": "verify",
+  "findings": [],
+  "recordedExecutions": 7,
+  "summary": "構造上の指摘はありません。業務受入・実行事実・実環境の成功を証明するものではありません。"
+}

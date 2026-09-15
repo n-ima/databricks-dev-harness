@@ -1,0 +1,18 @@
+{
+  "label": "workload",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "D:\\projects\\databricks-dev-harness\\tools\\harness.mjs",
+    "workload",
+    "resolve",
+    "--prompt",
+    "この案件のハーネスを、指定したローカルフォルダーから更新して。"
+  ],
+  "cwd": "D:\\projects\\databricks-dev-harness",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "{\n  \"schemaVersion\": 1,\n  \"catalogVerifiedAt\": \"2026-09-08\",\n  \"catalogHash\": \"e244ffcee352dbfb9b973afcce774fc5b055131a02f7435ca1cd0be96c18983f\",\n  \"mode\": \"heuristic-hints\",\n  \"selectedIds\": [],\n  \"excluded\": [],\n  \"unknown\": true,\n  \"needsDiscussion\": true,\n  \"executionAuthorized\": false,\n  \"warnings\": [\n    \"Classification is not approval. Confirm scope and missing components before accepting product intent.\"\n  ],\n  \"workloads\": []\n}\n",
+  "stderr": "",
+  "at": "2026-09-15T01:20:36.462Z"
+}

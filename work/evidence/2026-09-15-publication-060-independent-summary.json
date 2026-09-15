@@ -1,0 +1,105 @@
+{
+  "reviewer": "/root/publication_060_review",
+  "at": "2026-09-15T02:04:00.208Z",
+  "status": "pass",
+  "environment": {
+    "node": "v24.15.0",
+    "platform": "win32"
+  },
+  "manifestSha256": "4f5b27da15fc53f59a69b230bca0e8bf83319d2147ed36ad9c478aaf1637209c",
+  "managedFiles": 1067,
+  "snapshotIndexPayloadParity": true,
+  "snapshotFileCountAtAudit": 1408,
+  "hard03Excluded": true,
+  "originalCandidateFilesPreserved": 11,
+  "oldReleaseCounts": [
+    {
+      "version": "0.4.0",
+      "managedFiles": 1012,
+      "manifestSha256": "90f06b95119d9c3d5f04d6e4d9863a310bea24851af06b7c12fb3ff1323b5b8c"
+    },
+    {
+      "version": "0.5.0",
+      "managedFiles": 1057,
+      "manifestSha256": "28ac2790d76abe0ba49b3e05bcb1680b255d374572ae5c9700ed9be3388d4d18"
+    }
+  ],
+  "independentTests": {
+    "tests": 27,
+    "pass": 27,
+    "fail": 0,
+    "skip": 0,
+    "durationMs": 4608.002
+  },
+  "publisherTests": {
+    "tests": 582,
+    "pass": 581,
+    "fail": 0,
+    "skip": 1,
+    "durationMs": 38538.3753,
+    "independentlyRerun": false
+  },
+  "publisherFreshGitByteCheck": {
+    "checkedAt": "2026-09-15T01:46:58.886Z",
+    "status": "pass",
+    "version": "0.6.0",
+    "managedFiles": 1067,
+    "sourceHashParity": true,
+    "freshGitCheckoutHashParity": true,
+    "checkoutCoreAutocrlf": true,
+    "networkUsed": false,
+    "realRepositoryCommitted": false,
+    "manifestSha256": "4f5b27da15fc53f59a69b230bca0e8bf83319d2147ed36ad9c478aaf1637209c",
+    "limitations": [
+      "Local Windows Git roundtrip only; hosted Linux/macOS CI remains separate.",
+      "Byte parity does not authenticate the release publisher or certify product functionality."
+    ]
+  },
+  "forward": [
+    {
+      "from": "0.4.0",
+      "to": "0.6.0",
+      "changes": 102,
+      "deletedFiles": [],
+      "managedFiles": 1067,
+      "protectedFiles": 20,
+      "backups": 47,
+      "oldBaseManifestPreserved": true,
+      "nextPlanCounts": {
+        "keep": 1067
+      },
+      "rejectionProbes": [
+        "missing-approval",
+        "conflict-plan",
+        "conflict-apply",
+        "stale-apply"
+      ],
+      "checkBeforeAndAfterPass": true,
+      "productBeforeAndAfterPass": true
+    },
+    {
+      "from": "0.5.0",
+      "to": "0.6.0",
+      "changes": 21,
+      "deletedFiles": [],
+      "managedFiles": 1067,
+      "protectedFiles": 20,
+      "backups": 11,
+      "oldBaseManifestPreserved": true,
+      "nextPlanCounts": {
+        "keep": 1067
+      },
+      "rejectionProbes": [
+        "missing-approval",
+        "conflict-plan",
+        "conflict-apply",
+        "stale-apply"
+      ],
+      "checkBeforeAndAfterPass": true,
+      "productBeforeAndAfterPass": true
+    }
+  ],
+  "preservedTemp": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa",
+  "realProjectOrProviderOrDatabricksTest": false,
+  "p06004": "not-run; wait for push"
+}

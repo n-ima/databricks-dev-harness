@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/publication_060_review",
+  "provider": "codex",
+  "independent": true,
+  "reviewDate": "2026-09-15",
+  "sessionId": "20260915-013942-357-publish-safe-update-0-6-0",
+  "snapshot": ".harness/runtime/publish-0.6.0",
+  "manifestSha256": "4f5b27da15fc53f59a69b230bca0e8bf83319d2147ed36ad9c478aaf1637209c",
+  "unresolvedFindings": [],
+  "environment": "Windows / PowerShell / Node.js v24.15.0",
+  "notVerified": [
+    "実provider/実案件/Databricks",
+    "他OS/Node22実機/hosted CI",
+    "P060-04 remote push（この記録時点はpush前）"
+  ],
+  "requirement": "docs/harness/requirements/2026-09-15-safe-update-publication.md",
+  "requirementSha256": "15987f8d186a76f2988727e53faeda3e3e864e972b43b810eabdde91b68ce026",
+  "acceptance": [
+    {
+      "id": "P060-01",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-15-publication-060-review.md",
+        "work/evidence/2026-09-15-publication-060-independent-summary.json",
+        "work/evidence/2026-09-15-publication-060-independent-tests.json",
+        "work/evidence/2026-09-15-publication-060-independent-forward-result.json"
+      ],
+      "rationale": "採用範囲とADR整合。全snapshot path・CLI接続でHARD-03除外、元候補11filesと旧0.4/0.5全payload保持。"
+    },
+    {
+      "id": "P060-02",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-15-publication-060-review.md",
+        "work/evidence/2026-09-15-publication-060-independent-summary.json",
+        "work/evidence/2026-09-15-publication-060-independent-tests.json",
+        "work/evidence/2026-09-15-publication-060-independent-forward-result.json"
+      ],
+      "rationale": "1067全管理bytesをsnapshot/payload/indexで独立照合、checkと27独立tests成功。主担当の全582件581pass/0fail/1skip・fresh Git byte一致も同manifestで照合。"
+    },
+    {
+      "id": "P060-03",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-15-publication-060-review.md",
+        "work/evidence/2026-09-15-publication-060-independent-summary.json",
+        "work/evidence/2026-09-15-publication-060-independent-tests.json",
+        "work/evidence/2026-09-15-publication-060-independent-forward-result.json"
+      ],
+      "rationale": "実公開0.4/0.5元payloadの隔離案件から0.6導入、各20案件files保持、backup47/11一致、案件内CLI次回plan、競合/無承認/stale拒否、前後checkと案件試験・案内を確認。"
+    },
+    {
+      "id": "P060-04",
+      "status": "not-run",
+      "evidence": [],
+      "rationale": "push前。remote commit・private・CIはpush後にread-onlyで確認する。"
+    }
+  ]
+}

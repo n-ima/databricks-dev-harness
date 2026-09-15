@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-09-15T01:55:08.226Z",
+  "status": "pass",
+  "baseCommit": "a37f3321188ce11f455f5d76793a24fe16ad78e1",
+  "version": "0.6.0",
+  "managedFiles": 1067,
+  "manifestSha256": "4f5b27da15fc53f59a69b230bca0e8bf83319d2147ed36ad9c478aaf1637209c",
+  "indexPayloadParity": true,
+  "unadoptedCandidateExcluded": true,
+  "workingCandidatePreserved": true,
+  "oldReleasesPreserved": true,
+  "stagedFiles": 108,
+  "realProductChanged": false,
+  "databricksAccessed": false
+}

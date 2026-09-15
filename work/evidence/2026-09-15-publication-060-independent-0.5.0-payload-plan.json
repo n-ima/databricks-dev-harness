@@ -1,0 +1,18 @@
+{
+  "at": "2026-09-15T01:57:24.840Z",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.0\\.harness\\releases\\0.6.0\\files\\tools\\update-harness.mjs",
+    "plan",
+    "--source",
+    "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.0\\.harness\\releases\\0.6.0",
+    "--target",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa\\project 0.5.0"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "{\n  \"status\": \"計画済み\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-060-forward-xVFJKa\\\\project 0.5.0\",\n  \"fromVersion\": \"0.5.0\",\n  \"toVersion\": \"0.6.0\",\n  \"source\": {\n    \"requested\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\runtime\\\\publish-0.6.0\\\\.harness\\\\releases\\\\0.6.0\",\n    \"resolved\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\runtime\\\\publish-0.6.0\\\\.harness\\\\releases\\\\0.6.0\",\n    \"kind\": \"release\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260915-015724-820-ddeff501.json\",\n  \"canApply\": true,\n  \"counts\": {\n    \"keep\": 1046,\n    \"update\": 11,\n    \"add\": 10\n  },\n  \"conflicts\": [],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+  "stderr": ""
+}

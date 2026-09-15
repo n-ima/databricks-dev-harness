@@ -1,0 +1,19 @@
+{
+  "at": "2026-09-15T01:58:07.320Z",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.0\\.harness\\releases\\0.6.0\\files\\tools\\update-harness.mjs",
+    "apply",
+    "--plan",
+    ".harness/updates/update-20260915-015724-820-ddeff501.json",
+    "--yes",
+    "--target",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa\\project 0.5.0"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa",
+  "exitCode": 2,
+  "signal": null,
+  "error": null,
+  "stdout": "",
+  "stderr": "更新を停止しました: Downstream files changed since planning; generate a new plan.\n"
+}

@@ -1,0 +1,27 @@
+---
+id: "SU-PUB-060"
+title: "安全更新0.6.0の採用とprivate公開"
+session: "20260915-013942-357-publish-safe-update-0-6-0"
+requirement: "docs/harness/requirements/2026-09-15-safe-update-publication.md"
+architecture: "docs/harness/design/SAFE_LOCAL_UPDATE.md"
+done_when: "P060-01〜04を独立確認しremote SHAと実施範囲を記録する"
+risk: "low"
+status: "verifying"
+depends_on: []
+evidence: ["work/evidence/2026-09-15-publication-060-independent-forward-result.json"]
+verifier_evidence: "none"
+created: "2026-09-15T01:43:12Z"
+updated: "2026-09-15T02:01:02Z"
+---
+
+# Task SU-PUB-060: 安全更新0.6.0の採用とprivate公開
+
+## History
+
+- 2026-09-15T01:43:12Z: created; planned
+
+- 2026-09-15T01:46:28Z: planned -> ready; 利用者の正式採用・公開承認を記録し、未採用機能を除いた公開indexを構成
+
+- 2026-09-15T01:53:18Z: ready -> running; 0.6.0公開用snapshotで581件成功、1067管理ファイルのsource/Git照合完了。独立旧版更新試験中
+
+- 2026-09-15T02:01:02Z: running -> verifying; 公開0.4/0.5からの独立更新、案件保持・backup・導入後CLIと競合停止を確認。最終レビュー記録とpush後remote確認を残す

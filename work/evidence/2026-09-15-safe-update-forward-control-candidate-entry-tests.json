@@ -1,0 +1,15 @@
+{
+  "label": "candidate-entry-tests",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "--test",
+    "D:\\projects\\databricks-dev-harness\\tests\\update-entry.test.mjs"
+  ],
+  "cwd": "D:\\projects\\databricks-dev-harness",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "✔ SU-05 natural update requests route to the updater without granting execution permission (251.3021ms)\n✔ SU-01/02 source tree without Git and release payload make equivalent dry plans; defaults preserve product bytes (278.4613ms)\n✔ SU-01 clean expanded source needs no cached release; source snapshot remains fixed after original changes (220.8453ms)\n✔ SU-01 dirty source uses only a matching stamped immutable payload, not dirty bytes (222.5778ms)\n✔ SU-02 local edit refuses all managed writes without preserve flag (187.0416ms)\n✔ SU-02 local delete refuses all managed writes without preserve flag (179.341ms)\n✔ SU-02 local collision refuses all managed writes without preserve flag (244.3781ms)\n✔ SU-03 unknown baseline and non-product target fail closed (149.4837ms)\n✔ SU-03 same or nested source and target are refused (149.1316ms)\n✔ SU-03 modified release and mismatched stamped cache are refused (160.615ms)\n✔ SU-03 snapshot tampering, missing approval and stale target refuse application (221.9989ms)\n✔ SU-03 source junction is rejected (153.71ms)\n✔ SU-03/05 portable CLI targets cwd, rejects unknown/duplicate arguments and does not execute source code (495.4599ms)\n✔ SU-04 post-write corruption records interruption, keeps old baseline and original backups, and rejects replay (237.7838ms)\n✔ SU-05 legacy project bootstraps from external runner then uses its own installed runner for next update (574.1434ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3789.6803\n",
+  "stderr": "",
+  "at": "2026-09-15T01:26:26.233Z"
+}

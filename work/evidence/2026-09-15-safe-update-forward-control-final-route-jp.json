@@ -1,0 +1,17 @@
+{
+  "label": "final-route-jp",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "D:\\projects\\databricks-dev-harness\\tools\\harness.mjs",
+    "route",
+    "--prompt",
+    "この案件のハーネスを、指定したローカルフォルダーから更新して。"
+  ],
+  "cwd": "D:\\projects\\databricks-dev-harness",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "{\n  \"route\": \"update-harness\",\n  \"skill\": \"update-harness\",\n  \"firstGate\": \"harness-policy-review\",\n  \"reason\": \"keyword-hint\",\n  \"workloads\": [],\n  \"executionAuthorized\": false\n}\n",
+  "stderr": "",
+  "at": "2026-09-15T01:26:22.216Z"
+}

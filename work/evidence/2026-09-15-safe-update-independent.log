@@ -1,0 +1,167 @@
+TAP version 13
+# Subtest: SU-01/02 source tree without Git and release payload make equivalent dry plans; defaults preserve product bytes
+ok 1 - SU-01/02 source tree without Git and release payload make equivalent dry plans; defaults preserve product bytes
+  ---
+  duration_ms: 320.4942
+  type: 'test'
+  ...
+# Subtest: SU-01 clean expanded source needs no cached release; source snapshot remains fixed after original changes
+ok 2 - SU-01 clean expanded source needs no cached release; source snapshot remains fixed after original changes
+  ---
+  duration_ms: 311.9806
+  type: 'test'
+  ...
+# Subtest: SU-01 dirty source uses only a matching stamped immutable payload, not dirty bytes
+ok 3 - SU-01 dirty source uses only a matching stamped immutable payload, not dirty bytes
+  ---
+  duration_ms: 296.6458
+  type: 'test'
+  ...
+# Subtest: SU-02 local edit refuses all managed writes without preserve flag
+ok 4 - SU-02 local edit refuses all managed writes without preserve flag
+  ---
+  duration_ms: 267.5924
+  type: 'test'
+  ...
+# Subtest: SU-02 local delete refuses all managed writes without preserve flag
+ok 5 - SU-02 local delete refuses all managed writes without preserve flag
+  ---
+  duration_ms: 227.5548
+  type: 'test'
+  ...
+# Subtest: SU-02 local collision refuses all managed writes without preserve flag
+ok 6 - SU-02 local collision refuses all managed writes without preserve flag
+  ---
+  duration_ms: 228.671
+  type: 'test'
+  ...
+# Subtest: SU-03 unknown baseline and non-product target fail closed
+ok 7 - SU-03 unknown baseline and non-product target fail closed
+  ---
+  duration_ms: 151.8855
+  type: 'test'
+  ...
+# Subtest: SU-03 same or nested source and target are refused
+ok 8 - SU-03 same or nested source and target are refused
+  ---
+  duration_ms: 155.8969
+  type: 'test'
+  ...
+# Subtest: SU-03 modified release and mismatched stamped cache are refused
+ok 9 - SU-03 modified release and mismatched stamped cache are refused
+  ---
+  duration_ms: 156.3714
+  type: 'test'
+  ...
+# Subtest: SU-03 snapshot tampering, missing approval and stale target refuse application
+ok 10 - SU-03 snapshot tampering, missing approval and stale target refuse application
+  ---
+  duration_ms: 231.9094
+  type: 'test'
+  ...
+# Subtest: SU-03 source junction is rejected
+ok 11 - SU-03 source junction is rejected
+  ---
+  duration_ms: 157.1215
+  type: 'test'
+  ...
+# Subtest: SU-03/05 portable CLI targets cwd, rejects unknown/duplicate arguments and does not execute source code
+ok 12 - SU-03/05 portable CLI targets cwd, rejects unknown/duplicate arguments and does not execute source code
+  ---
+  duration_ms: 511.1477
+  type: 'test'
+  ...
+# Subtest: SU-04 post-write corruption records interruption, keeps old baseline and original backups, and rejects replay
+ok 13 - SU-04 post-write corruption records interruption, keeps old baseline and original backups, and rejects replay
+  ---
+  duration_ms: 220.0805
+  type: 'test'
+  ...
+# Subtest: SU-05 legacy project bootstraps from external runner then uses its own installed runner for next update
+ok 14 - SU-05 legacy project bootstraps from external runner then uses its own installed runner for next update
+  ---
+  duration_ms: 572.6306
+  type: 'test'
+  ...
+# Subtest: IND-01 / SU-01,02 hand-built release and Git-free source yield same operations and preserve binary/local bytes
+ok 15 - IND-01 / SU-01,02 hand-built release and Git-free source yield same operations and preserve binary/local bytes
+  ---
+  duration_ms: 192.2587
+  type: 'test'
+  ...
+# Subtest: IND-02 / SU-03 invalid clean source, forbidden paths, ambiguous forms and mismatched cache fail before snapshot metadata
+    # Subtest: crlf
+    ok 1 - crlf
+      ---
+      duration_ms: 30.5136
+      type: 'test'
+      ...
+    # Subtest: missing
+    ok 2 - missing
+      ---
+      duration_ms: 32.4841
+      type: 'test'
+      ...
+    # Subtest: size
+    ok 3 - size
+      ---
+      duration_ms: 35.6353
+      type: 'test'
+      ...
+    # Subtest: traversal
+    ok 4 - traversal
+      ---
+      duration_ms: 36.8114
+      type: 'test'
+      ...
+    # Subtest: secret
+    ok 5 - secret
+      ---
+      duration_ms: 32.0489
+      type: 'test'
+      ...
+    # Subtest: ambiguous
+    ok 6 - ambiguous
+      ---
+      duration_ms: 32.141
+      type: 'test'
+      ...
+    # Subtest: wrong-cache
+    ok 7 - wrong-cache
+      ---
+      duration_ms: 61.7609
+      type: 'test'
+      ...
+    1..7
+ok 16 - IND-02 / SU-03 invalid clean source, forbidden paths, ambiguous forms and mismatched cache fail before snapshot metadata
+  ---
+  duration_ms: 262.5255
+  type: 'test'
+  ...
+# Subtest: IND-03 / SU-03 target junction and managed parent junction reject before writes
+ok 17 - IND-03 / SU-03 target junction and managed parent junction reject before writes
+  ---
+  duration_ms: 71.5555
+  type: 'test'
+  ...
+# Subtest: IND-04 / SU-04 recreated deleted file is detected after writes; baseline and backup retained; replay denied
+ok 18 - IND-04 / SU-04 recreated deleted file is detected after writes; baseline and backup retained; replay denied
+  ---
+  duration_ms: 163.5989
+  type: 'test'
+  ...
+# Subtest: IND-05 / SU-03,05 actual release runner upgrades 0.5 project; installed runner completes subsequent apply
+ok 19 - IND-05 / SU-03,05 actual release runner upgrades 0.5 project; installed runner completes subsequent apply
+  ---
+  duration_ms: 576.224
+  type: 'test'
+  ...
+1..19
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3872.1135

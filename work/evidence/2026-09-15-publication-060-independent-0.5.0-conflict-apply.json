@@ -1,0 +1,19 @@
+{
+  "at": "2026-09-15T01:58:05.529Z",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.0\\.harness\\releases\\0.6.0\\files\\tools\\update-harness.mjs",
+    "apply",
+    "--plan",
+    ".harness/updates/update-20260915-015805-449-62d5d7aa.json",
+    "--yes",
+    "--target",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa\\project 0.5.0"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa",
+  "exitCode": 2,
+  "signal": null,
+  "error": null,
+  "stdout": "",
+  "stderr": "更新を停止しました: Update has downstream conflicts; no file was changed.\n"
+}

@@ -14,7 +14,7 @@ const OWNED_FILES = new Set([
   "tests/approval.test.mjs", "tests/databricks-identity.test.mjs", "tests/vendor-legal.test.mjs",
   "tests/workloads.test.mjs", "tests/helpers/workloads.mjs",
   "tests/initialization.test.mjs", "tests/helpers/initialization.mjs", "tests/scaffold-output.test.mjs",
-  "tests/delivery-assurance.test.mjs", "tests/delivery-independent.test.mjs", "tests/human-documents.test.mjs",
+  "tests/delivery-assurance.test.mjs", "tests/delivery-independent.test.mjs", "tests/human-documents.test.mjs", "tests/update-entry.test.mjs",
   "docs/USAGE.md",
 ]);
 const OWNED_DIRECTORIES = ["tools", "scripts", "harness", "docs/harness", "docs/site", "vendor/databricks-skills", ".claude/skills", ".claude/agents", ".claude/rules", ".github/skills", ".github/instructions", ".github/agents", ".github/hooks"];
@@ -129,19 +129,89 @@ async function readRelease(source) {
   const info = await lstat(requested);
   const root = info.isDirectory() ? requested : dirname(requested);
   if (!info.isDirectory() && (!info.isFile() || requested !== join(root, "manifest.json"))) throw new Error("Release source must be a directory or manifest.json.");
-  const manifestPath = await safePath(root, "manifest.json", "release manifest");
+  return readManagedSource(root, "manifest.json", "files/");
+}
+
+async function readManagedSource(root, manifestRelative, prefix) {
+  const manifestPath = await safePath(root, manifestRelative, "release manifest");
+  const manifestInfo = await lstat(manifestPath);
+  if (!manifestInfo.isFile() || manifestInfo.size > 8 * 1024 * 1024) throw new Error("Release manifest must be a regular file within 8 MiB.");
   const text = await readFile(manifestPath, "utf8");
   const manifest = validateManifest(JSON.parse(text));
+  if (manifest.managedFiles.length > 8192) throw new Error("Release exceeds 8192 managed files.");
   const contents = new Map();
+  let totalBytes = 0;
   for (const item of manifest.managedFiles) {
-    const path = await safePath(root, `files/${item.path}`, "release payload");
-    if (!(await lstat(path)).isFile()) throw new Error(`Release payload is not a regular file: ${item.path}`);
+    const path = await safePath(root, `${prefix}${item.path}`, "release payload");
+    const info = await lstat(path);
+    totalBytes += info.size;
+    if (!info.isFile() || info.size > 64 * 1024 * 1024 || totalBytes > 256 * 1024 * 1024) throw new Error(`Release payload is not a bounded regular file: ${item.path}`);
     const bytes = await readFile(path);
     if (sha256(bytes) !== item.sha256) throw new Error(`Release payload hash mismatch: ${item.path}`);
     if (item.bytes !== undefined && item.bytes !== bytes.length) throw new Error(`Release payload size mismatch: ${item.path}`);
     contents.set(item.path, bytes);
   }
   return { root, manifest, manifestSha256: sha256(text), contents };
+}
+
+// This entry point is for an existing product, not for initializing an empty tree.
+// The older low-level API remains available for template initialization.
+export async function assertUpdateProject(root) {
+  await assertNoSymlink(root);
+  const marker = await safePath(root, "product.config.json", "project marker");
+  if (!(await exists(marker)) || !(await lstat(marker)).isFile()) throw new Error("対象は初期化済み案件ではありません: product.config.json を確認してください。");
+  const baseline = await baselineState(root);
+  if (!baseline.manifest) throw new Error("元版baselineがありません。真正な元版manifestから初回登録してください。現在の案件から再生成しないでください。");
+  return baseline;
+}
+
+function rejectOverlappingRoots(target, source) {
+  const fold = value => {
+    const absolute = resolve(value).replace(/[\\/]+$/, "");
+    return process.platform === "win32" ? absolute.toLowerCase() : absolute;
+  };
+  const a = fold(target), b = fold(source);
+  if (a === b || a.startsWith(`${b}${sep}`) || b.startsWith(`${a}${sep}`)) throw new Error("更新元と対象案件が重複・包含しています。別フォルダーを指定してください。");
+}
+
+export async function planLocalUpdate(root, options = {}) {
+  const target = resolve(root);
+  await assertUpdateProject(target);
+  if (typeof options.source !== "string" || !options.source) throw new Error("ローカル更新元を --source で指定してください。");
+  const requested = resolve(target, options.source);
+  rejectOverlappingRoots(target, requested);
+  await assertNoSymlink(requested);
+  const info = await lstat(requested);
+  let release, kind;
+  const sourceRoot = info.isDirectory() ? requested : dirname(requested);
+  rejectOverlappingRoots(target, sourceRoot);
+  const stampPath = await safePath(sourceRoot, "harness/base-release.json", "source stamp");
+  if (info.isDirectory() && await exists(stampPath)) {
+    if (await exists(await safePath(sourceRoot, "manifest.json"))) throw new Error("更新元の形式が曖昧です。配布物かソースのどちらか一つを指定してください。");
+    if (!(await lstat(stampPath)).isFile() || (await lstat(stampPath)).size > 8 * 1024 * 1024) throw new Error("Invalid source stamp size/type.");
+    const stamp = validateManifest(await readJson(stampPath));
+    const cached = await safePath(sourceRoot, `.harness/releases/${stamp.version}`, "stamped release");
+    if (await exists(cached)) {
+      release = await readRelease(cached);
+      // Repackaging can change the timestamp, never the selected content or migration.
+      const identity = m => JSON.stringify({ ...m, releasedAt: undefined });
+      if (identity(release.manifest) !== identity(stamp)) throw new Error("固定配布物がソースの版manifestと一致しません。別版へ自動切替はしません。");
+      kind = "stamped-release";
+    } else {
+      release = await readManagedSource(sourceRoot, "harness/base-release.json", "");
+      kind = "source-tree";
+    }
+  } else {
+    release = await readRelease(requested);
+    kind = "release";
+  }
+  // Validate the whole source before writing even local snapshot metadata.
+  const snapshotRelative = `.harness/updates/sources/source-${randomUUID()}`;
+  const snapshot = await safePath(target, snapshotRelative, "source snapshot");
+  await mkdir(snapshot, { recursive: true });
+  for (const item of release.manifest.managedFiles) await writeBytes(await safePath(snapshot, `files/${item.path}`), release.contents.get(item.path), item.executable ? 0o755 : 0o644);
+  await writeJson(await safePath(snapshot, "manifest.json"), release.manifest);
+  return planUpdate(target, { source: snapshot, quiet: options.quiet, sourceSelection: { requested, resolved: release.root, kind, identityAuthenticated: false } });
 }
 
 async function baselineState(root, baselinePath = INSTALLED) {
@@ -296,6 +366,7 @@ export async function planUpdate(root, options = {}) {
     fromVersion: baseline.manifest?.version ?? null, toVersion: release.manifest.version,
     baselinePath: baseline.path, baselineSha256: baseline.sha256, installedStateSha256: (await baselineState(root)).sha256,
     operations,
+    ...(options.sourceSelection ? { sourceSelection: options.sourceSelection } : {}),
   };
   const plan = { schemaVersion: 1, createdAt: timestamp(), dryRun: true, contract, planHash: sha256(JSON.stringify(contract)), canApply: operations.every((item) => item.action !== "conflict"), conflicts: operations.filter((item) => item.action === "conflict"), migrations: release.manifest.migrations, warning: "No product files, remote repository, or Git history are changed. Review this plan; --yes is required for application. Baseline hashes are integrity records, not authenticated approvals." };
   const relativeOutput = options.output ?? `.harness/updates/${id}.json`;
@@ -303,7 +374,7 @@ export async function planUpdate(root, options = {}) {
   const output = await safePath(root, relativeOutput, "update plan");
   if (await exists(output)) throw new Error("Update plan output already exists.");
   await writeJson(output, plan);
-  console.log(repoRelative(root, output));
+  if (!options.quiet) console.log(repoRelative(root, output));
   return { ...plan, path: repoRelative(root, output) };
 }
 
@@ -358,6 +429,12 @@ export async function applyUpdate(root, options = {}) {
         journal.status = "applying";
         await writeJson(journalPath, journal);
       }
+      // Verify all resulting bytes, including keep/adopt, before claiming the new baseline.
+      // Concurrent writers can otherwise corrupt an earlier write while later files apply.
+      for (const operation of operations) {
+        const current = await fileState(root, operation.path);
+        if ((current?.sha256 ?? null) !== operation.afterSha256) throw new Error(`Post-update verification failed: ${operation.path}`);
+      }
       if ((await baselineState(root)).sha256 !== contract.installedStateSha256) throw new Error("Installed baseline changed during application.");
       await writeJson(installedPath, { schemaVersion: 1, installedAt: timestamp(), manifestSha256: sha256(JSON.stringify(release.manifest)), manifest: release.manifest });
       journal.status = "applied";
@@ -369,8 +446,8 @@ export async function applyUpdate(root, options = {}) {
       await writeJson(journalPath, journal);
       throw new Error(`Update interrupted. Inspect ${backupRelative}/recovery.json; backups are retained. ${error.message}`);
     }
-    const result = { status: "applied", version: release.manifest.version, backupPath: backupRelative, changedFiles: journal.operations.length, deletedFiles: journal.operations.filter((item) => item.action === "delete").map((item) => item.path), humanReviewRequired: true };
-    console.log(JSON.stringify(result, null, 2));
+    const result = { status: "applied", version: release.manifest.version, backupPath: backupRelative, changedFiles: journal.operations.length, deletedFiles: journal.operations.filter((item) => item.action === "delete").map((item) => item.path), managedFilesVerified: release.manifest.managedFiles.length, humanReviewRequired: true };
+    if (!options.quiet) console.log(JSON.stringify(result, null, 2));
     return result;
   });
 }

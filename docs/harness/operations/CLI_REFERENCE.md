@@ -1,5 +1,7 @@
 # Executable workflow reference
 
+ローカル更新入口（0.6.0）: `node tools/update-harness.mjs plan --source LOCAL_FOLDER`、確認後に `apply --plan PLAN_PATH --yes`。対象はcwdまたは`--target`で明示した初期化済み案件。保持指定は不要。旧版からの起動・競合・復旧は[安全な更新手順](SAFE_LOCAL_UPDATE.md)を参照。
+
 品質契約: `npm run harness -- delivery check --contract work/quality/FEATURE.json --phase design|verify` は読取専用の参考診断。`delivery hashes --contract ...` はbasis/review hashの計算。終了0でも実行や業務受入の証明ではない。[形式と運用](DELIVERY_ASSURANCE.md)を参照。agentが日本語で観点と結果を説明し、利用者にJSON編集を求めない。
 
 通常はユーザーではなくエージェントが操作します。以下は1行コマンドです。Windowsでbashの `\` 継続を使わないでください。

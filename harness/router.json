@@ -3,6 +3,13 @@
   "defaultRoute": "define",
   "routes": [
     {
+      "id": "update-harness",
+      "priority": 5,
+      "skill": "update-harness",
+      "firstGate": "harness-policy-review",
+      "patterns": ["(ハーネス|[.]?harness)を.{0,120}(更新して|更新したい|アップデート)", "(update|upgrade).{0,80}(project.?s? harness|installed harness)"]
+    },
+    {
       "id": "improve-harness",
       "priority": 10,
       "skill": "improve-harness",

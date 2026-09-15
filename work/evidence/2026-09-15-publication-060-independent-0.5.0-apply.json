@@ -1,0 +1,19 @@
+{
+  "at": "2026-09-15T01:58:15.360Z",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.0\\.harness\\releases\\0.6.0\\files\\tools\\update-harness.mjs",
+    "apply",
+    "--plan",
+    ".harness/updates/update-20260915-015812-539-771d326e.json",
+    "--yes",
+    "--target",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa\\project 0.5.0"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "{\n  \"status\": \"ファイル更新・hash確認済み\",\n  \"version\": \"0.6.0\",\n  \"backupPath\": \".harness/backups/update-20260915-015812-539-771d326e\",\n  \"changedFiles\": 21,\n  \"deletedFiles\": [],\n  \"managedFilesVerified\": 1067,\n  \"humanReviewRequired\": true,\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-060-forward-xVFJKa\\\\project 0.5.0\",\n  \"next\": \"案件試験と独立レビュー後に開発を再開してください。受入完了・配備ではありません。\"\n}\n",
+  "stderr": ""
+}

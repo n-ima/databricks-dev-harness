@@ -1,0 +1,15 @@
+{
+  "label": "new-check",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-mzrNox\\legacy project\\tools\\harness.mjs",
+    "check"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-mzrNox\\legacy project",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "Harness check passed.\n",
+  "stderr": "",
+  "at": "2026-09-15T01:24:35.212Z"
+}

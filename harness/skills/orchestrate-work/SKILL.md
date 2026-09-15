@@ -18,6 +18,7 @@ description: Route any non-trivial natural-language request into the repository'
 ## Executable entry points
 
 - The user should not need slash commands. You operate the harness CLI on their behalf.
+- Upgrading an existing project's harness from a local source: load `update-harness`; it uses a dedicated target-aware CLI and mandatory default preservation. A request to improve the updater itself still belongs to `improve-harness`. Advice remains read-only.
 - New rough product intent: `npm run intake -- create --title "..." --summary "sanitized intent"` creates the requirement, architecture, plan, question ledger, and session. Add repository-contained reference files with repeated `--source`. Read the actual source with suitable document tools; copied bytes are not interpreted requirements.
 - Existing work: select the session whose objective matches, reverify its recorded state, and resume it. Do not select an unrelated active session simply because it is newest.
 - For multi-step changes, read `docs/harness/operations/TASK_VISIBILITY.md`; create durable `task` records linked to the session's requirement/design. Use `context --session ID` and checkpoint `--task TASK_ID` to keep the focus explicit. Advice-only requests remain read-only.

@@ -1,0 +1,18 @@
+{
+  "at": "2026-09-15T01:57:36.154Z",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa\\clean source 0.6.0\\tools\\update-harness.mjs",
+    "apply",
+    "--plan",
+    ".harness/updates/update-20260915-015705-928-aecdfff7.json",
+    "--target",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa\\project 0.4.0"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-060-forward-xVFJKa",
+  "exitCode": 2,
+  "signal": null,
+  "error": null,
+  "stdout": "",
+  "stderr": "更新を停止しました: 計画と書込み停止を確認した後に --yes で適用してください。\n"
+}

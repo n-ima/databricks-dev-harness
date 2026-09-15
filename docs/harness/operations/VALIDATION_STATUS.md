@@ -1,4 +1,6 @@
-# 検証状況 — 0.5.0
+# 検証状況 — 0.6.0
+
+2026-09-15: 安全なローカル更新入口を[ADR-0011](../decisions/ADR-0011-safe-local-update-adoption.md)で正式採用。公開用snapshotの検証とremote/CI観測は[0.6.0公開記録](../../../work/evidence/2026-09-15-safe-update-publication.md)を参照。候補時の全634試験には未採用HARD-03が含まれるため、公開版の試験数と混同しない。実案件への反映は[更新手順](SAFE_LOCAL_UPDATE.md)に従い個別に確認する。実provider/Databricksの新たな検証は行わず、L1を維持する。
 
 2026-09-15: 品質契約の正式CLIと日本語文書・軽量UI確認フローを採用。公開対象から未採用HARD-03を除いたsnapshotで、構造検査と全567試験（566成功・失敗0・既存skip1）を確認。公開・配布bytes・独立確認は[0.5.0の公開記録](../../../work/evidence/2026-09-15-private-publication.md)、既存案件への反映は[差分更新手順](UPDATING_EXISTING_PROJECTS.md)を参照。実Databricksや実Claude Code/Copilotの新たな適合検証とは異なり、成熟度L1を維持する。
 

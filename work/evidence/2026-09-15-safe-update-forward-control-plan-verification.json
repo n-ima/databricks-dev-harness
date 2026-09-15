@@ -1,0 +1,43 @@
+{
+  "managedUnchanged": true,
+  "protectedUnchanged": true,
+  "baselineUnchanged": true,
+  "plan": {
+    "status": "計画済み",
+    "target": "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-mzrNox\\legacy project",
+    "fromVersion": "0.4.0",
+    "toVersion": "0.5.0",
+    "source": {
+      "requested": "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-mzrNox\\clean source 0.5.0",
+      "resolved": "C:\\Users\\nimao\\AppData\\Local\\Temp\\safe-update-forward-mzrNox\\clean source 0.5.0",
+      "kind": "source-tree",
+      "identityAuthenticated": false
+    },
+    "plan": ".harness/updates/update-20260915-012338-130-84201d84.json",
+    "canApply": true,
+    "counts": {
+      "update": 45,
+      "keep": 967,
+      "add": 45
+    },
+    "conflicts": [],
+    "migrations": [
+      {
+        "type": "manual-review",
+        "paths": [
+          "package.json",
+          "package-lock.json",
+          "README.md",
+          ".vscode/",
+          "docs/product/",
+          "work/",
+          "apps/",
+          "resources/",
+          "src/"
+        ],
+        "description": "These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update."
+      }
+    ],
+    "next": "管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。"
+  }
+}

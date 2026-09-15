@@ -1,0 +1,676 @@
+{
+  "capturedAt": "2026-09-15T01:31:40.162Z",
+  "reviewer": "/root/safe_update_code_review",
+  "node": "v24.15.0",
+  "platform": "win32",
+  "trackedDiffSha256": "5459e4dbf77e370b13da7e6ee6dae846a7ea6fa1cdf62d4cfbb029160351d058",
+  "note": "All current changed files are recorded; observed-excluded files (including existing HARD-03 and mutable session records) are not reviewed or approved. distribution.mjs and CLI_REFERENCE.md include excluded pre-existing HARD-03 portions. The final quality contract was reviewed independently; only its reviews array was edited by this reviewer.",
+  "files": [
+    {
+      "path": ".claude/skills/orchestrate-work/SKILL.md",
+      "scope": "reviewed",
+      "bytes": 4552,
+      "sha256": "6409c1c887eb0cc2b5b9d7e90abb2ac5e192188012c88cd8af7f0b70ba1d3492"
+    },
+    {
+      "path": ".claude/skills/update-harness/SKILL.md",
+      "scope": "reviewed",
+      "bytes": 2554,
+      "sha256": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367"
+    },
+    {
+      "path": ".github/skills/orchestrate-work/SKILL.md",
+      "scope": "reviewed",
+      "bytes": 4552,
+      "sha256": "6409c1c887eb0cc2b5b9d7e90abb2ac5e192188012c88cd8af7f0b70ba1d3492"
+    },
+    {
+      "path": ".github/skills/update-harness/SKILL.md",
+      "scope": "reviewed",
+      "bytes": 2554,
+      "sha256": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367"
+    },
+    {
+      "path": "docs/harness/design/SAFE_LOCAL_UPDATE.md",
+      "scope": "reviewed",
+      "bytes": 5419,
+      "sha256": "3817fb3072453b7b9bba4b1637b0f2e103ee91487a6a799b07abba8384fdba92"
+    },
+    {
+      "path": "docs/harness/design/SCOPED_APPROVALS.md",
+      "scope": "observed-excluded",
+      "bytes": 7156,
+      "sha256": "de9b53617b1d55d73862c33d356fc38f0e36b14dbfc054f6e1ed335ea8b0b82d"
+    },
+    {
+      "path": "docs/harness/operations/CLI_REFERENCE.md",
+      "scope": "reviewed",
+      "bytes": 14446,
+      "sha256": "688da078ae78ce33d7edb6fb7ad5d08f7b19e305014468f900f1013d5a84d028"
+    },
+    {
+      "path": "docs/harness/operations/SAFE_LOCAL_UPDATE.md",
+      "scope": "reviewed",
+      "bytes": 6462,
+      "sha256": "9398e4eaf52d3629e0a5454ffca6b9435143ab3cbeeb1630bba8c447bb0b17a6"
+    },
+    {
+      "path": "docs/harness/operations/SCOPED_APPROVALS.md",
+      "scope": "observed-excluded",
+      "bytes": 4074,
+      "sha256": "1b3ee904a07844fc95c2d72651c85a73a6f0ff4b3660f0a820c3f81242e762e3"
+    },
+    {
+      "path": "docs/harness/operations/UPDATING_EXISTING_PROJECTS.md",
+      "scope": "reviewed",
+      "bytes": 8766,
+      "sha256": "07e92cbfd418bfeec078f183dd462bfc6d95facdf75dcf686308b7de5d7b7870"
+    },
+    {
+      "path": "docs/harness/requirements/2026-09-15-safe-local-update.md",
+      "scope": "reviewed",
+      "bytes": 2486,
+      "sha256": "07801964853e43955379263ec64964cc1e66d8e1f826a4213fb77437c94922ec"
+    },
+    {
+      "path": "harness/router.json",
+      "scope": "reviewed",
+      "bytes": 2245,
+      "sha256": "7681d0cf9445cc6676d9a2a3f30b53bdb52c342ddcb8ce850069266c96584cfc"
+    },
+    {
+      "path": "harness/skills/orchestrate-work/SKILL.md",
+      "scope": "reviewed",
+      "bytes": 4552,
+      "sha256": "6409c1c887eb0cc2b5b9d7e90abb2ac5e192188012c88cd8af7f0b70ba1d3492"
+    },
+    {
+      "path": "harness/skills/update-harness/SKILL.md",
+      "scope": "reviewed",
+      "bytes": 2554,
+      "sha256": "061ba7e61c1e18bd257aa660d613cbcb4642d8d06d8c80457c8b7631126e6367"
+    },
+    {
+      "path": "tests/scoped-approval.test.mjs",
+      "scope": "observed-excluded",
+      "bytes": 16744,
+      "sha256": "1d4af8d87fb330b5b420dd71aa5ab5ce452149c7b24c8ed46869db3779e98319"
+    },
+    {
+      "path": "tests/update-entry.test.mjs",
+      "scope": "reviewed",
+      "bytes": 12953,
+      "sha256": "9e3cd3c78580a26069c5dacf1a5fc266970ba7657d4b725ac270f1a2528736ae"
+    },
+    {
+      "path": "tools/harness.mjs",
+      "scope": "observed-excluded",
+      "bytes": 28769,
+      "sha256": "98f6ac9ea227cb5f34c3842b738f300a8129a3b4ff708e1a541439c88aede701"
+    },
+    {
+      "path": "tools/lib/distribution.mjs",
+      "scope": "reviewed",
+      "bytes": 30749,
+      "sha256": "9f16b9413b38cb9f616e0c1ca416b383f9223e70f88252d258e76d6fa5798bb5"
+    },
+    {
+      "path": "tools/lib/scoped-approval.mjs",
+      "scope": "observed-excluded",
+      "bytes": 17611,
+      "sha256": "f6dd8a55792567ce3715853d7fafbc0fa241abf386d8ead4f4b35af5b3591fc1"
+    },
+    {
+      "path": "tools/lib/shared.mjs",
+      "scope": "reviewed",
+      "bytes": 7745,
+      "sha256": "d1ba0fc8078775b62fd7ddfe3776e3d36c718b78f31aa410fd9a16b9a0d5b251"
+    },
+    {
+      "path": "tools/update-harness.mjs",
+      "scope": "reviewed",
+      "bytes": 3441,
+      "sha256": "08f36fded24a7dcb412b5336e4de7609690e573c18205a696195678425d217f7"
+    },
+    {
+      "path": "work/STATUS.md",
+      "scope": "observed-excluded",
+      "bytes": 9443,
+      "sha256": "ef9d78b8942d07f3a44834562afd8a4e0f4204bc277ec9c71f4a145f6f81dd0c"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-clock-green.log",
+      "scope": "observed-excluded",
+      "bytes": 15528,
+      "sha256": "a2e3b8c4ed6186c41832c71a26372aeb11ce1bf016a68275a908e9681e7abb42"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-clock-red.log",
+      "scope": "observed-excluded",
+      "bytes": 1671,
+      "sha256": "f6dd6573971027325a6f8b065fad2f94bc5596f6b44a48fdbcfaad4580053b4e"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-full-r1.log",
+      "scope": "observed-excluded",
+      "bytes": 114280,
+      "sha256": "268f2c8101db5a8b9867ad028a9b5c9348b2570cb7b7c3b5a90ee1a8f6e78cac"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-full-r2.log",
+      "scope": "observed-excluded",
+      "bytes": 114679,
+      "sha256": "de224fceab2fd2d24addf5e6e29d7d097f031d3d1178242716d32127329ada4d"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-golden-proposal.json",
+      "scope": "observed-excluded",
+      "bytes": 824,
+      "sha256": "83c50da7e9abb6929b4b701e3270e019b504146f40a343d5209909e7ba31c5fa"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-green-r1.log",
+      "scope": "observed-excluded",
+      "bytes": 17719,
+      "sha256": "a28fe7bdd9c458555d9d3fd3672a316728dbdf1ddf8089c47835529a84b84e2e"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-green-r2.log",
+      "scope": "observed-excluded",
+      "bytes": 5875,
+      "sha256": "9917603579856b53ec20102db8240b923670893a0aa4a5068c68f28e4f6bd5cf"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-green-r3.log",
+      "scope": "observed-excluded",
+      "bytes": 9287,
+      "sha256": "73a8f38cf505ce2cd099d2b13a39375cf481f599323018a77d0254c73ca4f4e4"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-independent.log",
+      "scope": "observed-excluded",
+      "bytes": 4143,
+      "sha256": "1d3f774474679d3d984317b8130c445f05095c0d9af9532e190ebe3fbccd9df4"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-independent.test.mjs",
+      "scope": "observed-excluded",
+      "bytes": 20746,
+      "sha256": "54f6640d7b8b53836c2f9865c11bdb321efb17c2e48402a5114d1558e4404fe8"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-red.log",
+      "scope": "observed-excluded",
+      "bytes": 17694,
+      "sha256": "5ab2d8fb66c058e5acc3f7b04e0c919b6d4c31da5e573088d11a882c2b534789"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-rereview-independent.log",
+      "scope": "observed-excluded",
+      "bytes": 3468,
+      "sha256": "30fc6db278be262178209fa9b4c86c62b9a1645f03c7144d546d3490f4a976c8"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval-rereview.test.mjs",
+      "scope": "observed-excluded",
+      "bytes": 9992,
+      "sha256": "777c03c376c6703d8dc39eddf217cbfeb0c4d0e81a623ebe18634304293721c1"
+    },
+    {
+      "path": "work/evidence/2026-09-10-scoped-approval.md",
+      "scope": "observed-excluded",
+      "bytes": 6908,
+      "sha256": "f43059ee3972b9ed001af1e6d7d7dd29ce74ee83aef14071d09c3da09ffe0055"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-local-update.md",
+      "scope": "observed-excluded",
+      "bytes": 4427,
+      "sha256": "079bacd45cfba3ff623b5769dc37c9c2f3547149d89540421e268bec989e8d9b"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-entry-final.log",
+      "scope": "observed-excluded",
+      "bytes": 1569,
+      "sha256": "a8d47b6309c7ee5aa82a224ab841e27bc417250eb0ba9ac0a5c930cce2961d73"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-apply-verification.json",
+      "scope": "observed-excluded",
+      "bytes": 5635,
+      "sha256": "8305f2f05d04e39f231724e427be7af1173ae89b03fff783c97a511c1a481cb7"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-apply.json",
+      "scope": "observed-excluded",
+      "bytes": 1167,
+      "sha256": "ca1313e74e25c45c4d5157e69c63d2ccde8ba70080f62c40454ce521aece75e6"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-apply-verification.json",
+      "scope": "observed-excluded",
+      "bytes": 5635,
+      "sha256": "7b05b456c199fd938f075994abbbd487d892b15ca945b2c4338464ad64526c62"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-apply.json",
+      "scope": "observed-excluded",
+      "bytes": 1167,
+      "sha256": "3e3bc0b953ed2b94895a5ffef8c90b3587f69516bf73f92a248419f6ad39bb8a"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-candidate-entry-tests.json",
+      "scope": "observed-excluded",
+      "bytes": 1990,
+      "sha256": "b62c8398d7f130e6f773f0c7fef3c85a52ff46763085ed813882cb718c404257"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-dot-harness-route.json",
+      "scope": "observed-excluded",
+      "bytes": 755,
+      "sha256": "1ea1c7fc192076557f0427ce855f8da04490abcc844d94e18ab14a04e1a078cd"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-final-protected.json",
+      "scope": "observed-excluded",
+      "bytes": 35,
+      "sha256": "00684b1c55f7413e4398fb213ee484a27a5317f927612c76c4ca4e59fc574517"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-final-route-dot.json",
+      "scope": "observed-excluded",
+      "bytes": 705,
+      "sha256": "863194b4d5009691c9cb430bd277e03503f59405877178f32a92133d2ca4faab"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-final-route-improve.json",
+      "scope": "observed-excluded",
+      "bytes": 691,
+      "sha256": "5036c510821b6db889e40e501a0084567ab8fd2c574fb64967811456cd7fb63a"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-final-route-jp.json",
+      "scope": "observed-excluded",
+      "bytes": 708,
+      "sha256": "bf3e267de42ebfa3dc932fe202e5c5378fb19acf6c1ff9e797f71a790eba8d59"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-final-route-mixed.json",
+      "scope": "observed-excluded",
+      "bytes": 706,
+      "sha256": "e33705b3e61d1bc42c81fc815b4d513df1cf63d01351be79938fe68c4a0c3f53"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-final-verification.json",
+      "scope": "observed-excluded",
+      "bytes": 1458,
+      "sha256": "c9c880ea00f14c30671308da600a0fca738d5021abf655d61bfc9af9df53cf5f"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-installed-baseline.json",
+      "scope": "observed-excluded",
+      "bytes": 282967,
+      "sha256": "9589179bc901e4933b9137ad59220a652c422183b55acc9d7eaba5ada53435ff"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-journal.json",
+      "scope": "observed-excluded",
+      "bytes": 340611,
+      "sha256": "3d0dc08100168702afe11b5b6b2854b1b75a9949fa34e8abec96193f7c3e3c5f"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-new-check.json",
+      "scope": "observed-excluded",
+      "bytes": 493,
+      "sha256": "f528942d2dbee30c9a6f41fcf97b529aea6e28c73cdf883c368489c30d675a1e"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-new-context.json",
+      "scope": "observed-excluded",
+      "bytes": 1439,
+      "sha256": "615af89e59ade59655e13c3b6ddf9db3842b9dfc688896c989a19fdbba7ee010"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-new-harness-tests.json",
+      "scope": "observed-excluded",
+      "bytes": 37345,
+      "sha256": "39ff58922159d2ccd1aeab79c1f4e351ce4614d8764589630baa89e7f377a351"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-new-product-test.json",
+      "scope": "observed-excluded",
+      "bytes": 667,
+      "sha256": "c658d5acc2f6f67321853e625f955a9292c65f9de489fb1b173a9ecbec274e0c"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-old-check.json",
+      "scope": "observed-excluded",
+      "bytes": 493,
+      "sha256": "fc42cf3dcd80708cc1403c3dca7614e101307493e80617962a287cac840ca058"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-old-context.json",
+      "scope": "observed-excluded",
+      "bytes": 787,
+      "sha256": "17373a4f0ac17285ac7e078e6fb29567e7dbe1cd7c276a64517b21ce06ea00a7"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-old-product-test.json",
+      "scope": "observed-excluded",
+      "bytes": 667,
+      "sha256": "52e8510551758da8756d1d8f623bdcf8f07d9bc53c56d76ad1dc3a87dbeccecc"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-plan-artifact.json",
+      "scope": "observed-excluded",
+      "bytes": 323529,
+      "sha256": "df4933b19e6dfe8a97c5cea3e67c00a42ba4ba6b41d926dab633ccf1f9381b9d"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-plan-review.md",
+      "scope": "observed-excluded",
+      "bytes": 1515,
+      "sha256": "d744667cbc1042744ae7ad95351da335fc042fc3c059db874721a3fae5a6409b"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-plan-verification.json",
+      "scope": "observed-excluded",
+      "bytes": 1447,
+      "sha256": "17bb65c73b040f9db0ed06ab1fca3aa25a860e3a4f265f064509461ec37de1d0"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-plan.json",
+      "scope": "observed-excluded",
+      "bytes": 2075,
+      "sha256": "21036b96f020b6ccebffc4f47b59cb81e343b09657706f4e5fa99904468422ea"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-provider-skills.json",
+      "scope": "observed-excluded",
+      "bytes": 8298,
+      "sha256": "5b15efb1f2bd477561d2702e3a20dddfcb7e1d941471c60ca9fa77914c5387e2"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-release-inputs.json",
+      "scope": "observed-excluded",
+      "bytes": 873861,
+      "sha256": "1452b9de890151935ca3a310a611735e4ded91b2252cf3cb473c1f55f6a399f6"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-release-plan.json",
+      "scope": "observed-excluded",
+      "bytes": 2002,
+      "sha256": "f1e521881fde9eaf83d127034de0b4a36f18f3de1abf2774e56a8b9cead3820e"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-route.json",
+      "scope": "observed-excluded",
+      "bytes": 747,
+      "sha256": "b5b6f6c1b1e169a083d4c51b5fa8de601633da31cb23d3157296a17186304c19"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-source-equivalence.json",
+      "scope": "observed-excluded",
+      "bytes": 121,
+      "sha256": "b6d4cbbec759d6867e7dc7a947d169b1528812a81bcc775a17c63e96cd3bb441"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-state.json",
+      "scope": "observed-excluded",
+      "bytes": 289793,
+      "sha256": "398204525f4cbb43da98498b746afbc65d6d2c8c5ecf4d7f0bbf2dbf286d312a"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-control-workload.json",
+      "scope": "observed-excluded",
+      "bytes": 998,
+      "sha256": "945480fff83df5aeb85bc4ef52c3dcff593cad9b0e3b7a75eca822fa1ac89eef"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-dot-harness-route.json",
+      "scope": "observed-excluded",
+      "bytes": 737,
+      "sha256": "ad1f18d9151fbb49eea3a606317d0fed2e62ceb6f0b37dd30d33033cc9465432"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-final-protected.json",
+      "scope": "observed-excluded",
+      "bytes": 35,
+      "sha256": "00684b1c55f7413e4398fb213ee484a27a5317f927612c76c4ca4e59fc574517"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-installed-baseline.json",
+      "scope": "observed-excluded",
+      "bytes": 282967,
+      "sha256": "85fcfa5fdf0b5ad6dbe26c314b8ae053ca8fd9083341e65427af12b2d3667275"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-journal.json",
+      "scope": "observed-excluded",
+      "bytes": 340611,
+      "sha256": "785ac64e53435be4ce09a15cc0fc98e8a2d52bf36cb2813994003142f64be894"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-new-check.json",
+      "scope": "observed-excluded",
+      "bytes": 559,
+      "sha256": "a40d2ed75164af1c39af243b127da955fbecb6524866a6ca3801df696d9b2f1a"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-new-context.json",
+      "scope": "observed-excluded",
+      "bytes": 1423,
+      "sha256": "c93a3dd65c90cf7770d68f368dd7edcfcd0cd663087f41dfe6695d067ffdcad2"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-new-harness-tests.json",
+      "scope": "observed-excluded",
+      "bytes": 38293,
+      "sha256": "cb72f4bbc14f3a5fadd931cadc96b8b38aa7ab988672979d13d78e4698bbfda9"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-new-product-test.json",
+      "scope": "observed-excluded",
+      "bytes": 667,
+      "sha256": "83c9adbc3df2e7e40275dcadafcfe3f66d293a3a6c022bb9c49223f2652811fc"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-old-check.json",
+      "scope": "observed-excluded",
+      "bytes": 559,
+      "sha256": "058aca997c5b0cbf1bfcb6e0d85db4bac53ffa8fb1ecae89a9a8d894863cc8d0"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-old-context.json",
+      "scope": "observed-excluded",
+      "bytes": 771,
+      "sha256": "8a94e7e34396846fddc78157380ee6f2f65980b14440b7ebe138e1e86b501eb0"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-old-product-test.json",
+      "scope": "observed-excluded",
+      "bytes": 667,
+      "sha256": "bbcfa504acac7ca11862369289c5e17632aec6996f7d36d7314182124ea1ad26"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-plan-artifact.json",
+      "scope": "observed-excluded",
+      "bytes": 323529,
+      "sha256": "2985b51956223ace89c12b14cf86191d8a9abbf1aaa23562e708d553fbc1c15d"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-plan-review.md",
+      "scope": "observed-excluded",
+      "bytes": 2338,
+      "sha256": "2f9b8a36783e367f4a83cc2fa2dccc9c335db70368a07a39abd0ba8ec12e0698"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-plan-verification.json",
+      "scope": "observed-excluded",
+      "bytes": 1447,
+      "sha256": "eb45a4fa926fc29907179f16010012e509660c13ea42edb428c8bb13471959cb"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-plan.json",
+      "scope": "observed-excluded",
+      "bytes": 2075,
+      "sha256": "0c8eabe7878f42fb1e1ebbea2b31119be2337d5d29d3c3a970bbd4397bbd1290"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-provider-skills.json",
+      "scope": "observed-excluded",
+      "bytes": 8298,
+      "sha256": "5b15efb1f2bd477561d2702e3a20dddfcb7e1d941471c60ca9fa77914c5387e2"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-release-inputs.json",
+      "scope": "observed-excluded",
+      "bytes": 873861,
+      "sha256": "1452b9de890151935ca3a310a611735e4ded91b2252cf3cb473c1f55f6a399f6"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-route.json",
+      "scope": "observed-excluded",
+      "bytes": 747,
+      "sha256": "905e653ac78b9d4b10556c9248fb5b3c0c0689630512bd74c594478fc3cb56cb"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-runner.mjs",
+      "scope": "observed-excluded",
+      "bytes": 14881,
+      "sha256": "6fb522463c0a9371f3a4257b4796d57077e856fff66c3cec650903f483b7c46f"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-state.json",
+      "scope": "observed-excluded",
+      "bytes": 289849,
+      "sha256": "5e9a1e41cac0111d8f449877a81f9c7ef820d1d4ea454e2093062b41a32dbdb1"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-forward-workload.json",
+      "scope": "observed-excluded",
+      "bytes": 998,
+      "sha256": "36dcf3cbb48a07a9665cff591ebb9698d8328d106241b93ed1ea2593d305bf0e"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-full-final.log",
+      "scope": "observed-excluded",
+      "bytes": 52004,
+      "sha256": "c23dbe549367e2024fe11fc853bc8e81ec435ba8ae064a1acb227e761b6aa73f"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-full-r3.log",
+      "scope": "observed-excluded",
+      "bytes": 52111,
+      "sha256": "7a621483bb3978fdd7ddaa42e69fbd280960a7de3c2af8a87d50fc39300bb039"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-full.log",
+      "scope": "observed-excluded",
+      "bytes": 52000,
+      "sha256": "b100872c9e7036c691a8cc6256b75beb0bf0d6fb7b2efdf1db58c2d5f0e41ace"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-independent-final.log",
+      "scope": "independent-evidence",
+      "bytes": 5906,
+      "sha256": "316dc766a58820bde36f25779827b963939168d9b5f7d072da7507f6afd9d198"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-independent-quality-verify.log",
+      "scope": "independent-evidence",
+      "bytes": 427,
+      "sha256": "99367544c8a7f56d5728251ba3a5a669466c7a4e15f47a788cfed9b31e4b51dd"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-independent-snapshot.mjs",
+      "scope": "independent-evidence",
+      "bytes": 3471,
+      "sha256": "9c10531faeaa74fc6be3723fd98f1e01f527dd7b507959b0ae13fe14be600c66"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-independent.log",
+      "scope": "independent-evidence",
+      "bytes": 5644,
+      "sha256": "3c5fbefc6d38fb169fe5ebffca572aa73228fdff6bcd21317468386b829e351a"
+    },
+    {
+      "path": "work/evidence/2026-09-15-safe-update-independent.test.mjs",
+      "scope": "independent-evidence",
+      "bytes": 10483,
+      "sha256": "231f1624417da78a9a9a9cbaa98536b54b67645c71a01b546ed1e2c19f974c29"
+    },
+    {
+      "path": "work/plans/2026-09-10-retrospective-hardening.md",
+      "scope": "observed-excluded",
+      "bytes": 4510,
+      "sha256": "8db3c9a7dbaa7dc988a9c9692a0ca9aa93e792d932ba1470282839766cad2142"
+    },
+    {
+      "path": "work/plans/2026-09-15-safe-local-update.md",
+      "scope": "observed-excluded",
+      "bytes": 671,
+      "sha256": "2c3b1a72607c88694bd7eb816a1fc77c6976a8e48bd3204f5b1dc9c088a56a66"
+    },
+    {
+      "path": "work/quality/safe-local-update.json",
+      "scope": "reviewed",
+      "bytes": 13883,
+      "sha256": "6f79ea463839114196044b127c2977d96f82dc1a5953aa32152350556c6f2c62"
+    },
+    {
+      "path": "work/reviews/2026-09-10-scoped-approval-rereview.md",
+      "scope": "observed-excluded",
+      "bytes": 9615,
+      "sha256": "330eb84c80e723f686f55f3442526ea5ba4fa02b025068cc09db33d019be3de6"
+    },
+    {
+      "path": "work/reviews/2026-09-10-scoped-approval-review.md",
+      "scope": "observed-excluded",
+      "bytes": 9478,
+      "sha256": "f9f68d8ac10e5059939f213c6723b93e69c52c7e6de51d60ea4a5cfe01a8143f"
+    },
+    {
+      "path": "work/reviews/2026-09-15-safe-update-code-review.md",
+      "scope": "independent-evidence",
+      "bytes": 8197,
+      "sha256": "9288c53b32faf8475dd9afcfbc59d15b592302a9fbc845f6d930e9e8f915a7ff"
+    },
+    {
+      "path": "work/reviews/2026-09-15-safe-update-design-review.md",
+      "scope": "observed-excluded",
+      "bytes": 8728,
+      "sha256": "21ecd0bf04c028748e6e17aa7cf07239c004d97f1e441a10a785f04ef7293d62"
+    },
+    {
+      "path": "work/reviews/2026-09-15-safe-update-forward-test.md",
+      "scope": "observed-excluded",
+      "bytes": 10085,
+      "sha256": "136282e6063540c84865f659c9fd879c92d56149adb066584eb26aa2f6d7cb52"
+    },
+    {
+      "path": "work/sessions/20260909-214048-619-retrospective-hardening.md",
+      "scope": "observed-excluded",
+      "bytes": 26122,
+      "sha256": "700498b648fa54504b44144402623433fbb1a277f67b3c8ec75f8baa1380f174"
+    },
+    {
+      "path": "work/sessions/20260915-010502-538-safe-local-harness-update.md",
+      "scope": "observed-excluded",
+      "bytes": 2575,
+      "sha256": "7dd7c3c27928ab5459636745c5eb44a33fccfe769101a936a6cb4328ae6d2185"
+    },
+    {
+      "path": "work/tasks/HARD-03.md",
+      "scope": "observed-excluded",
+      "bytes": 1503,
+      "sha256": "ffb4929b99d430c571feeae78637d6dafcf5290711c3064e12f9d9da626f5bdb"
+    },
+    {
+      "path": "work/tasks/SU-WORK-01.md",
+      "scope": "observed-excluded",
+      "bytes": 1174,
+      "sha256": "4bea0520bc8372ae270464124806443fd3658e7405b73b3553a78eb7ed818c7d"
+    }
+  ]
+}
