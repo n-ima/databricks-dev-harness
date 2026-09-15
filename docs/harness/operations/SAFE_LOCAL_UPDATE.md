@@ -1,17 +1,17 @@
-# 短い指示で安全にハーネスを更新する（0.6.0）
+# 短い指示で安全にハーネスを更新する（0.6.1）
 
-この入口は0.6.0で正式採用しました。0.4/0.5には含まれませんが、旧版案件から0.6.0へ直接更新できます。先に0.5へ更新する必要はありません。元版のない場合と旧0.5への移行履歴は[従来の橋渡し手順](UPDATING_EXISTING_PROJECTS.md)を参照してください。
+この入口は0.6.0で正式採用しました。0.6.1は公開受入IDの表記訂正を含む保守版で、更新CLIの機能は変わりません。0.4/0.5にはこの入口がありませんが、旧版案件から0.6.1へ直接更新できます。先に0.5や0.6.0へ更新する必要はありません。元版のない場合と旧0.5への移行履歴は[従来の橋渡し手順](UPDATING_EXISTING_PROJECTS.md)を参照してください。
 
 ## 旧版案件で最初の一度だけ伝えること
 
-案件側のチャットへ、信頼する0.6.0のローカル展開先を指定して依頼します。古い案件内には新しいskillがないため、更新元の手順を読むよう明示します。保持対象の列挙は不要です。
+案件側のチャットへ、信頼する0.6.1のローカル展開先を指定して依頼します。古い案件内には新しいskillがないため、更新元の手順を読むよう明示します。保持対象の列挙は不要です。
 
 ```text
 D:/tools/databricks-dev-harness/docs/harness/operations/SAFE_LOCAL_UPDATE.md を読み、
-この案件のハーネスを、そのローカルフォルダーの0.6.0へ更新して。
+この案件のハーネスを、そのローカルフォルダーの0.6.1へ更新して。
 ```
 
-配布物形式なら手順のpathは`LOCAL_RELEASE/files/docs/harness/operations/SAFE_LOCAL_UPDATE.md`。本PCの固定配布物は`D:/projects/databricks-dev-harness/.harness/releases/0.6.0`です。元ハーネスの開発中ファイルを丸ごとコピーせず、検証済み配布物を使います。
+配布物形式なら手順のpathは`LOCAL_RELEASE/files/docs/harness/operations/SAFE_LOCAL_UPDATE.md`。本PCの固定配布物は`D:/projects/databricks-dev-harness/.harness/releases/0.6.1`です。元ハーネスの開発中ファイルを丸ごとコピーせず、検証済み配布物を使います。
 
 ## 普段の使い方
 
@@ -43,7 +43,7 @@ node tools/update-harness.mjs apply --plan .harness/updates/実際の計画名.j
 
 1行目は検証済みsourceのlocal snapshotと計画を保存するだけで、管理ファイルを変えません。対象・元版/先版・件数・競合・手動移行を日本語で確認します。2行目はその計画を確認してから実行します。計画後の対象変更は拒否されます。元sourceが後から更新されても、計画は固定snapshotの版を参照します。
 
-新しいCLIがまだない旧版案件では、**採用・公開済み0.6.0の実行器**を明示して起動します。0.4/0.5配布物の実行器ではありません。
+新しいCLIがまだない旧版案件では、**採用・公開済み0.6.1の実行器**を明示して起動します。0.4/0.5配布物の実行器ではありません。
 
 ```text
 node D:/tools/harness-release/files/tools/update-harness.mjs plan --source D:/tools/harness-release --target D:/projects/my-project

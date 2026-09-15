@@ -1,6 +1,6 @@
 # 利用手順 — Databricks development harness
 
-既に開発中の案件は作り直さず、[0.6.0の安全なローカル更新手順](harness/operations/SAFE_LOCAL_UPDATE.md)に従います。保持の追加指示は不要。clone/ZIP展開先から更新できます。旧0.4/0.5は新版実行器で初回更新し、以後は案件内の入口を使います。テンプレート元へのpushだけでは自動更新されません。
+既に開発中の案件は作り直さず、[0.6.1の安全なローカル更新手順](harness/operations/SAFE_LOCAL_UPDATE.md)に従います。保持の追加指示は不要。clone/ZIP展開先から更新できます。旧0.4/0.5は新版実行器で初回更新し、以後は案件内の入口を使います。テンプレート元へのpushだけでは自動更新されません。
 
 2026-09-15更新: 人が確認する新規文書は日本語を標準にしました。[何をどこで定義するか・HTML紙芝居の使い分け](harness/operations/DOCUMENTATION_STANDARD.md)と[品質契約の診断手順](harness/operations/DELIVERY_ASSURANCE.md)を参照してください。利用者は案件のチャットで要件と資料を渡すだけで、agentが文書・試験案を作成します。初期のひな型は未承認の案です。
 

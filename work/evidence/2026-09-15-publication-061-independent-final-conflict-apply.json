@@ -1,0 +1,17 @@
+{
+  "at": "2026-09-15T02:39:58.035Z",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-jafjLg\\existing project 0.6.0\\tools\\update-harness.mjs",
+    "apply",
+    "--plan",
+    ".harness/updates/update-20260915-023957-954-975688c6.json",
+    "--yes"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-jafjLg\\existing project 0.6.0",
+  "exitCode": 2,
+  "signal": null,
+  "error": null,
+  "stdout": "",
+  "stderr": "更新を停止しました: Update has downstream conflicts; no file was changed.\n"
+}

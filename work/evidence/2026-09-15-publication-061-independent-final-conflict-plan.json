@@ -1,0 +1,16 @@
+{
+  "at": "2026-09-15T02:39:57.973Z",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-jafjLg\\existing project 0.6.0\\tools\\update-harness.mjs",
+    "plan",
+    "--source",
+    "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.1-final\\.harness\\releases\\0.6.1"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-jafjLg\\existing project 0.6.0",
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "stdout": "{\n  \"status\": \"競合のため停止\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-061-forward-jafjLg\\\\existing project 0.6.0\",\n  \"fromVersion\": \"0.6.0\",\n  \"toVersion\": \"0.6.1\",\n  \"source\": {\n    \"requested\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\runtime\\\\publish-0.6.1-final\\\\.harness\\\\releases\\\\0.6.1\",\n    \"resolved\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\runtime\\\\publish-0.6.1-final\\\\.harness\\\\releases\\\\0.6.1\",\n    \"kind\": \"release\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260915-023957-954-975688c6.json\",\n  \"canApply\": false,\n  \"counts\": {\n    \"keep\": 1060,\n    \"conflict\": 1,\n    \"update\": 6,\n    \"add\": 1\n  },\n  \"conflicts\": [\n    {\n      \"path\": \"AGENTS.md\",\n      \"action\": \"conflict\",\n      \"beforeSha256\": \"18ed14e3d8cf1e4a26c346a2d7d487bfa1d48985920fbfcd0e834febb4d655fa\",\n      \"afterSha256\": \"6fda1b7a9700098303d2aec6211578ecf3c8a8ddea20fdb7c3a294a6cb612a4b\",\n      \"reason\": \"Downstream file changed since the installed baseline.\"\n    }\n  ],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+  "stderr": ""
+}

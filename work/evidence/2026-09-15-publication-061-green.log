@@ -1,0 +1,10 @@
+✔ Publication requirements use strict acceptance IDs before release (5.3598ms)
+✔ Publication requirements seal real document bytes and retain rejection gates (157.6983ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 230.8393

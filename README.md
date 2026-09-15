@@ -23,11 +23,11 @@ Agentモードでは共通instructionsとSkillsが、既存記録、要件・設
 
 ブラウザーで読むには `npm run docs:serve` を実行し、[ローカルHTMLガイド](http://127.0.0.1:4173/site/) を開きます。[コマンド詳細](docs/harness/operations/CLI_REFERENCE.md)、[調査と設計根拠](docs/harness/research/2026-09-04-evidence-review.md)、[検証済み範囲・残る導入条件](docs/harness/operations/VALIDATION_STATUS.md) も参照してください。
 
-状態: **0.6.0 / L1**。安全なローカル更新入口を採用しました。[採用判断](docs/harness/decisions/ADR-0011-safe-local-update-adoption.md)、[公開・検証記録](work/evidence/2026-09-15-safe-update-publication.md)、[全領域の開発手順](docs/harness/operations/PLATFORM_PLAYBOOK.md)を参照してください。workspace接続、本番deploy、実providerのgolden評価は未実施で、全機能の実機動作を保証しません。
+状態: **0.6.1 / L1**。安全なローカル更新入口を採用済みで、0.6.1は公開受入IDの表記を訂正する保守版です。[採用判断](docs/harness/decisions/ADR-0011-safe-local-update-adoption.md)、[公開・検証記録](work/evidence/2026-09-15-publication-061.md)、[全領域の開発手順](docs/harness/operations/PLATFORM_PLAYBOOK.md)を参照してください。workspace接続、本番deploy、実providerのgolden評価は未実施で、全機能の実機動作を保証しません。
 
 ## 開発中の案件を更新する
 
-案件は作り直さず、信頼するローカルclone／ZIP展開先からハーネスだけを更新できます。案件コード・設計・記録・秘密情報の保持は既定動作です。競合時は停止します。[初回と次回の手順](docs/harness/operations/SAFE_LOCAL_UPDATE.md)を案件のエージェントへ渡してください。0.4/0.5案件にも0.6.0の実行器から直接導入できます。GitHubへ接続できない案件でも更新可能です。
+案件は作り直さず、信頼するローカルclone／ZIP展開先からハーネスだけを更新できます。案件コード・設計・記録・秘密情報の保持は既定動作です。競合時は停止します。[初回と次回の手順](docs/harness/operations/SAFE_LOCAL_UPDATE.md)を案件のエージェントへ渡してください。0.4/0.5案件にも0.6.1の実行器から直接導入できます。GitHubへ接続できない案件でも更新可能です。
 
 ## 何が正本か
 

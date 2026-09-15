@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "20260915-022729-254-publish-receipt-correction-0-6-1",
+  "requirement": "docs/harness/requirements/2026-09-15-publication-receipt-correction.md",
+  "status": "fail",
+  "reviewer": "/root/publication_061_review",
+  "provider": "codex",
+  "independent": true,
+  "provenance": {
+    "type": "review-record",
+    "source": "work/reviews/2026-09-15-publication-061-preflight-acceptance.json",
+    "identityAuthenticated": false
+  },
+  "acceptance": [
+    {
+      "id": "FIX-01",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-publication-061-independent-final-audit.json",
+        "work/reviews/2026-09-15-publication-061-review.md"
+      ],
+      "rationale": "原公開要件の全文は4ID以外完全一致。既存parserとsealの成功/旧ID・欠落・重複・未知ID拒否とnot-runの完了拒否を独立実行。"
+    },
+    {
+      "id": "FIX-02",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-publication-061-red.log",
+        "work/evidence/2026-09-15-publication-061-green.log",
+        "work/evidence/2026-09-15-publication-061-full.log",
+        "work/evidence/2026-09-15-publication-061-independent-final-check.json",
+        "work/evidence/2026-09-15-publication-061-independent-final-contracts.json",
+        "work/reviews/2026-09-15-publication-061-review.md"
+      ],
+      "rationale": "実文書の2red→2green、最終584件/583pass/0fail/1skipを確認。独立check・contracts58件成功。"
+    },
+    {
+      "id": "FIX-03",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-publication-061-bytes.json",
+        "work/evidence/2026-09-15-publication-061-independent-final-audit.json",
+        "work/evidence/2026-09-15-publication-061-independent-final-forward.json",
+        "work/reviews/2026-09-15-publication-061-review.md"
+      ],
+      "rationale": "最終全1068source/payload/index一致。隔離0.6.0→0.6.1、案件12filesと旧base保持・競合拒否・backup・次回planを独立確認。旧3配布物と元候補を保持。"
+    },
+    {
+      "id": "FIX-04",
+      "status": "not-run",
+      "evidence": [],
+      "rationale": "公開前。実レビューのseal形式とnot-run完了拒否をこのJSONで確認する。pushとremote/CI観測は未実施で、完了と扱わない。"
+    }
+  ],
+  "artifactHashes": {
+    "work/reviews/2026-09-15-publication-061-preflight-acceptance.json": "75f8b214d4037ae0d5d577db731987fa12188de1edc7a7c96b9bc4ab7bf22735",
+    "docs/harness/requirements/2026-09-15-publication-receipt-correction.md": "b5e93dc3aff49d8e3b4aa409206b50147c919b01c0f537e155ed3b34b5683df6",
+    "harness/base-release.json": "d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d",
+    "tests/contracts.test.mjs": "74918a8ec713da0c788520208deedd2fb129dbe95e27680adf191e4ba7fe5575",
+    "work/evidence/2026-09-15-publication-061-independent-final-audit.json": "bd29b9de7a01c671e504bc0493c69317c8b04d1f141f2c2691f53ad0859cab60",
+    "work/reviews/2026-09-15-publication-061-review.md": "c5ef6234300dd73a0c5771e059284c8b72fc55ffa94a47c8fe64cbf2c993b7e9",
+    "work/evidence/2026-09-15-publication-061-red.log": "993c095c88738555b71c6b81b93e697d04fa6c50a02b5f32c39fabbd6ee08192",
+    "work/evidence/2026-09-15-publication-061-green.log": "c1ecaeb7f9528705000a51308f6cdbb1a8fbd9c441afd5bb114d6885105363d7",
+    "work/evidence/2026-09-15-publication-061-full.log": "b84580c1e9d66c10f85e548bf658905dbf0250b0d78d76a895f4b431714f0928",
+    "work/evidence/2026-09-15-publication-061-independent-final-check.json": "6637c7c557d749c4824856ce624791801576fef9980d5c4443bd2f7f4bde1326",
+    "work/evidence/2026-09-15-publication-061-independent-final-contracts.json": "e9614b098bdf29214b9b99be37da3ba7fe4a1018bf8c6772d20868cc55f49760",
+    "work/evidence/2026-09-15-publication-061-bytes.json": "4178868936c5d707a945c2e7a7c7f471db9262cb5a489db90e2a63a6f0dd62bc",
+    "work/evidence/2026-09-15-publication-061-independent-final-forward.json": "084a0bdae883729aa8dae6434bddc884ef0fdba19fe57dcf03f98df433921a26"
+  },
+  "policyHash": "e714fc0a712819822a5fc21d2fa17e179f0562124d99c2a43b1bc2da30d39fe5",
+  "createdAt": "2026-09-15T02:49:28Z"
+}

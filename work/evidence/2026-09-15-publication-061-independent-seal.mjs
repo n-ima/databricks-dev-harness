@@ -1,0 +1,21 @@
+// Seal independently authored real reviews; no implementation or remote mutation.
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {resolve,join} from 'node:path';
+import {pathToFileURL} from 'node:url';
+const root=resolve('D:/projects/databricks-dev-harness');
+const snapshot=join(root,'.harness/runtime/publish-0.6.1-final');
+const {sealEvidence,validateReceipt}=await import(pathToFileURL(join(snapshot,'tools/lib/evidence.mjs')));
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const manifestHash='d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d';
+assert.equal(hash(await readFile(join(root,'harness/base-release.json'))),manifestHash);
+const oldOptions={review:'work/reviews/2026-09-15-publication-061-pub-acceptance.json',session:'20260915-013942-357-publish-safe-update-0-6-0',requirement:'docs/harness/requirements/2026-09-15-safe-update-publication.md',output:'work/reviews/2026-09-15-publication-061-pub.receipt.json'};
+const newOptions={review:'work/reviews/2026-09-15-publication-061-preflight-acceptance.json',session:'20260915-022729-254-publish-receipt-correction-0-6-1',requirement:'docs/harness/requirements/2026-09-15-publication-receipt-correction.md',artifact:['harness/base-release.json','tests/contracts.test.mjs'],output:'work/reviews/2026-09-15-publication-061-preflight.receipt.json'};
+for(const p of [oldOptions.requirement,newOptions.requirement,'tests/contracts.test.mjs'])assert.deepEqual(await readFile(join(root,p)),await readFile(join(snapshot,p)));
+const old=await sealEvidence(root,oldOptions);assert.equal(old.status,'pass');await validateReceipt(root,oldOptions.output,{sessionId:oldOptions.session,requirement:oldOptions.requirement});
+const fresh=await sealEvidence(root,newOptions);assert.equal(fresh.status,'fail');
+let incompleteError;
+await assert.rejects(validateReceipt(root,newOptions.output),e=>{incompleteError=e.message;return /Passing independent-verification receipt/.test(e.message);});
+const result={at:new Date().toISOString(),reviewer:'/root/publication_061_review',status:'pass',meaning:'正式review JSONでseal形式確認済み。旧PUBはpass、FIX-04 not-runはfail receiptとなり完了検証を拒否。0.6.1公開成功を示さない。',manifestSha256:manifestHash,old:{review:oldOptions.review,receipt:oldOptions.output,status:old.status,acceptance:old.acceptance.map(a=>({id:a.id,status:a.status}))},preflight:{review:newOptions.review,receipt:newOptions.output,status:fresh.status,acceptance:fresh.acceptance.map(a=>({id:a.id,status:a.status})),completionRejected:true,error:incompleteError},identityAuthenticated:false,pushExecuted:false};
+await writeFile(join(root,'work/evidence/2026-09-15-publication-061-independent-preflight.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));

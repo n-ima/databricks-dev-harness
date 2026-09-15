@@ -1,0 +1,17 @@
+{
+  "at": "2026-09-15T02:40:06.078Z",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-jafjLg\\existing project 0.6.0\\tools\\update-harness.mjs",
+    "apply",
+    "--plan",
+    ".harness/updates/update-20260915-024003-146-01dfe96a.json",
+    "--yes"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-jafjLg\\existing project 0.6.0",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "{\n  \"status\": \"ファイル更新・hash確認済み\",\n  \"version\": \"0.6.1\",\n  \"backupPath\": \".harness/backups/update-20260915-024003-146-01dfe96a\",\n  \"changedFiles\": 7,\n  \"deletedFiles\": [],\n  \"managedFilesVerified\": 1068,\n  \"humanReviewRequired\": true,\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-061-forward-jafjLg\\\\existing project 0.6.0\",\n  \"next\": \"案件試験と独立レビュー後に開発を再開してください。受入完了・配備ではありません。\"\n}\n",
+  "stderr": ""
+}

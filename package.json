@@ -1,6 +1,6 @@
 {
   "name": "databricks-dev-harness",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "private": true,
   "description": "Cross-agent development harness for Databricks data and AI products",
   "engines": {

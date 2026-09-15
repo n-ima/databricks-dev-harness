@@ -1,4 +1,6 @@
-# 検証状況 — 0.6.0
+# 検証状況 — 0.6.1
+
+2026-09-15: 0.6.1は、利用者承認に基づく公開受入IDの表記訂正版です。検証器・更新CLI・権限・依存は変更せず、旧公開4条件の意味を維持します。今回の回帰・独立レビュー・receipt・remote/CIの実測は[0.6.1の公開記録](../../../work/evidence/2026-09-15-publication-061.md)を参照。以下の0.6.0品質契約やreceiptはその版の履歴であり、新版へ無条件に流用しません。
 
 2026-09-15: 安全なローカル更新入口を[ADR-0011](../decisions/ADR-0011-safe-local-update-adoption.md)で正式採用。公開用snapshotの検証とremote/CI観測は[0.6.0公開記録](../../../work/evidence/2026-09-15-safe-update-publication.md)を参照。候補時の全634試験には未採用HARD-03が含まれるため、公開版の試験数と混同しない。実案件への反映は[更新手順](SAFE_LOCAL_UPDATE.md)に従い個別に確認する。実provider/Databricksの新たな検証は行わず、L1を維持する。
 

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/publication_061_review",
+  "provider": "codex",
+  "independent": true,
+  "requirement": "docs/harness/requirements/2026-09-15-safe-update-publication.md",
+  "sourcePublicationCommit": "69ebf2ebe33da2bc3a551970e40fb5edca9667b7",
+  "basis": "原公開0.6.0の観測証拠を再読し、0.6.1の訂正文と原文の全文一致（IDだけ逆置換）を独立確認。過去のJSONとreceiptは変更せず、正式PUB IDで新たに記録する。",
+  "acceptance": [
+    { "id": "PUB-01", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-060-independent-summary.json", "work/reviews/2026-09-15-publication-060-review.md", "work/evidence/2026-09-15-publication-061-independent-final-audit.json"], "rationale": "旧採用scope/HARD-03除外と元候補/旧配布物保持を原証拠から再確認。本文は完全不変。" },
+    { "id": "PUB-02", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-060-independent-summary.json", "work/evidence/2026-09-15-publication-060-byte-validation.json", "work/evidence/2026-09-15-publication-060-full.log", "work/evidence/2026-09-15-publication-061-independent-final-audit.json"], "rationale": "原0.6.0の全1067source/payload/index照合、全581pass/0fail/1skip、独立27passとfresh Git照合を再読。0.6.0配布物は現在も全files一致。" },
+    { "id": "PUB-03", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-060-independent-forward-result.json", "work/reviews/2026-09-15-publication-060-review.md"], "rationale": "旧0.4/0.5の真正payloadから0.6.0導入、各20案件files保持、backup/競合停止/案件内CLI次回plan/日本語手順を原証拠から再確認。" },
+    { "id": "PUB-04", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-060-independent-remote.json", "work/reviews/2026-09-15-publication-060-push-review.md"], "rationale": "原0.6.0公開SHA69ebf2eと当時のprivate origin/main一致、通常parent連鎖、全1067blob一致、workflow/check-runs各0の観測を再確認。CI成功は主張しない。" }
+  ]
+}

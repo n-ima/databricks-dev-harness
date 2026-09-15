@@ -1,0 +1,14 @@
+{
+  "at": "2026-09-15T02:35:38.550Z",
+  "command": [
+    "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+    "--test",
+    "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-MoNZf4\\existing project 0.6.0\\src\\example.test.mjs"
+  ],
+  "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-MoNZf4\\existing project 0.6.0",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "✔ existing product (0.6433ms)\nℹ tests 1\nℹ suites 0\nℹ pass 1\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 68.1526\n",
+  "stderr": ""
+}

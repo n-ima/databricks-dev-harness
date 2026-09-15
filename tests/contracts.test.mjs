@@ -7,7 +7,7 @@ import test from "node:test";
 import { installWorkloadCatalog } from "./helpers/workloads.mjs";
 
 import { connectDatabricks, doctorDatabricks } from "../tools/lib/databricks.mjs";
-import { acceptanceIds } from "../tools/lib/evidence.mjs";
+import { acceptanceIds, sealEvidence, validateReceipt } from "../tools/lib/evidence.mjs";
 import { answerIntake, approveIntake, createIntake } from "../tools/lib/intake.mjs";
 import { initLoop, recordLoop, runLoopIteration, setLoopGate, stopLoop } from "../tools/lib/loop.mjs";
 import { applyScaffold, planScaffold } from "../tools/lib/scaffold.mjs";
@@ -91,6 +91,41 @@ test("shared option parsing preserves repeated assignments and rejects escaping 
 test("Harness requirements expose all 20 stable acceptance IDs to the completion verifier", async () => {
   const requirement = await readFile(new URL("../docs/harness/requirements/HARNESS.md", import.meta.url), "utf8");
   assert.deepEqual(acceptanceIds(requirement), Array.from({ length: 20 }, (_, index) => `H-${String(index + 1).padStart(2, "0")}`));
+});
+
+test("Publication requirements use strict acceptance IDs before release", async () => {
+  for (const [name, prefix] of [["2026-09-15-safe-update-publication.md", "PUB"], ["2026-09-15-publication-receipt-correction.md", "FIX"]]) {
+    const requirement = await readFile(new URL(`../docs/harness/requirements/${name}`, import.meta.url), "utf8");
+    assert.deepEqual(acceptanceIds(requirement), [1, 2, 3, 4].map(n => `${prefix}-0${n}`));
+  }
+});
+
+test("Publication requirements seal real document bytes and retain rejection gates", async (t) => {
+  for (const name of ["2026-09-15-safe-update-publication.md", "2026-09-15-publication-receipt-correction.md"]) {
+    const requirement = await readFile(new URL(`../docs/harness/requirements/${name}`, import.meta.url), "utf8");
+    const ids = acceptanceIds(requirement);
+    const evidence = "work/evidence/fixture.md";
+    // All results below are simulated unit-test records, never release acceptance.
+    const review = { reviewer: "publication-unit-fixture", provider: "manual", independent: true,
+      acceptance: ids.map(id => ({ id, status: "pass", evidence: [evidence] })) };
+    const root = await fixture(t, { "docs/requirement.md": requirement, [evidence]: "Simulated fixture only.\n", "work/review.json": review,
+      "AGENTS.md": "Fixture policy only.\n", "harness.config.json": { maturity: "L1" }, "tools/agent-hook.mjs": "// Fixture policy only.\n" });
+    const options = { review: "work/review.json", session: "fixture-only", requirement: "docs/requirement.md", output: "work/receipt.json" };
+    await sealEvidence(root, options);
+    assert.equal((await validateReceipt(root, options.output)).status, "pass");
+    const passing = await readFile(join(root, options.output));
+    await writeJson(join(root, "work/review.json"), { ...review, acceptance: review.acceptance.slice(1) });
+    await assert.rejects(sealEvidence(root, options), /Missing acceptance criteria/);
+    assert.deepEqual(await readFile(join(root, options.output)), passing);
+    await writeJson(join(root, "work/review.json"), { ...review, acceptance: review.acceptance.map((ac, i) => i ? ac : { ...ac, status: "not-run" }) });
+    await sealEvidence(root, options);
+    await assert.rejects(validateReceipt(root, options.output), /Passing independent-verification receipt/);
+    const incomplete = await readFile(join(root, options.output));
+    await writeJson(join(root, "work/review.json"), review);
+    await writeFile(join(root, options.requirement), requirement.replace(ids[0] + ":", "P060-01:"));
+    await assert.rejects(sealEvidence(root, options), /Invalid acceptance ID/);
+    assert.deepEqual(await readFile(join(root, options.output)), incomplete);
+  }
 });
 
 test("Databricks connect rejects a profile/host mismatch before identity lookup or persistence", async (t) => {

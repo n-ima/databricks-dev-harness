@@ -1,0 +1,32 @@
+✖ Publication requirements use strict acceptance IDs before release (4.2717ms)
+✖ Publication requirements seal real document bytes and retain rejection gates (1.6291ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 71.7594
+
+✖ failing tests:
+
+test at tests\contracts.test.mjs:96:1
+✖ Publication requirements use strict acceptance IDs before release (4.2717ms)
+  Error: Invalid acceptance ID at line 12: P060-01
+      at failure (file:///D:/projects/databricks-dev-harness/tools/lib/acceptance.mjs:5:9)
+      at assertAcceptanceId (file:///D:/projects/databricks-dev-harness/tools/lib/acceptance.mjs:8:65)
+      at acceptanceIds (file:///D:/projects/databricks-dev-harness/tools/lib/acceptance.mjs:104:16)
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/contracts.test.mjs:99:22)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)
+
+test at tests\contracts.test.mjs:103:1
+✖ Publication requirements seal real document bytes and retain rejection gates (1.6291ms)
+  Error: Invalid acceptance ID at line 12: P060-01
+      at failure (file:///D:/projects/databricks-dev-harness/tools/lib/acceptance.mjs:5:9)
+      at assertAcceptanceId (file:///D:/projects/databricks-dev-harness/tools/lib/acceptance.mjs:8:65)
+      at acceptanceIds (file:///D:/projects/databricks-dev-harness/tools/lib/acceptance.mjs:104:16)
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/contracts.test.mjs:106:17)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)

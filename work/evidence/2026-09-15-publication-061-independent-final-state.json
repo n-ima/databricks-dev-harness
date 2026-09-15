@@ -1,0 +1,105 @@
+{
+  "at": "2026-09-15T02:39:19.672Z",
+  "temp": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-jafjLg",
+  "target": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-jafjLg\\existing project 0.6.0",
+  "plan": {
+    "status": "計画済み",
+    "target": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-jafjLg\\existing project 0.6.0",
+    "fromVersion": "0.6.0",
+    "toVersion": "0.6.1",
+    "source": {
+      "requested": "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.1-final\\.harness\\releases\\0.6.1",
+      "resolved": "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.1-final\\.harness\\releases\\0.6.1",
+      "kind": "release",
+      "identityAuthenticated": false
+    },
+    "plan": ".harness/updates/update-20260915-023919-592-3c910b40.json",
+    "canApply": true,
+    "counts": {
+      "keep": 1061,
+      "update": 6,
+      "add": 1
+    },
+    "conflicts": [],
+    "migrations": [
+      {
+        "type": "manual-review",
+        "paths": [
+          "package.json",
+          "package-lock.json",
+          "README.md",
+          ".vscode/",
+          "docs/product/",
+          "work/",
+          "apps/",
+          "resources/",
+          "src/"
+        ],
+        "description": "These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update."
+      }
+    ],
+    "next": "管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。"
+  },
+  "artifactPath": ".harness/updates/update-20260915-023919-592-3c910b40.json",
+  "changedOperations": [
+    {
+      "path": "docs/USAGE.md",
+      "action": "update",
+      "beforeSha256": "ca71a420995218688fa3e5cd67433d7cb91bd49c413cdfd23c0fc40b7034c742",
+      "afterSha256": "6774d414fc0927b5c0357e0d5040fa9bcdb56255c4ae669707dfbca77cf57a76"
+    },
+    {
+      "path": "docs/harness/operations/SAFE_LOCAL_UPDATE.md",
+      "action": "update",
+      "beforeSha256": "704971b5e303239ec013934d4e9806855afca828ddea37df2555f68d205bf6a0",
+      "afterSha256": "8f3acfe18f40ee6c31e0b1fe606d664ef964069b2860448e8cfb4ce8d7bbd103"
+    },
+    {
+      "path": "docs/harness/operations/VALIDATION_STATUS.md",
+      "action": "update",
+      "beforeSha256": "0be6295a5506308319ee14cde3977f159bf50e924dcd60dfd624f4898f85402a",
+      "afterSha256": "1736dd4b0d388ee0459336d55c6ee8db25ada1668ee440c0a3f50257f8c5252d"
+    },
+    {
+      "path": "docs/harness/requirements/2026-09-15-publication-receipt-correction.md",
+      "action": "add",
+      "beforeSha256": null,
+      "afterSha256": "b5e93dc3aff49d8e3b4aa409206b50147c919b01c0f537e155ed3b34b5683df6"
+    },
+    {
+      "path": "docs/harness/requirements/2026-09-15-safe-update-publication.md",
+      "action": "update",
+      "beforeSha256": "15987f8d186a76f2988727e53faeda3e3e864e972b43b810eabdde91b68ce026",
+      "afterSha256": "9ff8c0fa3cf116d52a0ad2b56f14909cc7980695ae081b936d02fb2eb54729a6"
+    },
+    {
+      "path": "harness.config.json",
+      "action": "update",
+      "beforeSha256": "0c155b702af554a0790add3fbbca3bf0baa9fee419a0e807720d7b0d414a352a",
+      "afterSha256": "a09ae3542f060464adafdd1088b3e85b6e8e463c00c9d0ffe7561306a25a8a41"
+    },
+    {
+      "path": "tests/contracts.test.mjs",
+      "action": "update",
+      "beforeSha256": "4989e13825c7875a1e5ef2cc10b2230ed1894805bdc3366a6e27c7da7a2ebadf",
+      "afterSha256": "74918a8ec713da0c788520208deedd2fb129dbe95e27680adf191e4ba7fe5575"
+    }
+  ],
+  "oldManifestSha256": "4f5b27da15fc53f59a69b230bca0e8bf83319d2147ed36ad9c478aaf1637209c",
+  "baselineSha256": "8ce9bf2ba8708bd567af2743dbaca20b5c4dca80004cb8cda8f681de3221aefb",
+  "protected": {
+    "product.config.json": "a22ae02f82cf4ee2df55dafdc79b1effb722deaffbaac4f2b30c6d40976c3896",
+    "package.json": "de7c1fee5f07abcf81797f03e72dd1d0259bdd352bca7bb981690687e83cb504",
+    "package-lock.json": "8d3fa422531967bad76b8d866233a813516661654dd1467de5c3255190a2520f",
+    "README.md": "49f4f3d05c73597c5603dda684e995c4663bc3862dc086cec15bf135ed725e77",
+    "docs/product/requirements/example.md": "23ccd2a3c31990a8b692a5eecb875262b703bf47f27b0f7432a14108971f0d13",
+    "work/sessions/existing.md": "e6bc1f8723fc9e1156f46ef260540350ea3d82c36af2fd53dc65ce7742e8791b",
+    "src/example.mjs": "8d98caf9f6d2a2f35e3a9ff73a822fe0dd134000e3fbb33513c5403de140d47a",
+    "src/example.test.mjs": "a6e826190fed84cf35de00601b1882ea24fcfe511cfb2af50c742a23e1e53450",
+    "apps/existing.bin": "6171db06a1c89b1ff8ab77e479d5df976ccd88a7b63567b4b18f413649e12ff3",
+    ".env": "9fbaa051f978f79d8e2871bf9d3a06a74c37d389717c0d00d4772c006b220ac2",
+    ".vscode/settings.json": "6dbd2442fd255ebad402af10da35f15bb5f3723b1404b0384feee3fa69e0ec4f",
+    ".harness/local.json": "fc4ae3253af97ccdf78e1a3755bad2876ee0527d4212d66ea3656e71fca7ccda"
+  },
+  "incomingManifestSha256": "d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d"
+}

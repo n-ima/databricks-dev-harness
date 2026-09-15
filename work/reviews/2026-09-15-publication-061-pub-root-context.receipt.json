@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "20260915-013942-357-publish-safe-update-0-6-0",
+  "requirement": "docs/harness/requirements/2026-09-15-safe-update-publication.md",
+  "status": "pass",
+  "reviewer": "/root/publication_061_review",
+  "provider": "codex",
+  "independent": true,
+  "provenance": {
+    "type": "review-record",
+    "source": "work/reviews/2026-09-15-publication-061-pub-acceptance.json",
+    "identityAuthenticated": false
+  },
+  "acceptance": [
+    {
+      "id": "PUB-01",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-publication-060-independent-summary.json",
+        "work/reviews/2026-09-15-publication-060-review.md",
+        "work/evidence/2026-09-15-publication-061-independent-final-audit.json"
+      ],
+      "rationale": "旧採用scope/HARD-03除外と元候補/旧配布物保持を原証拠から再確認。本文は完全不変。"
+    },
+    {
+      "id": "PUB-02",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-publication-060-independent-summary.json",
+        "work/evidence/2026-09-15-publication-060-byte-validation.json",
+        "work/evidence/2026-09-15-publication-060-full.log",
+        "work/evidence/2026-09-15-publication-061-independent-final-audit.json"
+      ],
+      "rationale": "原0.6.0の全1067source/payload/index照合、全581pass/0fail/1skip、独立27passとfresh Git照合を再読。0.6.0配布物は現在も全files一致。"
+    },
+    {
+      "id": "PUB-03",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-publication-060-independent-forward-result.json",
+        "work/reviews/2026-09-15-publication-060-review.md"
+      ],
+      "rationale": "旧0.4/0.5の真正payloadから0.6.0導入、各20案件files保持、backup/競合停止/案件内CLI次回plan/日本語手順を原証拠から再確認。"
+    },
+    {
+      "id": "PUB-04",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-publication-060-independent-remote.json",
+        "work/reviews/2026-09-15-publication-060-push-review.md"
+      ],
+      "rationale": "原0.6.0公開SHA69ebf2eと当時のprivate origin/main一致、通常parent連鎖、全1067blob一致、workflow/check-runs各0の観測を再確認。CI成功は主張しない。"
+    }
+  ],
+  "artifactHashes": {
+    "work/reviews/2026-09-15-publication-061-pub-acceptance.json": "2c20c5f6c75ae62b6d4c72fb2ca26e2f838c2cd5e97e3c99f6fe8d7c53fd1ece",
+    "docs/harness/requirements/2026-09-15-safe-update-publication.md": "9ff8c0fa3cf116d52a0ad2b56f14909cc7980695ae081b936d02fb2eb54729a6",
+    "work/evidence/2026-09-15-publication-060-independent-summary.json": "f861c622b821d1c171bac5ba890694d53631a3f558d04d86f6856036d60f4ae3",
+    "work/reviews/2026-09-15-publication-060-review.md": "9246d8fcf81bbc7fbcab44a1b4243ae0986e3eac84fecafe903ac437749e9cb3",
+    "work/evidence/2026-09-15-publication-061-independent-final-audit.json": "bd29b9de7a01c671e504bc0493c69317c8b04d1f141f2c2691f53ad0859cab60",
+    "work/evidence/2026-09-15-publication-060-byte-validation.json": "ec963b5eeb5e175b96c5f6dec0c61838776eb26d42c5d41981fe9a72a4d826fd",
+    "work/evidence/2026-09-15-publication-060-full.log": "7c4cc62922dc0d652fd064f2feee3de27569b3c769a8f7219fb4115638de0c4f",
+    "work/evidence/2026-09-15-publication-060-independent-forward-result.json": "c5655d6611969b6760e77e3896a65c2aef7ecdbab72c48e9abe586ca0b79149b",
+    "work/evidence/2026-09-15-publication-060-independent-remote.json": "515f12d8175a5d5ef6a303f5923717d92e919b5b6b9c81e1dbe41f0b468ac8dd",
+    "work/reviews/2026-09-15-publication-060-push-review.md": "570a138af88fc6fd469fa1072563d64323f574ce0d934c2c79cd88ccda39baad"
+  },
+  "policyHash": "06da95a5708b81086a8bd08f9d6cfe8196451ded8b0efdcb4b42c23667e0d946",
+  "createdAt": "2026-09-15T02:42:45Z"
+}

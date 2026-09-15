@@ -1,0 +1,57 @@
+{
+  "at": "2026-09-15T02:42:45.456Z",
+  "reviewer": "/root/publication_061_review",
+  "status": "pass",
+  "meaning": "正式review JSONでseal形式確認済み。旧PUBはpass、FIX-04 not-runはfail receiptとなり完了検証を拒否。0.6.1公開成功を示さない。",
+  "manifestSha256": "d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d",
+  "old": {
+    "review": "work/reviews/2026-09-15-publication-061-pub-acceptance.json",
+    "receipt": "work/reviews/2026-09-15-publication-061-pub.receipt.json",
+    "status": "pass",
+    "acceptance": [
+      {
+        "id": "PUB-01",
+        "status": "pass"
+      },
+      {
+        "id": "PUB-02",
+        "status": "pass"
+      },
+      {
+        "id": "PUB-03",
+        "status": "pass"
+      },
+      {
+        "id": "PUB-04",
+        "status": "pass"
+      }
+    ]
+  },
+  "preflight": {
+    "review": "work/reviews/2026-09-15-publication-061-preflight-acceptance.json",
+    "receipt": "work/reviews/2026-09-15-publication-061-preflight.receipt.json",
+    "status": "fail",
+    "acceptance": [
+      {
+        "id": "FIX-01",
+        "status": "pass"
+      },
+      {
+        "id": "FIX-02",
+        "status": "pass"
+      },
+      {
+        "id": "FIX-03",
+        "status": "pass"
+      },
+      {
+        "id": "FIX-04",
+        "status": "not-run"
+      }
+    ],
+    "completionRejected": true,
+    "error": "Passing independent-verification receipt with a known provider is required."
+  },
+  "identityAuthenticated": false,
+  "pushExecuted": false
+}

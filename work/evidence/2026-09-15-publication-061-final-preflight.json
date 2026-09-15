@@ -1,0 +1,26 @@
+{
+  "at": "2026-09-15T02:49:28.748Z",
+  "status": "pass",
+  "snapshot": "D:\\projects\\databricks-dev-harness\\.harness\\runtime\\publish-0.6.1-final",
+  "results": [
+    {
+      "kind": "pub",
+      "review": "work/reviews/2026-09-15-publication-061-pub-acceptance.json",
+      "output": "work/reviews/2026-09-15-publication-061-pub.receipt.json",
+      "status": "pass",
+      "previousPolicyHash": "06da95a5708b81086a8bd08f9d6cfe8196451ded8b0efdcb4b42c23667e0d946",
+      "finalPolicyHash": "e714fc0a712819822a5fc21d2fa17e179f0562124d99c2a43b1bc2da30d39fe5",
+      "completionRejected": false
+    },
+    {
+      "kind": "preflight",
+      "review": "work/reviews/2026-09-15-publication-061-preflight-acceptance.json",
+      "output": "work/reviews/2026-09-15-publication-061-preflight.receipt.json",
+      "status": "fail",
+      "previousPolicyHash": "06da95a5708b81086a8bd08f9d6cfe8196451ded8b0efdcb4b42c23667e0d946",
+      "finalPolicyHash": "e714fc0a712819822a5fc21d2fa17e179f0562124d99c2a43b1bc2da30d39fe5",
+      "completionRejected": true
+    }
+  ],
+  "note": "独立レビュー本文は不変。最初のreceiptは未採用変更を含むroot policyで発行されたため履歴として保存し、公開対象だけのsnapshotで再発行・検証。旧PUBは完了可能、未公開FIXは引き続き完了拒否。実案件とDatabricksへの変更なし。"
+}

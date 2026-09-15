@@ -1,0 +1,31 @@
+{
+  "at": "2026-09-15T02:40:11.778Z",
+  "status": "pass",
+  "manifestSha256": "d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d",
+  "from": "0.6.0",
+  "to": "0.6.1",
+  "target": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-061-forward-jafjLg\\existing project 0.6.0",
+  "planCounts": {
+    "keep": 1061,
+    "update": 6,
+    "add": 1
+  },
+  "allManagedMatch": true,
+  "managedFiles": 1068,
+  "protectedFiles": 12,
+  "allProtectedMatch": true,
+  "backupCount": 6,
+  "oldBaseManifestPreserved": true,
+  "conflictPlanAndApplyRejected": true,
+  "rejectionLeavesBytesAndBaselineUnchanged": true,
+  "installedVersion": "0.6.1",
+  "nextPlanCounts": {
+    "keep": 1068
+  },
+  "productBeforeAfterPass": true,
+  "newProcessResumesSession": true,
+  "oldReleasesUnchanged": true,
+  "rootCandidateUnchanged": true,
+  "realProjectOrDatabricksChanged": false,
+  "networkUsed": false
+}

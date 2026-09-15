@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/publication_061_review",
+  "provider": "codex",
+  "independent": true,
+  "requirement": "docs/harness/requirements/2026-09-15-publication-receipt-correction.md",
+  "snapshot": ".harness/runtime/publish-0.6.1-final",
+  "manifestSha256": "d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d",
+  "acceptance": [
+    { "id": "FIX-01", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-061-independent-final-audit.json", "work/reviews/2026-09-15-publication-061-review.md"], "rationale": "原公開要件の全文は4ID以外完全一致。既存parserとsealの成功/旧ID・欠落・重複・未知ID拒否とnot-runの完了拒否を独立実行。" },
+    { "id": "FIX-02", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-061-red.log", "work/evidence/2026-09-15-publication-061-green.log", "work/evidence/2026-09-15-publication-061-full.log", "work/evidence/2026-09-15-publication-061-independent-final-check.json", "work/evidence/2026-09-15-publication-061-independent-final-contracts.json", "work/reviews/2026-09-15-publication-061-review.md"], "rationale": "実文書の2red→2green、最終584件/583pass/0fail/1skipを確認。独立check・contracts58件成功。" },
+    { "id": "FIX-03", "status": "pass", "evidence": ["work/evidence/2026-09-15-publication-061-bytes.json", "work/evidence/2026-09-15-publication-061-independent-final-audit.json", "work/evidence/2026-09-15-publication-061-independent-final-forward.json", "work/reviews/2026-09-15-publication-061-review.md"], "rationale": "最終全1068source/payload/index一致。隔離0.6.0→0.6.1、案件12filesと旧base保持・競合拒否・backup・次回planを独立確認。旧3配布物と元候補を保持。" },
+    { "id": "FIX-04", "status": "not-run", "evidence": [], "rationale": "公開前。実レビューのseal形式とnot-run完了拒否をこのJSONで確認する。pushとremote/CI観測は未実施で、完了と扱わない。" }
+  ]
+}
