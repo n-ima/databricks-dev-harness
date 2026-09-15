@@ -73,7 +73,7 @@ function shape(c) {
     list(r.evidence,'review evidence');r.evidence.forEach(ref);
   }
 }
-async function reader(root) {
+export async function reader(root, { fileLimit = LIMIT, totalLimit = 16 * LIMIT, maxFiles = 128 } = {}) {
   const base=resolve(root);let p=base;
   for(;;){const st=await lstat(p);if(st.isSymbolicLink())problem('UNSAFE_ARTIFACT','root may not traverse links');if(dirname(p)===p)break;p=dirname(p);}
   const cache=new Map();let total=0;
@@ -82,19 +82,19 @@ async function reader(root) {
     const parts=value.split('/');
     if(parts.some(part=>!part||part==='.'||part==='..'||/[. ]$/.test(part)||/^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(part)||part.startsWith('.')||['node_modules','vendor'].includes(part)))problem('UNSAFE_ARTIFACT','unsafe artifact path');
     if(cache.has(value))return cache.get(value);
-    if(cache.size>=128)problem('UNSAFE_ARTIFACT','too many artifact files');
+    if(cache.size>=maxFiles)problem('UNSAFE_ARTIFACT','too many artifact files');
     let target=base;
     for(const part of parts){target=join(target,part);const st=await lstat(target);if(st.isSymbolicLink())problem('UNSAFE_ARTIFACT','artifact may not traverse links');}
     if(!target.startsWith(base+sep))problem('UNSAFE_ARTIFACT','artifact escapes root');
-    const st=await lstat(target);if(!st.isFile()||st.size===0||st.size>LIMIT)problem('UNSAFE_ARTIFACT','artifact must be a non-empty regular file at most 1 MiB');
+    const st=await lstat(target);if(!st.isFile()||st.size===0||st.size>fileLimit)problem('UNSAFE_ARTIFACT','artifact must be a non-empty regular file within byte limit');
     const handle=await open(target,'r');let bytes;
     try {
       const opened=await handle.stat();if(!opened.isFile()||opened.dev!==st.dev||opened.ino!==st.ino)problem('UNSAFE_ARTIFACT','artifact changed during open');
-      const buffer=Buffer.alloc(LIMIT+1);let count=0;
+      const buffer=Buffer.alloc(fileLimit+1);let count=0;
       while(count<buffer.length){const read=await handle.read(buffer,count,buffer.length-count,null);if(!read.bytesRead)break;count+=read.bytesRead;}
-      if(!count||count>LIMIT)problem('UNSAFE_ARTIFACT','artifact exceeds byte limit');bytes=buffer.subarray(0,count);
+      if(!count||count>fileLimit)problem('UNSAFE_ARTIFACT','artifact exceeds byte limit');bytes=buffer.subarray(0,count);
     } finally {await handle.close();}
-    total+=bytes.length;if(total>16*LIMIT)problem('UNSAFE_ARTIFACT','artifact byte budget exceeded');
+    total+=bytes.length;if(total>totalLimit)problem('UNSAFE_ARTIFACT','artifact byte budget exceeded');
     cache.set(value,bytes);return bytes;
   };
 }
@@ -171,6 +171,15 @@ if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).hr
 
 /** Stable read-only harness entry point; payload commands are inert records. */
 export async function deliveryCommand(root, action, args) {
+  if (['ui-init','ui-check','ui-hash','ui-approval-check'].includes(action)) {
+    const { uiCommand } = await import('./ui-contract.mjs');
+    try { return await uiCommand(root, action, args); }
+    catch (error) {
+      const { redact } = await import('./shared.mjs');
+      const message = error.message?.startsWith('UI contract:') ? redact(error.message) : 'UI契約/参照ファイル/引数を読み取れません。対象と形式を確認してください。';
+      return {mode:action,valid:false,certifiesAppearance:false,identityAuthenticated:false,findings:[{code:'UI_CONTRACT_INVALID',message}],summary:'UI確認は未完了です。表示された不足を解決し、必要な再レビュー・再承認を行ってください。'};
+    }
+  }
   if (!['check','hashes'].includes(action)) throw new Error('delivery check|hashes を指定してください。');
   const options = {};
   for (let n=0;n<args.length;n+=2) {

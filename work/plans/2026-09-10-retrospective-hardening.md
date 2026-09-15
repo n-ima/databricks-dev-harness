@@ -18,7 +18,7 @@ status: in-progress
 | --- | --- | --- | --- |
 | HIMP-01 | HARD-01 | high | 正式採用済み（ローカル、未公開）。専用47成功・関連169成功・独立28成功、指摘3件解消。全8項目のreceiptは未作成のためtaskのverifyingは維持。 |
 | HIMP-02 | HARD-02 | high | simulation-only runner/固定CLIを正式採用（ADR-0007）。独立4指摘解消、専用62pass・独立32pass、全回帰457pass/1skip。live adapter・公開・全要件完了は未実施。 |
-| HIMP-03 | HARD-03 | high | 計画。既存approvalを拡張し、範囲一致を機械検証する。 |
+| HIMP-03 | HARD-03 | high | ローカル承認scope台帳・引継ぎ照合を実装・独立再review済み。SIR-01解消、専用52pass、独立32pass、全体556pass/1skip。限定候補の正式採用待ち。旧gateの解除やlive実行統合はしない。 |
 | HIMP-04 | HARD-04 | medium | 計画。既存task表示とは別に製品稼働の観測を扱う。 |
 | HIMP-05 | HARD-05 | high | 計画。実環境の接続・権限・費用は別途人の判断が必要。 |
 | HIMP-06 | HARD-06 | medium | 計画。CLI/AppKit版ごとのclean生成を実測する。 |
@@ -40,3 +40,7 @@ HIMP-*は要件IDとして継続。最初の同名taskはriskの既定lowを訂�
 同じ投稿で蓄積した改善のprivate source pushも承認済み。上の未公開表記は
 採用時点の履歴であり、送信の結果はgitのcommit/remoteとチャットの確認結果を参照する。
 次の実装はHARD-03/04/07。全8要件の完了や実環境配備とは区別する。
+
+再開: ハーネスはGitHub/PC/CI、配備対象は案件成果物という境界を明示した。
+HARD-03の限定sliceから再開し、[新しい証拠](../evidence/2026-09-10-scoped-approval.md)へ記録。
+HARD-04は承認台帳と案件成果物の観測を分ける後続slice。前回commitのCIは依然未観測。

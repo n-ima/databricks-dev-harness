@@ -1,0 +1,922 @@
+✔ acceptance grammar preserves legacy IDs and recognizes namespaced IDs and checkboxes (5.7629ms)
+✔ acceptance examples in fenced blocks are not live criteria (0.3859ms)
+✔ frontmatter and comments are inert, and setext/ATX section boundaries are explicit (0.8815ms)
+✔ legacy headingless mode rejects ambiguous definition "- ac-02: lowercase.\n" (0.1741ms)
+✔ legacy headingless mode rejects ambiguous definition "1. AC-D01: ordered.\n" (0.277ms)
+✔ legacy headingless mode rejects ambiguous definition "| AC-D01 | table |\n" (0.2359ms)
+✔ legacy headingless mode rejects ambiguous definition "- **AC-D01**: formatted.\n" (0.1492ms)
+✔ legacy headingless mode rejects ambiguous definition "- AC-D01：fullwidth colon.\n" (0.1285ms)
+✔ legacy headingless mode rejects ambiguous definition "    - AC-D01: indented.\n" (0.1274ms)
+✔ legacy headingless mode rejects ambiguous definition "> - AC-D01: quoted.\n" (0.1539ms)
+✔ legacy headingless mode rejects ambiguous definition "- [✓] AC-D01: unsupported checkbox.\n" (0.1151ms)
+✔ legacy headingless mode rejects ambiguous definition "- AC​-02: hidden character.\n" (0.2424ms)
+✔ legacy headingless mode rejects ambiguous definition "- ＡＣ-０２: non-ASCII.\n" (0.2925ms)
+✔ legacy headingless mode rejects ambiguous definition "  - AC-D01: nested.\n" (0.1418ms)
+✔ legacy headingless mode rejects ambiguous definition "### AC-D01: heading.\n" (0.1269ms)
+✔ legacy headingless mode rejects ambiguous definition "<div>\n- AC-D01: HTML.\n</div>\n" (0.0908ms)
+✔ legacy headingless mode rejects ambiguous definition "# H-D01 must be verified\n" (0.0643ms)
+✔ legacy headingless mode rejects ambiguous definition "# **AC-D01** must be verified\n" (0.0338ms)
+✔ legacy headingless mode rejects ambiguous definition "• AC-D01: Unicode bullet requirement\n" (0.055ms)
+✔ legacy headingless mode rejects ambiguous definition "​• AC-D01: hidden prefix\n" (0.0583ms)
+✔ malformed metadata, comments and example fences are rejected, not used to hide criteria (0.2518ms)
+✔ acceptance rejects empty rather than silently dropping criteria (0.0928ms)
+✔ acceptance rejects invalid ID rather than silently dropping criteria (0.0911ms)
+✔ acceptance rejects duplicate rather than silently dropping criteria (0.0781ms)
+✔ acceptance rejects empty body rather than silently dropping criteria (0.0864ms)
+✔ acceptance rejects lowercase rather than silently dropping criteria (0.0636ms)
+✔ acceptance rejects missing colon rather than silently dropping criteria (0.0569ms)
+✔ acceptance rejects numbered rather than silently dropping criteria (0.0573ms)
+✔ acceptance rejects table rather than silently dropping criteria (0.8984ms)
+✔ acceptance rejects formatted rather than silently dropping criteria (0.0694ms)
+✔ acceptance rejects plain bullet rather than silently dropping criteria (0.0748ms)
+✔ acceptance rejects unclosed fence rather than silently dropping criteria (0.2156ms)
+✔ AC-D01 survives seal, validate, and session completion with full independent fixture evidence (354.6119ms)
+✔ seal rejects mixed omitted without writing a receipt or changing session (226.9299ms)
+✔ seal rejects extra without writing a receipt or changing session (43.9422ms)
+✔ seal rejects invalid without writing a receipt or changing session (72.9477ms)
+✔ seal rejects duplicate review without writing a receipt or changing session (33.9429ms)
+✔ duplicate requirement definitions cannot be sealed (48.126ms)
+✔ receipt use revalidates exact coverage and refuses completing a forged incomplete receipt (227.5836ms)
+✔ existing requirement approval rejects invalid definitions before any record changes (31.1129ms)
+✔ intake generation uses valid IDs and approval rejects malformed edited requirements before mutation (1135.9409ms)
+✔ intake validates its final rendered answer ledger before changing any artifact or existing approval (607.2354ms)
+✔ product approval rejects concurrent requirement contents without approving (140.8441ms)
+✔ product approval rejects concurrent session requirement pointer without approving (107.8224ms)
+✔ seal rejects changed validated input docs/product/requirements/fixture.md (126.7974ms)
+✔ seal rejects changed validated input work/reviews/fixture.json (89.0637ms)
+✔ receipt coverage is parsed from the same bytes as its validated requirement hash (111.3307ms)
+✔ UI approval rejects approximate HTML without runtime correspondence and preserves the pending gate (40.1942ms)
+✔ mock approval binds executable artifacts and updates the active session (432.561ms)
+✔ mock approval cannot skip pending product intent (38.0484ms)
+✔ mock approval requires a real session, human evidence, and executable artifacts (32.816ms)
+✔ existing accepted requirements can be approved but intake questions cannot be bypassed (85.1405ms)
+✔ shared option parsing preserves repeated assignments and rejects escaping paths (12.5067ms)
+✔ Harness requirements expose all 20 stable acceptance IDs to the completion verifier (16.0161ms)
+✔ Publication requirements use strict acceptance IDs before release (17.2717ms)
+✔ Publication requirements seal real document bytes and retain rejection gates (446.9019ms)
+✔ Databricks connect rejects a profile/host mismatch before identity lookup or persistence (3.0081ms)
+✔ Databricks connect rejects malformed auth JSON without recording a verified connection (3.6811ms)
+✔ Databricks connect rejects auth JSON reporting an error even when the process exited zero (2.7439ms)
+✔ Databricks connect requires a host on the selected profile to prove workspace identity (2.4978ms)
+✔ Databricks connect persists only non-secret verified connection metadata (84.3848ms)
+✔ Databricks doctor detects project/profile host mismatch and does not validate the wrong workspace (30.3342ms)
+✔ Databricks doctor uses strict Bundle validation with the explicitly selected profile and target (24.4973ms)
+✖ AppKit manifest contracts preserve required plugins, optional selection, resource origins, and scoped rules (81.1543ms)
+✖ AppKit planning reports required user resources but never demands optional/platform/local/fixed values (90.0623ms)
+✔ AppKit planning refuses unknown optional plugins and undeclared resource assignments (44.6505ms)
+✔ AppKit planning refuses contradictory must and never manifest rules (87.0746ms)
+✔ AppKit mandatory data plugins require the same data-access decision as optional selections (83.3284ms)
+✔ AppKit optional resources become required only when that resource group is selected (81.8473ms)
+✔ AppKit refuses caller assignments to platform-managed manifest fields (64.8583ms)
+✔ AppKit planning waits for mock approval and before-init MUST evidence (81.388ms)
+✔ AppKit rule approval must bind the exact manifest snapshot (92.306ms)
+✔ AppKit planning rejects mutable template versions before consulting a manifest (38.0792ms)
+✖ AppKit validation failure is persisted as a failed scaffold, not a reusable ready plan (112.1464ms)
+✔ AppKit fixture-only mock still requires explicit workspace authentication, not business-data access (94.1586ms)
+✔ AppKit mock does not invent a profile or authenticate when profile and host are omitted (148.1577ms)
+✔ AppKit mock rejects DEFAULT and implicit authentication requests (52.5344ms)
+✔ AppKit profile-host mismatch is rejected before authenticating the unexpected workspace (109.7348ms)
+✖ AppKit rechecks workspace identity immediately before init (116.0561ms)
+✔ AppKit integration rejects mock approval without executable artifact hashes (65.3897ms)
+✖ AppKit integration rejects a changed approved fixture before any init or auth recheck (89.0308ms)
+✔ Intake copies repository sources with hashes and an explicit untrusted-input classification (272.1422ms)
+✔ Intake refuses product approval while any material question is unanswered (379.2784ms)
+✔ Intake approval succeeds only after all material answers and records actor/evidence (822.427ms)
+✔ Intake approval updates the canonical requirement and durable session gate consistently (865.0629ms)
+✔ Changing an accepted material answer invalidates the previous product approval (826.9277ms)
+✔ Ordinary Japanese intake does not require the user to invent an ASCII project slug (96.7064ms)
+✔ Loop initialization rejects non-integer iteration budgets (54.5083ms)
+✔ Loop-generated budget fields conform to the published closed budget schema (60.9774ms)
+✔ Loop iteration budget exhaustion is durable and starts no provider process (80.2706ms)
+✔ Loop wall-clock budget exhaustion is durable and starts no provider process (81.7905ms)
+✔ Loop process timeouts are capped by the remaining wall-clock budget (113.7037ms)
+✔ Loop policy hash changes block execution before a provider is started (66.7393ms)
+✔ Loop detects policy tampering performed during the provider iteration (100.38ms)
+✔ Loop pending human gates block all provider execution (79.5388ms)
+✔ Loop refuses a second iteration while the previous iteration has not been recorded (101.2389ms)
+✔ Loop provider failure persists a terminal failure and skips deterministic checks (95.2003ms)
+✔ Loop completion refuses missing implementation or verifier evidence and remains unfinished (119.3092ms)
+✔ Loop completion refuses evidence paths that do not exist (132.9612ms)
+✔ Loop completion refuses failed deterministic checks even when evidence files exist (138.796ms)
+✔ Loop completion does not treat an empty verifier file as independent verification (162.1238ms)
+✔ Loop completion does not accept a directory as implementation evidence (114.118ms)
+✔ Loop completion rechecks the policy hash after implementation and before achievement (121.299ms)
+✔ Loop achievement accepts a matching independent receipt covering every requirement criterion (140.9414ms)
+✔ Loop achievement rejects an independent receipt missing an acceptance criterion (144.2342ms)
+✔ Loop achievement rejects a receipt from the implementing provider (138.3931ms)
+✔ Loop achievement rejects evidence changed after independent review (189.6686ms)
+✔ Loop achievement rejects acceptance evidence that is missing or not bound by an artifact hash (163.1397ms)
+✔ Loop record rejects undeclared outcome values instead of silently treating them as progress (127.456ms)
+✔ Operator stop cannot bypass the evidence-backed achieved transition (63.145ms)
+✔ profile inventory never validates credentials and sanitizes overrides without reading their values (3.3828ms)
+✔ connect accepts unvalidated inventory and authenticates only the explicitly selected profile (44.7427ms)
+✔ explicit profile connection refuses expanded credential precedence before any CLI operation (9.0076ms)
+✔ connect rejects auth host drift after profile inventory before identity lookup or persistence (14.1612ms)
+✔ doctor rejects credential overrides and never starts a selected-profile authentication (168.9976ms)
+✔ doctor enforces CLI >= 1.6.0 and < 2.0.0 before workspace operations (162.7122ms)
+✔ doctor without a profile only inventories unvalidated profiles and never chooses one (48.3906ms)
+✔ doctor does not trust stale inventory valid flags and fails closed on error JSON (99.5202ms)
+✔ valid synthetic records have no diagnostics but never certify acceptance (53.8107ms)
+✔ design supports not-run results without calling them executed (316.7031ms)
+✔ missing requirement mapping (26.2114ms)
+✔ duplicate test (20.3294ms)
+✔ unknown reference (82.6819ms)
+✔ missing expected result (58.5871ms)
+✔ uncovered requirement (48.0895ms)
+✔ uncovered risk (261.3128ms)
+✔ missing API negative case (177.6253ms)
+✔ source API operation omitted (224.4887ms)
+✔ missing API concern (256.9736ms)
+✔ unjustified N/A (149.8018ms)
+✔ missing operations (115.6145ms)
+✔ unexecuted (25.5634ms)
+✔ local cannot prove dev (20.8895ms)
+✔ stale execution (26.2451ms)
+✔ missing evidence (85.2153ms)
+✔ same context (127.5479ms)
+✔ same actor (98.3598ms)
+✔ review misses risk (135.7007ms)
+✔ review before new results (129.0517ms)
+✔ unsupported schema (122.6848ms)
+✔ unknown top-level typo (107.0127ms)
+✔ stale file is detected without modifying it (129.2101ms)
+✔ reject path ../secret (111.8595ms)
+✔ reject path C:/secret (99.5297ms)
+✔ reject path docs/../secret (68.929ms)
+✔ reject path docs\secret (102.545ms)
+✔ reject path .git/config (87.0547ms)
+✔ reject path docs/.env (108.976ms)
+✔ reject path docs/NUL (132.9973ms)
+✔ reject path https://example.com/api (80.994ms)
+✔ reject a directory junction (20.8859ms)
+✔ malformed structures fail as diagnostics not crashes (17.2663ms)
+✔ commands in cases remain inert data (74.1789ms)
+✔ independent baseline has no diagnostics (99.3293ms)
+✔ independent requirement omission cannot pass with resealed records (99.2652ms)
+✔ independent duplicate source operation IDs cannot pass (36.6188ms)
+✔ independent additionalOperations omitted inventory must be diagnosed (28.7602ms)
+✔ independent source operation removal is diagnosed (68.3917ms)
+✔ independent identical positive and negative case is diagnosed (171.4712ms)
+✔ independent duplicate concern and missing one are diagnosed (36.8128ms)
+✔ independent evidence bytes change is diagnosed (160.7866ms)
+✔ independent evidence reference update invalidates review (226.9405ms)
+✔ independent implementation digest update invalidates result (117.6454ms)
+✔ independent same context is rejected after reseal (216.9774ms)
+✔ independent duplicate coverage entry is diagnosed (164.6181ms)
+✔ independent not-run is not passed (167.1688ms)
+✔ independent blocked is not passed (134.9939ms)
+✔ independent fail is not passed (112.2266ms)
+✔ independent empty artifact is rejected (130.919ms)
+✔ independent 1 MiB artifact is permitted (98.7382ms)
+✔ independent oversized artifact is rejected (46.4548ms)
+✔ independent cumulative byte limit is enforced (145.5716ms)
+✔ independent file count limit is enforced (944.419ms)
+✔ independent CLI valid, diagnostic, and input error exits (407.3367ms)
+✔ session reference drift stops before deploy even with identical requirement bytes (615.5054ms)
+✔ session inactive drift stops before deploy even with identical requirement bytes (532.5799ms)
+✔ session gate drift stops before deploy even with identical requirement bytes (776.5817ms)
+✔ session progress text can change without changing bound intent (2310.0678ms)
+✔ rejects junction at excluded root or output ancestor: app/node_modules (224.4026ms)
+✔ rejects junction at excluded root or output ancestor: work/simulations (194.0485ms)
+✔ rejects junction at excluded root or output ancestor: .harness/runtime (188.8267ms)
+✔ nested src/build is source, not a generated-root exclusion (354.4534ms)
+✔ sync work past stage deadline cannot win Promise.race (557.8432ms)
+✔ overall deadline includes preflight and no late result can restore success (579.9463ms)
+✔ lost result and stop writes leave durable deployment entry uncertain with no downstream calls (1117.2237ms)
+✔ rejects untrusted health result: run (2255.8902ms)
+✔ rejects untrusted health result: extra (1931.0967ms)
+✔ rejects untrusted health result: future (2125.503ms)
+✔ rejects untrusted health result: old (1867.1026ms)
+✔ rejects untrusted health result: calendar (1652.0956ms)
+✔ rejects untrusted health result: live-url (1359.776ms)
+✔ show rejects altered schema, event order and success fields even after hash recomputation (1320.4937ms)
+✔ CLI rejects unknown, duplicate, missing and live options before creating records (90.3989ms)
+✔ fixed CLI scenarios cannot promote a synthetic observation into live success (5081.275ms)
+✔ public CLI uses real dispatcher and safe exit codes on isolated fixtures (2879.315ms)
+✔ policy directory junction is rejected capture even with equal bytes (99.6259ms)
+✔ policy directory junction is rejected validate even with equal bytes (240.1657ms)
+✔ policy raw byte changes invalidate candidate even when legacy UTF-8 digest collides (371.1669ms)
+✔ dispatcher bytes are bound independently of the legacy verifier policy hash (311.629ms)
+✔ synthetic health cannot store a path payload (917.5695ms)
+✔ stopped event cannot jump over unentered stages even with a recomputed hash (211.3787ms)
+✔ candidate binds input roles and ignores only declared generated/dependency roots (124.0654ms)
+✔ successful flow records simulation identity, ordered operations and freshness without claiming live (886.0083ms)
+✔ failure or incomplete terminal at validate stops all downstream calls {"status":"failed"} (200.4387ms)
+✔ failure or incomplete terminal at validate stops all downstream calls {"status":"passed","checks":["build","typecheck","lint"]} (220.4967ms)
+✔ failure or incomplete terminal at deploy stops all downstream calls {"status":"failed"} (379.1715ms)
+✔ failure or incomplete terminal at observe stops all downstream calls {"state":"PENDING","deploymentId":"sim-001"} (554.4324ms)
+✔ failure or incomplete terminal at observe stops all downstream calls {"state":"FAILED","deploymentId":"sim-001"} (554.3593ms)
+✔ failure or incomplete terminal at start stops all downstream calls {"state":"STOPPED","deploymentId":"sim-001"} (721.0785ms)
+✔ failure or incomplete terminal at health stops all downstream calls {"status":"unhealthy","deploymentId":"sim-001"} (855.6889ms)
+✔ validate throw or timeout cannot start a later operation (438.1079ms)
+✔ deploy throw or timeout cannot start a later operation (792.0639ms)
+✔ observe throw or timeout cannot start a later operation (1184.3348ms)
+✔ start throw or timeout cannot start a later operation (1580.0307ms)
+✔ health throw or timeout cannot start a later operation (1850.4206ms)
+✔ already aborted invocation calls no adapter (80.9289ms)
+✔ abort during deployment prevents observation and marks reconciliation required (382.2879ms)
+✔ post-validation modify drift blocks deployment (250.7037ms)
+✔ post-validation add drift blocks deployment (257.8757ms)
+✔ post-validation remove drift blocks deployment (254.3919ms)
+✔ post-validation validation drift blocks deployment (260.603ms)
+✔ post-validation requirement drift blocks deployment (254.4841ms)
+✔ post-validation policy drift blocks deployment (257.6771ms)
+✔ post-validation approval drift blocks deployment (259.6316ms)
+✔ unapproved or mismatching scope candidateId calls no adapter (130.2503ms)
+✔ unapproved or mismatching scope session calls no adapter (145.742ms)
+✔ unapproved or mismatching scope identity calls no adapter (136.3854ms)
+✔ unapproved or mismatching scope decision calls no adapter (145.2572ms)
+✔ unapproved or mismatching scope expiresAt calls no adapter (144.2768ms)
+✔ unapproved or mismatching scope kind calls no adapter (145.3567ms)
+✔ mismatched deployment identity is never accepted as terminal success (551.7837ms)
+✔ malformed candidate is rejected before any record or callback (72.8268ms)
+✔ record IDs cannot overwrite results or escape the simulation directory (1018.3147ms)
+✔ concurrent candidate/target invocation is rejected without duplicate deployment (1064.8119ms)
+✔ candidate rejects secret settings and unsafe component roots (80.5072ms)
+✔ candidate rejects junctions including those pointing inside the repository (84.737ms)
+✔ release owns only harness assets, hashes payload bytes and leaves product/local files out (897.9848ms)
+✔ release rejects mismatched versions and escaping outputs (216.2721ms)
+✔ normalization requires explicit yes, includes provider text and preserves product files and original baseline bytes (2609.0276ms)
+✔ release refuses CRLF text until normalization, but binary extensions, NUL and invalid UTF-8 remain byte-identical (1237.3571ms)
+✔ normalization rejects managed junctions before writing any text (149.8701ms)
+✔ a dry-run plan makes no managed changes and application needs explicit yes (616.891ms)
+✔ matching first-template bytes are adopted while unmatched existing files conflict (470.0809ms)
+✔ upgrade preserves excluded files and backs up every replaced or deleted file (931.6755ms)
+✔ downstream modified and deleted files are conflicts, never silently overwritten (756.1843ms)
+✔ edits after planning invalidate application before managed writes (624.4132ms)
+✔ source payload tampering after planning is rejected (580.8122ms)
+✔ malicious manifests cannot own product, local config, case collisions or escaping paths (1748.9438ms)
+✔ same-version mutation and downgrade are rejected (1050.1853ms)
+✔ update plan edits and wrong target repository are rejected (599.7966ms)
+﹣ managed symlinks and junctions are rejected in release and destination (19.0244ms) # This host does not permit test symlinks.
+✔ directory junctions are rejected even on Windows without file-symlink privilege (319.9224ms)
+✔ new upstream files do not overwrite untracked downstream additions (583.5712ms)
+✔ installed baseline changes invalidate a previously reviewed plan (549.2568ms)
+✔ case-colliding payload paths are rejected on every operating system (180.0882ms)
+✔ release/apply keeps provider rules, the complete harness guide and harness test files together (1511.8415ms)
+✔ registering original upstream metadata preserves pre-existing downstream changes as update conflicts (388.8332ms)
+✔ baseline registration is idempotent only for the original manifest and refuses overwrite (379.1977ms)
+✔ base-release metadata is excluded from snapshots to avoid self-hashing (338.8041ms)
+✔ baseline registration rejects escaping and invalid upstream manifests (8.4839ms)
+✔ guide serves locally with working links, CSP and no workspace-file exposure (280.3021ms)
+✔ durable schema validator rejects malformed states and unsupported assertion vocabulary (4.8841ms)
+✔ onboarding distinguishes template clone, script-owned root and incomplete application setup (38.7511ms)
+✔ onboarding JSON examples match between Markdown and HTML and contain declared Bundle variables (3.4295ms)
+✔ onboarding setup examples use origin-only hosts, consistent explicit profiles and installed-agent defaults (1.8762ms)
+✔ onboarding keeps dev isolation explicit and includes no deployment or resource-creation commands (1.878ms)
+✔ guide copy button copies the complete command block, not explanatory inline code (1.8241ms)
+✔ evaluation prepares the full provider x task x 3 immutable plan without executing checkouts or models (437.7049ms)
+✔ evaluation rejects undersampling, unsupported providers, unknown tasks, floating revisions and duplicate plans (571.5602ms)
+✔ unexecuted templates and malformed JSON schema fields cannot be recorded (549.8558ms)
+✔ passed results require complete acceptance and distinguish not-run from pass (510.6026ms)
+✔ blocked results can preserve unexecuted criteria but are not counted as passes (541.2553ms)
+✔ passing trials require independent verifier, deterministic checks, versions and explicit security metrics (718.6811ms)
+✔ trial imports reject cross-run evidence, missing files and path traversal (558.9842ms)
+✔ records are immutable and identical re-import is idempotent (798.1343ms)
+✔ missing trials cannot promote and unavailable credits are not reported as zero (1199.4498ms)
+✔ complete synthetic records can be eligible but cannot self-authorize promotion (2841.8288ms)
+✔ stale evidence invalidates previously passing records (2372.8358ms)
+✔ editing a sealed result invalidates it even when evidence bytes are unchanged (2424.7947ms)
+✔ security regression and diagnostic subsets cannot promote (2893.403ms)
+✔ a rehashed plan cannot redirect record writes outside the per-run scope (337.3047ms)
+✔ routes Japanese UI work to the mock-first workflow (336.2922ms)
+✔ Copilot session hook injects durable-context guidance (609.1846ms)
+✔ Copilot policy hook denies production deploy (274.6473ms)
+✔ Copilot policy hook does not pre-approve a development deploy (207.9257ms)
+✔ Claude and Copilot wire policy, stop, compaction, and failure lifecycle hooks (12.2269ms)
+✔ fresh template setup and gated durable session lifecycle work end to end (19078.4665ms)
+✔ imported hook configurations preserve both CLI and VS Code decision/context envelopes (1026.0516ms)
+✔ VS Code multi-file replacements cannot modify loop policy (799.1821ms)
+✔ claude preserves safe development commands without granting approval (1388.3605ms)
+✔ claude denies production deployment with CLI global options (257.0548ms)
+✔ claude denies unspecified target (313.3565ms)
+✔ claude denies prod profile on a dev target (327.9548ms)
+✔ claude denies App deployment with CLI prefix (236.8116ms)
+✔ claude denies destructive bundle prefix (247.6085ms)
+✔ claude denies production npm wrapper (215.3215ms)
+✔ claude denies production PowerShell script wrapper (223.0391ms)
+✔ claude denies compound dev token cannot authorize a different deployment (228.0537ms)
+✔ claude denies compound dev deployment cannot authorize another deployment (197.9669ms)
+✔ claude denies piped dev deployment cannot authorize another deployment (236.1629ms)
+✔ claude denies background dev deployment cannot authorize another deployment (215.6083ms)
+✔ claude denies force push with Git prefix (203.0953ms)
+✔ claude denies short force push with Git config prefix (210.9057ms)
+✔ claude denies destructive Git reset prefix (238.0961ms)
+✔ claude denies destructive Git cleanup prefix (233.1193ms)
+✔ claude denies DDL drop table (191.5528ms)
+✔ claude denies DDL truncate (182.6006ms)
+✔ claude denies DDL truncate quoted name (243.561ms)
+✔ claude denies DDL interleaved comment (190.3612ms)
+✔ claude denies broad grant (206.541ms)
+✔ claude denies owner change (169.9286ms)
+✔ claude denies encoded PowerShell (173.8426ms)
+✔ claude denies short encoded pwsh (176.5376ms)
+✔ claude denies dynamic expression (187.7906ms)
+✔ claude denies Claude permission bypass (185.0441ms)
+✔ claude denies Copilot all-permission bypass (191.6336ms)
+✔ claude denies sandbox bypass (187.1224ms)
+✔ claude denies POSIX recursive delete (202.0828ms)
+✔ claude denies PowerShell recursive delete (201.4761ms)
+✔ claude denies cmd recursive delete (205.2237ms)
+✔ claude inspects JSON-encoded tool arguments (185.4985ms)
+✔ claude fails closed for malformed JSON (186.8632ms)
+✔ claude fails closed for null payload (206.6362ms)
+✔ claude fails closed for array payload (219.3005ms)
+✔ claude fails closed for primitive payload (220.7649ms)
+✔ claude fails closed for empty payload (181.464ms)
+✔ claude fails closed for invalid command type (207.5235ms)
+✔ claude protects loop control file AGENTS.md (184.9872ms)
+✔ claude protects loop control file harness.config.json (204.9474ms)
+✔ claude protects loop control file tools/agent-hook.mjs (201.2638ms)
+✔ claude protects loop control file harness/evals/route-cases.json (198.4606ms)
+✔ claude protects loop control file harness/schemas/loop.schema.json (190.4571ms)
+✔ claude protects loop control file .claude/settings.json (192.7632ms)
+✔ claude protects loop control file .github/hooks/harness.json (187.5024ms)
+✔ claude protects loop control file .claude\settings.json (175.5398ms)
+✔ claude protects loop control file tools/lib/evidence.mjs (197.2623ms)
+✔ claude protects loop control file tools/lib/loop.mjs (186.4007ms)
+✔ claude allows separate harness maintenance outside an autonomous loop (187.9549ms)
+✔ claude does not mistake application content for a protected edit target (186.5809ms)
+✔ claude inspects raw apply_patch targets inside an autonomous loop (176.7862ms)
+✔ copilot preserves safe development commands without granting approval (713.4658ms)
+✔ copilot denies production deployment with CLI global options (169.3473ms)
+✔ copilot denies unspecified target (160.3492ms)
+✔ copilot denies prod profile on a dev target (176.7374ms)
+✔ copilot denies App deployment with CLI prefix (169.8173ms)
+✔ copilot denies destructive bundle prefix (161.7347ms)
+✔ copilot denies production npm wrapper (173.9631ms)
+✔ copilot denies production PowerShell script wrapper (283.853ms)
+✔ copilot denies compound dev token cannot authorize a different deployment (166.898ms)
+✔ copilot denies compound dev deployment cannot authorize another deployment (176.8248ms)
+✔ copilot denies piped dev deployment cannot authorize another deployment (167.6337ms)
+✔ copilot denies background dev deployment cannot authorize another deployment (176.2829ms)
+✔ copilot denies force push with Git prefix (185.127ms)
+✔ copilot denies short force push with Git config prefix (167.1768ms)
+✔ copilot denies destructive Git reset prefix (173.7971ms)
+✔ copilot denies destructive Git cleanup prefix (169.8396ms)
+✔ copilot denies DDL drop table (167.0944ms)
+✔ copilot denies DDL truncate (176.503ms)
+✔ copilot denies DDL truncate quoted name (163.1796ms)
+✔ copilot denies DDL interleaved comment (179.5117ms)
+✔ copilot denies broad grant (177.1179ms)
+✔ copilot denies owner change (174.4058ms)
+✔ copilot denies encoded PowerShell (164.5704ms)
+✔ copilot denies short encoded pwsh (170.9118ms)
+✔ copilot denies dynamic expression (163.9045ms)
+✔ copilot denies Claude permission bypass (162.7322ms)
+✔ copilot denies Copilot all-permission bypass (160.8757ms)
+✔ copilot denies sandbox bypass (155.9976ms)
+✔ copilot denies POSIX recursive delete (166.632ms)
+✔ copilot denies PowerShell recursive delete (161.3706ms)
+✔ copilot denies cmd recursive delete (158.6727ms)
+✔ copilot inspects JSON-encoded tool arguments (159.5962ms)
+✔ copilot fails closed for malformed JSON (162.8585ms)
+✔ copilot fails closed for null payload (165.8912ms)
+✔ copilot fails closed for array payload (163.9151ms)
+✔ copilot fails closed for primitive payload (173.8892ms)
+✔ copilot fails closed for empty payload (166.7646ms)
+✔ copilot fails closed for invalid command type (161.1456ms)
+✔ copilot protects loop control file AGENTS.md (159.1682ms)
+✔ copilot protects loop control file harness.config.json (161.1587ms)
+✔ copilot protects loop control file tools/agent-hook.mjs (158.2532ms)
+✔ copilot protects loop control file harness/evals/route-cases.json (161.4966ms)
+✔ copilot protects loop control file harness/schemas/loop.schema.json (167.069ms)
+✔ copilot protects loop control file .claude/settings.json (153.0467ms)
+✔ copilot protects loop control file .github/hooks/harness.json (162.7421ms)
+✔ copilot protects loop control file .claude\settings.json (157.8392ms)
+✔ copilot protects loop control file tools/lib/evidence.mjs (164.0739ms)
+✔ copilot protects loop control file tools/lib/loop.mjs (159.7383ms)
+✔ copilot allows separate harness maintenance outside an autonomous loop (159.0434ms)
+✔ copilot does not mistake application content for a protected edit target (153.2344ms)
+✔ copilot inspects raw apply_patch targets inside an autonomous loop (165.4055ms)
+✔ Stop requests a semantic checkpoint for its own active iteration (164.3157ms)
+✔ Stop respects an existing stop-hook block to prevent an infinite hook loop (152.8664ms)
+✔ Stop does not continue across a pending human gate or exhausted budget (318.5193ms)
+✔ Stop does not interfere with an unrelated task (162.7386ms)
+✔ Stop permits a checkpoint written after the current iteration started (154.9082ms)
+✔ Stop treats a missing checkpoint as stale (160.5757ms)
+✔ Stop selects the matching loop even when a newer unrelated loop exists (156.0514ms)
+✔ compact retains only sanitized event metadata in the isolated fixture (167.3415ms)
+✔ compact rejects an environment session path escape (154.8634ms)
+✔ failure retains only sanitized event metadata in the isolated fixture (161.8528ms)
+✔ failure rejects an environment session path escape (153.6306ms)
+✔ new Japanese UI intake exposes business, data and interaction definitions without inventing decisions (454.6981ms)
+✔ API-only Japanese intake skips UI design and keeps interface, test and operations definitions (135.3505ms)
+✔ Japanese intake answers remain parseable and approval retains exact artifact hashes (1169.0749ms)
+✔ all pinned workloads have human-facing descriptions and source text is not recursively templated (116.7639ms)
+✔ new Japanese sessions and legacy English sessions retain current state on checkpoint (214.9528ms)
+✔ installed harness delivery CLI is read-only and distinguishes findings from invalid input (2158.7052ms)
+✔ fresh fixture excludes initialized source product state without modifying it (11502.0602ms)
+✔ fixture refuses existing, overlapping and missing-input sources without writes (13.5873ms)
+✔ fresh fixture excludes case aliases of local state and original baseline (5180.7976ms)
+✔ fixture refuses source and destination ancestor junctions and dangling outputs (6.3829ms)
+✔ fixture refuses a linked allowlisted input before creating its destination (1774.6173ms)
+✔ loop exports the shared policy hash and includes policy modules in its snapshot (180.1567ms)
+✔ an active provider run owns the loop record until checks finish (445.3792ms)
+✔ unexpected provider exceptions release the lock but cannot silently rerun an unfinished slice (536.1554ms)
+✔ simultaneous completion records cannot both close the same iteration (243.178ms)
+✔ all loop mutators fail closed on an existing record lock without changing state (169.3315ms)
+✔ loop completion rejects missing requirement binding (198.3098ms)
+✔ loop completion rejects draft requirement (289.2391ms)
+✔ loop and session completion share receipt rejection for missing receipt requirement (436.9711ms)
+✔ loop and session completion share receipt rejection for wrong receipt requirement (446.8748ms)
+✔ loop and session completion share receipt rejection for string independence (323.7161ms)
+✔ loop and session completion share receipt rejection for conflicting duplicate AC (210.6845ms)
+✔ loop and session completion share receipt rejection for extra passing AC without evidence (208.0079ms)
+✔ loop and session completion share receipt rejection for unhashed requirement (192.4673ms)
+✔ loop completion rejects empty implementation evidence even if not referenced by the receipt (296.2373ms)
+✔ concurrent intake answers cannot lose an answer; a rejected writer can retry against fresh state (309.3811ms)
+✔ intake cannot overwrite a concurrently checkpointed session or partially update linked documents (223.1949ms)
+✔ intake approval and answers obey the same manifest lock (642.5848ms)
+✔ concurrent intake creation with the same name cannot overwrite product artifacts (105.1162ms)
+✔ durable sessions carry provider, linked designs, objective, and pending intent gate (73.6465ms)
+✔ unknown session intents are rejected without creating a durable record (25.6525ms)
+✔ a checkpoint requires summary and exact next action (106.1313ms)
+✔ a pending intent gate cannot be skipped through checkpoint phase changes (78.4576ms)
+✔ file locks reject concurrent writers and are released after exceptions (143.1973ms)
+✔ blocked sessions close without falsely claiming completed and reject later checkpoints (150.8759ms)
+✔ completion refuses a pending gate even with a valid receipt (206.1425ms)
+✔ completion refuses absent verification without mutating the active session (60.6345ms)
+✔ sealed independent AC evidence permits completion and records unauthenticated identity honestly (398.1564ms)
+✔ sealing rejects missing acceptance criterion (159.0223ms)
+✔ sealing rejects non-independent reviewer (107.1681ms)
+✔ sealing rejects unknown reviewer provider (141.8721ms)
+✔ sealing rejects passing criterion with no evidence (49.3916ms)
+✔ sealing rejects directory used as evidence (81.8896ms)
+✔ a failed AC seals as fail and cannot be used to close completed (86.8915ms)
+✔ sealing rejects an unaccepted draft requirement (43.8174ms)
+✔ sealing rejects an empty file advertised as passing evidence (50.0192ms)
+✔ receipt validation rejects wrong session (113.4671ms)
+✔ receipt validation rejects wrong requirement binding (97.0509ms)
+✔ receipt validation rejects self-review identity (72.6588ms)
+✔ receipt validation rejects stale policy (77.0254ms)
+✔ receipt validation rejects missing artifact hashes (83.5968ms)
+✔ receipt validation rejects unhashed acceptance evidence (106.5483ms)
+✔ receipt validation rejects missing AC coverage (81.0508ms)
+✔ receipt validation rejects truthy string independence (90.8683ms)
+✔ receipt validation rejects unknown provider in receipt (124.0878ms)
+✔ receipt validation rejects conflicting duplicate AC result (71.9595ms)
+✔ verified artifact changes invalidate previously sealed completion evidence (136.4779ms)
+✔ knowledge is indexed with source, confidence, applicability, and freshness (69.3142ms)
+✔ knowledge requires provenance and rejects missing source files (18.6477ms)
+✔ knowledge supersession retains history and marks the prior entry (97.806ms)
+✔ knowledge supersession cannot cross scope (70.352ms)
+✔ knowledge supersession rejects a sibling directory sharing the knowledge prefix (27.69ms)
+✔ knowledge review dates must be real calendar dates (18.9116ms)
+✔ knowledge rejects unsupported kinds instead of creating ungoverned records (63.5058ms)
+✔ session checkpoints reject or redact recognizable credentials before persistence (79.4014ms)
+✔ knowledge rejects or redacts recognizable credentials before persistence (52.2436ms)
+✔ session closure rejects or redacts recognizable credentials before persistence (60.344ms)
+✔ data scaffold generates executable composite-key fixtures without running external tools (194.258ms)
+✔ generated Python unittest executes real record transitions and the actual Delta builder (868.6497ms)
+✔ generated data job refuses execution without an explicit approved-write switch (604.879ms)
+✔ fixture field generation remains correct when product columns collide with sample names (486.6978ms)
+✔ data planning rejects ambiguous keys, unsafe names, identical tables and missing inputs (34.8192ms)
+✔ local generation preflights all paths and never overwrites an existing artifact (44.0139ms)
+✔ AppKit mock requires an explicit verified workspace but no prior UI approval or data resources (295.8901ms)
+✔ mock AppKit plans reject profiles and mandatory or optional live-data plugins (16.9736ms)
+✔ AppKit validates the selected profile host before authentication and rechecks before init (74.8212ms)
+✖ AppKit commands cannot inherit custom template overrides or resource-validation bypasses (192.2648ms)
+✖ AppKit auto-approve is plan-time opt-in and nested integration bundles remain intact (47.0139ms)
+✖ AppKit success remains a starter with pending after-init MUST rules, not deploy-ready (77.0716ms)
+✖ AppKit refuses changed plans and changed approval evidence before invoking init (79.2688ms)
+✖ AppKit integration binds the reviewed mock and rechecks its hashes before init (94.7633ms)
+✖ AppKit init failure and post-init validation failure persist distinct failed states (61.6981ms)
+✖ local AppKit manifest provenance must bind the exact pinned version (48.6491ms)
+✔ Genie and metric scaffolds are explicit drafts, outside automatic deployment paths (175.6085ms)
+✔ AppKit nested-only output stops before quarantine and validation (103.6592ms)
+✔ AppKit missing-root fails before quarantine or validate (90.0459ms)
+✔ AppKit missing-package fails before quarantine or validate (88.2084ms)
+✔ AppKit null-package fails before quarantine or validate (83.6521ms)
+✔ AppKit linked-child fails before quarantine or validate (86.0768ms)
+✔ AppKit linked-root fails before quarantine or validate (77.6566ms)
+✔ AppKit directory-package fails before quarantine or validate (187.1235ms)
+✔ AppKit mock databricks.fixture-only.yml collision preserves all bytes (87.291ms)
+✔ AppKit mock .harness-fixture-only.json collision preserves all bytes (111.0852ms)
+✔ AppKit existing preflight calls neither auth nor init (73.221ms)
+✔ AppKit ancestor-junction preflight calls neither auth nor init (57.1237ms)
+✔ AppKit dangling-junction preflight calls neither auth nor init (53.2442ms)
+✔ AppKit successful validate cannot mask package removal (136.8911ms)
+✔ AppKit validation cannot adopt changed same-byte-root (124.7083ms)
+✔ AppKit validation cannot adopt changed package (115.2045ms)
+✔ AppKit validation cannot adopt changed marker (117.0086ms)
+✔ AppKit validation cannot adopt changed quarantine (120.8144ms)
+✔ AppKit validation cannot adopt changed bundle-restored (122.8149ms)
+✔ AppKit validation cannot adopt changed case-alias-bundle (112ms)
+✔ AppKit validation cannot adopt changed bundle-directory (112.2401ms)
+✔ AppKit same-root validation cache writes remain allowed (113.8694ms)
+✔ AppKit parallel apply locks the same plan (136.777ms)
+✔ AppKit parallel apply locks different plans sharing the output (166.523ms)
+✔ expected component root with nested packages is inspected, not relocated (220.7253ms)
+✔ output rejects non-object package: not (20.0096ms)
+✔ output rejects non-object package: null (18.0346ms)
+✔ output rejects non-object package: [] (79.5727ms)
+✔ output rejects non-object package: 1 (25.4063ms)
+✔ output rejects non-object package: "text" (14.8661ms)
+✔ output rejects missing root, missing package and directory package (27.0671ms)
+✔ invalid UTF-8 package bytes are rejected without normalization (15.6409ms)
+✔ output refuses ancestor, descendant and dangling junctions (29.983ms)
+✔ output refuses hard-linked files without changing their source (18.9456ms)
+✔ output package size and total byte limits fail closed on sparse files (27.5672ms)
+✔ output depth limit is bounded (46.2629ms)
+✔ case alias DATABRICKS.YML is rejected consistently on every OS (12.5718ms)
+✔ case alias DataBricks.Fixture-Only.yml is rejected consistently on every OS (19.9823ms)
+✔ case alias .HARNESS-FIXTURE-ONLY.JSON is rejected consistently on every OS (15.437ms)
+✔ case alias PACKAGE.JSON is rejected consistently on every OS (16.0881ms)
+✔ root control file content reads have a separate bound (18.5081ms)
+✔ root control directory databricks.yml fails without altering the tree (13.5963ms)
+✔ root control directory databricks.fixture-only.yml fails without altering the tree (14.0091ms)
+✔ root control directory .harness-fixture-only.json fails without altering the tree (12.7049ms)
+✔ output entry limit is bounded (11572.7091ms)
+✔ same exact scoped decision survives session handoff without claiming execution authority (2092.3499ms)
+✔ same ID never overwrites the original approval (822.7695ms)
+✔ changed environment does not inherit approval (714.8919ms)
+✔ changed resource does not inherit approval (747.7586ms)
+✔ changed principal does not inherit approval (570.2598ms)
+✔ changed operation does not inherit approval (534.935ms)
+✔ changed permission does not inherit approval (570.9862ms)
+✔ changed cost does not inherit approval (565.1949ms)
+✔ changed candidate does not inherit approval (520.5775ms)
+✔ changed workspace does not inherit approval (512.2565ms)
+✔ changed profile does not inherit approval (447.1257ms)
+✔ changed host does not inherit approval (445.082ms)
+✔ changed product does not inherit approval (465.8263ms)
+✔ changed currency does not inherit approval (537.256ms)
+✔ changed smaller scope does not inherit approval (524.9161ms)
+✔ array ordering is not a scope expansion (595.5243ms)
+✔ changed bound bytes invalidate scope: product.config.json (509.1362ms)
+✔ changed bound bytes invalidate scope: docs/product/requirements/orders.md (577.2109ms)
+✔ changed bound bytes invalidate scope: docs/product/architecture/orders.md (504.505ms)
+✔ changed bound bytes invalidate scope: work/evidence/decision.md (495.7487ms)
+✔ revocation is append-only and cannot be undone by duplicate record (788.6394ms)
+✔ malformed request rejected before persistence: unknown field (310.6279ms)
+✔ malformed request rejected before persistence: duplicate resource (323.876ms)
+✔ malformed request rejected before persistence: wildcard (311.781ms)
+✔ malformed request rejected before persistence: negative cost (316.6405ms)
+✔ malformed request rejected before persistence: unsafe integer (312.0884ms)
+✔ malformed request rejected before persistence: foreign permission (333.0688ms)
+✔ malformed request rejected before persistence: credential URL (299.5926ms)
+✔ malformed request rejected before persistence: URL query (304.1062ms)
+✔ malformed request rejected before persistence: component root (317.9339ms)
+✔ malformed request rejected before persistence: harness component (295.4404ms)
+✔ unknown/duplicate/missing CLI options fail without issuing a record (604.0872ms)
+✔ expiry is strict at equality and does not renew on check (218.0866ms)
+✔ check clock rollback below issuedAt during reads denies reuse without changing original bytes (201.2536ms)
+✔ record clock rollback below its issuedAt rejects before persistence (144.4522ms)
+✔ invalid calendar, expired and excessive approval windows reject (69.7023ms)
+✔ origin completed can hand off its exact scope to active target (207.1962ms)
+✔ origin blocked can hand off its exact scope to active target (201.7066ms)
+✔ origin superseded can hand off its exact scope to active target (200.187ms)
+✔ session progress is not scope; pending gate remains a separate decision (191.6726ms)
+✔ harness source without product initialization cannot record product authority (293.9862ms)
+✔ wrong or missing product context never falls back to another active session (500.9183ms)
+✔ duplicate JSON keys rejected: top-level (291.9445ms)
+✔ duplicate JSON keys rejected: nested (306.0162ms)
+✔ duplicate JSON keys rejected: escaped (302.7901ms)
+✔ invalid UTF-8 and over-limit user evidence are rejected (533.4827ms)
+✔ hardlinked evidence and linked input ancestors are refused without record writes (336.6259ms)
+✔ append-only lock rejects contention and keeps existing lock untouched (102.8708ms)
+✔ corrupted or mismatched revocation never re-enables approval (155.9951ms)
+✔ control-code drift invalidates prior local scope without changing it (160.5392ms)
+✔ new scope records are not legacy loop approvals (435.2475ms)
+✔ old approval JSON is not a scoped decision (62.8495ms)
+✔ nine-session CLI and both hooks include newest, gate/current/next and explicit truncation (1703.8875ms)
+✔ explicit focus wins over recency and environment; bad focus never falls back (1480.5044ms)
+✔ legacy latest checkpoint overrides stale initial summary in read-only context (451.1839ms)
+work/sessions/S-1.md
+work/sessions/S-1.md
+✔ checkpoint refreshes current sections, preserves initial history, checks revision and gate (213.9996ms)
+work/sessions/S-1.md
+✔ task persists linked scope and appears in context; checkpoint focus must belong to session (849.3373ms)
+✔ task writes reject duplicate, unknown session, secrets, outside paths, stale revisions and active locks (309.0814ms)
+✔ dependencies and transitions are checked, including hand-edited cycles and missing IDs (415.6721ms)
+C:\Users\nimao\AppData\Local\Temp\harness-visibility-OhQHhp\work\reviews\receipt.json
+✔ done requires current independent receipt and evidence and never approves session (954.6666ms)
+✔ status reads do not write; explicit snapshot generation protects existing non-generated file (565.8851ms)
+✔ context remains bounded and treats markdown/terminal content as data (398.3029ms)
+work/sessions/S-1.md
+work/sessions/S-1.md
+✔ task focus survives task truncation, can be cleared, and status snapshot resists edits (2483.3936ms)
+✔ inherited old harness sessions stay excluded after template initialization (694.8111ms)
+✔ pending gates block task execution and terminal sessions cannot be used as focus (459.499ms)
+✔ task CRUD works through the public CLI and supports CRLF histories (821.1257ms)
+✔ task reader refuses duplicate dependencies and cross-session references (255.7182ms)
+work/sessions/S-1.md
+work/sessions/S-1.md
+✔ manual current-state edits are archived on a later checkpoint rather than discarded (141.7492ms)
+✔ task scalars round-trip YAML-sensitive punctuation as data (135.9764ms)
+✔ boolean flags with values refuse instead of silently changing read/write intent (485.6453ms)
+✔ F-01 rejects outside verifier references before every writable transition (5085.3428ms)
+✔ F-01 public CLI rejects bad verifier input and leaves both start hooks usable (1379.5872ms)
+✔ F-02 legacy omitted blockers inherit the last explicit value, including none, without writes (1767.5299ms)
+work/sessions/S-1.md
+✔ F-03 initial blocker content is archived before replacement (75.6361ms)
+work/sessions/S-1.md
+work/sessions/S-1.md
+work/sessions/S-1.md
+work/sessions/S-1.md
+✔ F-03 manually added blockers survive later checkpoints and unchanged bodies are not rearchived (135.8688ms)
+work/sessions/S-1.md
+✔ F-03 pre-fix format-2 sessions archive a blocker not present in earlier checkpoints (77.6925ms)
+✔ runtime correspondence supports preview and mock without certifying pixels (873.5081ms)
+✔ approval rejects changed mock.tsx (314.2528ms)
+✔ approval rejects changed style.css (457.7537ms)
+✔ approval rejects changed fixtures.json (401.8605ms)
+✔ approval rejects changed package.json (443.566ms)
+✔ approval rejects changed package-lock.json (327.8102ms)
+✔ contract rejects empty screens (199.5838ms)
+✔ contract rejects empty styles (91.8075ms)
+✔ contract rejects empty components (157.0138ms)
+✔ contract rejects missing state (231.4431ms)
+✔ contract rejects approximate HTML (82.8309ms)
+✔ contract rejects unresolved difference (182.7599ms)
+✔ contract rejects self review (127.1908ms)
+✔ contract rejects unapproved external (103.2941ms)
+✔ contract rejects version mismatch (254.2498ms)
+✔ runtime-generated static HTML is visual-only, never behavioral approval (194.0514ms)
+✔ external hosting requires a decision tied to this target and requirement (99.9015ms)
+✔ stale review and unbound or legacy approvals fail without rewriting records (233.98ms)
+✔ UI draft defaults to Apps, cannot overwrite and cannot be approved as complete (86.1016ms)
+✔ SU-05 natural update requests route to the updater without granting execution permission (812.6091ms)
+✔ SU-01/02 source tree without Git and release payload make equivalent dry plans; defaults preserve product bytes (2932.9065ms)
+✔ SU-01 clean expanded source needs no cached release; source snapshot remains fixed after original changes (1338.9502ms)
+✔ SU-01 dirty source uses only a matching stamped immutable payload, not dirty bytes (1135.9568ms)
+✔ SU-02 local edit refuses all managed writes without preserve flag (798.9016ms)
+✔ SU-02 local delete refuses all managed writes without preserve flag (749.1474ms)
+✔ SU-02 local collision refuses all managed writes without preserve flag (792.5178ms)
+✔ SU-03 unknown baseline and non-product target fail closed (480.2241ms)
+✔ SU-03 same or nested source and target are refused (645.5876ms)
+✔ SU-03 modified release and mismatched stamped cache are refused (637.2479ms)
+✔ SU-03 snapshot tampering, missing approval and stale target refuse application (760.7749ms)
+✔ SU-03 source junction is rejected (619.1165ms)
+✔ SU-03/05 portable CLI targets cwd, rejects unknown/duplicate arguments and does not execute source code (1046.4513ms)
+✔ SU-04 post-write corruption records interruption, keeps old baseline and original backups, and rejects replay (702.0743ms)
+✔ SU-05 legacy project bootstraps from external runner then uses its own installed runner for next update (1352.7184ms)
+✔ legal sources require strict resolved semver and never accept branches, unknown versions or paths (140.4904ms)
+✔ both legal files are acquired before writes, preserve exact bytes, and bind source URLs and scope hashes (98.5395ms)
+✔ a failed legal download leaves stage legal files, current vendor and current lock untouched (118.2111ms)
+✔ legal acquisition rejects redirects, oversized advertised or streamed bodies, HTML, empty and invalid UTF8 (42.6146ms)
+✔ legal acquisition enforces a bounded timeout and aborts unresolved fetches without writing (28.3138ms)
+✔ legal verifier detects missing, changed and wrongly sourced upstream legal artifacts (109.7212ms)
+✔ generated scope travels with provider copies and cannot be weakened through a matching rewritten hash (81.3442ms)
+✔ refresh performs legal staging before removing existing vendor and harness check verifies provenance (2.2766ms)
+✔ API-only intake has contract and transaction questions, not UI or Delta questions (308.6227ms)
+✔ notebook MLflow registry and serving remain a mixed discussion, not data registration or deploy (779.751ms)
+✔ generic agents are not Genie, provider names/build do not match UI, explicit scope wins (262.0009ms)
+✔ unknown workloads require a material question and cannot authorize execution (239.7958ms)
+✔ every catalog entry has real official skill paths and validated unique question IDs (432.4604ms)
+✔ catalog discovers each platform family and retains English API/dashboard composition (579.4033ms)
+✔ api starter is isolated, hash-bound, executable and refuses overwrite (504.9493ms)
+✔ analysis starter is isolated, hash-bound, executable and refuses overwrite (934.7724ms)
+ℹ tests 656
+ℹ suites 0
+ℹ pass 643
+ℹ fail 12
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 46784.0791
+
+✖ failing tests:
+
+test at tests\contracts.test.mjs:279:1
+✖ AppKit manifest contracts preserve required plugins, optional selection, resource origins, and scoped rules (81.1543ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'needs-input'
+  - 'ready'
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/contracts.test.mjs:282:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'needs-input',
+    expected: 'ready',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\contracts.test.mjs:302:1
+✖ AppKit planning reports required user resources but never demands optional/platform/local/fixed values (90.0623ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'analytics.warehouse.id',
+  +   'reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work'
+    ]
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/contracts.test.mjs:306:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'analytics.warehouse.id', 'reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work' ],
+    expected: [ 'analytics.warehouse.id' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\contracts.test.mjs:375:1
+✖ AppKit validation failure is persisted as a failed scaffold, not a reusable ready plan (112.1464ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /validation failed/. Input:
+  
+  'Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work'
+  
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/contracts.test.mjs:391:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work
+        at applyScaffoldLocked (file:///D:/projects/databricks-dev-harness/tools/lib/scaffold.mjs:920:86)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/contracts.test.mjs:391:3)
+        at async Test.run (node:internal/test_runner/test:1208:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:831:7),
+    expected: /validation failed/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\contracts.test.mjs:455:1
+✖ AppKit rechecks workspace identity immediately before init (116.0561ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /expected workspace user/. Input:
+  
+  'Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work'
+  
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/contracts.test.mjs:465:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work
+        at applyScaffoldLocked (file:///D:/projects/databricks-dev-harness/tools/lib/scaffold.mjs:920:86)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/contracts.test.mjs:465:3)
+        at async Test.run (node:internal/test_runner/test:1208:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:831:7),
+    expected: /expected workspace user/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\contracts.test.mjs:481:1
+✖ AppKit integration rejects a changed approved fixture before any init or auth recheck (89.0308ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /evidence changed/. Input:
+  
+  'Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work'
+  
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/contracts.test.mjs:485:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work
+        at applyScaffoldLocked (file:///D:/projects/databricks-dev-harness/tools/lib/scaffold.mjs:920:86)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/contracts.test.mjs:485:3)
+        at async Test.run (node:internal/test_runner/test:1208:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:831:7),
+    expected: /evidence changed/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\scaffold-data.test.mjs:250:1
+✖ AppKit commands cannot inherit custom template overrides or resource-validation bypasses (192.2648ms)
+  Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work
+      at applyScaffoldLocked (file:///D:/projects/databricks-dev-harness/tools/lib/scaffold.mjs:920:86)
+      at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+      at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scaffold-data.test.mjs:268:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+
+test at tests\scaffold-data.test.mjs:278:1
+✖ AppKit auto-approve is plan-time opt-in and nested integration bundles remain intact (47.0139ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'needs-input'
+  - 'ready'
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scaffold-data.test.mjs:281:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'needs-input',
+    expected: 'ready',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\scaffold-data.test.mjs:290:1
+✖ AppKit success remains a starter with pending after-init MUST rules, not deploy-ready (77.0716ms)
+  Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work
+      at applyScaffoldLocked (file:///D:/projects/databricks-dev-harness/tools/lib/scaffold.mjs:920:86)
+      at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+      at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scaffold-data.test.mjs:293:19)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+
+test at tests\scaffold-data.test.mjs:300:1
+✖ AppKit refuses changed plans and changed approval evidence before invoking init (79.2688ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /changed after planning/. Input:
+  
+  'Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work'
+  
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scaffold-data.test.mjs:306:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work
+        at applyScaffoldLocked (file:///D:/projects/databricks-dev-harness/tools/lib/scaffold.mjs:920:86)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scaffold-data.test.mjs:306:3)
+        at async Test.run (node:internal/test_runner/test:1208:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:831:7),
+    expected: /changed after planning/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\scaffold-data.test.mjs:314:1
+✖ AppKit integration binds the reviewed mock and rechecks its hashes before init (94.7633ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'needs-input'
+  - 'ready'
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scaffold-data.test.mjs:317:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'needs-input',
+    expected: 'ready',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\scaffold-data.test.mjs:338:1
+✖ AppKit init failure and post-init validation failure persist distinct failed states (61.6981ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /init failed/. Input:
+  
+  'Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work'
+  
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scaffold-data.test.mjs:341:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Scaffold plan is not ready: reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work
+        at applyScaffoldLocked (file:///D:/projects/databricks-dev-harness/tools/lib/scaffold.mjs:920:86)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scaffold-data.test.mjs:341:3)
+        at async Test.run (node:internal/test_runner/test:1208:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:831:7),
+    expected: /init failed/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\scaffold-data.test.mjs:358:1
+✖ local AppKit manifest provenance must bind the exact pinned version (48.6491ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'needs-input'
+  - 'ready'
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scaffold-data.test.mjs:363:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'needs-input',
+    expected: 'ready',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

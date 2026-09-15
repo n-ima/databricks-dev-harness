@@ -31,16 +31,20 @@ npm run intake -- approve --id INTAKE_ID --actor product-owner --evidence "ユ�
 日本語titleだけでも作成可能。資料はrepo内・許可拡張子・50MB以下。material questionsに回答し、feature固有の受入条件をrequirementに定義してから承認します。資料からの回答と人の決定を区別し、エージェントが本人を名乗って承認してはいけません。
 
 ```text
-npm run harness -- approval create --session SESSION_ID --gate ui-mock --actor product-owner --evidence work/evidence/mock-review.md --artifact apps/sales/src/App.tsx --artifact apps/sales/src/fixtures.ts
+npm run harness -- approval create --session SESSION_ID --gate ui-mock --actor product-owner --evidence work/evidence/mock-review.md --artifact apps/sales/src/App.tsx --artifact apps/sales/src/fixtures.ts --ui-contract docs/product/ui/sales.json
+npm run harness -- delivery ui-approval-check --approval work/approvals/SESSION_ID/ui-mock.json --session SESSION_ID --app-root apps/sales
 ```
 
-reviewにはjourney・状態・desktop/narrow/keyboard証拠・人の決定を記載。hashは変更を検出しますが本人認証ではありません。
+reviewにはjourney・状態・desktop/narrow/keyboard証拠・人の決定を記載。hashは変更を検出しますが本人認証ではありません。UI設計からApps/実部品を既定とする[UI対応契約](UI_RUNTIME_FIDELITY.md)のローカル候補では、契約と独立レビューも必要です。通常buildの前に現session/appと承認の一致を再検査します。旧承認は保存して再確認します。
 
 ## Scaffold — planを確認してからapply
 
+案件の環境・操作・権限・費用・期限を持つ新しい承認台帳のローカル候補は
+[SCOPED_APPROVALS](SCOPED_APPROVALS.md)を参照。`approval-scope record/check/revoke`は
+旧gateを解除せず、実行許可・実CLI/DB操作を行わない。正式採用前の限定機能である。
+
 ```text
 npm run scaffold -- plan --kind app --purpose mock --name sales-insights --profile sales-dev --host https://YOUR-WORKSPACE.cloud.databricks.com
-npm run scaffold -- plan --kind app --name sales-app --feature analytics --profile sales-dev --host https://YOUR-WORKSPACE.cloud.databricks.com --data-access analytics --mock-approval work/approvals/SESSION_ID/ui-mock.json --set analytics.sql-warehouse.id=WAREHOUSE_ID
 npm run scaffold -- apply --plan work/scaffolds/PLAN_ID.json --yes
 ```
 
@@ -56,7 +60,7 @@ rules承認ファイルとbefore-init証拠の最小形式は以下です。値�
 {"ruleId":"rule-id-from-plan","status":"passed","summary":"実際に確認した結果","verifiedAt":"2026-09-04T00:00:00Z"}
 ```
 
-mockでも公式CLIのinitにはworkspace認証が必要です。明示profile/hostの開発接続だけを検証し、live-data feature/resourceを禁止します。profile未指定ならinitへ進みません。生成Bundleはfixture-only名へ退避し、誤deployを避けます。本データ接続時はmockを承認し、integration planを別に作り、確認済みUIを移植します。Lakebase/Genieの既存再利用か新規作成かは先に人が決めます。APIは生成後のinstalled AppKit docsで確認します。
+mockでも公式CLIのinitにはworkspace認証が必要です。明示profile/hostの開発接続だけを検証し、live-data feature/resourceを禁止します。profile未指定ならinitへ進みません。生成Bundleはfixture-only名へ退避し、誤deployを避けます。本データ接続時は同じappを通常buildで延長し、接続/権限/Bundleを別の統合設計で確認します。integration目的の再initと別appへの承認流用は拒否します。隔離Bundle/markerを自動解除しません。Lakebase/Genieの既存再利用か新規作成かは先に人が決めます。APIはinstalled AppKit docsで確認します。
 
 applyはplanと出力先の両方をlockします。同じ出力先への並行生成は拒否。中断した場合は実行processと生成物を調べてから、そのplanと `.harness/runtime/scaffold-targets/` の該当lockだけを回復してください。部分生成物を黙って上書き・削除しません。
 
@@ -102,6 +106,8 @@ manualは今のチャットで実装しchecks/stateをCLIに記録。headlessは
 記録だけでsandboxは作られません。実際に隔離環境を用意します。Claudeのauto permissionもOS隔離ではありません。`loop run`はdry-runが既定。実行前後と完了直前にpolicy/requirement hashを確認。policy変更は別のレビュー済みloopに分けます。未record反復の黙った再実行は拒否します。
 
 1プロセスずつ時間制限します。実行中はrecord lockを保持するためloop stopは割り込めません。先にterminal/container側で停止し、子・孫プロセスの終了を確認します。crash後にlockが残る場合は記載PIDと副作用を調査してからそのrecordの.lockだけを解除し、outcomeを記録するかcancelしてください。孫プロセスの完全停止はOS/container側の責任です。費用はprovider側でsoft/hard上限を確認し課金側予算も設定します。hooksのcheckpoint要求は意味理解・自動要約ではありません。
+
+監査是正後は、sessionがblocked/completed/pendingなら後続のloop処理を開始できません。sessionの完了も、関連loopにpending gate、未完了iteration、実行中lockがあれば拒否します。`session close --outcome blocked` は非同期実行中にも記録できますが、既に始まったprocessを強制停止した意味ではありません。実行結果が戻った境界で後続を止めます。terminal loopの未解決記録を消して完了にせず、旧sessionをblockedで残し、承認範囲と副作用を確認して新sessionに引き継ぎます。詳細は[監査是正設計](../design/TRUTH_REPAIR.md)を参照。
 
 ## Verification / completion
 

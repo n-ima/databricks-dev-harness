@@ -1,0 +1,116 @@
+✔ IND-ASSET preflight unknown-file in provider 0 preserves both trees (16.3804ms)
+✔ IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees (9.8899ms)
+✔ IND-ASSET preflight unknown-file in provider 1 preserves both trees (10.3319ms)
+✔ IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees (8.7876ms)
+✔ IND-ASSET hardlink in provider 0 rejects before writes (10.1757ms)
+✔ IND-ASSET hardlink in provider 1 rejects before writes (8.5135ms)
+✔ IND-ASSET junction at target-root rejects without changing linked data (8.4124ms)
+✔ IND-ASSET junction at expected-subdirectory rejects without changing linked data (9.3577ms)
+﹣ IND-ASSET file symlink is rejected when host permits creating one (5.0651ms) # Host cannot create file symlinks; junction paths are tested separately.
+Managed skill backups: .harness/agent-assets/backups/e0dfa647-e3a2-4890-a2ce-41bf57ceb40c
+✔ IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes (27.6163ms)
+Managed skill backups: .harness/agent-assets/backups/bd7d5692-940e-4e6f-8582-0b55c2d25d97
+Managed skill backups: .harness/agent-assets/backups/e663a5b6-2ec2-4b88-af2e-0f219b6d3724
+✔ IND-ASSET interrupted second rename retains both backups and explicit retry works (29.0326ms)
+Managed skill backups: .harness/agent-assets/backups/4e648f1d-2994-4e90-8339-28bb49886a88
+Managed skill backups: .harness/agent-assets/backups/9814d27a-b029-4c25-bb2d-91b82cebe36c
+✔ IND-ASSET interrupted second write retains both backups and explicit retry works (33.981ms)
+Managed skill backups: .harness/agent-assets/backups/b295aec7-5a10-4df1-9da6-d00ac01e2cc7
+✔ IND-ASSET cleanup failure reports the exact leftover and preserves destination and backups (23.5564ms)
+✔ IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused (0.3375ms)
+✔ IND-VENDOR version mismatch and later-file hash mismatch cause no partial write (10.2812ms)
+✔ IND-VENDOR read-only validation does not patch; write then check is idempotent (13.2677ms)
+✔ IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity (1.539ms)
+✔ IND-VENDOR full refresh uses mocked installer/legal data and same-version (4368.5791ms)
+✔ IND-VENDOR full refresh uses mocked installer/legal data and changed-version (2914.2949ms)
+✔ IND-VENDOR full refresh uses mocked installer/legal data and changed-hash (3035.6909ms)
+{
+  "plan": "work/scaffolds/20260915-160613-289-metric-view-sales-106d6729.json",
+  "status": "draft-ready",
+  "missing": [],
+  "rules": []
+}
+{
+  "plan": "work/scaffolds/20260915-160613-289-metric-view-sales-106d6729.json",
+  "status": "draft-generated",
+  "generatedFiles": [
+    "src/metrics/sales.metric.yml",
+    "src/metrics/sales.draft.sql",
+    "tests/metrics/sales.contract.json"
+  ]
+}
+✔ IND-METRIC embedded YAML parses to the canonical YAML with Japanese and quoting (126.2136ms)
+{
+  "plan": "work/scaffolds/20260915-160613-415-metric-view-sales-ddb0df6c.json",
+  "status": "draft-ready",
+  "missing": [],
+  "rules": []
+}
+{
+  "plan": "work/scaffolds/20260915-160613-415-metric-view-sales-ddb0df6c.json",
+  "status": "draft-generated",
+  "generatedFiles": [
+    "src/metrics/sales.metric.yml",
+    "src/metrics/sales.draft.sql",
+    "tests/metrics/sales.contract.json"
+  ]
+}
+✔ IND-METRIC delimiter in metadata is rejected or safely embedded: {"description":"Profit $$ USD"} (121.3156ms)
+{
+  "plan": "work/scaffolds/20260915-160613-536-metric-view-sales-d815a496.json",
+  "status": "draft-ready",
+  "missing": [],
+  "rules": []
+}
+{
+  "plan": "work/scaffolds/20260915-160613-536-metric-view-sales-d815a496.json",
+  "status": "draft-generated",
+  "generatedFiles": [
+    "src/metrics/sales.metric.yml",
+    "src/metrics/sales.draft.sql",
+    "tests/metrics/sales.contract.json"
+  ]
+}
+✔ IND-METRIC delimiter in metadata is rejected or safely embedded: {"dimension":["地域 $$ 分類=region"]} (125.8995ms)
+{
+  "plan": "work/scaffolds/20260915-160613-662-metric-view-sales-ee5158b9.json",
+  "status": "draft-ready",
+  "missing": [],
+  "rules": []
+}
+{
+  "plan": "work/scaffolds/20260915-160613-662-metric-view-sales-ee5158b9.json",
+  "status": "draft-generated",
+  "generatedFiles": [
+    "src/metrics/sales.metric.yml",
+    "src/metrics/sales.draft.sql",
+    "tests/metrics/sales.contract.json"
+  ]
+}
+✔ IND-METRIC delimiter in metadata is rejected or safely embedded: {"measure":["Revenue $$ USD=SUM(amount)"]} (124.5307ms)
+✔ IND-01 generated Japanese session IDs can initialize a loop (43.0648ms)
+✔ IND-02 mismatched filename/frontmatter identity is rejected before loop creation (25.4868ms)
+✔ IND-03 a completed loop permits session completion (129.2367ms)
+✔ IND-04 completed session rejects gate mutation without rewriting its achieved loop (113.6713ms)
+✔ IND-05 completed session rejects approval without rewriting its achieved loop (111.7886ms)
+✔ IND-06 all related loops are checked even if one achieved (117.0507ms)
+✔ IND-07 cancelled unfinished iteration still prevents completion (90.9055ms)
+✔ IND-08 prelaunch session lock contention invokes no provider (47.2531ms)
+✔ IND-09 actual local Node child can close blocked during runner execution (131.1856ms)
+✔ IND-10 stop in a later check preserves previous observations and prevents achievement (83.6255ms)
+✔ IND-11 new session cannot be initialized after normal blocked close (34.8419ms)
+✔ IND-12 corrupted frontmatter identity cannot hide the pending loop from completion (67.1514ms)
+✔ IND-13 default manual-loop check runner releases session lock during local Node execution (144.4907ms)
+✔ IND-14 async runner preserves supported npm invocation on Windows (394.3956ms)
+✔ IND-15 npm works without Volta npm.exe using the existing Windows CLI adapter contract (379.951ms)
+✔ IND-16 async runner reports missing executable as failure (19.1108ms)
+✔ IND-17 async runner bounds immediate child runtime (155.2895ms)
+✔ IND-18 async runner bounds captured output (69.1156ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 41
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 11115.9958

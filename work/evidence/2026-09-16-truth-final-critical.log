@@ -1,0 +1,766 @@
+TAP version 13
+# Subtest: same exact scoped decision survives session handoff without claiming execution authority
+ok 1 - same exact scoped decision survives session handoff without claiming execution authority
+  ---
+  duration_ms: 479.0119
+  type: 'test'
+  ...
+# Subtest: same ID never overwrites the original approval
+ok 2 - same ID never overwrites the original approval
+  ---
+  duration_ms: 417.5802
+  type: 'test'
+  ...
+# Subtest: changed environment does not inherit approval
+ok 3 - changed environment does not inherit approval
+  ---
+  duration_ms: 413.7158
+  type: 'test'
+  ...
+# Subtest: changed resource does not inherit approval
+ok 4 - changed resource does not inherit approval
+  ---
+  duration_ms: 428.9212
+  type: 'test'
+  ...
+# Subtest: changed principal does not inherit approval
+ok 5 - changed principal does not inherit approval
+  ---
+  duration_ms: 386.6971
+  type: 'test'
+  ...
+# Subtest: changed operation does not inherit approval
+ok 6 - changed operation does not inherit approval
+  ---
+  duration_ms: 406.3701
+  type: 'test'
+  ...
+# Subtest: changed permission does not inherit approval
+ok 7 - changed permission does not inherit approval
+  ---
+  duration_ms: 406.3084
+  type: 'test'
+  ...
+# Subtest: changed cost does not inherit approval
+ok 8 - changed cost does not inherit approval
+  ---
+  duration_ms: 421.5972
+  type: 'test'
+  ...
+# Subtest: changed candidate does not inherit approval
+ok 9 - changed candidate does not inherit approval
+  ---
+  duration_ms: 376.7021
+  type: 'test'
+  ...
+# Subtest: changed workspace does not inherit approval
+ok 10 - changed workspace does not inherit approval
+  ---
+  duration_ms: 395.3102
+  type: 'test'
+  ...
+# Subtest: changed profile does not inherit approval
+ok 11 - changed profile does not inherit approval
+  ---
+  duration_ms: 396.4637
+  type: 'test'
+  ...
+# Subtest: changed host does not inherit approval
+ok 12 - changed host does not inherit approval
+  ---
+  duration_ms: 422.1995
+  type: 'test'
+  ...
+# Subtest: changed product does not inherit approval
+ok 13 - changed product does not inherit approval
+  ---
+  duration_ms: 412.9771
+  type: 'test'
+  ...
+# Subtest: changed currency does not inherit approval
+ok 14 - changed currency does not inherit approval
+  ---
+  duration_ms: 392.8491
+  type: 'test'
+  ...
+# Subtest: changed smaller scope does not inherit approval
+ok 15 - changed smaller scope does not inherit approval
+  ---
+  duration_ms: 418.8415
+  type: 'test'
+  ...
+# Subtest: array ordering is not a scope expansion
+ok 16 - array ordering is not a scope expansion
+  ---
+  duration_ms: 450.9312
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: product.config.json
+ok 17 - changed bound bytes invalidate scope: product.config.json
+  ---
+  duration_ms: 445.8266
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: docs/product/requirements/orders.md
+ok 18 - changed bound bytes invalidate scope: docs/product/requirements/orders.md
+  ---
+  duration_ms: 449.9013
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: docs/product/architecture/orders.md
+ok 19 - changed bound bytes invalidate scope: docs/product/architecture/orders.md
+  ---
+  duration_ms: 483.2547
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: work/evidence/decision.md
+ok 20 - changed bound bytes invalidate scope: work/evidence/decision.md
+  ---
+  duration_ms: 436.0604
+  type: 'test'
+  ...
+# Subtest: revocation is append-only and cannot be undone by duplicate record
+ok 21 - revocation is append-only and cannot be undone by duplicate record
+  ---
+  duration_ms: 647.2724
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: unknown field
+ok 22 - malformed request rejected before persistence: unknown field
+  ---
+  duration_ms: 301.0867
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: duplicate resource
+ok 23 - malformed request rejected before persistence: duplicate resource
+  ---
+  duration_ms: 299.0378
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: wildcard
+ok 24 - malformed request rejected before persistence: wildcard
+  ---
+  duration_ms: 287.4921
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: negative cost
+ok 25 - malformed request rejected before persistence: negative cost
+  ---
+  duration_ms: 318.1962
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: unsafe integer
+ok 26 - malformed request rejected before persistence: unsafe integer
+  ---
+  duration_ms: 303.9011
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: foreign permission
+ok 27 - malformed request rejected before persistence: foreign permission
+  ---
+  duration_ms: 315.4377
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: credential URL
+ok 28 - malformed request rejected before persistence: credential URL
+  ---
+  duration_ms: 328.2049
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: URL query
+ok 29 - malformed request rejected before persistence: URL query
+  ---
+  duration_ms: 286.7431
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: component root
+ok 30 - malformed request rejected before persistence: component root
+  ---
+  duration_ms: 299.4564
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: harness component
+ok 31 - malformed request rejected before persistence: harness component
+  ---
+  duration_ms: 338.5141
+  type: 'test'
+  ...
+# Subtest: unknown/duplicate/missing CLI options fail without issuing a record
+ok 32 - unknown/duplicate/missing CLI options fail without issuing a record
+  ---
+  duration_ms: 574.0382
+  type: 'test'
+  ...
+# Subtest: expiry is strict at equality and does not renew on check
+ok 33 - expiry is strict at equality and does not renew on check
+  ---
+  duration_ms: 184.7936
+  type: 'test'
+  ...
+# Subtest: check clock rollback below issuedAt during reads denies reuse without changing original bytes
+ok 34 - check clock rollback below issuedAt during reads denies reuse without changing original bytes
+  ---
+  duration_ms: 173.2485
+  type: 'test'
+  ...
+# Subtest: record clock rollback below its issuedAt rejects before persistence
+ok 35 - record clock rollback below its issuedAt rejects before persistence
+  ---
+  duration_ms: 127.7186
+  type: 'test'
+  ...
+# Subtest: invalid calendar, expired and excessive approval windows reject
+ok 36 - invalid calendar, expired and excessive approval windows reject
+  ---
+  duration_ms: 59.7015
+  type: 'test'
+  ...
+# Subtest: origin completed can hand off its exact scope to active target
+ok 37 - origin completed can hand off its exact scope to active target
+  ---
+  duration_ms: 189.3345
+  type: 'test'
+  ...
+# Subtest: origin blocked can hand off its exact scope to active target
+ok 38 - origin blocked can hand off its exact scope to active target
+  ---
+  duration_ms: 197.2122
+  type: 'test'
+  ...
+# Subtest: origin superseded can hand off its exact scope to active target
+ok 39 - origin superseded can hand off its exact scope to active target
+  ---
+  duration_ms: 183.0677
+  type: 'test'
+  ...
+# Subtest: session progress is not scope; pending gate remains a separate decision
+ok 40 - session progress is not scope; pending gate remains a separate decision
+  ---
+  duration_ms: 181.2069
+  type: 'test'
+  ...
+# Subtest: harness source without product initialization cannot record product authority
+ok 41 - harness source without product initialization cannot record product authority
+  ---
+  duration_ms: 300.4518
+  type: 'test'
+  ...
+# Subtest: wrong or missing product context never falls back to another active session
+ok 42 - wrong or missing product context never falls back to another active session
+  ---
+  duration_ms: 487.7999
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys rejected: top-level
+ok 43 - duplicate JSON keys rejected: top-level
+  ---
+  duration_ms: 310.342
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys rejected: nested
+ok 44 - duplicate JSON keys rejected: nested
+  ---
+  duration_ms: 305.511
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys rejected: escaped
+ok 45 - duplicate JSON keys rejected: escaped
+  ---
+  duration_ms: 304.3818
+  type: 'test'
+  ...
+# Subtest: invalid UTF-8 and over-limit user evidence are rejected
+ok 46 - invalid UTF-8 and over-limit user evidence are rejected
+  ---
+  duration_ms: 513.0976
+  type: 'test'
+  ...
+# Subtest: hardlinked evidence and linked input ancestors are refused without record writes
+ok 47 - hardlinked evidence and linked input ancestors are refused without record writes
+  ---
+  duration_ms: 348.8274
+  type: 'test'
+  ...
+# Subtest: append-only lock rejects contention and keeps existing lock untouched
+ok 48 - append-only lock rejects contention and keeps existing lock untouched
+  ---
+  duration_ms: 110.0933
+  type: 'test'
+  ...
+# Subtest: corrupted or mismatched revocation never re-enables approval
+ok 49 - corrupted or mismatched revocation never re-enables approval
+  ---
+  duration_ms: 161.4567
+  type: 'test'
+  ...
+# Subtest: control-code drift invalidates prior local scope without changing it
+ok 50 - control-code drift invalidates prior local scope without changing it
+  ---
+  duration_ms: 163.9232
+  type: 'test'
+  ...
+# Subtest: new scope records are not legacy loop approvals
+ok 51 - new scope records are not legacy loop approvals
+  ---
+  duration_ms: 463.4123
+  type: 'test'
+  ...
+# Subtest: old approval JSON is not a scoped decision
+ok 52 - old approval JSON is not a scoped decision
+  ---
+  duration_ms: 65.3053
+  type: 'test'
+  ...
+# Subtest: runtime correspondence supports preview and mock without certifying pixels
+ok 53 - runtime correspondence supports preview and mock without certifying pixels
+  ---
+  duration_ms: 205.3495
+  type: 'test'
+  ...
+# Subtest: approval rejects changed mock.tsx
+ok 54 - approval rejects changed mock.tsx
+  ---
+  duration_ms: 99.0282
+  type: 'test'
+  ...
+# Subtest: approval rejects changed style.css
+ok 55 - approval rejects changed style.css
+  ---
+  duration_ms: 97.2806
+  type: 'test'
+  ...
+# Subtest: approval rejects changed fixtures.json
+ok 56 - approval rejects changed fixtures.json
+  ---
+  duration_ms: 96.6069
+  type: 'test'
+  ...
+# Subtest: approval rejects changed package.json
+ok 57 - approval rejects changed package.json
+  ---
+  duration_ms: 89.7123
+  type: 'test'
+  ...
+# Subtest: approval rejects changed package-lock.json
+ok 58 - approval rejects changed package-lock.json
+  ---
+  duration_ms: 93.3464
+  type: 'test'
+  ...
+# Subtest: contract rejects empty screens
+ok 59 - contract rejects empty screens
+  ---
+  duration_ms: 37.1579
+  type: 'test'
+  ...
+# Subtest: contract rejects empty styles
+ok 60 - contract rejects empty styles
+  ---
+  duration_ms: 32.1641
+  type: 'test'
+  ...
+# Subtest: contract rejects empty components
+ok 61 - contract rejects empty components
+  ---
+  duration_ms: 37.2409
+  type: 'test'
+  ...
+# Subtest: contract rejects missing state
+ok 62 - contract rejects missing state
+  ---
+  duration_ms: 40.618
+  type: 'test'
+  ...
+# Subtest: contract rejects approximate HTML
+ok 63 - contract rejects approximate HTML
+  ---
+  duration_ms: 39.2189
+  type: 'test'
+  ...
+# Subtest: contract rejects unresolved difference
+ok 64 - contract rejects unresolved difference
+  ---
+  duration_ms: 37.4941
+  type: 'test'
+  ...
+# Subtest: contract rejects self review
+ok 65 - contract rejects self review
+  ---
+  duration_ms: 40.0475
+  type: 'test'
+  ...
+# Subtest: contract rejects unapproved external
+ok 66 - contract rejects unapproved external
+  ---
+  duration_ms: 27.8956
+  type: 'test'
+  ...
+# Subtest: contract rejects version mismatch
+ok 67 - contract rejects version mismatch
+  ---
+  duration_ms: 41.2412
+  type: 'test'
+  ...
+# Subtest: runtime-generated static HTML is visual-only, never behavioral approval
+ok 68 - runtime-generated static HTML is visual-only, never behavioral approval
+  ---
+  duration_ms: 84.4656
+  type: 'test'
+  ...
+# Subtest: external hosting requires a decision tied to this target and requirement
+ok 69 - external hosting requires a decision tied to this target and requirement
+  ---
+  duration_ms: 51.6005
+  type: 'test'
+  ...
+# Subtest: stale review and unbound or legacy approvals fail without rewriting records
+ok 70 - stale review and unbound or legacy approvals fail without rewriting records
+  ---
+  duration_ms: 102.8708
+  type: 'test'
+  ...
+# Subtest: UI draft defaults to Apps, cannot overwrite and cannot be approved as complete
+ok 71 - UI draft defaults to Apps, cannot overwrite and cannot be approved as complete
+  ---
+  duration_ms: 49.5885
+  type: 'test'
+  ...
+# Subtest: public delivery CLI validates the actual approval and refuses stale/different app records
+ok 72 - public delivery CLI validates the actual approval and refuses stale/different app records
+  ---
+  duration_ms: 594.6041
+  type: 'test'
+  ...
+# Subtest: ui-init rejects linked output ancestors before creating a draft or lock
+ok 73 - ui-init rejects linked output ancestors before creating a draft or lock
+  ---
+  duration_ms: 23.9709
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight unknown-file in provider 0 preserves both trees
+ok 74 - IND-ASSET preflight unknown-file in provider 0 preserves both trees
+  ---
+  duration_ms: 24.8523
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees
+ok 75 - IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees
+  ---
+  duration_ms: 11.3206
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight unknown-file in provider 1 preserves both trees
+ok 76 - IND-ASSET preflight unknown-file in provider 1 preserves both trees
+  ---
+  duration_ms: 11.2637
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees
+ok 77 - IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees
+  ---
+  duration_ms: 10.641
+  type: 'test'
+  ...
+# Subtest: IND-ASSET hardlink in provider 0 rejects before writes
+ok 78 - IND-ASSET hardlink in provider 0 rejects before writes
+  ---
+  duration_ms: 15.3847
+  type: 'test'
+  ...
+# Subtest: IND-ASSET hardlink in provider 1 rejects before writes
+ok 79 - IND-ASSET hardlink in provider 1 rejects before writes
+  ---
+  duration_ms: 11.0084
+  type: 'test'
+  ...
+# Subtest: IND-ASSET junction at target-root rejects without changing linked data
+ok 80 - IND-ASSET junction at target-root rejects without changing linked data
+  ---
+  duration_ms: 9.3792
+  type: 'test'
+  ...
+# Subtest: IND-ASSET junction at expected-subdirectory rejects without changing linked data
+ok 81 - IND-ASSET junction at expected-subdirectory rejects without changing linked data
+  ---
+  duration_ms: 10.7991
+  type: 'test'
+  ...
+# Subtest: IND-ASSET file symlink is rejected when host permits creating one
+ok 82 - IND-ASSET file symlink is rejected when host permits creating one # SKIP Host cannot create file symlinks; junction paths are tested separately.
+  ---
+  duration_ms: 4.8176
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/104f0930-cb1f-4b11-a32e-352ff5a53d48
+# Subtest: IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes
+ok 83 - IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes
+  ---
+  duration_ms: 30.7517
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/eb7bff54-d785-4844-9efe-f3cbcc0acaad
+# Managed skill backups: .harness/agent-assets/backups/8fca8a94-9424-492c-9cc9-f92d986e7eda
+# Subtest: IND-ASSET interrupted second rename retains both backups and explicit retry works
+ok 84 - IND-ASSET interrupted second rename retains both backups and explicit retry works
+  ---
+  duration_ms: 30.9786
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/74faab23-1689-4ddc-bd88-460efc19ad41
+# Managed skill backups: .harness/agent-assets/backups/dda2bf3d-1204-455d-9d93-3a07711ac0d7
+# Subtest: IND-ASSET interrupted second write retains both backups and explicit retry works
+ok 85 - IND-ASSET interrupted second write retains both backups and explicit retry works
+  ---
+  duration_ms: 30.5358
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/8e5618fa-cf90-4c36-86be-8ed871077d3a
+# Subtest: IND-ASSET cleanup failure reports the exact leftover and preserves destination and backups
+ok 86 - IND-ASSET cleanup failure reports the exact leftover and preserves destination and backups
+  ---
+  duration_ms: 25.2786
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused
+ok 87 - IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused
+  ---
+  duration_ms: 0.446
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR version mismatch and later-file hash mismatch cause no partial write
+ok 88 - IND-VENDOR version mismatch and later-file hash mismatch cause no partial write
+  ---
+  duration_ms: 15.7858
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR read-only validation does not patch; write then check is idempotent
+ok 89 - IND-VENDOR read-only validation does not patch; write then check is idempotent
+  ---
+  duration_ms: 18.4859
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity
+ok 90 - IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity
+  ---
+  duration_ms: 2.173
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and same-version
+ok 91 - IND-VENDOR full refresh uses mocked installer/legal data and same-version
+  ---
+  duration_ms: 4807.4674
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and changed-version
+ok 92 - IND-VENDOR full refresh uses mocked installer/legal data and changed-version
+  ---
+  duration_ms: 3332.3365
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and changed-hash
+ok 93 - IND-VENDOR full refresh uses mocked installer/legal data and changed-hash
+  ---
+  duration_ms: 3193.3464
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-160907-385-metric-view-sales-88c78955.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-160907-385-metric-view-sales-88c78955.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC embedded YAML parses to the canonical YAML with Japanese and quoting
+ok 94 - IND-METRIC embedded YAML parses to the canonical YAML with Japanese and quoting
+  ---
+  duration_ms: 147.7819
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-160907-530-metric-view-sales-505ec1bf.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-160907-530-metric-view-sales-505ec1bf.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC delimiter in metadata is rejected or safely embedded: {"description":"Profit $$ USD"}
+ok 95 - IND-METRIC delimiter in metadata is rejected or safely embedded: {"description":"Profit $$ USD"}
+  ---
+  duration_ms: 128.1859
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-160907-658-metric-view-sales-e3234365.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-160907-658-metric-view-sales-e3234365.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC delimiter in metadata is rejected or safely embedded: {"dimension":["地域 $$ 分類=region"]}
+ok 96 - IND-METRIC delimiter in metadata is rejected or safely embedded: {"dimension":["地域 $$ 分類=region"]}
+  ---
+  duration_ms: 132.6124
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-160907-791-metric-view-sales-19abe852.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-160907-791-metric-view-sales-19abe852.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC delimiter in metadata is rejected or safely embedded: {"measure":["Revenue $$ USD=SUM(amount)"]}
+ok 97 - IND-METRIC delimiter in metadata is rejected or safely embedded: {"measure":["Revenue $$ USD=SUM(amount)"]}
+  ---
+  duration_ms: 145.4589
+  type: 'test'
+  ...
+# Subtest: IND-01 generated Japanese session IDs can initialize a loop
+ok 98 - IND-01 generated Japanese session IDs can initialize a loop
+  ---
+  duration_ms: 55.7406
+  type: 'test'
+  ...
+# Subtest: IND-02 mismatched filename/frontmatter identity is rejected before loop creation
+ok 99 - IND-02 mismatched filename/frontmatter identity is rejected before loop creation
+  ---
+  duration_ms: 31.8594
+  type: 'test'
+  ...
+# Subtest: IND-03 a completed loop permits session completion
+ok 100 - IND-03 a completed loop permits session completion
+  ---
+  duration_ms: 139.4855
+  type: 'test'
+  ...
+# Subtest: IND-04 completed session rejects gate mutation without rewriting its achieved loop
+ok 101 - IND-04 completed session rejects gate mutation without rewriting its achieved loop
+  ---
+  duration_ms: 135.693
+  type: 'test'
+  ...
+# Subtest: IND-05 completed session rejects approval without rewriting its achieved loop
+ok 102 - IND-05 completed session rejects approval without rewriting its achieved loop
+  ---
+  duration_ms: 130.7381
+  type: 'test'
+  ...
+# Subtest: IND-06 all related loops are checked even if one achieved
+ok 103 - IND-06 all related loops are checked even if one achieved
+  ---
+  duration_ms: 129.9557
+  type: 'test'
+  ...
+# Subtest: IND-07 cancelled unfinished iteration still prevents completion
+ok 104 - IND-07 cancelled unfinished iteration still prevents completion
+  ---
+  duration_ms: 101.26
+  type: 'test'
+  ...
+# Subtest: IND-08 prelaunch session lock contention invokes no provider
+ok 105 - IND-08 prelaunch session lock contention invokes no provider
+  ---
+  duration_ms: 48.3832
+  type: 'test'
+  ...
+# Subtest: IND-09 actual local Node child can close blocked during runner execution
+ok 106 - IND-09 actual local Node child can close blocked during runner execution
+  ---
+  duration_ms: 147.3496
+  type: 'test'
+  ...
+# Subtest: IND-10 stop in a later check preserves previous observations and prevents achievement
+ok 107 - IND-10 stop in a later check preserves previous observations and prevents achievement
+  ---
+  duration_ms: 95.1913
+  type: 'test'
+  ...
+# Subtest: IND-11 new session cannot be initialized after normal blocked close
+ok 108 - IND-11 new session cannot be initialized after normal blocked close
+  ---
+  duration_ms: 37.8839
+  type: 'test'
+  ...
+# Subtest: IND-12 corrupted frontmatter identity cannot hide the pending loop from completion
+ok 109 - IND-12 corrupted frontmatter identity cannot hide the pending loop from completion
+  ---
+  duration_ms: 68.5205
+  type: 'test'
+  ...
+# Subtest: IND-13 default manual-loop check runner releases session lock during local Node execution
+ok 110 - IND-13 default manual-loop check runner releases session lock during local Node execution
+  ---
+  duration_ms: 153.603
+  type: 'test'
+  ...
+# Subtest: IND-14 async runner preserves supported npm invocation on Windows
+ok 111 - IND-14 async runner preserves supported npm invocation on Windows
+  ---
+  duration_ms: 456.7794
+  type: 'test'
+  ...
+# Subtest: IND-15 npm works without Volta npm.exe using the existing Windows CLI adapter contract
+ok 112 - IND-15 npm works without Volta npm.exe using the existing Windows CLI adapter contract
+  ---
+  duration_ms: 396.6396
+  type: 'test'
+  ...
+# Subtest: IND-16 async runner reports missing executable as failure
+ok 113 - IND-16 async runner reports missing executable as failure
+  ---
+  duration_ms: 20.7101
+  type: 'test'
+  ...
+# Subtest: IND-17 async runner bounds immediate child runtime
+ok 114 - IND-17 async runner bounds immediate child runtime
+  ---
+  duration_ms: 154.4694
+  type: 'test'
+  ...
+# Subtest: IND-18 async runner bounds captured output
+ok 115 - IND-18 async runner bounds captured output
+  ---
+  duration_ms: 67.3082
+  type: 'test'
+  ...
+1..115
+# tests 115
+# suites 0
+# pass 114
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 17662.6198

@@ -35,7 +35,9 @@ test('new Japanese UI intake exposes business, data and interaction definitions 
   for (const label of ['用語集', '機能一覧', 'データ一覧', 'データ項目', '外部境界', '画面一覧', '画面遷移', '試験', '運用']) assert.ok(design.includes(label), label);
   assert.match(design, /未確定/);
   assert.match(plan, /delivery check/);
-  assert.match(plan, /紙芝居/);
+  assert.match(plan, /Databricks Apps/);
+  assert.match(plan, /実部品からの描画/);
+  assert.match(plan, /同じapp/);
   assert.equal(m.status, 'needs-answers');
   assert.equal(m.approval, undefined);
   await assert.rejects(approveIntake(root, { id:m.id, actor:'human', evidence:'synthetic' }), /questions are open/);

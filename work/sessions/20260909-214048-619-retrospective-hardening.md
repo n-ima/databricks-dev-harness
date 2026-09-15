@@ -8,8 +8,8 @@ phase: review
 gate: none
 gate_status: not-applicable
 started: 2026-09-09T21:40:48Z
-updated: 2026-09-10T00:55:45Z
-last_checkpoint: 2026-09-10T00:55:45Z
+updated: 2026-09-10T14:24:39Z
+last_checkpoint: 2026-09-10T14:24:39Z
 requirement: docs/harness/requirements/retrospective-hardening.md
 architecture: docs/harness/design/RETROSPECTIVE_HARDENING.md
 plan: work/plans/2026-09-10-retrospective-hardening.md
@@ -17,7 +17,7 @@ branch: unassigned
 worktree: .
 resources: none
 checkpoint_format: 2
-focus_task: HARD-08
+focus_task: HARD-03
 ---
 
 # Work session: retrospective-hardening
@@ -28,7 +28,7 @@ focus_task: HARD-08
 
 ## Verified current state
 
-- HARD-08正式採用と累積改善198filesをprivate origin/mainへpush済み。source commit 41138482f68417d8cca20c9a4b836d1c9d34f34d、remote一致・PRIVATE維持を確認。全体504pass/0fail/1skip、独立reviewと採用snapshot不変。GitHub CIは対象SHAでrun/check 0件のため起動・成功未確認。全8完了・実配備は未主張。
+- HARD-03の承認scope台帳・照合をローカル実装し独立再レビュー済み。SIR-01時計巻戻りを修正、専用52pass・独立32pass・全回帰556pass/0fail/1skip。報告と18対象hash一致。旧gateは不変、実行権限やハーネスのDatabricks配備を追加しない。限定候補の正式採用待ち。
 
 ## Decisions
 
@@ -40,11 +40,11 @@ focus_task: HARD-08
 
 ## Next actions
 
-- 次回はGitHub CI起動未確認を再確認し、HARD-03/04/07（承認範囲と稼働状況表示）のローカル改善を再開する。HARD-08の限定採用は再承認不要。過去証拠logの排他的出力も後続改善。
+- 今回のローカル承認記録・照合範囲を正式採用してよいか人に確認。承認後は対象snapshotを採用記録へ結び付け、HARD-04/07の案件稼働観測表示へ進む。
 
 ## Blockers and human gates
 
-- ソースpushのblockerなし。hosted CIの起動・成功は未確認（原因未特定）。実環境適合/配備には別途承認と検証が必要。
+- 改善手順により新しい承認制御の正式採用は人の判断待ち。独立技術指摘は解消。実環境操作・案件変更・pushはしない。
 
 ## Handoff
 
@@ -328,3 +328,91 @@ focus_task: HARD-08
 - next: 次回はGitHub CI起動未確認を再確認し、HARD-03/04/07（承認範囲と稼働状況表示）のローカル改善を再開する。HARD-08の限定採用は再承認不要。過去証拠logの排他的出力も後続改善。
 - blocker: ソースpushのblockerなし。hosted CIの起動・成功は未確認（原因未特定）。実環境適合/配備には別途承認と検証が必要。
 - task: HARD-08
+
+## Previous state archived 2026-09-10T13:47:52Z
+
+### Previous verified current state
+
+- HARD-08正式採用と累積改善198filesをprivate origin/mainへpush済み。source commit 41138482f68417d8cca20c9a4b836d1c9d34f34d、remote一致・PRIVATE維持を確認。全体504pass/0fail/1skip、独立reviewと採用snapshot不変。GitHub CIは対象SHAでrun/check 0件のため起動・成功未確認。全8完了・実配備は未主張。
+
+### Previous next actions
+
+- 次回はGitHub CI起動未確認を再確認し、HARD-03/04/07（承認範囲と稼働状況表示）のローカル改善を再開する。HARD-08の限定採用は再承認不要。過去証拠logの排他的出力も後続改善。
+
+### Previous blockers and human gates
+
+- ソースpushのblockerなし。hosted CIの起動・成功は未確認（原因未特定）。実環境適合/配備には別途承認と検証が必要。
+
+## Checkpoint 2026-09-10T13:47:52Z
+
+- summary: ハーネス本体はGitHub管理・ローカル/CI実行、Databricksに配備するのは案件成果物という境界を再確認。HARD-03から再開。既存approvalはgate/session/artifact hashを持つが環境/操作/権限/費用/期限の共通照合がない。CIは前回headのrunなしを再確認。
+- evidence: work/plans/2026-09-10-retrospective-hardening.md
+- next: HARD-03のローカル限定contractを独立確認し、負例→台帳/照合→全回帰→独立レビューを実施。HARD-04はこの台帳と製品観測を別表示する後続slice。
+- blocker: ローカル候補作成のblockerなし。新規安全制御の正式採用は独立レビュー後の人の判断。実workspace・DB・案件変更・pushは今回の再開から推定しない。
+- task: HARD-03
+
+## Previous state archived 2026-09-10T14:05:50Z
+
+### Previous verified current state
+
+- ハーネス本体はGitHub管理・ローカル/CI実行、Databricksに配備するのは案件成果物という境界を再確認。HARD-03から再開。既存approvalはgate/session/artifact hashを持つが環境/操作/権限/費用/期限の共通照合がない。CIは前回headのrunなしを再確認。
+
+### Previous next actions
+
+- HARD-03のローカル限定contractを独立確認し、負例→台帳/照合→全回帰→独立レビューを実施。HARD-04はこの台帳と製品観測を別表示する後続slice。
+
+### Previous blockers and human gates
+
+- ローカル候補作成のblockerなし。新規安全制御の正式採用は独立レビュー後の人の判断。実workspace・DB・案件変更・pushは今回の再開から推定しない。
+
+## Checkpoint 2026-09-10T14:05:50Z
+
+- summary: HARD-03のローカル承認台帳と照合候補を実装。期限/撤回/範囲/対象bytes/入力境界、旧gateへの誤流用拒否を専用50pass・全回帰554pass/1skipで確認。独立実装レビュー中。ハーネス自体のDatabricks配備機能ではなく、旧gateを自動解除せずexecutionAuthorized=false。
+- evidence: work/evidence/2026-09-10-scoped-approval.md
+- next: 独立レビューの負例に対応し再検証。指摘解消後に今回の限定候補の正式採用判断を求める。HARD-04/07表示は後続。
+- blocker: 独立レビュー中。新規安全制御の正式採用は人の判断。実DB・配備・案件操作・pushは行わない。
+- task: HARD-03
+
+## Previous state archived 2026-09-10T14:18:34Z
+
+### Previous verified current state
+
+- HARD-03のローカル承認台帳と照合候補を実装。期限/撤回/範囲/対象bytes/入力境界、旧gateへの誤流用拒否を専用50pass・全回帰554pass/1skipで確認。独立実装レビュー中。ハーネス自体のDatabricks配備機能ではなく、旧gateを自動解除せずexecutionAuthorized=false。
+
+### Previous next actions
+
+- 独立レビューの負例に対応し再検証。指摘解消後に今回の限定候補の正式採用判断を求める。HARD-04/07表示は後続。
+
+### Previous blockers and human gates
+
+- 独立レビュー中。新規安全制御の正式採用は人の判断。実DB・配備・案件操作・pushは行わない。
+
+## Checkpoint 2026-09-10T14:18:34Z
+
+- summary: HARD-03独立指摘SIR-01の時計巻戻りを修正。元の24試験を変更せず再生し、専用52＋独立24で76pass、全回帰556pass/0fail/1skip。独立再レビュー中。承認台帳は実行権限を追加せず、ハーネス自体をDatabricksに配備する機能ではない。
+- evidence: work/evidence/2026-09-10-scoped-approval.md
+- next: 独立再レビューと対象hashを照合。限定ローカル候補の正式採用は人の判断へ提示する。HARD-04の案件稼働観測は後続。
+- blocker: 新規承認制御の正式採用は独立再レビュー後の人の判断待ち。実環境操作・案件反映・pushはしない。
+- task: HARD-03
+
+## Previous state archived 2026-09-10T14:24:39Z
+
+### Previous verified current state
+
+- HARD-03独立指摘SIR-01の時計巻戻りを修正。元の24試験を変更せず再生し、専用52＋独立24で76pass、全回帰556pass/0fail/1skip。独立再レビュー中。承認台帳は実行権限を追加せず、ハーネス自体をDatabricksに配備する機能ではない。
+
+### Previous next actions
+
+- 独立再レビューと対象hashを照合。限定ローカル候補の正式採用は人の判断へ提示する。HARD-04の案件稼働観測は後続。
+
+### Previous blockers and human gates
+
+- 新規承認制御の正式採用は独立再レビュー後の人の判断待ち。実環境操作・案件反映・pushはしない。
+
+## Checkpoint 2026-09-10T14:24:39Z
+
+- summary: HARD-03の承認scope台帳・照合をローカル実装し独立再レビュー済み。SIR-01時計巻戻りを修正、専用52pass・独立32pass・全回帰556pass/0fail/1skip。報告と18対象hash一致。旧gateは不変、実行権限やハーネスのDatabricks配備を追加しない。限定候補の正式採用待ち。
+- evidence: work/reviews/2026-09-10-scoped-approval-rereview.md
+- next: 今回のローカル承認記録・照合範囲を正式採用してよいか人に確認。承認後は対象snapshotを採用記録へ結び付け、HARD-04/07の案件稼働観測表示へ進む。
+- blocker: 改善手順により新しい承認制御の正式採用は人の判断待ち。独立技術指摘は解消。実環境操作・案件変更・pushはしない。
+- task: HARD-03

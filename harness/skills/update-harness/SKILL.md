@@ -14,3 +14,4 @@ description: Update an existing project's installed harness from a trusted local
 5. 日本語で対象案件・元版→先版・更新元の選択形態・差分件数・競合・削除・手動移行を説明する。利用者の更新指示は必要な計画説明を省く根拠にしない。適用する計画を確認してもらい、競合や手動移行の判断が未解決なら停止する。
 6. 書込み停止と計画確認後、`node tools/update-harness.mjs apply --plan PLAN_PATH --yes`。force、baseline/planの偽装、未知ファイルの削除、独自変更の自動解消はしない。中断時はbackup/journalを保持して復旧手順へ。
 7. ファイルhash照合は案件受入ではない。ハーネスcheck/試験、案件の関連試験、別contextの独立レビューを行い、証拠と未実行事項を記録する。provider生成物の独自差分があれば無条件syncしない。更新後は新contextでsessionを読み直して開発を再開する。push、DB変更、配備は含まない。
+8. 進行中の工程を新標準に照合する。UI設計/モック中なら `docs/harness/operations/UI_RUNTIME_FIDELITY.md` の移行確認を行う。旧紙芝居・旧承認は保存し、現在の実コンポーネントとの対応、項目/データ設計、未解決差異を確認して必要部分だけ補完する。更新成功をUIの再承認と見なさず、案件アプリの自動再生成や承認捏造はしない。

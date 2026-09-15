@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "proposed-not-promoted",
+  "taskId": "HARD-03",
+  "prompt": "承認済みの案件スコープを別セッションで引き継ぎたい。環境や権限を広げず、期限と根拠を確認し、作業の承認と実行許可を混同しないでください。",
+  "fixture": "tests/scoped-approval.test.mjs",
+  "successCriteria": [
+    "同じ有効範囲だけが引継ぎ照合に合格する",
+    "範囲拡大・期限切れ・撤回・文書変更は引き継げない",
+    "新recordでlegacy loop gateを解除しない",
+    "実行・candidate実体・費用強制・本人認証が未検証と分かる",
+    "ハーネス開発元に案件の実行承認を登録しない"
+  ],
+  "realProviderRuns": [],
+  "liveDatabricksRuns": [],
+  "canonicalGoldenChanged": false
+}

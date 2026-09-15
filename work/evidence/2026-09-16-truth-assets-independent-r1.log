@@ -1,0 +1,264 @@
+TAP version 13
+# Subtest: FIX-04 re-setup refuses unknown skills in either provider before modifying either tree
+ok 1 - FIX-04 re-setup refuses unknown skills in either provider before modifying either tree
+  ---
+  duration_ms: 2657.8984
+  type: 'test'
+  ...
+# Subtest: FIX-01 generated provider skill preserves existing Apps database resource type
+ok 2 - FIX-01 generated provider skill preserves existing Apps database resource type
+  ---
+  duration_ms: 2298.6739
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-155731-012-metric-view-sales-d9291d78.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-155731-012-metric-view-sales-d9291d78.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: FIX-05 generated SQL embeds exactly the canonical metric YAML
+ok 3 - FIX-05 generated SQL embeds exactly the canonical metric YAML
+  ---
+  duration_ms: 29.155
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight unknown-file in provider 0 preserves both trees
+ok 4 - IND-ASSET preflight unknown-file in provider 0 preserves both trees
+  ---
+  duration_ms: 14.5252
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees
+ok 5 - IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees
+  ---
+  duration_ms: 10.7392
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight unknown-file in provider 1 preserves both trees
+ok 6 - IND-ASSET preflight unknown-file in provider 1 preserves both trees
+  ---
+  duration_ms: 8.9457
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees
+ok 7 - IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees
+  ---
+  duration_ms: 10.4062
+  type: 'test'
+  ...
+# Subtest: IND-ASSET hardlink in provider 0 rejects before writes
+ok 8 - IND-ASSET hardlink in provider 0 rejects before writes
+  ---
+  duration_ms: 9.2687
+  type: 'test'
+  ...
+# Subtest: IND-ASSET hardlink in provider 1 rejects before writes
+ok 9 - IND-ASSET hardlink in provider 1 rejects before writes
+  ---
+  duration_ms: 9.7736
+  type: 'test'
+  ...
+# Subtest: IND-ASSET junction at target-root rejects without changing linked data
+ok 10 - IND-ASSET junction at target-root rejects without changing linked data
+  ---
+  duration_ms: 9.0085
+  type: 'test'
+  ...
+# Subtest: IND-ASSET junction at expected-subdirectory rejects without changing linked data
+ok 11 - IND-ASSET junction at expected-subdirectory rejects without changing linked data
+  ---
+  duration_ms: 9.2008
+  type: 'test'
+  ...
+# Subtest: IND-ASSET file symlink is rejected when host permits creating one
+ok 12 - IND-ASSET file symlink is rejected when host permits creating one # SKIP Host cannot create file symlinks; junction paths are tested separately.
+  ---
+  duration_ms: 5.0243
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/3bd8c42a-9043-4378-a27e-8666d98d3fd6
+# Subtest: IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes
+ok 13 - IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes
+  ---
+  duration_ms: 30.3213
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/83a2a971-3cc7-4f4a-a571-6e0333a15c69
+# Subtest: IND-ASSET interrupted second write retains both backups and explicit retry works
+not ok 14 - IND-ASSET interrupted second write retains both backups and explicit retry works
+  ---
+  duration_ms: 24.4366
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\work\\evidence\\2026-09-16-truth-assets-independent.test.mjs:104:1'
+  failureType: 'testCodeFailure'
+  error: 'Unknown/unmanaged skill file; preserved without deletion: core/SKILL.md.tmp-16104-50c9db7c-bbf9-4ab1-89bf-20700728c2cf'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    walk (file:///D:/projects/databricks-dev-harness/tools/lib/skill-sync.mjs:22:37)
+    async walk (file:///D:/projects/databricks-dev-harness/tools/lib/skill-sync.mjs:20:9)
+    async inventory (file:///D:/projects/databricks-dev-harness/tools/lib/skill-sync.mjs:28:3)
+    async Promise.all (index 1)
+    async file:///D:/projects/databricks-dev-harness/tools/lib/skill-sync.mjs:35:15
+    async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+    async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/2026-09-16-truth-assets-independent.test.mjs:123:17)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused
+ok 15 - IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused
+  ---
+  duration_ms: 0.7706
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR version mismatch and later-file hash mismatch cause no partial write
+ok 16 - IND-VENDOR version mismatch and later-file hash mismatch cause no partial write
+  ---
+  duration_ms: 13.6583
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR read-only validation does not patch; write then check is idempotent
+ok 17 - IND-VENDOR read-only validation does not patch; write then check is idempotent
+  ---
+  duration_ms: 17.7992
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity
+ok 18 - IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity
+  ---
+  duration_ms: 2.2949
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-155726-235-metric-view-sales-7590f305.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-155726-235-metric-view-sales-7590f305.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC embedded YAML parses to the canonical YAML with Japanese and quoting
+not ok 19 - IND-METRIC embedded YAML parses to the canonical YAML with Japanese and quoting
+  ---
+  duration_ms: 177.2619
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\work\\evidence\\2026-09-16-truth-assets-independent.test.mjs:177:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "C:\Users\nimao\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 293, in load
+        return loads(fp.read(),
+               ^^^^^^^^^^^^^^^^
+      File "C:\Users\nimao\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 346, in loads
+        return _default_decoder.decode(s)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\nimao\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 338, in decode
+        obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "C:\Users\nimao\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 354, in raw_decode
+        obj, end = self.scan_once(s, idx)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+    json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 150 (char 149)
+    
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/2026-09-16-truth-assets-independent.test.mjs:183:10)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-155726-412-metric-view-sales-6ea874fa.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-155726-412-metric-view-sales-6ea874fa.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC delimiter in metadata is rejected or safely embedded: {"description":"Profit $$ USD"}
+ok 20 - IND-METRIC delimiter in metadata is rejected or safely embedded: {"description":"Profit $$ USD"}
+  ---
+  duration_ms: 29.4109
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-155726-441-metric-view-sales-fa0227e1.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-155726-441-metric-view-sales-fa0227e1.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC delimiter in metadata is rejected or safely embedded: {"dimension":["地域 $$ 分類=region"]}
+ok 21 - IND-METRIC delimiter in metadata is rejected or safely embedded: {"dimension":["地域 $$ 分類=region"]}
+  ---
+  duration_ms: 27.575
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-155726-469-metric-view-sales-36f8a125.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-155726-469-metric-view-sales-36f8a125.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC delimiter in metadata is rejected or safely embedded: {"measure":["Revenue $$ USD=SUM(amount)"]}
+ok 22 - IND-METRIC delimiter in metadata is rejected or safely embedded: {"measure":["Revenue $$ USD=SUM(amount)"]}
+  ---
+  duration_ms: 29.212
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 19
+# fail 2
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 5058.9938

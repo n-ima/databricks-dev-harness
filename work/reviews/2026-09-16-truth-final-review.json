@@ -1,0 +1,133 @@
+{
+  "reviewer": "/root/truth_repair_final_review",
+  "provider": "codex",
+  "independent": true,
+  "scope": "FIX-01〜06の限定ローカル是正。実provider/Databricks・公開・既存UIF/HARD-03正式採用を含まない。",
+  "acceptance": [
+    {
+      "id": "FIX-01",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-truth-final-review.md",
+        "work/evidence/2026-09-16-truth-final-critical.log",
+        "work/evidence/2026-09-16-truth-final-snapshot.json",
+        "work/reviews/2026-09-16-truth-assets-review.md",
+        "work/reviews/2026-09-16-platform-truth-audit.md",
+        "work/evidence/2026-09-16-truth-lakebase-forward.md",
+        "work/evidence/2026-09-16-truth-REPAIR-T03.log",
+        "harness/vendor-patches.json",
+        "tools/lib/vendor-patches.mjs",
+        "vendor/databricks-skills/databricks-lakebase/SKILL.md"
+      ]
+    },
+    {
+      "id": "FIX-02",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-truth-final-review.md",
+        "work/evidence/2026-09-16-truth-final-critical.log",
+        "work/evidence/2026-09-16-truth-final-snapshot.json",
+        "work/reviews/2026-09-16-truth-gates-review.md",
+        "work/evidence/2026-09-16-truth-lifecycle-red.log",
+        "work/evidence/2026-09-16-truth-REPAIR-T02.log",
+        "tools/lib/session-loop.mjs",
+        "tools/lib/memory.mjs"
+      ]
+    },
+    {
+      "id": "FIX-03",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-truth-final-review.md",
+        "work/evidence/2026-09-16-truth-final-critical.log",
+        "work/evidence/2026-09-16-truth-final-snapshot.json",
+        "work/reviews/2026-09-16-truth-gates-review.md",
+        "work/evidence/2026-09-16-truth-lifecycle-red.log",
+        "work/evidence/2026-09-16-truth-REPAIR-T02.log",
+        "tools/lib/loop.mjs",
+        "tools/lib/command-async.mjs"
+      ]
+    },
+    {
+      "id": "FIX-04",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-truth-final-review.md",
+        "work/evidence/2026-09-16-truth-final-critical.log",
+        "work/evidence/2026-09-16-truth-final-snapshot.json",
+        "work/reviews/2026-09-16-truth-assets-review.md",
+        "work/evidence/2026-09-16-truth-assets-independent-r1.log",
+        "work/evidence/2026-09-16-truth-assets-independent-r2.log",
+        "work/evidence/2026-09-16-truth-REPAIR-T03.log",
+        "tools/lib/skill-sync.mjs",
+        "tools/lib/shared.mjs"
+      ]
+    },
+    {
+      "id": "FIX-05",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-truth-final-review.md",
+        "work/evidence/2026-09-16-truth-final-critical.log",
+        "work/evidence/2026-09-16-truth-final-snapshot.json",
+        "work/reviews/2026-09-16-platform-truth-audit.md",
+        "work/reviews/2026-09-16-truth-assets-review.md",
+        "work/evidence/2026-09-16-truth-REPAIR-T04.log",
+        "tools/lib/scaffold.mjs"
+      ]
+    },
+    {
+      "id": "FIX-06",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-truth-final-review.md",
+        "work/evidence/2026-09-16-truth-final-critical.log",
+        "work/evidence/2026-09-16-truth-final-snapshot.json",
+        "work/evidence/2026-09-16-truth-repair.md",
+        "work/evidence/2026-09-16-truth-final-snapshot.mjs",
+        "work/evidence/2026-09-16-truth-final-quality-verify.json",
+        "work/evidence/2026-09-16-truth-skill-validation.md",
+        "work/evidence/2026-09-16-truth-preservation.json",
+        "work/evidence/2026-09-16-truth-REPAIR-T01.log",
+        "work/evidence/2026-09-16-truth-REPAIR-T02.log",
+        "work/evidence/2026-09-16-truth-REPAIR-T03.log",
+        "work/evidence/2026-09-16-truth-REPAIR-T04.log",
+        "work/evidence/2026-09-16-truth-REPAIR-T05.log",
+        "work/evidence/2026-09-16-truth-REPAIR-T06.log",
+        "work/quality/2026-09-16-truth-repair.json",
+        "docs/harness/requirements/2026-09-16-truth-repair.md",
+        "docs/harness/design/TRUTH_REPAIR.md",
+        "docs/harness/operations/CLI_REFERENCE.md",
+        "docs/harness/operations/SETUP_WALKTHROUGH.md",
+        "docs/harness/operations/SAFE_LOCAL_UPDATE.md",
+        "docs/harness/operations/UPDATING_EXISTING_PROJECTS.md",
+        "tools/harness.mjs",
+        "tools/lib/loop.mjs",
+        "tools/lib/session-loop.mjs",
+        "tools/lib/memory.mjs",
+        "tools/lib/command-async.mjs",
+        "tools/lib/shared.mjs",
+        "tools/lib/skill-sync.mjs",
+        "tools/lib/vendor-patches.mjs",
+        "tools/lib/scaffold.mjs",
+        "tools/lib/distribution.mjs",
+        "harness/vendor-patches.json",
+        "harness/toolchain.lock.json",
+        "tests/truth-assets.test.mjs",
+        "tests/truth-asset-boundaries.test.mjs",
+        "tests/truth-lifecycle.test.mjs",
+        "tests/truth-gates.test.mjs",
+        "work/evidence/2026-09-16-truth-gates-independent.test.mjs",
+        "work/evidence/2026-09-16-truth-assets-independent.test.mjs",
+        "work/evidence/2026-09-16-truth-preserve.mjs",
+        "work/evidence/2026-09-16-truth-verify.mjs",
+        "work/evidence/2026-09-16-truth-repair-baseline.json",
+        "vendor/databricks-skills/databricks-lakebase/SKILL.md",
+        ".claude/skills/databricks-lakebase/SKILL.md",
+        ".github/skills/databricks-lakebase/SKILL.md",
+        "tools/lib/ui-contract.mjs",
+        "tools/lib/scoped-approval.mjs"
+      ]
+    }
+  ]
+}

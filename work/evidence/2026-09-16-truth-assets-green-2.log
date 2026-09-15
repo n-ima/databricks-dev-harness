@@ -1,0 +1,26 @@
+✔ FIX-04 re-setup refuses unknown skills in either provider before modifying either tree (2519.7123ms)
+✔ FIX-01 generated provider skill preserves existing Apps database resource type (2442.0267ms)
+{
+  "plan": "work/scaffolds/20260915-155232-298-metric-view-sales-c2537e0d.json",
+  "status": "draft-ready",
+  "missing": [],
+  "rules": []
+}
+{
+  "plan": "work/scaffolds/20260915-155232-298-metric-view-sales-c2537e0d.json",
+  "status": "draft-generated",
+  "generatedFiles": [
+    "src/metrics/sales.metric.yml",
+    "src/metrics/sales.draft.sql",
+    "tests/metrics/sales.contract.json"
+  ]
+}
+✔ FIX-05 generated SQL embeds exactly the canonical metric YAML (44.2684ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5078.2207

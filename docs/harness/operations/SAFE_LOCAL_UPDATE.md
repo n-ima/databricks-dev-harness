@@ -62,6 +62,6 @@ clean sourceなら実行器のpathは`D:/tools/databricks-dev-harness/tools/upda
 
 成功時は全管理ファイルと削除結果のhashを照合してから導入版を記録します。表示は「ファイル更新・hash確認済み」。案件試験と独立レビューが終わるまで案件の更新受入完了とは呼びません。provider設定、秘密情報、権限を自動追加しません。競合がないことは版の安全性の全面保証でもありません。
 
-生成済みproviderファイルも更新済みなので、通常は`agent-assets:sync`を実行しません。この同期は生成先全体を再作成します。案件独自のskillがあれば、checkの不一致を直すために削除・再生成せず、そのまま保持して別途レビューしてください。
+生成済みproviderファイルも更新済みなので、通常は`agent-assets:sync`を実行しません。是正後の同期は全providerを事前検査し、未知のfile/directory/linkがあれば保持したまま停止します。管理fileを上書きする場合は元内容を`.harness/agent-assets/backups/<ID>/`に保存し、生成先を一括削除しません。旧版の同期にはこの保護がないため、更新前には実行しないでください。案件独自のskillによるcheck不一致は、削除・再生成せず保持して別途レビューしてください。
 
 この仕組みは自動実行schedulerやOS sandboxではありません。同時に任意コマンドで変更する別agentは完全検知できないため、更新中の書込み停止は必要です。snapshots/backupsは自動削除せず、容量の整理は復旧不要と確認した後の別作業です。ハーネス更新はローカル操作であり、Databricks配備・GitHub pushではありません。

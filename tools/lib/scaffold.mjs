@@ -264,6 +264,7 @@ async function planApp(root, options, base, dependencies) {
   }
   const resources = groups.flatMap((item) => item.fields);
   const missing = resources.filter((item) => item.required && !Object.hasOwn(supplied, item.key)).map((item) => item.key);
+  if (purpose === 'integration') missing.push('reuse-reviewed-app: integration init cannot reuse another app approval; extend the existing fixture app through build-work');
   const unknown = Object.keys(supplied).filter((key) => !resources.some((item) => item.key === key && item.userInput));
   if (unknown.length) throw new Error(`Unknown or CLI/platform-managed AppKit resource keys: ${unknown.join(", ")}`);
   for (const [key, value] of Object.entries(supplied)) {
@@ -332,7 +333,7 @@ async function planApp(root, options, base, dependencies) {
     readinessScope: "local-init-only",
     bundleTopology: "nested-component-bundle",
     remainingWork: purpose === "mock"
-      ? ["Build executable fixture-backed UI in the official starter", "Update smoke selectors and verify all UI states", "Record human mock approval", "Create a separate integration plan before adding data plugins or business-data resources; fixture bundle configuration is quarantined"]
+      ? ["Build executable fixture-backed UI in the official starter", "Update smoke selectors and verify all UI states", "Record human mock approval with a runtime UI contract", "Extend this same reviewed app through build-work with a separate integration design and approvals; do not reinitialize another app; fixture bundle configuration remains quarantined until reviewed"]
       : ["Adapt starter code and smoke selectors to approved requirements", "Complete after-init and ongoing manifest rules", "Run fixture UI, accessibility and integration tests", "Review component databricks.yml targets, permissions and resources", "Obtain separate deployment and data/permission approvals"],
     missing,
     outputDir,
@@ -844,7 +845,9 @@ resources:
 }
 
 function metricYaml(plan) {
-  const quote = (value) => JSON.stringify(value);
+  // YAML double-quoted strings accept JSON Unicode escapes. Escape dollar signs
+  // so user-facing labels cannot terminate the enclosing SQL $$ string.
+  const quote = (value) => JSON.stringify(value).replaceAll('$', '\\u0024');
   return `version: 1.1
 source: ${plan.sourceTable}
 comment: ${quote(plan.description)}
@@ -862,8 +865,8 @@ function metricSql(plan) {
 CREATE OR REPLACE VIEW \${catalog}.\${schema}.${key}
 WITH METRICS
 LANGUAGE YAML
-AS $$
 -- Generated from src/metrics/${plan.name}.metric.yml; keep the YAML source authoritative.
+AS $$
 ${metricYaml(plan)}$$;
 `;
 }
@@ -920,6 +923,7 @@ async function applyScaffoldLocked(root, options, dependencies) {
   const { integrityHash, ...record } = plan;
   if (!integrityHash || sha256(JSON.stringify(record)) !== integrityHash) throw new Error("Scaffold plan changed after planning; regenerate and review it.");
   if (!KINDS.has(plan.kind) || plan.deployReady !== false) throw new Error("Invalid scaffold safety contract.");
+  if (plan.kind === 'app' && plan.purpose !== 'mock') throw new Error('UI contract: integration init is no longer supported. Preserve and extend the reviewed app through build-work; do not regenerate it or reuse another app approval.');
   if (plan.kind === "app" && (!plan.profile || !plan.host || !plan.workspaceVerification)) {
     plan.status = "needs-replan";
     plan.failureStage = "capability";

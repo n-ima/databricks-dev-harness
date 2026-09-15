@@ -1,0 +1,40 @@
+✔ I01 public read-only CLI: same scope crosses sessions but never clears pending gate or writes any bytes (465.4562ms)
+✔ I02 semantic array permutation is accepted; lower cost and resource subset still require a new decision (134.2502ms)
+✔ I03 origin progress/terminal state permits handoff, but origin pointer or missing source invalidates it (206.1614ms)
+✔ I04 completed target, unaccepted requirement, empty AC or control drift never fallback to a similar scope (154.6489ms)
+✔ I05 sensitive scope dimensions each reject exact reuse without altering the grant (462.1014ms)
+✔ I06 record duplicate writers produce exactly one immutable record (146.2467ms)
+✔ I07 revocation is immutable, bound to original bytes, and no check mutation repairs it (306.1709ms)
+✔ I08 corrupt, wrong-grant and future revocations all fail closed even with recomputed content hash (434.0297ms)
+✔ I09 grant closed schema/kind/hash and duplicate keys reject fabricated legacy shapes (142.879ms)
+✔ I10 new grant and revocation cannot unlock a legacy loop gate (322.1754ms)
+✔ I11 nested escaped duplicate keys, invisible strings, wildcard and excessive lists refuse record before persistence (53.8949ms)
+✔ I12 canonical path boundaries and reserved paths never issue a record (122.1381ms)
+✔ I13 hardlinked file, linked component and linked output ancestor reject fixture writes (97.3216ms)
+✔ I14 UTF-8/size/empty/known secret evidence boundaries fail closed (134.0753ms)
+✔ I15 raw CLI surface refuses missing, duplicate, unknown, normalized and positional options (289.2689ms)
+✔ I16 exact issue/expiry/30-day boundaries reject stale reuse without extending its original expiry (153.1876ms)
+✔ I17 record rejects a request changed after parsing and before snapshot validation (74.5215ms)
+✔ I18 record rejects source requirement-pointer change during evidence read (78.8786ms)
+✔ I19 drift between target and origin repeated input reads is rejected (96.1254ms)
+✔ I20 revocation appearing during final snapshot validation prevents a positive check (117.6295ms)
+✔ I21 revoke rejects original record changed during proof read; original is not repaired (95.2791ms)
+✔ I22 check reaching expiry during final read is denied (123.9741ms)
+✔ I23 check clock rollback before issuedAt during I/O cannot return eligibleForReuse (285.2573ms)
+✔ I24 record clock rollback before its issuedAt during I/O cannot persist a future-issued decision (97.4669ms)
+✔ R01 record final time equals issuedAt is valid; one millisecond below rejects without grant, lock, or input changes (125.7874ms)
+✔ R02 record reaching expiry is rejected before persistence; one millisecond before expiry remains valid (110.7842ms)
+✔ R03 check permits rollback only within its valid interval and returns fixed reasons outside both bounds (218.7792ms)
+✔ R04 invalid final clocks cannot issue a record or produce a positive reuse result (385.7678ms)
+✔ R05 full 30-day issuance window is accepted exactly, plus one millisecond is rejected (123.0483ms)
+✔ R06 partial record-write failure is visible and never overwritten by retry (110.7535ms)
+✔ R07 raw public command interface still records/checks/revokes fixture decisions without changing a pending gate (168.5269ms)
+✔ R08 revoked records stay fail-closed for ordinary, expired and rolled-back checks (129.7983ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6108.5885

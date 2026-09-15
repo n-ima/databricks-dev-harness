@@ -6,7 +6,7 @@ The Databricks-sourced `databricks-*` directories and their generated provider c
 
 The harness supplements the CLI payload with the upstream release's LICENSE and NOTICE before replacing the current vendor tree. Missing/unverifiable legal documents abort refresh and preserve the current vendor copy. Review any changed license terms before sharing an updated template. The generator copies these documents and the scope explanation to both providers; the release updater carries them as managed files.
 
-Do not hand-edit it. Refresh in a dedicated reviewed change:
+Do not hand-edit it. The harness applies the reviewed, exact-version/source-hash-bound corrections in `harness/vendor-patches.json`. Modified files carry a HARNESS CORRECTION notice; the upstream version and LICENSE/NOTICE remain unchanged. Refresh stops before replacing the vendor tree if the version or patch input no longer matches. The source hash plus reversible patch records distinguish upstream bytes from local corrections. Refresh in a dedicated reviewed change:
 
 ```powershell
 npm run setup -- --refresh-skills

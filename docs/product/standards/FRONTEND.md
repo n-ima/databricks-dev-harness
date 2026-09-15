@@ -17,7 +17,9 @@ Do not add MUI, another design system, Recharts, Plotly, Highcharts, or another 
 
 ## Executable mock gate
 
-軽量HTML紙芝居は、配置・ラベル・導線が未確定な場合だけ使う設計補助で、以下の実行可能モックとは別。必要性と再利用方針は `docs/harness/operations/DOCUMENTATION_STANDARD.md` に従う。紙芝居の承認だけでui-mock gateを解除しない。
+画面の設計・プレビューからDatabricks Appsを既定にする。AppKitはハーネスの既定であり、Databricksプラットフォームの唯一の対応frameworkという意味ではない。外部ホスティング/別frameworkは明示された要件と例外判断が必要。
+
+HTMLの紙芝居も、採用した実コンポーネント・スタイルを描画して生成したものに限定する。独自CSSやspanで似せた別UIを実装予定画面として承認依頼しない。静的描画は見た目専用で、操作承認には同じアプリのfixtureモックが必要。既存アプリを再利用する。詳細と変更時の再確認は `docs/harness/operations/UI_RUNTIME_FIDELITY.md` に従う。
 
 Mocks use production components and synthetic fixtures. They are kept as deterministic application states and tests, not discarded after approval.
 

@@ -5,6 +5,7 @@ import { join, resolve, sep } from "node:path";
 import { tmpdir } from "node:os";
 import { atomicWrite, parseFrontmatter, readJson, writeJson } from "../tools/lib/shared.mjs";
 import { createApproval } from "../tools/lib/approval.mjs";
+import { uiFixture } from './helpers/ui-fidelity.mjs';
 
 async function fixture(t, gate = "ui-mock") {
   t.mock.method(console, "log", () => {});
@@ -18,9 +19,18 @@ async function fixture(t, gate = "ui-mock") {
   return root;
 }
 const options = { session: "session", gate: "ui-mock", actor: "owner", evidence: "work/evidence/human.md", artifact: ["apps/demo/mock.tsx"] };
+
+test("UI approval rejects approximate HTML without runtime correspondence and preserves the pending gate", async (t) => {
+  const root = await fixture(t);
+  await atomicWrite(join(root, "docs/product/ui/paper.html"), '<span class="pseudo-select">商品分類</span>');
+  await assert.rejects(createApproval(root, { ...options, artifact: ["docs/product/ui/paper.html"] }), /UI.*contract|ui-contract/i);
+  assert.equal(parseFrontmatter(await readFile(join(root, "work/sessions/session.md"), "utf8")).gate_status, "pending");
+  await assert.rejects(readFile(join(root, "work/approvals/session/ui-mock.json")), /ENOENT/);
+});
 test("mock approval binds executable artifacts and updates the active session", async (t) => {
   const root = await fixture(t);
-  const result = await createApproval(root, options);
+  const ui = await uiFixture(root);
+  const result = await createApproval(root, { ...options, ui_contract: ui.path });
   assert.ok(result.artifactHashes[options.artifact[0]]);
   assert.equal(parseFrontmatter(await readFile(join(root, "work/sessions/session.md"), "utf8")).gate_status, "approved");
   assert.equal((await readJson(join(root, "work/approvals/session/ui-mock.json"))).actor, "owner");

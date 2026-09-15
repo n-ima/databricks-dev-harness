@@ -1,0 +1,52 @@
+✔ IND-ASSET preflight unknown-file in provider 0 preserves both trees (14.6462ms)
+✔ IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees (9.346ms)
+✔ IND-ASSET preflight unknown-file in provider 1 preserves both trees (8.9241ms)
+✔ IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees (9.1111ms)
+✔ IND-ASSET hardlink in provider 0 rejects before writes (8.9075ms)
+✔ IND-ASSET hardlink in provider 1 rejects before writes (12.7165ms)
+✔ IND-ASSET junction at target-root rejects without changing linked data (7.2987ms)
+✔ IND-ASSET junction at expected-subdirectory rejects without changing linked data (9.0405ms)
+﹣ IND-ASSET file symlink is rejected when host permits creating one (5.0416ms) # Host cannot create file symlinks; junction paths are tested separately.
+Managed skill backups: .harness/agent-assets/backups/a5122120-3b37-4505-b431-105f651756b4
+✔ IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes (30.3183ms)
+Managed skill backups: .harness/agent-assets/backups/61fc8202-157d-4fad-8753-d77c368331df
+Managed skill backups: .harness/agent-assets/backups/64af5498-c88f-45d7-a730-0fa094145525
+✔ IND-ASSET interrupted second rename retains both backups and explicit retry works (28.5869ms)
+Managed skill backups: .harness/agent-assets/backups/6bcc049c-6955-408b-b858-304f65c4fbc9
+Managed skill backups: .harness/agent-assets/backups/f4a13895-b772-497c-ae3b-d0136c843b79
+✔ IND-ASSET interrupted second write retains both backups and explicit retry works (26.4614ms)
+Managed skill backups: .harness/agent-assets/backups/04743883-1479-414b-9945-7d78bd6d95c0
+✔ IND-ASSET cleanup failure reports the exact leftover and preserves destination and backups (23.5961ms)
+✔ IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused (0.3689ms)
+✔ IND-VENDOR version mismatch and later-file hash mismatch cause no partial write (10.0263ms)
+✔ IND-VENDOR read-only validation does not patch; write then check is idempotent (13.4021ms)
+✔ IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity (1.9394ms)
+✔ IND-VENDOR full refresh uses mocked installer/legal data and same-version (4719.3596ms)
+✔ IND-VENDOR full refresh uses mocked installer/legal data and changed-version (3219.6085ms)
+✔ IND-VENDOR full refresh uses mocked installer/legal data and changed-hash (2974.0513ms)
+✔ FIX-04 re-setup refuses unknown skills in either provider before modifying either tree (3089.3866ms)
+✔ FIX-01 generated provider skill preserves existing Apps database resource type (2942.8463ms)
+{
+  "plan": "work/scaffolds/20260915-160557-526-metric-view-sales-f32deca2.json",
+  "status": "draft-ready",
+  "missing": [],
+  "rules": []
+}
+{
+  "plan": "work/scaffolds/20260915-160557-526-metric-view-sales-f32deca2.json",
+  "status": "draft-generated",
+  "generatedFiles": [
+    "src/metrics/sales.metric.yml",
+    "src/metrics/sales.draft.sql",
+    "tests/metrics/sales.contract.json"
+  ]
+}
+✔ FIX-05 generated SQL embeds exactly the canonical metric YAML (43.0013ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 11203.1044

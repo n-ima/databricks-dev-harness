@@ -1,0 +1,253 @@
+TAP version 13
+# Subtest: FIX-04 re-setup refuses unknown skills in either provider before modifying either tree
+ok 1 - FIX-04 re-setup refuses unknown skills in either provider before modifying either tree
+  ---
+  duration_ms: 3214.9714
+  type: 'test'
+  ...
+# Subtest: FIX-01 generated provider skill preserves existing Apps database resource type
+ok 2 - FIX-01 generated provider skill preserves existing Apps database resource type
+  ---
+  duration_ms: 2884.3049
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-160333-483-metric-view-sales-58258d40.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-160333-483-metric-view-sales-58258d40.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: FIX-05 generated SQL embeds exactly the canonical metric YAML
+ok 3 - FIX-05 generated SQL embeds exactly the canonical metric YAML
+  ---
+  duration_ms: 40.3834
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight unknown-file in provider 0 preserves both trees
+ok 4 - IND-ASSET preflight unknown-file in provider 0 preserves both trees
+  ---
+  duration_ms: 14.5018
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees
+ok 5 - IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees
+  ---
+  duration_ms: 8.8814
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight unknown-file in provider 1 preserves both trees
+ok 6 - IND-ASSET preflight unknown-file in provider 1 preserves both trees
+  ---
+  duration_ms: 8.3033
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees
+ok 7 - IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees
+  ---
+  duration_ms: 8.7536
+  type: 'test'
+  ...
+# Subtest: IND-ASSET hardlink in provider 0 rejects before writes
+ok 8 - IND-ASSET hardlink in provider 0 rejects before writes
+  ---
+  duration_ms: 8.8704
+  type: 'test'
+  ...
+# Subtest: IND-ASSET hardlink in provider 1 rejects before writes
+ok 9 - IND-ASSET hardlink in provider 1 rejects before writes
+  ---
+  duration_ms: 11.783
+  type: 'test'
+  ...
+# Subtest: IND-ASSET junction at target-root rejects without changing linked data
+ok 10 - IND-ASSET junction at target-root rejects without changing linked data
+  ---
+  duration_ms: 7.5236
+  type: 'test'
+  ...
+# Subtest: IND-ASSET junction at expected-subdirectory rejects without changing linked data
+ok 11 - IND-ASSET junction at expected-subdirectory rejects without changing linked data
+  ---
+  duration_ms: 8.1448
+  type: 'test'
+  ...
+# Subtest: IND-ASSET file symlink is rejected when host permits creating one
+ok 12 - IND-ASSET file symlink is rejected when host permits creating one # SKIP Host cannot create file symlinks; junction paths are tested separately.
+  ---
+  duration_ms: 4.3238
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/3d18acae-dcc2-41a2-a7fc-3840b29d1376
+# Subtest: IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes
+ok 13 - IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes
+  ---
+  duration_ms: 26.1713
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/d3ef1f7e-c9e0-479a-b3a4-2b79d439f130
+# Managed skill backups: .harness/agent-assets/backups/6959c85f-1849-43ba-ab00-048b854528ed
+# Subtest: IND-ASSET interrupted second rename retains both backups and explicit retry works
+ok 14 - IND-ASSET interrupted second rename retains both backups and explicit retry works
+  ---
+  duration_ms: 29.2436
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/b04486da-98a1-40d3-8655-541a39988c95
+# Managed skill backups: .harness/agent-assets/backups/139ea0a4-2318-4e68-82bb-1375ffd257c1
+# Subtest: IND-ASSET interrupted second write retains both backups and explicit retry works
+ok 15 - IND-ASSET interrupted second write retains both backups and explicit retry works
+  ---
+  duration_ms: 25.8179
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/40a9c968-7b41-4152-a229-4dded2ce8e11
+# Subtest: IND-ASSET cleanup failure reports the exact leftover and preserves destination and backups
+ok 16 - IND-ASSET cleanup failure reports the exact leftover and preserves destination and backups
+  ---
+  duration_ms: 20.7818
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused
+ok 17 - IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused
+  ---
+  duration_ms: 0.3671
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR version mismatch and later-file hash mismatch cause no partial write
+ok 18 - IND-VENDOR version mismatch and later-file hash mismatch cause no partial write
+  ---
+  duration_ms: 8.8057
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR read-only validation does not patch; write then check is idempotent
+ok 19 - IND-VENDOR read-only validation does not patch; write then check is idempotent
+  ---
+  duration_ms: 11.6691
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity
+ok 20 - IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity
+  ---
+  duration_ms: 1.3114
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and same-version
+ok 21 - IND-VENDOR full refresh uses mocked installer/legal data and same-version
+  ---
+  duration_ms: 4726.3251
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and changed-version
+ok 22 - IND-VENDOR full refresh uses mocked installer/legal data and changed-version
+  ---
+  duration_ms: 3089.7819
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and changed-hash
+ok 23 - IND-VENDOR full refresh uses mocked installer/legal data and changed-hash
+  ---
+  duration_ms: 2924.2008
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-160338-335-metric-view-sales-3a65208d.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-160338-335-metric-view-sales-3a65208d.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC embedded YAML parses to the canonical YAML with Japanese and quoting
+ok 24 - IND-METRIC embedded YAML parses to the canonical YAML with Japanese and quoting
+  ---
+  duration_ms: 142.7757
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-160338-477-metric-view-sales-d2f28e44.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-160338-477-metric-view-sales-d2f28e44.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC delimiter in metadata is rejected or safely embedded: {"description":"Profit $$ USD"}
+ok 25 - IND-METRIC delimiter in metadata is rejected or safely embedded: {"description":"Profit $$ USD"}
+  ---
+  duration_ms: 119.4992
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-160338-597-metric-view-sales-829268dd.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-160338-597-metric-view-sales-829268dd.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC delimiter in metadata is rejected or safely embedded: {"dimension":["地域 $$ 分類=region"]}
+ok 26 - IND-METRIC delimiter in metadata is rejected or safely embedded: {"dimension":["地域 $$ 分類=region"]}
+  ---
+  duration_ms: 124.9571
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260915-160338-721-metric-view-sales-6a4c6b85.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260915-160338-721-metric-view-sales-6a4c6b85.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: IND-METRIC delimiter in metadata is rejected or safely embedded: {"measure":["Revenue $$ USD=SUM(amount)"]}
+ok 27 - IND-METRIC delimiter in metadata is rejected or safely embedded: {"measure":["Revenue $$ USD=SUM(amount)"]}
+  ---
+  duration_ms: 117.8235
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 11529.771

@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 1,
+  "producer": {
+    "actor": "/root",
+    "context": "20260915-153857-861-truth-repair"
+  },
+  "requirement": {
+    "path": "docs/harness/requirements/2026-09-16-truth-repair.md",
+    "sha256": "f5922996f4a057fd09a55c06fe51dc0af2c422b49809f961845a6261c1844938"
+  },
+  "artifacts": [
+    {
+      "path": "docs/harness/design/TRUTH_REPAIR.md",
+      "sha256": "0723c582b7b6f61d6a503db6afcccb25e905440936e468f14ad7f732b84ced83"
+    },
+    {
+      "path": "docs/harness/operations/CLI_REFERENCE.md",
+      "sha256": "fdf74639729002e4259b7ab07b8fb4fb0237aaad304bf560ea2634952dddbc43"
+    },
+    {
+      "path": "docs/harness/operations/SETUP_WALKTHROUGH.md",
+      "sha256": "8b4abf61d3c368fc78ca6b77df5f0475a365e6b9a3180c6a58fc346fa64c964f"
+    },
+    {
+      "path": "docs/harness/operations/SAFE_LOCAL_UPDATE.md",
+      "sha256": "1597ecc5aaf05be72081a1b44385b514183d9271d7dd503388c941b7ccea0b9f"
+    },
+    {
+      "path": "docs/harness/operations/UPDATING_EXISTING_PROJECTS.md",
+      "sha256": "279fc4f4e4cc2cfea405627158b8986a57ec55452cf4d5d71d3d8a46eb4d4169"
+    },
+    {
+      "path": "tools/harness.mjs",
+      "sha256": "878336a39d405e72143fdaa95f0db905617117e1d713206a77a76285d7a20965"
+    },
+    {
+      "path": "tools/lib/loop.mjs",
+      "sha256": "25f5892cd2db047edf9d795803fbc5e8ae59d404ecd6d07a2c8c2351f9901806"
+    },
+    {
+      "path": "tools/lib/session-loop.mjs",
+      "sha256": "fb85cb5893f636769f093f156b54cef7a0008adf518edcf9516b4f152c7c017b"
+    },
+    {
+      "path": "tools/lib/memory.mjs",
+      "sha256": "c55b76592eb6d0344eef9f03f086e81b9e44cf60cb92595a2f1bc4ec7a1e5f4b"
+    },
+    {
+      "path": "tools/lib/command-async.mjs",
+      "sha256": "5d6f1a989e905dbdb506615d5114687b91080f9b76684f52021da875a463e952"
+    },
+    {
+      "path": "tools/lib/shared.mjs",
+      "sha256": "7263c67f48e4acaa4422f4b0f3737afac5824aec8fe6e5621b43b7021b2321e6"
+    },
+    {
+      "path": "tools/lib/skill-sync.mjs",
+      "sha256": "2421b22a3457f8052aed9dd070ed11969fc4500ceba8b580488ecbc69d0343c6"
+    },
+    {
+      "path": "tools/lib/vendor-patches.mjs",
+      "sha256": "c927473eb0c32ac8d6cd72b1eb66f6f172ee3593eaea252d16df20e172ffa3c1"
+    },
+    {
+      "path": "tools/lib/scaffold.mjs",
+      "sha256": "cb94cbb978f6a4f28e1c67691378267a0cddeb2f405f30a77a679c1e3dd35d8b"
+    },
+    {
+      "path": "tools/lib/distribution.mjs",
+      "sha256": "11eb828949da50a5eb091f5f32ce8029a829f5eea8af5b6b909a1f27b82bd2fa"
+    },
+    {
+      "path": "harness/vendor-patches.json",
+      "sha256": "6a869a029cc96495af65bb76175fec848bcd357f480cab34e083eed3aff34735"
+    },
+    {
+      "path": "harness/toolchain.lock.json",
+      "sha256": "54980666629bd0a07c771ba3821d7f14a2ef3202f666bd83af7c28860c7e1f9f"
+    },
+    {
+      "path": "tests/truth-assets.test.mjs",
+      "sha256": "5fb1ccd4ffe48a140c5e9d21fcf2c72679f03ef8fd63cead73390748e5f085e7"
+    },
+    {
+      "path": "tests/truth-asset-boundaries.test.mjs",
+      "sha256": "2578b1ce550044e9db7d44f325edd25646cf2b623292f325a0281b3b7d53ca16"
+    },
+    {
+      "path": "tests/truth-lifecycle.test.mjs",
+      "sha256": "05eaba09805f6822fb3feb3c25a1157631d50bf6947476668c33a8487836d452"
+    },
+    {
+      "path": "tests/truth-gates.test.mjs",
+      "sha256": "d7ec46dac2b1a725da6fbc6fe2a43a7dddd939df75c0a576f6be69f0a501d855"
+    },
+    {
+      "path": "work/evidence/2026-09-16-truth-gates-independent.test.mjs",
+      "sha256": "3dc066a8366d511da80ec46eac52754f1328f052220a2a55a61f3ebab18a43a1"
+    },
+    {
+      "path": "work/evidence/2026-09-16-truth-assets-independent.test.mjs",
+      "sha256": "477ba0b19b3a0e1766605be75edb0a5a6cdf25b3636e0a55e4c834e87d41942f"
+    },
+    {
+      "path": "work/evidence/2026-09-16-truth-preserve.mjs",
+      "sha256": "6e98d9e7fe451420e9360ea726141f37a1efc75d3d93d986805c3cec17a3f518"
+    },
+    {
+      "path": "work/evidence/2026-09-16-truth-verify.mjs",
+      "sha256": "5c4c9c1d023a5cf9e215a08b0e009e4d1870c4e8a912a60571d466a0d5b52811"
+    },
+    {
+      "path": "work/evidence/2026-09-16-truth-repair-baseline.json",
+      "sha256": "5cfc703a0304766307895fdc2fd687a605839e75c759b305e2db9c9da8f94baf"
+    }
+  ],
+  "requirements": [
+    "FIX-01",
+    "FIX-02",
+    "FIX-03",
+    "FIX-04",
+    "FIX-05",
+    "FIX-06"
+  ],
+  "risks": [
+    {
+      "id": "REPAIR-R01",
+      "description": "既存Lakebaseのrole/dataアクセスを誤った型変更で破壊する",
+      "testIds": [
+        "REPAIR-T03",
+        "REPAIR-T04"
+      ]
+    },
+    {
+      "id": "REPAIR-R02",
+      "description": "承認待ち/停止と完了が分離し後続を無断実行する",
+      "testIds": [
+        "REPAIR-T02",
+        "REPAIR-T04"
+      ]
+    },
+    {
+      "id": "REPAIR-R03",
+      "description": "再setupが独自skillを削除、または同期失敗後に復旧不能にする",
+      "testIds": [
+        "REPAIR-T03",
+        "REPAIR-T04"
+      ]
+    },
+    {
+      "id": "REPAIR-R04",
+      "description": "Metric YAMLがSQLコメント/文字列終端で壊れる",
+      "testIds": [
+        "REPAIR-T03",
+        "REPAIR-T04"
+      ]
+    },
+    {
+      "id": "REPAIR-R05",
+      "description": "修正で既存候補を壊す、検証を過大報告する",
+      "testIds": [
+        "REPAIR-T01",
+        "REPAIR-T05",
+        "REPAIR-T06"
+      ]
+    }
+  ],
+  "interfaces": [],
+  "testCases": [
+    {
+      "id": "REPAIR-T01",
+      "requirements": [
+        "FIX-01",
+        "FIX-04",
+        "FIX-06"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "Windows/Node24、合成temp fixture。独立YAML検査のみローカルPython/PyYAMLを使用。HTTP fixtureの固定応答は実サービスへの通信ではない。",
+      "steps": [
+        "node tools/harness.mjs check"
+      ],
+      "expected": "ハーネス構造・生成コピー・訂正版の整合検査が成功する。実provider追従の証明とはしない。",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "1d8365cbe8e9d8364debff289f090e8142f358db6c902b6da28e560ff199e6a1",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-16-truth-REPAIR-T01.log",
+            "sha256": "bc91ff5e8749bca757df6080f6ae8fba3b9c8425b96beee67644722bcb4aa58c"
+          }
+        ],
+        "command": "node tools/harness.mjs check",
+        "versions": "v24.15.0 / win32"
+      }
+    },
+    {
+      "id": "REPAIR-T02",
+      "requirements": [
+        "FIX-02",
+        "FIX-03",
+        "FIX-06"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "Windows/Node24、合成temp fixture。独立YAML検査のみローカルPython/PyYAMLを使用。HTTP fixtureの固定応答は実サービスへの通信ではない。",
+      "steps": [
+        "node --test tests/truth-lifecycle.test.mjs tests/truth-gates.test.mjs tests/concurrency.test.mjs tests/memory.test.mjs"
+      ],
+      "expected": "未解決loop/停止sessionを拒否し、正常完了・日本語ID・直下childの停止境界を保持する。",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "1d8365cbe8e9d8364debff289f090e8142f358db6c902b6da28e560ff199e6a1",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-16-truth-REPAIR-T02.log",
+            "sha256": "93bcda19281ab2c31c7a86b750a1b8d90b76f8e140aecb039b22a5116fc0ef43"
+          }
+        ],
+        "command": "node --test tests/truth-lifecycle.test.mjs tests/truth-gates.test.mjs tests/concurrency.test.mjs tests/memory.test.mjs",
+        "versions": "v24.15.0 / win32"
+      }
+    },
+    {
+      "id": "REPAIR-T03",
+      "requirements": [
+        "FIX-01",
+        "FIX-04",
+        "FIX-05",
+        "FIX-06"
+      ],
+      "level": "recovery",
+      "environment": "local",
+      "preconditions": "Windows/Node24、合成temp fixture。独立YAML検査のみローカルPython/PyYAMLを使用。HTTP fixtureの固定応答は実サービスへの通信ではない。",
+      "steps": [
+        "node --test tests/truth-assets.test.mjs tests/truth-asset-boundaries.test.mjs"
+      ],
+      "expected": "独自skillを全providerで保持し、管理file backupと同期失敗後の再試行が成功する。vendor版/hash不一致は拒否。MetricのSQL本文と正本YAMLが一致する。",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "1d8365cbe8e9d8364debff289f090e8142f358db6c902b6da28e560ff199e6a1",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-16-truth-REPAIR-T03.log",
+            "sha256": "c13a424fe1b0500b30406cb85cd4a7ab37694173031564c9dfacb42c9e6b1540"
+          }
+        ],
+        "command": "node --test tests/truth-assets.test.mjs tests/truth-asset-boundaries.test.mjs",
+        "versions": "v24.15.0 / win32"
+      }
+    },
+    {
+      "id": "REPAIR-T04",
+      "requirements": [
+        "FIX-01",
+        "FIX-02",
+        "FIX-03",
+        "FIX-04",
+        "FIX-05",
+        "FIX-06"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "Windows/Node24、合成temp fixture。独立YAML検査のみローカルPython/PyYAMLを使用。HTTP fixtureの固定応答は実サービスへの通信ではない。",
+      "steps": [
+        "node --test work/evidence/2026-09-16-truth-gates-independent.test.mjs work/evidence/2026-09-16-truth-assets-independent.test.mjs"
+      ],
+      "expected": "独立作成した反例群で失敗0。実Node child・offline固定応答によるrefresh・PyYAML解析を含み、実Databricks/実provider検証とは扱わない。",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "1d8365cbe8e9d8364debff289f090e8142f358db6c902b6da28e560ff199e6a1",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-16-truth-REPAIR-T04.log",
+            "sha256": "676b635b5a42aea1d1cf19d109b5b2131913a6adc8d423fe9ec790cc992ab406"
+          }
+        ],
+        "command": "node --test work/evidence/2026-09-16-truth-gates-independent.test.mjs work/evidence/2026-09-16-truth-assets-independent.test.mjs",
+        "versions": "v24.15.0 / win32"
+      }
+    },
+    {
+      "id": "REPAIR-T05",
+      "requirements": [
+        "FIX-01",
+        "FIX-02",
+        "FIX-03",
+        "FIX-04",
+        "FIX-05",
+        "FIX-06"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "Windows/Node24、合成temp fixture。独立YAML検査のみローカルPython/PyYAMLを使用。HTTP fixtureの固定応答は実サービスへの通信ではない。",
+      "steps": [
+        "node --test tests/*.test.mjs"
+      ],
+      "expected": "通常CI全体の失敗0。skipを明記し、既存UIF/HARD候補の正式採用とはしない。",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "1d8365cbe8e9d8364debff289f090e8142f358db6c902b6da28e560ff199e6a1",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-16-truth-REPAIR-T05.log",
+            "sha256": "e31a0f91586b16c8583d631105648c0651722157538e97dfa8581ed604322f99"
+          }
+        ],
+        "command": "node --test tests/*.test.mjs",
+        "versions": "v24.15.0 / win32"
+      }
+    },
+    {
+      "id": "REPAIR-T06",
+      "requirements": [
+        "FIX-01",
+        "FIX-06"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "Windows/Node24、合成temp fixture。独立YAML検査のみローカルPython/PyYAMLを使用。HTTP fixtureの固定応答は実サービスへの通信ではない。",
+      "steps": [
+        "node work/evidence/2026-09-16-truth-preserve.mjs"
+      ],
+      "expected": "既存候補の非重複変更と公開済み全payloadのhashを保持する。重複6ファイルは自動同一性証明の対象外として列挙し、独立差分レビューを要求する。",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "1d8365cbe8e9d8364debff289f090e8142f358db6c902b6da28e560ff199e6a1",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-16-truth-REPAIR-T06.log",
+            "sha256": "3ee45bd0742f25a34648216dd83fcb99d9447ee134b3eb4fbec4d661f44357e9"
+          }
+        ],
+        "command": "node work/evidence/2026-09-16-truth-preserve.mjs",
+        "versions": "v24.15.0 / win32"
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "ownership",
+      "status": "applicable",
+      "reason": "ハーネス管理者が既存安全意図の是正を保守し、新規権限/公開は別承認にする",
+      "testIds": [
+        "REPAIR-T06"
+      ],
+      "document": {
+        "path": "docs/harness/design/TRUTH_REPAIR.md",
+        "sha256": "0723c582b7b6f61d6a503db6afcccb25e905440936e468f14ad7f732b84ced83"
+      }
+    },
+    {
+      "id": "monitoring",
+      "status": "applicable",
+      "reason": "CLI失敗・session停止理由・iteration観測結果を保存し成功と区別する",
+      "testIds": [
+        "REPAIR-T02"
+      ],
+      "document": {
+        "path": "docs/harness/design/TRUTH_REPAIR.md",
+        "sha256": "0723c582b7b6f61d6a503db6afcccb25e905440936e468f14ad7f732b84ced83"
+      }
+    },
+    {
+      "id": "recovery",
+      "status": "applicable",
+      "reason": "同期backupと旧sessionを保持し、失敗時は対象照合後に限定再実行/明示引継ぎする",
+      "testIds": [
+        "REPAIR-T03"
+      ],
+      "document": {
+        "path": "docs/harness/design/TRUTH_REPAIR.md",
+        "sha256": "0723c582b7b6f61d6a503db6afcccb25e905440936e468f14ad7f732b84ced83"
+      }
+    },
+    {
+      "id": "data-protection",
+      "status": "applicable",
+      "reason": "ローカル合成データのみ。独自file/link/実DBを無断変更しない",
+      "testIds": [
+        "REPAIR-T03"
+      ],
+      "document": {
+        "path": "docs/harness/design/TRUTH_REPAIR.md",
+        "sha256": "0723c582b7b6f61d6a503db6afcccb25e905440936e468f14ad7f732b84ced83"
+      }
+    },
+    {
+      "id": "cost",
+      "status": "applicable",
+      "reason": "直下processの時間/出力量を制限し、今回実providerの課金呼出を行わない",
+      "testIds": [
+        "REPAIR-T02"
+      ],
+      "document": {
+        "path": "docs/harness/design/TRUTH_REPAIR.md",
+        "sha256": "0723c582b7b6f61d6a503db6afcccb25e905440936e468f14ad7f732b84ced83"
+      }
+    },
+    {
+      "id": "dependency-updates",
+      "status": "applicable",
+      "reason": "上流技能は版・原本hashに拘束し、未知の版/改変時には更新前に停止する",
+      "testIds": [
+        "REPAIR-T03"
+      ],
+      "document": {
+        "path": "docs/harness/design/TRUTH_REPAIR.md",
+        "sha256": "0723c582b7b6f61d6a503db6afcccb25e905440936e468f14ad7f732b84ced83"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "actor": "/root/truth_repair_final_review",
+      "context": "truth-repair-final-review-20260916",
+      "independent": true,
+      "status": "pass",
+      "reviewedSha256": "1d55d71d1ef2b51314365dc8d04bd11ac4bd16db54020dfcb05d1c920520fd66",
+      "coverage": {
+        "requirements": [
+          "FIX-01",
+          "FIX-02",
+          "FIX-03",
+          "FIX-04",
+          "FIX-05",
+          "FIX-06"
+        ],
+        "risks": [
+          "REPAIR-R01",
+          "REPAIR-R02",
+          "REPAIR-R03",
+          "REPAIR-R04",
+          "REPAIR-R05"
+        ],
+        "interfaces": [],
+        "operations": [
+          "ownership",
+          "monitoring",
+          "recovery",
+          "data-protection",
+          "cost",
+          "dependency-updates"
+        ]
+      },
+      "evidence": [
+        {
+          "path": "work/reviews/2026-09-16-truth-final-review.md",
+          "sha256": "e43c656b287d40ff93470173fe9d404422c1462ae3745af943948d359496d23f"
+        },
+        {
+          "path": "work/evidence/2026-09-16-truth-final-snapshot.json",
+          "sha256": "f787633b428014e6e97f4dfb825c3a543a0d7d050ea8cbd50e1fbfe59e5aadf0"
+        },
+        {
+          "path": "work/evidence/2026-09-16-truth-final-critical.log",
+          "sha256": "cd61bc7e52b1fb88619c844a4959edb8cfe282e366b0b4820bd4347c96b580e5"
+        },
+        {
+          "path": "work/evidence/2026-09-16-truth-repair.md",
+          "sha256": "db07208ab49580e8daabec47c4587e4c6a7b75a398e349cbff2bd300a9dd1d0e"
+        }
+      ]
+    }
+  ]
+}

@@ -25,8 +25,24 @@ export async function writeJson(path, value) {
 export async function atomicWrite(path, content) {
   await mkdir(dirname(path), { recursive: true });
   const temporary = `${path}.tmp-${process.pid}-${randomUUID()}`;
-  await writeFile(temporary, content, "utf8");
-  await rename(temporary, path);
+  let owned = false;
+  try {
+    const handle = await open(temporary, 'wx');
+    owned = true;
+    try { await handle.writeFile(content, 'utf8'); }
+    finally { await handle.close(); }
+    await rename(temporary, path);
+  } catch (error) {
+    // Remove only this invocation's exclusively created temporary file, never
+    // a glob or an unknown stale file. Destination and caller backups survive.
+    if (owned) {
+      try { await unlink(temporary); }
+      catch (cleanup) {
+        if (cleanup.code !== 'ENOENT') error.message += `; temporary cleanup failed (${temporary}): ${cleanup.message}`;
+      }
+    }
+    throw error;
+  }
 }
 
 export function parseOptions(args) {

@@ -13,9 +13,9 @@ parent: databricks-core
 
 Lakebase is Databricks' serverless Postgres-compatible database, available on both AWS and Azure (GA). It provides fully managed OLTP storage with autoscaling, branching, and scale-to-zero.
 
-> **Provisioned Lakebase no longer exists — never create it.** The old Provisioned tier (static, non-scalable Postgres; `databricks database` CLI / `w.database` SDK) is being migrated to Autoscaling over summer 2026, with no customer action required. Lakebase today is Autoscaling-only (`databricks postgres` / `w.postgres`). Do not attempt to create Provisioned instances; if a user asks for one, tell them Provisioned instances don't exist anymore and point them to Autoscaling. Treat the legacy `database` resource key in app configs as retired — migrate to the `postgres` resource key. For the legacy DAB `synced_database_tables` resource, use the `databricks postgres create-synced-table` CLI flow instead (see the Common Issues row and `references/synced-tables.md`).
+> **HARNESS CORRECTION 2026-09-16 / PT-01 — 上流0.2.10へのローカル訂正:** 新規AppsではLakebase Autoscalingの `postgres` resourceを使う。既存Appsが `database` resourceを使っている場合は、その型・接続・roleを保持し、移行という理由だけで `postgres` へ変更しない。型を変えると別のPostgres roleとなり、既存データへのアクセスが壊れる。まず現状を読み取り、新規/既存と目的を分ける。既存のDatabase instance APIも一律に廃止扱いしない。[公式の既存Apps注意](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/lakebase#notes)。この訂正は上流原文ではなく、ハーネス保守者が根拠を照合して追加したもの。
 
-For context when reading older configs or docs, here is how the retired Provisioned tier maps to Autoscaling:
+Historical comparison of the original Provisioned tier and Autoscaling follows. This table does not authorize changing existing app resource types or replacing working automation.
 
 | Aspect | Provisioned (retired) | Autoscaling (current) |
 |--------|-----------------------|-----------------------|
@@ -79,7 +79,7 @@ All IDs: 1-63 characters, start with lowercase letter, lowercase letters/numbers
 
 ## CLI Discovery -- ALWAYS Do This First
 
-> **Note:** "Lakebase" is the product name; the CLI command group is `postgres`. All commands use `databricks postgres ...`.
+> **Note:** The examples below use `databricks postgres ...` for new Autoscaling work. Existing Database instance API automation must not be rewritten merely because these examples use another CLI group.
 
 **Do NOT guess command syntax.** Discover available commands dynamically:
 
@@ -197,12 +197,7 @@ For the full app workflow, use the **`databricks-apps`** skill.
 `apps init --features lakebase` (above) wires the database at scaffold time. To
 attach a project to an **existing** app, update its resources.
 
-**Use the `postgres` resource key** — its fields are `branch` + `database`
-(full resource paths from the table above). The legacy `database` key
-(`instance_name` + `database_name`) is deprecated; using it fails with
-`Database instance <name> does not exist`. Get the exact paths from
-`list-branches` / `list-databases` (the DB name is often hyphenated, e.g.
-`databricks-postgres`).
+**既存/新規を先に区別する。** 既存Appsの `database` resourceはそのまま保持する。`database` を `postgres` に置換したり、既存resourceを削除・再追加したりしない。新規Apps、または新しいAutoscaling resourceを追加する承認済み作業では `postgres` の `branch` / `database` に読取確認した完全なresource pathを使う。以下のJSONは新規resourceの例であり、既存resourceの置換例ではない。既存の配列・resource名・role・利用中の接続を保持して差分を確認する。
 
 Update the app's resources with **`databricks apps create-update`** — the method to use for any app (the older `databricks apps update` is legacy and can't change resources for an app in a space). `update_mask=resources` replaces the whole `resources` array, so read the app's current resources and **merge** the new one in (or you'll detach the rest). Pass everything in `--json`; only `APP_NAME` is positional:
 

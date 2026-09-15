@@ -1,0 +1,281 @@
+{
+  "at": "2026-09-15T16:07:05.097Z",
+  "preserved": [
+    {
+      "path": ".claude/skills/build-work/SKILL.md",
+      "expected": "de05e0fa6f8f5f8454370fcf6da54a78fde71d1e4417dd97fa488ac6935c9ca8",
+      "current": "de05e0fa6f8f5f8454370fcf6da54a78fde71d1e4417dd97fa488ac6935c9ca8",
+      "match": true
+    },
+    {
+      "path": ".claude/skills/define-work/SKILL.md",
+      "expected": "158da8000c370fa6d4076278ddc0cdd0ec90c23a3c83898e27f7cf9bac44a487",
+      "current": "158da8000c370fa6d4076278ddc0cdd0ec90c23a3c83898e27f7cf9bac44a487",
+      "match": true
+    },
+    {
+      "path": ".claude/skills/mock-ui/SKILL.md",
+      "expected": "e518779c3e64fe0ffce508b6fc523adda3f0a81ac80f2ecf4950933e7b84ec09",
+      "current": "e518779c3e64fe0ffce508b6fc523adda3f0a81ac80f2ecf4950933e7b84ec09",
+      "match": true
+    },
+    {
+      "path": ".claude/skills/review-work/SKILL.md",
+      "expected": "b398856f4b4e21eac7ff541b50209422abd912db784dbbc781b8353d50c1ebc5",
+      "current": "b398856f4b4e21eac7ff541b50209422abd912db784dbbc781b8353d50c1ebc5",
+      "match": true
+    },
+    {
+      "path": ".claude/skills/update-harness/SKILL.md",
+      "expected": "509b990eb809e6f060c9c32b51b6a84f08f3f3fb38651bc8e48a4d669ef5d3cf",
+      "current": "509b990eb809e6f060c9c32b51b6a84f08f3f3fb38651bc8e48a4d669ef5d3cf",
+      "match": true
+    },
+    {
+      "path": ".github/skills/build-work/SKILL.md",
+      "expected": "de05e0fa6f8f5f8454370fcf6da54a78fde71d1e4417dd97fa488ac6935c9ca8",
+      "current": "de05e0fa6f8f5f8454370fcf6da54a78fde71d1e4417dd97fa488ac6935c9ca8",
+      "match": true
+    },
+    {
+      "path": ".github/skills/define-work/SKILL.md",
+      "expected": "158da8000c370fa6d4076278ddc0cdd0ec90c23a3c83898e27f7cf9bac44a487",
+      "current": "158da8000c370fa6d4076278ddc0cdd0ec90c23a3c83898e27f7cf9bac44a487",
+      "match": true
+    },
+    {
+      "path": ".github/skills/mock-ui/SKILL.md",
+      "expected": "e518779c3e64fe0ffce508b6fc523adda3f0a81ac80f2ecf4950933e7b84ec09",
+      "current": "e518779c3e64fe0ffce508b6fc523adda3f0a81ac80f2ecf4950933e7b84ec09",
+      "match": true
+    },
+    {
+      "path": ".github/skills/review-work/SKILL.md",
+      "expected": "b398856f4b4e21eac7ff541b50209422abd912db784dbbc781b8353d50c1ebc5",
+      "current": "b398856f4b4e21eac7ff541b50209422abd912db784dbbc781b8353d50c1ebc5",
+      "match": true
+    },
+    {
+      "path": ".github/skills/update-harness/SKILL.md",
+      "expected": "509b990eb809e6f060c9c32b51b6a84f08f3f3fb38651bc8e48a4d669ef5d3cf",
+      "current": "509b990eb809e6f060c9c32b51b6a84f08f3f3fb38651bc8e48a4d669ef5d3cf",
+      "match": true
+    },
+    {
+      "path": "AGENTS.md",
+      "expected": "63f346b491d6293d353882a68662c22248c9cf5a22a8838e0eeefbd0fb82be7e",
+      "current": "63f346b491d6293d353882a68662c22248c9cf5a22a8838e0eeefbd0fb82be7e",
+      "match": true
+    },
+    {
+      "path": "docs/harness/operations/DOCUMENTATION_STANDARD.md",
+      "expected": "d5855cac34e65d7993b6f4030d202f77e58b6f16dcfa6dced3896b72ecc057a7",
+      "current": "d5855cac34e65d7993b6f4030d202f77e58b6f16dcfa6dced3896b72ecc057a7",
+      "match": true
+    },
+    {
+      "path": "docs/product/standards/FRONTEND.md",
+      "expected": "e0cc80e99b505ebad61ecb33743a439b672234add6dee652a709137abc3410fa",
+      "current": "e0cc80e99b505ebad61ecb33743a439b672234add6dee652a709137abc3410fa",
+      "match": true
+    },
+    {
+      "path": "harness/schemas/approval.schema.json",
+      "expected": "7da67b483cfd8bc45e97b86454eea5c501fb5df283d3bfb1bc763d0fe099b1e2",
+      "current": "7da67b483cfd8bc45e97b86454eea5c501fb5df283d3bfb1bc763d0fe099b1e2",
+      "match": true
+    },
+    {
+      "path": "harness/skills/build-work/SKILL.md",
+      "expected": "de05e0fa6f8f5f8454370fcf6da54a78fde71d1e4417dd97fa488ac6935c9ca8",
+      "current": "de05e0fa6f8f5f8454370fcf6da54a78fde71d1e4417dd97fa488ac6935c9ca8",
+      "match": true
+    },
+    {
+      "path": "harness/skills/define-work/SKILL.md",
+      "expected": "158da8000c370fa6d4076278ddc0cdd0ec90c23a3c83898e27f7cf9bac44a487",
+      "current": "158da8000c370fa6d4076278ddc0cdd0ec90c23a3c83898e27f7cf9bac44a487",
+      "match": true
+    },
+    {
+      "path": "harness/skills/mock-ui/SKILL.md",
+      "expected": "e518779c3e64fe0ffce508b6fc523adda3f0a81ac80f2ecf4950933e7b84ec09",
+      "current": "e518779c3e64fe0ffce508b6fc523adda3f0a81ac80f2ecf4950933e7b84ec09",
+      "match": true
+    },
+    {
+      "path": "harness/skills/review-work/SKILL.md",
+      "expected": "b398856f4b4e21eac7ff541b50209422abd912db784dbbc781b8353d50c1ebc5",
+      "current": "b398856f4b4e21eac7ff541b50209422abd912db784dbbc781b8353d50c1ebc5",
+      "match": true
+    },
+    {
+      "path": "harness/skills/update-harness/SKILL.md",
+      "expected": "509b990eb809e6f060c9c32b51b6a84f08f3f3fb38651bc8e48a4d669ef5d3cf",
+      "current": "509b990eb809e6f060c9c32b51b6a84f08f3f3fb38651bc8e48a4d669ef5d3cf",
+      "match": true
+    },
+    {
+      "path": "tests/approval.test.mjs",
+      "expected": "7ef38b793ec7864d07f3fa584a4cb54b5194a80991a258825c82ee5c17e12f17",
+      "current": "7ef38b793ec7864d07f3fa584a4cb54b5194a80991a258825c82ee5c17e12f17",
+      "match": true
+    },
+    {
+      "path": "tests/contracts.test.mjs",
+      "expected": "9c2a5a840b788ed5e3e2915c8105b5712237b93091abe6e814e9babbc1d96aa0",
+      "current": "9c2a5a840b788ed5e3e2915c8105b5712237b93091abe6e814e9babbc1d96aa0",
+      "match": true
+    },
+    {
+      "path": "tests/human-documents.test.mjs",
+      "expected": "5a597c8b850c4f1726c3c31c464643d01599c62ee042ae309a3a4ff22b880b07",
+      "current": "5a597c8b850c4f1726c3c31c464643d01599c62ee042ae309a3a4ff22b880b07",
+      "match": true
+    },
+    {
+      "path": "tests/scaffold-data.test.mjs",
+      "expected": "7f35306ddf474828db8ed49d1dc2145e69eb01639ba23589f6fbbc7d4783b79f",
+      "current": "7f35306ddf474828db8ed49d1dc2145e69eb01639ba23589f6fbbc7d4783b79f",
+      "match": true
+    },
+    {
+      "path": "tools/agent-hook.mjs",
+      "expected": "1e874edc7e034059b632a0094136af960486798fa888127cebc4bdc3bf84cfaf",
+      "current": "1e874edc7e034059b632a0094136af960486798fa888127cebc4bdc3bf84cfaf",
+      "match": true
+    },
+    {
+      "path": "tools/lib/approval.mjs",
+      "expected": "5636a238d15de0587221b80ade9899eb93e232223c8decde6503e778eff3a9d9",
+      "current": "5636a238d15de0587221b80ade9899eb93e232223c8decde6503e778eff3a9d9",
+      "match": true
+    },
+    {
+      "path": "tools/lib/delivery-assurance.mjs",
+      "expected": "1edba05733cf24eba80c4d10f2b45d5dd6e784c966c94e41bec9c45af1592717",
+      "current": "1edba05733cf24eba80c4d10f2b45d5dd6e784c966c94e41bec9c45af1592717",
+      "match": true
+    },
+    {
+      "path": "tools/lib/intake.mjs",
+      "expected": "d1a14da1b01465137d00b6840143abb79b1579121a5b5ff4223ff86ad1478ddb",
+      "current": "d1a14da1b01465137d00b6840143abb79b1579121a5b5ff4223ff86ad1478ddb",
+      "match": true
+    },
+    {
+      "path": "tools/lib/product-documents.mjs",
+      "expected": "7e1bf6e38763101fa785b9dad4fa7af60c8d0dd989dabe39df119bdb4857527b",
+      "current": "7e1bf6e38763101fa785b9dad4fa7af60c8d0dd989dabe39df119bdb4857527b",
+      "match": true
+    },
+    {
+      "path": "work/STATUS.md",
+      "expected": "ef9d78b8942d07f3a44834562afd8a4e0f4204bc277ec9c71f4a145f6f81dd0c",
+      "current": "ef9d78b8942d07f3a44834562afd8a4e0f4204bc277ec9c71f4a145f6f81dd0c",
+      "match": true
+    },
+    {
+      "path": "work/plans/2026-09-10-retrospective-hardening.md",
+      "expected": "8db3c9a7dbaa7dc988a9c9692a0ca9aa93e792d932ba1470282839766cad2142",
+      "current": "8db3c9a7dbaa7dc988a9c9692a0ca9aa93e792d932ba1470282839766cad2142",
+      "match": true
+    },
+    {
+      "path": "work/sessions/20260909-214048-619-retrospective-hardening.md",
+      "expected": "700498b648fa54504b44144402623433fbb1a277f67b3c8ec75f8baa1380f174",
+      "current": "700498b648fa54504b44144402623433fbb1a277f67b3c8ec75f8baa1380f174",
+      "match": true
+    },
+    {
+      "path": "work/tasks/HARD-03.md",
+      "expected": "ffb4929b99d430c571feeae78637d6dafcf5290711c3064e12f9d9da626f5bdb",
+      "current": "ffb4929b99d430c571feeae78637d6dafcf5290711c3064e12f9d9da626f5bdb",
+      "match": true
+    },
+    {
+      "path": "tools/lib/ui-contract.mjs",
+      "expected": "cb2dfb2b1f782492557577480e52931c326637bc9073aa788552f25ae0c169df",
+      "current": "cb2dfb2b1f782492557577480e52931c326637bc9073aa788552f25ae0c169df",
+      "match": true
+    },
+    {
+      "path": "tools/lib/scoped-approval.mjs",
+      "expected": "f6dd8a55792567ce3715853d7fafbc0fa241abf386d8ead4f4b35af5b3591fc1",
+      "current": "f6dd8a55792567ce3715853d7fafbc0fa241abf386d8ead4f4b35af5b3591fc1",
+      "match": true
+    }
+  ],
+  "mixedReviewRequired": [
+    {
+      "path": "docs/harness/operations/CLI_REFERENCE.md",
+      "prior": "36dbb161756ee7082035a3f1653bdeb8993468cf7f1e1c356d8e8d4135167f74",
+      "current": "fdf74639729002e4259b7ab07b8fb4fb0237aaad304bf560ea2634952dddbc43"
+    },
+    {
+      "path": "tools/harness.mjs",
+      "prior": "3f08bdc9af3b02691ebb9f1d8b56bd4f0a1c6d646f836ca628676859f2564ee6",
+      "current": "878336a39d405e72143fdaa95f0db905617117e1d713206a77a76285d7a20965"
+    },
+    {
+      "path": "tools/lib/distribution.mjs",
+      "prior": "a4b2e608729d4491549005fc0fd9d67f65bb59c48926f6ed499307612b93617e",
+      "current": "11eb828949da50a5eb091f5f32ce8029a829f5eea8af5b6b909a1f27b82bd2fa"
+    },
+    {
+      "path": "tools/lib/loop.mjs",
+      "prior": "f1a6ae9de6e2890e6b864762b24adc3f0ec081e333c7f7371e42324e7490009d",
+      "current": "25f5892cd2db047edf9d795803fbc5e8ae59d404ecd6d07a2c8c2351f9901806"
+    },
+    {
+      "path": "tools/lib/scaffold.mjs",
+      "prior": "d1b95ff08738c880c099ca19a4c2643ba9b290494e454c631f6dbc9c2d40cbf8",
+      "current": "cb94cbb978f6a4f28e1c67691378267a0cddeb2f405f30a77a679c1e3dd35d8b"
+    },
+    {
+      "path": "vendor/databricks-skills/databricks-lakebase/SKILL.md",
+      "prior": "155eaa65499902aac25a5ffb7cd5b5293329c373b52dec744558f0d252bdee8f",
+      "current": "b15709916917969f2d8acd447e38f048b621e5e16bd58b3d853cfe9ad605bcd9"
+    }
+  ],
+  "releases": [
+    {
+      "version": "0.4.0",
+      "manifestMatches": true,
+      "fileCount": 1012,
+      "mismatches": 0
+    },
+    {
+      "version": "0.5.0",
+      "manifestMatches": true,
+      "fileCount": 1057,
+      "mismatches": 0
+    },
+    {
+      "version": "0.6.0",
+      "manifestMatches": true,
+      "fileCount": 1067,
+      "mismatches": 0
+    },
+    {
+      "version": "0.6.1",
+      "manifestMatches": true,
+      "fileCount": 1068,
+      "mismatches": 0
+    }
+  ],
+  "providerCopies": [
+    {
+      "path": ".claude/skills/databricks-lakebase/SKILL.md",
+      "sha256": "b15709916917969f2d8acd447e38f048b621e5e16bd58b3d853cfe9ad605bcd9",
+      "match": true
+    },
+    {
+      "path": ".github/skills/databricks-lakebase/SKILL.md",
+      "sha256": "b15709916917969f2d8acd447e38f048b621e5e16bd58b3d853cfe9ad605bcd9",
+      "match": true
+    }
+  ],
+  "findings": [],
+  "upstreamOriginalMatches": true
+}

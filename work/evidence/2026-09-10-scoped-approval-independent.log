@@ -1,0 +1,66 @@
+✔ I01 public read-only CLI: same scope crosses sessions but never clears pending gate or writes any bytes (561.9153ms)
+✔ I02 semantic array permutation is accepted; lower cost and resource subset still require a new decision (186.2083ms)
+✔ I03 origin progress/terminal state permits handoff, but origin pointer or missing source invalidates it (218.3346ms)
+✔ I04 completed target, unaccepted requirement, empty AC or control drift never fallback to a similar scope (127.1322ms)
+✔ I05 sensitive scope dimensions each reject exact reuse without altering the grant (442.1416ms)
+✔ I06 record duplicate writers produce exactly one immutable record (119.7895ms)
+✔ I07 revocation is immutable, bound to original bytes, and no check mutation repairs it (259.8313ms)
+✔ I08 corrupt, wrong-grant and future revocations all fail closed even with recomputed content hash (507.4005ms)
+✔ I09 grant closed schema/kind/hash and duplicate keys reject fabricated legacy shapes (112.4767ms)
+✔ I10 new grant and revocation cannot unlock a legacy loop gate (235.4544ms)
+✔ I11 nested escaped duplicate keys, invisible strings, wildcard and excessive lists refuse record before persistence (63.7184ms)
+✔ I12 canonical path boundaries and reserved paths never issue a record (114.0493ms)
+✔ I13 hardlinked file, linked component and linked output ancestor reject fixture writes (120.1041ms)
+✔ I14 UTF-8/size/empty/known secret evidence boundaries fail closed (143.5619ms)
+✔ I15 raw CLI surface refuses missing, duplicate, unknown, normalized and positional options (271.3989ms)
+✔ I16 exact issue/expiry/30-day boundaries reject stale reuse without extending its original expiry (213.3828ms)
+✔ I17 record rejects a request changed after parsing and before snapshot validation (88.6337ms)
+✔ I18 record rejects source requirement-pointer change during evidence read (102.5673ms)
+✔ I19 drift between target and origin repeated input reads is rejected (127.08ms)
+✔ I20 revocation appearing during final snapshot validation prevents a positive check (154.3389ms)
+✔ I21 revoke rejects original record changed during proof read; original is not repaired (156.4056ms)
+✔ I22 check reaching expiry during final read is denied (199.9275ms)
+✖ I23 check clock rollback before issuedAt during I/O cannot return eligibleForReuse (359.3268ms)
+✖ I24 record clock rollback before its issuedAt during I/O cannot persist a future-issued decision (113.7563ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 22
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5085.8942
+
+✖ failing tests:
+
+test at work\evidence\2026-09-10-scoped-approval-independent.test.mjs:256:1
+✖ I23 check clock rollback before issuedAt during I/O cannot return eligibleForReuse (359.3268ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at denied (file:///D:/projects/databricks-dev-harness/work/evidence/2026-09-10-scoped-approval-independent.test.mjs:64:33)
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/2026-09-10-scoped-approval-independent.test.mjs:259:74)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at work\evidence\2026-09-10-scoped-approval-independent.test.mjs:262:1
+✖ I24 record clock rollback before its issuedAt during I/O cannot persist a future-issued decision (113.7563ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/work/evidence/2026-09-10-scoped-approval-independent.test.mjs:264:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

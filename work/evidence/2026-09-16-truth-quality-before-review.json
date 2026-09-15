@@ -1,0 +1,12 @@
+{
+  "mode": "advisory",
+  "certifiesAcceptance": false,
+  "phase": "verify",
+  "findings": [
+    {
+      "code": "MISSING_REVIEW",
+      "message": "fresh independent review is missing"
+    }
+  ],
+  "recordedExecutions": 6
+}

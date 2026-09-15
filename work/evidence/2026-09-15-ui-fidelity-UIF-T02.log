@@ -1,0 +1,34 @@
+✔ UI approval rejects approximate HTML without runtime correspondence and preserves the pending gate (20.649ms)
+✔ mock approval binds executable artifacts and updates the active session (92.8178ms)
+✔ mock approval cannot skip pending product intent (11.3624ms)
+✔ mock approval requires a real session, human evidence, and executable artifacts (14.1321ms)
+✔ existing accepted requirements can be approved but intake questions cannot be bypassed (24.9787ms)
+✔ runtime correspondence supports preview and mock without certifying pixels (193.1853ms)
+✔ approval rejects changed mock.tsx (85.0625ms)
+✔ approval rejects changed style.css (94.2137ms)
+✔ approval rejects changed fixtures.json (88.7295ms)
+✔ approval rejects changed package.json (80.244ms)
+✔ approval rejects changed package-lock.json (87.2876ms)
+✔ contract rejects empty screens (31.5313ms)
+✔ contract rejects empty styles (30.1341ms)
+✔ contract rejects empty components (36.9162ms)
+✔ contract rejects missing state (36.2606ms)
+✔ contract rejects approximate HTML (31.4393ms)
+✔ contract rejects unresolved difference (31.4079ms)
+✔ contract rejects self review (37.4861ms)
+✔ contract rejects unapproved external (22.9047ms)
+✔ contract rejects version mismatch (35.5013ms)
+✔ runtime-generated static HTML is visual-only, never behavioral approval (70.7291ms)
+✔ external hosting requires a decision tied to this target and requirement (47.3515ms)
+✔ stale review and unbound or legacy approvals fail without rewriting records (91.8256ms)
+✔ UI draft defaults to Apps, cannot overwrite and cannot be approved as complete (34.7591ms)
+✔ public delivery CLI validates the actual approval and refuses stale/different app records (581.6604ms)
+✔ ui-init rejects linked output ancestors before creating a draft or lock (19.5601ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1846.5588

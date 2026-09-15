@@ -5,6 +5,7 @@ import { validateReceipt, fileHash } from "./evidence.mjs";
 import { sha256 } from "./shared.mjs";
 import { sectionBody, replaceSection, currentCheckpoint, sessionRecords, localizeNewSession } from "./session-state.mjs";
 import { taskRecords } from "./tasks.mjs";
+import { assertSessionLoopsComplete } from "./session-loop.mjs";
 
 export async function sessions(root) {
   return sessionRecords(root, { filterProduct: false });
@@ -88,7 +89,9 @@ export async function closeSession(root, options) {
     if (!["completed", "blocked", "superseded"].includes(outcome)) throw new Error("Unknown session outcome.");
     if (!options.summary) throw new Error("Closing requires --summary.");
     if (outcome === "completed") {
+      if (record.id !== basename(record.path, '.md')) throw new Error('Session identity does not match its file.');
       if (record.gate_status === "pending") throw new Error(`Human gate remains pending: ${record.gate}`);
+      await assertSessionLoopsComplete(root, record.id);
       if (!options.verifier_evidence || !record.requirement || record.requirement === "unassigned") throw new Error("Completion requires a linked requirement and --verifier-evidence receipt.");
       await validateReceipt(root, options.verifier_evidence, { sessionId: record.id, requirement: record.requirement, implementer: record.provider });
     }

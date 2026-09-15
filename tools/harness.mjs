@@ -27,11 +27,14 @@ import { createTask, updateTask, listTasks, taskRecords } from "./lib/tasks.mjs"
 import { sealEvidence } from "./lib/evidence.mjs";
 import { instructionAssets } from "./lib/assets.mjs";
 import { createApproval } from "./lib/approval.mjs";
+import { scopeCommand } from "./lib/scoped-approval.mjs";
 import { validateDurableArtifacts } from "./lib/schema.mjs";
 import { prepareEvaluation, recordEvaluation, compareEvaluations } from "./lib/evaluation.mjs";
 import { createRelease, registerBaseline, normalizeManagedText, planUpdate, applyUpdate } from "./lib/distribution.mjs";
 import { writeJson as atomicWriteJson } from "./lib/shared.mjs";
 import { stageVendorLegal, verifyVendorLegal } from "./lib/vendor-legal.mjs";
+import { vendorPatches } from './lib/vendor-patches.mjs';
+import { syncSkillsSafely } from './lib/skill-sync.mjs';
 import { loadWorkloads, resolveWorkloads, resolveRoute } from "./lib/workloads.mjs";
 import { deploymentCommand } from "./lib/deployment-simulation.mjs";
 import { deliveryCommand } from "./lib/delivery-assurance.mjs";
@@ -154,14 +157,6 @@ function compactTimestamp() {
   return `${iso.slice(0, 10).replaceAll("-", "")}-${iso.slice(11, 19).replaceAll(":", "")}-${iso.slice(20, 23)}`;
 }
 
-async function safeRemoveGenerated(path) {
-  const resolved = resolve(path);
-  if (!skillTargets.includes(resolved) || !resolved.startsWith(root + sep)) {
-    throw new Error(`Refusing to remove non-generated path: ${resolved}`);
-  }
-  await rm(resolved, { recursive: true, force: true });
-}
-
 async function skillSources() {
   const sources = [{ name: "harness", path: canonicalSkills }];
   if (await exists(vendorSkills)) sources.push({ name: "databricks", path: vendorSkills });
@@ -179,19 +174,15 @@ async function expectedSkills() {
   return expected;
 }
 
-async function copySkillSource(source, target) {
-  for (const entry of await readdir(source, { withFileTypes: true })) {
-    await cp(join(source, entry.name), join(target, entry.name), { recursive: true, force: true });
-  }
-}
-
 async function syncAgentAssets() {
-  const sources = await skillSources();
-  for (const target of skillTargets) {
-    await safeRemoveGenerated(target);
-    await mkdir(target, { recursive: true });
-    for (const source of sources) await copySkillSource(source.path, target);
+  if (await exists(vendorSkills)) {
+    const lock = await readJson(join(root, 'vendor/databricks-skills.lock.json'));
+    await vendorPatches(root, vendorSkills, lock.resolvedVersion, { write: true });
   }
+  const sources = await skillSources();
+  const expected = new Map();
+  for (const [name, path] of await expectedSkills()) expected.set(name, await readFile(path));
+  await syncSkillsSafely(root, skillTargets, expected);
   await instructionAssets(root, true);
   console.log(
     `Synchronized ${sources.map((item) => item.name).join(" + ")} skills to Claude Code and GitHub Copilot.`,
@@ -199,6 +190,8 @@ async function syncAgentAssets() {
 }
 
 async function compareSkillTarget(target) {
+  const lock = await readJson(join(root, 'vendor/databricks-skills.lock.json'));
+  await vendorPatches(root, vendorSkills, lock.resolvedVersion);
   const expected = await expectedSkills();
   const targetFiles = await listFiles(target);
   const expectedFiles = [...expected.keys()].sort();
@@ -308,6 +301,7 @@ async function installDatabricksSkills(refresh = false) {
   let legal;
   try {
     legal = await stageVendorLegal(stagingResolved, resolvedVersion);
+    await vendorPatches(root, stagingResolved, resolvedVersion, { write: true });
   } catch (error) {
     console.warn(`Official skill legal files could not be verified; the current vendor and lock were preserved. ${error.message}`);
     return false;
@@ -526,9 +520,17 @@ Commands:
   evidence seal --review work/reviews/FILE.json --session ID --requirement PATH
   delivery check --contract work/quality/FILE.json [--phase design|verify] (read-only diagnostic)
   delivery hashes --contract work/quality/FILE.json (hashes are not execution evidence)
+  delivery ui-init --contract docs/product/ui/FILE.json --session ID --app-root apps/NAME (draft only)
+  delivery ui-check --contract docs/product/ui/FILE.json --phase preview|mock
+  delivery ui-hash --contract docs/product/ui/FILE.json (review snapshot only)
+  delivery ui-approval-check --approval RECEIPT --session ID --app-root apps/NAME
   deployment simulate --id RUN_ID --session SESSION_ID --scenario success|validation-failed|deployment-failed|deployment-pending|start-failed|health-failed|deployment-timeout|scope-mismatch
   deployment show --id RUN_ID (read-only; synthetic observations, never live)
   approval create --session ID --gate GATE --actor PERSON --evidence PATH --artifact PATH
+                  [--ui-contract docs/product/ui/FILE.json] (required for ui-mock)
+  approval-scope record --id ID --session ID --request PATH --actor PERSON --evidence PATH --expires-at UTC
+  approval-scope check --id ID --session ID --request PATH (read-only; not execution permission)
+  approval-scope revoke --id ID --actor PERSON --evidence PATH
   eval prepare [--id ID] [--revision COMMIT] | record --plan PATH --result PATH
   eval compare --baseline PATH --candidate PATH
   release create [--version VERSION] [--stamp-template]
@@ -602,6 +604,11 @@ try {
     if (subcommand === "simulate" && record.status !== "simulated-success") process.exitCode = 1;
   }
   else if (command === "approval" && subcommand === "create") await createApproval(root, options);
+  else if (command === "approval-scope") {
+    const result = await scopeCommand(root, subcommand, rest);
+    console.log(JSON.stringify(result, null, 2));
+    if (subcommand === "check" && !result.eligibleForReuse) process.exitCode = 1;
+  }
   else if (command === "eval" && subcommand === "prepare") await prepareEvaluation(root, options);
   else if (command === "eval" && subcommand === "record") await recordEvaluation(root, options);
   else if (command === "eval" && subcommand === "compare") { const report = await compareEvaluations(root, options); console.log(JSON.stringify(report, null, 2)); if (!report.promotable) process.exitCode = 1; }

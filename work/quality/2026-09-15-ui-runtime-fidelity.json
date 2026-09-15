@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "producer": {
+    "actor": "/root",
+    "context": "20260915-ui-fidelity-implementation"
+  },
+  "requirement": {
+    "path": "docs/harness/requirements/2026-09-15-ui-runtime-fidelity.md",
+    "sha256": "6201d1fc07e52510d5388597ff4a4393e5e9173290d8246e6b3d85a6575e7199"
+  },
+  "artifacts": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "63f346b491d6293d353882a68662c22248c9cf5a22a8838e0eeefbd0fb82be7e"
+    },
+    {
+      "path": "docs/harness/design/UI_RUNTIME_FIDELITY.md",
+      "sha256": "14135073b78e87dc071adb3d4687dbc5fde9ad41dcf68aec43bc0a998b088f91"
+    },
+    {
+      "path": "docs/harness/operations/UI_RUNTIME_FIDELITY.md",
+      "sha256": "f274f1cd29484cf999fb28c2bd51cf49e051b153f45462f4eacd818b570d917a"
+    },
+    {
+      "path": "docs/harness/operations/DOCUMENTATION_STANDARD.md",
+      "sha256": "d5855cac34e65d7993b6f4030d202f77e58b6f16dcfa6dced3896b72ecc057a7"
+    },
+    {
+      "path": "docs/product/standards/FRONTEND.md",
+      "sha256": "e0cc80e99b505ebad61ecb33743a439b672234add6dee652a709137abc3410fa"
+    },
+    {
+      "path": "tools/harness.mjs",
+      "sha256": "3f08bdc9af3b02691ebb9f1d8b56bd4f0a1c6d646f836ca628676859f2564ee6"
+    },
+    {
+      "path": "docs/harness/operations/CLI_REFERENCE.md",
+      "sha256": "36dbb161756ee7082035a3f1653bdeb8993468cf7f1e1c356d8e8d4135167f74"
+    },
+    {
+      "path": "tools/lib/ui-contract.mjs",
+      "sha256": "cb2dfb2b1f782492557577480e52931c326637bc9073aa788552f25ae0c169df"
+    },
+    {
+      "path": "tools/lib/approval.mjs",
+      "sha256": "5636a238d15de0587221b80ade9899eb93e232223c8decde6503e778eff3a9d9"
+    },
+    {
+      "path": "tools/lib/loop.mjs",
+      "sha256": "f1a6ae9de6e2890e6b864762b24adc3f0ec081e333c7f7371e42324e7490009d"
+    },
+    {
+      "path": "tools/lib/scaffold.mjs",
+      "sha256": "d1b95ff08738c880c099ca19a4c2643ba9b290494e454c631f6dbc9c2d40cbf8"
+    },
+    {
+      "path": "tools/lib/delivery-assurance.mjs",
+      "sha256": "1edba05733cf24eba80c4d10f2b45d5dd6e784c966c94e41bec9c45af1592717"
+    },
+    {
+      "path": "tools/lib/intake.mjs",
+      "sha256": "d1a14da1b01465137d00b6840143abb79b1579121a5b5ff4223ff86ad1478ddb"
+    },
+    {
+      "path": "tools/lib/product-documents.mjs",
+      "sha256": "7e1bf6e38763101fa785b9dad4fa7af60c8d0dd989dabe39df119bdb4857527b"
+    },
+    {
+      "path": "tools/agent-hook.mjs",
+      "sha256": "1e874edc7e034059b632a0094136af960486798fa888127cebc4bdc3bf84cfaf"
+    },
+    {
+      "path": "tools/lib/distribution.mjs",
+      "sha256": "a4b2e608729d4491549005fc0fd9d67f65bb59c48926f6ed499307612b93617e"
+    },
+    {
+      "path": "harness/schemas/approval.schema.json",
+      "sha256": "7da67b483cfd8bc45e97b86454eea5c501fb5df283d3bfb1bc763d0fe099b1e2"
+    },
+    {
+      "path": "tests/ui-contract.test.mjs",
+      "sha256": "981c340c8d5f6ddedfdc7f62679da73802a14057a7da21d846505b0316f25f40"
+    },
+    {
+      "path": "tests/helpers/ui-fidelity.mjs",
+      "sha256": "295a1507c5c34e57979a2176ed6857b076c84aca58eaf6b74ed174bf071e421c"
+    },
+    {
+      "path": "tests/approval.test.mjs",
+      "sha256": "7ef38b793ec7864d07f3fa584a4cb54b5194a80991a258825c82ee5c17e12f17"
+    },
+    {
+      "path": "tests/contracts.test.mjs",
+      "sha256": "9c2a5a840b788ed5e3e2915c8105b5712237b93091abe6e814e9babbc1d96aa0"
+    },
+    {
+      "path": "tests/scaffold-data.test.mjs",
+      "sha256": "7f35306ddf474828db8ed49d1dc2145e69eb01639ba23589f6fbbc7d4783b79f"
+    },
+    {
+      "path": "tests/human-documents.test.mjs",
+      "sha256": "5a597c8b850c4f1726c3c31c464643d01599c62ee042ae309a3a4ff22b880b07"
+    },
+    {
+      "path": "harness/skills/mock-ui/SKILL.md",
+      "sha256": "e518779c3e64fe0ffce508b6fc523adda3f0a81ac80f2ecf4950933e7b84ec09"
+    },
+    {
+      "path": "harness/skills/define-work/SKILL.md",
+      "sha256": "158da8000c370fa6d4076278ddc0cdd0ec90c23a3c83898e27f7cf9bac44a487"
+    },
+    {
+      "path": "harness/skills/build-work/SKILL.md",
+      "sha256": "de05e0fa6f8f5f8454370fcf6da54a78fde71d1e4417dd97fa488ac6935c9ca8"
+    },
+    {
+      "path": "harness/skills/review-work/SKILL.md",
+      "sha256": "b398856f4b4e21eac7ff541b50209422abd912db784dbbc781b8353d50c1ebc5"
+    },
+    {
+      "path": "harness/skills/update-harness/SKILL.md",
+      "sha256": "509b990eb809e6f060c9c32b51b6a84f08f3f3fb38651bc8e48a4d669ef5d3cf"
+    },
+    {
+      "path": "work/evidence/2026-09-15-ui-fidelity-independent.test.mjs",
+      "sha256": "d9f8c07cc0189004aeea361a90c5e10d228ebc652f2c33e8388f3e5f2dfaecb7"
+    },
+    {
+      "path": "work/evidence/2026-09-15-ui-fidelity-verify.mjs",
+      "sha256": "749eb99f454f42a19c619403dae23786bfea9a66abd24edd25df31d3075ad8d1"
+    }
+  ],
+  "requirements": [
+    "UIF-01",
+    "UIF-02",
+    "UIF-03",
+    "UIF-04"
+  ],
+  "risks": [
+    {
+      "id": "UIF-R01",
+      "description": "近似HTMLや別appを承認済みと誤認する",
+      "testIds": [
+        "UIF-T02",
+        "UIF-T04"
+      ]
+    },
+    {
+      "id": "UIF-R02",
+      "description": "更新/反復で古い承認を使う、または非UI経路を壊す",
+      "testIds": [
+        "UIF-T03",
+        "UIF-T04"
+      ]
+    }
+  ],
+  "interfaces": [],
+  "testCases": [
+    {
+      "id": "UIF-T01",
+      "requirements": [
+        "UIF-01"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "ハーネス開発元、既存HARD-03差分を保持したローカル作業ツリー。合成temp fixtureのみ。",
+      "steps": [
+        "node tools/harness.mjs check"
+      ],
+      "expected": "標準/生成コピー/参照を検査し非0の不整合がない。コピー一致は実providerの行動証明ではない。",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "9c08fd7bde19d5f911575ec2705cfabcaf60c60c8fe52d6edfb477720e61d15a",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-ui-fidelity-UIF-T01.log",
+            "sha256": "bc91ff5e8749bca757df6080f6ae8fba3b9c8425b96beee67644722bcb4aa58c"
+          }
+        ],
+        "command": "node tools/harness.mjs check",
+        "versions": "v24.15.0 / win32"
+      }
+    },
+    {
+      "id": "UIF-T02",
+      "requirements": [
+        "UIF-02",
+        "UIF-03",
+        "UIF-04"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "ハーネス開発元、既存HARD-03差分を保持したローカル作業ツリー。合成temp fixtureのみ。",
+      "steps": [
+        "node --test tests/approval.test.mjs tests/ui-contract.test.mjs"
+      ],
+      "expected": "合成正常承認は成功。不足/差替え/別app/旧承認/出力リンクは拒否し、無断書込みがない。",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "9c08fd7bde19d5f911575ec2705cfabcaf60c60c8fe52d6edfb477720e61d15a",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-ui-fidelity-UIF-T02.log",
+            "sha256": "7ffcc73e651d6405a22bbf72f5584690f156eedf2198a6fb9340e67bc973d0a3"
+          }
+        ],
+        "command": "node --test tests/approval.test.mjs tests/ui-contract.test.mjs",
+        "versions": "v24.15.0 / win32"
+      }
+    },
+    {
+      "id": "UIF-T03",
+      "requirements": [
+        "UIF-01",
+        "UIF-03",
+        "UIF-04"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "ハーネス開発元、既存HARD-03差分を保持したローカル作業ツリー。合成temp fixtureのみ。",
+      "steps": [
+        "node --test tests/*.test.mjs"
+      ],
+      "expected": "ローカル全回帰の失敗0。既存skipと未採用HARD-03混在を明記し、実providerや実画面の成功とはしない。",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "9c08fd7bde19d5f911575ec2705cfabcaf60c60c8fe52d6edfb477720e61d15a",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-ui-fidelity-UIF-T03.log",
+            "sha256": "78e8904fb8f2ebc298ced99834fe83cdd1d47ae6958d62ec8f2b4bc724dbd5cf"
+          }
+        ],
+        "command": "node --test tests/*.test.mjs",
+        "versions": "v24.15.0 / win32"
+      }
+    },
+    {
+      "id": "UIF-T04",
+      "requirements": [
+        "UIF-02",
+        "UIF-03",
+        "UIF-04"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "ハーネス開発元、既存HARD-03差分を保持したローカル作業ツリー。合成temp fixtureのみ。",
+      "steps": [
+        "node --test work/evidence/2026-09-15-ui-fidelity-independent.test.mjs"
+      ],
+      "expected": "別contextの独立反例、版/共有部品/loop継続/旧init移行を合成fixtureで検証し失敗0。",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "9c08fd7bde19d5f911575ec2705cfabcaf60c60c8fe52d6edfb477720e61d15a",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-15-ui-fidelity-UIF-T04.log",
+            "sha256": "309d8d8bd8011bf2a9baf2750ad080f690281d86be7d605abc4b04ab0db8a9f6"
+          }
+        ],
+        "command": "node --test work/evidence/2026-09-15-ui-fidelity-independent.test.mjs",
+        "versions": "v24.15.0 / win32"
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "ownership",
+      "status": "applicable",
+      "reason": "ハーネス管理者が候補の採用を判断する",
+      "testIds": [
+        "UIF-T02"
+      ],
+      "document": {
+        "path": "docs/harness/operations/UI_RUNTIME_FIDELITY.md",
+        "sha256": "f274f1cd29484cf999fb28c2bd51cf49e051b153f45462f4eacd818b570d917a"
+      }
+    },
+    {
+      "id": "monitoring",
+      "status": "applicable",
+      "reason": "検査失敗と停止理由をsessionへ記録する",
+      "testIds": [
+        "UIF-T02"
+      ],
+      "document": {
+        "path": "docs/harness/operations/UI_RUNTIME_FIDELITY.md",
+        "sha256": "f274f1cd29484cf999fb28c2bd51cf49e051b153f45462f4eacd818b570d917a"
+      }
+    },
+    {
+      "id": "recovery",
+      "status": "applicable",
+      "reason": "旧文書/承認を保持し、差分確認と再承認で移行する",
+      "testIds": [
+        "UIF-T02"
+      ],
+      "document": {
+        "path": "docs/harness/operations/UI_RUNTIME_FIDELITY.md",
+        "sha256": "f274f1cd29484cf999fb28c2bd51cf49e051b153f45462f4eacd818b570d917a"
+      }
+    },
+    {
+      "id": "data-protection",
+      "status": "applicable",
+      "reason": "合成データと通常fileだけを参照し、リンク出力を拒否する",
+      "testIds": [
+        "UIF-T02"
+      ],
+      "document": {
+        "path": "docs/harness/operations/UI_RUNTIME_FIDELITY.md",
+        "sha256": "f274f1cd29484cf999fb28c2bd51cf49e051b153f45462f4eacd818b570d917a"
+      }
+    },
+    {
+      "id": "cost",
+      "status": "applicable",
+      "reason": "ローカルhashと回帰を先に行い、有料モデルや実DBを呼ばない",
+      "testIds": [
+        "UIF-T02"
+      ],
+      "document": {
+        "path": "docs/harness/operations/UI_RUNTIME_FIDELITY.md",
+        "sha256": "f274f1cd29484cf999fb28c2bd51cf49e051b153f45462f4eacd818b570d917a"
+      }
+    },
+    {
+      "id": "dependency-updates",
+      "status": "applicable",
+      "reason": "依存版とlock変更は承認を無効化する",
+      "testIds": [
+        "UIF-T04"
+      ],
+      "document": {
+        "path": "docs/harness/operations/UI_RUNTIME_FIDELITY.md",
+        "sha256": "f274f1cd29484cf999fb28c2bd51cf49e051b153f45462f4eacd818b570d917a"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "actor": "/root/ui_fidelity_design_review",
+      "context": "20260916-ui-fidelity-final-review",
+      "independent": true,
+      "status": "pass",
+      "reviewedSha256": "b0316bb6989ffdca1fba239708ed56e4d7e451eec96f5c0e2e5451562817b150",
+      "coverage": {
+        "requirements": ["UIF-01", "UIF-02", "UIF-03", "UIF-04"],
+        "risks": ["UIF-R01", "UIF-R02"],
+        "interfaces": [],
+        "operations": ["ownership", "monitoring", "recovery", "data-protection", "cost", "dependency-updates"]
+      },
+      "evidence": [
+        {
+          "path": "work/reviews/2026-09-15-ui-fidelity-final.md",
+          "sha256": "bbcf1e655895e9a5ab3408ef7617fae80335e5acf201bf7b745be8ffde523a3d"
+        },
+        {
+          "path": "work/evidence/2026-09-15-ui-fidelity-final-audit.json",
+          "sha256": "19c7f6cb15ebc05ad183078b3487346b4417dc08660d369ce190f9b75f886256"
+        },
+        {
+          "path": "work/evidence/2026-09-15-ui-fidelity-final-independent.test.mjs",
+          "sha256": "e672ffc6fae81e5c9bcba8e5dc77382871c96797994ba9a357585c8111f8ca91"
+        },
+        {
+          "path": "work/evidence/2026-09-15-ui-fidelity-forward-design.md",
+          "sha256": "dfd99cd0bc38b6d6e511f614b90e34e0eaf813a4c67dd87ebeb20c5693febce9"
+        }
+      ]
+    }
+  ]
+}

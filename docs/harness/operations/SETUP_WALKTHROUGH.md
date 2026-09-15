@@ -231,7 +231,7 @@ VS Codeで開くのは`D:\projects\sales-operations`です。Claude Codeまた�
 ## 8. 途中で止まった場合
 
 - **new-project後にsetupだけ失敗**: GitHub repoやcloneが既にできている可能性があります。new-projectを繰り返さず、存在確認後、案件repo内でsetupだけ再実行します。
-- **ツール不足・古い版**: 表示されたツールを許可された方法で導入/更新し、新しいターミナルから同じ案件のsetupを再実行します。既存ファイルは削除しません。
+- **ツール不足・古い版**: 表示されたツールを許可された方法で導入/更新し、新しいターミナルから同じ案件のsetupを再実行します。案件設定とBundleは保持します。skill同期は独自ファイル/ディレクトリやリンクを見つけたら削除せず停止します。管理skillの上書き前の内容は `.harness/agent-assets/backups/` へ保存し、保存先を表示します。停止時は独自内容を確認・保管して統合方針を決めてから再実行し、フォルダーを丸ごと削除しないでください。
 - **認証だけやり直す**: 案件rootで `npm run harness:connect -- --profile harness-dev --host https://dbc-3fb0b9a2-66bb.cloud.databricks.com --auth`。本人がブラウザー承認します。
 - **Missing variable / catalog等が未設定**: セクション5の変数ファイルと実際の名前を確認。名前の設定だけではCatalog/Schemaは作成されません。
 - **PERMISSION_DENIED**: 対象resourceと操作者・app service principalを確認し、管理者と必要な範囲だけ調整。tokenの貼付や管理者権限への切替で回避しません。

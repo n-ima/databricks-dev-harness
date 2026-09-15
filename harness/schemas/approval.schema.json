@@ -13,6 +13,7 @@
     "evidence": { "type": "string", "minLength": 1 },
     "decidedAt": { "type": "string", "format": "date-time" },
     "artifactHashes": { "type": "object", "additionalProperties": { "type": "string", "pattern": "^[a-f0-9]{64}$" } },
+    "uiContract": { "type": "string", "pattern": "^docs/product/ui/.+\\.json$" },
     "provenance": { "type": "string" },
     "revokedAt": { "type": "string", "format": "date-time" },
     "reason": { "type": "string" }

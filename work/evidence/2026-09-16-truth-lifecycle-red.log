@@ -1,0 +1,189 @@
+✖ FIX-02 pending loop prevents completed session with an otherwise valid receipt (62.4548ms)
+✖ FIX-03 blocked session refuses a pre-existing loop before provider invocation (47.1369ms)
+✖ FIX-03 completed session refuses a pre-existing loop before provider invocation (38.4263ms)
+✖ FIX-03 superseded session refuses a pre-existing loop before provider invocation (36.6444ms)
+✖ FIX-03 pending session after init refuses execution (30.6844ms)
+✖ FIX-03 close during claude prevents following checks (44.4351ms)
+✖ FIX-03 close during check-one prevents following checks (43.911ms)
+✔ FIX-02 no-loop session can complete; unrelated loops do not block it (51.1322ms)
+✖ FIX-02 every related loop is checked, including cancelled unresolved gates (45.368ms)
+✖ FIX-02 malformed loop records fail closed without completing (27.7909ms)
+✖ FIX-02 session lock prevents new loop creation during closure (18.8735ms)
+✖ FIX-03 achieved cannot be recorded after session stops (59.0371ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 1
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 580.9348
+
+✖ failing tests:
+
+test at tests\truth-lifecycle.test.mjs:30:1
+✖ FIX-02 pending loop prevents completed session with an otherwise valid receipt (62.4548ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:32:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /loop|gate|pending/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\truth-lifecycle.test.mjs:35:59
+✖ FIX-03 blocked session refuses a pre-existing loop before provider invocation (47.1369ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:38:15)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /session|active|blocked/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\truth-lifecycle.test.mjs:35:59
+✖ FIX-03 completed session refuses a pre-existing loop before provider invocation (38.4263ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:38:15)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /session|active|blocked/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\truth-lifecycle.test.mjs:35:59
+✖ FIX-03 superseded session refuses a pre-existing loop before provider invocation (36.6444ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:38:15)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /session|active|blocked/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\truth-lifecycle.test.mjs:41:1
+✖ FIX-03 pending session after init refuses execution (30.6844ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /pending|session/i. Input:
+  
+  'Error: must not execute'
+  
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:43:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: must not execute
+        at run (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:43:90)
+        at runLoopIterationLocked (file:///D:/projects/databricks-dev-harness/tools/lib/loop.mjs:305:131)
+        at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:43:3)
+        at async Test.run (node:internal/test_runner/test:1208:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:831:7),
+    expected: /pending|session/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\truth-lifecycle.test.mjs:45:41
+✖ FIX-03 close during claude prevents following checks (44.4351ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:47:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /session|blocked/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\truth-lifecycle.test.mjs:45:41
+✖ FIX-03 close during check-one prevents following checks (43.911ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:47:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /session|blocked/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\truth-lifecycle.test.mjs:53:1
+✖ FIX-02 every related loop is checked, including cancelled unresolved gates (45.368ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:55:97)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /loop|gate|pending/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\truth-lifecycle.test.mjs:57:1
+✖ FIX-02 malformed loop records fail closed without completing (27.7909ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:58:67)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /loop|JSON|parse/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\truth-lifecycle.test.mjs:60:1
+✖ FIX-02 session lock prevents new loop creation during closure (18.8735ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:61:91
+      at async withFileLock (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:167:102)
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:61:28)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /locked/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\truth-lifecycle.test.mjs:63:1
+✖ FIX-03 achieved cannot be recorded after session stops (59.0371ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-lifecycle.test.mjs:65:3)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /session|blocked/i,
+    operator: 'rejects',
+    diff: 'simple'
+  }

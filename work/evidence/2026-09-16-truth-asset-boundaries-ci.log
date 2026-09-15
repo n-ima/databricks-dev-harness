@@ -1,0 +1,136 @@
+TAP version 13
+# Subtest: IND-ASSET preflight unknown-file in provider 0 preserves both trees
+ok 1 - IND-ASSET preflight unknown-file in provider 0 preserves both trees
+  ---
+  duration_ms: 13.821
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees
+ok 2 - IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees
+  ---
+  duration_ms: 8.9579
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight unknown-file in provider 1 preserves both trees
+ok 3 - IND-ASSET preflight unknown-file in provider 1 preserves both trees
+  ---
+  duration_ms: 7.7731
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees
+ok 4 - IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees
+  ---
+  duration_ms: 8.1939
+  type: 'test'
+  ...
+# Subtest: IND-ASSET hardlink in provider 0 rejects before writes
+ok 5 - IND-ASSET hardlink in provider 0 rejects before writes
+  ---
+  duration_ms: 8.0137
+  type: 'test'
+  ...
+# Subtest: IND-ASSET hardlink in provider 1 rejects before writes
+ok 6 - IND-ASSET hardlink in provider 1 rejects before writes
+  ---
+  duration_ms: 7.6323
+  type: 'test'
+  ...
+# Subtest: IND-ASSET junction at target-root rejects without changing linked data
+ok 7 - IND-ASSET junction at target-root rejects without changing linked data
+  ---
+  duration_ms: 6.7401
+  type: 'test'
+  ...
+# Subtest: IND-ASSET junction at expected-subdirectory rejects without changing linked data
+ok 8 - IND-ASSET junction at expected-subdirectory rejects without changing linked data
+  ---
+  duration_ms: 8.3764
+  type: 'test'
+  ...
+# Subtest: IND-ASSET file symlink is rejected when host permits creating one
+ok 9 - IND-ASSET file symlink is rejected when host permits creating one # SKIP Host cannot create file symlinks; junction paths are tested separately.
+  ---
+  duration_ms: 3.9006
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/a5526a02-869b-44f6-bb1c-e2117021e65d
+# Subtest: IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes
+ok 10 - IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes
+  ---
+  duration_ms: 24.4575
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/9b7ab0f0-2288-4a19-a5a1-498beecc04b9
+# Managed skill backups: .harness/agent-assets/backups/b5849537-dafd-4229-9a8a-2f2c1fc5f560
+# Subtest: IND-ASSET interrupted second rename retains both backups and explicit retry works
+ok 11 - IND-ASSET interrupted second rename retains both backups and explicit retry works
+  ---
+  duration_ms: 24.5204
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/0c28d3d1-4c29-407b-ac90-caeb4a8bb79b
+# Managed skill backups: .harness/agent-assets/backups/31aa73fc-8f56-492d-926a-e7f48b735f90
+# Subtest: IND-ASSET interrupted second write retains both backups and explicit retry works
+ok 12 - IND-ASSET interrupted second write retains both backups and explicit retry works
+  ---
+  duration_ms: 23.3604
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/b34831ca-74ce-4e22-bb59-f8e039de20a2
+# Subtest: IND-ASSET cleanup failure reports the exact leftover and preserves destination and backups
+ok 13 - IND-ASSET cleanup failure reports the exact leftover and preserves destination and backups
+  ---
+  duration_ms: 18.2555
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused
+ok 14 - IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused
+  ---
+  duration_ms: 0.3528
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR version mismatch and later-file hash mismatch cause no partial write
+ok 15 - IND-VENDOR version mismatch and later-file hash mismatch cause no partial write
+  ---
+  duration_ms: 8.2367
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR read-only validation does not patch; write then check is idempotent
+ok 16 - IND-VENDOR read-only validation does not patch; write then check is idempotent
+  ---
+  duration_ms: 10.3841
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity
+ok 17 - IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity
+  ---
+  duration_ms: 1.7216
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and same-version
+ok 18 - IND-VENDOR full refresh uses mocked installer/legal data and same-version
+  ---
+  duration_ms: 4199.507
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and changed-version
+ok 19 - IND-VENDOR full refresh uses mocked installer/legal data and changed-version
+  ---
+  duration_ms: 2892.1695
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and changed-hash
+ok 20 - IND-VENDOR full refresh uses mocked installer/legal data and changed-hash
+  ---
+  duration_ms: 2943.5159
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 10289.6095

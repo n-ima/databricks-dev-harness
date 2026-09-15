@@ -279,7 +279,8 @@ function appOptions(overrides = {}) {
 test("AppKit manifest contracts preserve required plugins, optional selection, resource origins, and scoped rules", async (t) => {
   const context = await appFixture(t);
   const plan = await planScaffold(context.root, appOptions(), context);
-  assert.equal(plan.status, "ready");
+  assert.equal(plan.status, "needs-input");
+  assert.ok(plan.missing.some(item => item.startsWith('reuse-reviewed-app:')));
   assert.deepEqual(plan.mandatoryFeatures, ["core"]);
   assert.deepEqual(plan.features, ["analytics"]);
   assert.deepEqual(plan.selectedFeatures, ["core", "analytics"]);
@@ -303,7 +304,8 @@ test("AppKit planning reports required user resources but never demands optional
   const context = await appFixture(t);
   const plan = await planScaffold(context.root, appOptions({ set: [] }), context);
   assert.equal(plan.status, "needs-input");
-  assert.deepEqual(plan.missing, ["analytics.warehouse.id"]);
+  assert.deepEqual(plan.missing.filter(item => !item.startsWith('reuse-reviewed-app:')), ["analytics.warehouse.id"]);
+  assert.ok(plan.missing.some(item => item.startsWith('reuse-reviewed-app:')));
   assert.deepEqual(context.calls.filter((item) => item.args[0] === "apps").map((item) => item.args[1]), ["manifest"], "planning may only read the manifest and inspect explicit-profile authentication");
 });
 
@@ -373,8 +375,8 @@ test("AppKit planning rejects mutable template versions before consulting a mani
 });
 
 test("AppKit validation failure is persisted as a failed scaffold, not a reusable ready plan", async (t) => {
-  const context = await appFixture(t);
-  const plan = await planScaffold(context.root, appOptions(), context);
+  const context = await appFixture(t, mockManifest());
+  const plan = await planScaffold(context.root, mockOptions(), context);
   const planPath = `work/scaffolds/${plan.id}.json`;
   const calls = [];
   const run = async (command, args) => {
@@ -453,8 +455,8 @@ test("AppKit profile-host mismatch is rejected before authenticating the unexpec
 });
 
 test("AppKit rechecks workspace identity immediately before init", async (t) => {
-  const context = await appFixture(t);
-  const plan = await planScaffold(context.root, appOptions(), context);
+  const context = await appFixture(t, mockManifest());
+  const plan = await planScaffold(context.root, mockOptions(), context);
   const commands = [];
   const run = (command, args, options) => {
     commands.push(args.slice(0, 2).join(" "));
@@ -482,7 +484,7 @@ test("AppKit integration rejects a changed approved fixture before any init or a
   const context = await appFixture(t);
   const plan = await planScaffold(context.root, appOptions(), context);
   await writeFile(join(context.root, "apps/approved-mock/fixture.json"), '{"orders":[]}\n');
-  await assert.rejects(applyScaffold(context.root, { plan: `work/scaffolds/${plan.id}.json`, yes: true }, { run: () => assert.fail("Stale approved mock must stop before external commands") }), /evidence changed/);
+  await assert.rejects(applyScaffold(context.root, { plan: `work/scaffolds/${plan.id}.json`, yes: true }, { run: () => assert.fail("Stale approved mock must stop before external commands") }), /reuse-reviewed-app/);
 });
 
 async function intakeFixture(t, overrides = {}) {

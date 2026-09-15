@@ -18,16 +18,16 @@ import {
 } from "./shared.mjs";
 import { policyHash } from "./policy.mjs";
 import { fileHash, validateReceipt } from "./evidence.mjs";
+import { validateUiApproval } from "./ui-contract.mjs";
+import { loopSessionPath, readLoopSession } from './session-loop.mjs';
+import { commandResultAsync } from './command-async.mjs';
 
 export { policyHash } from "./policy.mjs";
 
 const TERMINAL = new Set(["achieved", "blocked", "budget_exhausted", "failed", "cancelled"]);
 
 async function sessionPath(root, id) {
-  const directory = join(root, "work", "sessions");
-  const matches = (await readdir(directory)).filter((name) => name.endsWith(".md") && (name === `${id}.md` || name.startsWith(id)));
-  if (matches.length !== 1) throw new Error(matches.length ? `Session id is ambiguous: ${id}` : `Session not found: ${id}`);
-  return join(directory, matches[0]);
+  return loopSessionPath(root, id);
 }
 
 async function currentGitIsolation(root, allowUnsafe = false, run = commandResult) {
@@ -60,9 +60,13 @@ async function resolveLoop(root, id) {
   return { path, state: await readJson(path) };
 }
 
-async function withLockedLoop(root, id, action) {
+async function withLockedLoop(root, id, action, lockSession = true) {
   const { path } = await resolveLoop(root, id);
-  return withFileLock(path, async () => action({ path, state: await readJson(path) }));
+  return withFileLock(path, async () => {
+    const record = { path, state: await readJson(path) };
+    if (!lockSession) return action(record);
+    return withFileLock(await sessionPath(root, record.state.sessionId), () => action(record));
+  });
 }
 
 function budgetState(state) {
@@ -115,9 +119,14 @@ function providerInvocation(state, prompt) {
 }
 
 export async function initLoop(root, options, dependencies = {}) {
+  return withFileLock(await sessionPath(root, cleanInline(options.session)), () => initLoopLocked(root, options, dependencies));
+}
+
+async function initLoopLocked(root, options, dependencies = {}) {
   const sessionId = cleanInline(options.session);
   if (!sessionId) throw new Error("loop init requires --session.");
   const session = await sessionPath(root, sessionId);
+  await readLoopSession(root, sessionId, { allowPending: true });
   const sessionText = await readFile(session, "utf8");
   if (!/^status:\s*active\s*$/m.test(sessionText)) throw new Error("Loop session must be active.");
   const config = await readJson(join(root, "harness.config.json"));
@@ -160,6 +169,13 @@ export async function initLoop(root, options, dependencies = {}) {
   }
   if (!Number.isInteger(state.budgets.maxIterations) || state.budgets.maxIterations > 32 || state.budgets.maxWallMinutes > 1440 || state.budgets.maxProcessMinutes > 240) throw new Error("Loop budgets exceed supported limits (32 iterations, 1440 wall minutes, 240 process minutes).");
   const sessionFields = parseFrontmatter(sessionText);
+  const canonicalUiApproval = `work/approvals/${state.sessionId}/ui-mock.json`;
+  if (await exists(pathInside(root, canonicalUiApproval))) {
+    state.uiApproval = { path: canonicalUiApproval, sha256: await fileHash(root, canonicalUiApproval) };
+    await assertUiApproval(root, state);
+  } else if (sessionFields.gate === 'ui-mock' && sessionFields.gate_status === 'approved') {
+    throw new Error('UI contract: approved session lacks a current UI receipt; review and approve again.');
+  }
   if (sessionFields.gate_status === "pending") state.gate = { id: sessionFields.gate || "product-intent", status: "pending", evidence: null };
   if (sessionFields.requirement && sessionFields.requirement !== "unassigned") {
     const requirement = pathInside(root, sessionFields.requirement);
@@ -186,6 +202,7 @@ export async function setLoopGate(root, options) {
 
 async function setLoopGateLocked(root, options, { path, state }) {
   if (TERMINAL.has(state.status)) throw new Error(`Loop is terminal: ${state.status}`);
+  await assertSession(root, path, state, true);
   const gate = cleanInline(options.gate);
   if (!gate) throw new Error("loop gate requires --gate.");
   state.gate = { id: gate, status: "pending", evidence: null };
@@ -203,6 +220,7 @@ async function recordLoopLocked(root, options, { path, state }) {
   const outcome = cleanInline(options.outcome, "progress");
   if (TERMINAL.has(state.status)) throw new Error(`Loop is terminal: ${state.status}`);
   if (!["progress", "needs-human", "failed", "achieved"].includes(outcome)) throw new Error("Unknown iteration outcome.");
+  await assertSession(root, path, state, outcome !== 'achieved');
   await assertPolicy(root, path, state);
   if (!state.iterations.length) throw new Error("No started iteration exists to record.");
   const iteration = state.iterations.at(-1);
@@ -219,6 +237,7 @@ async function recordLoopLocked(root, options, { path, state }) {
     state.phase = "mock";
   } else if (outcome === "failed") state.status = "failed";
   else if (outcome === "achieved") {
+    await assertUiApproval(root, state);
     if (state.gate?.status === "pending") throw new Error(`Human gate is pending: ${state.gate.id}`);
     const verifierEvidence = cleanInline(options.verifier_evidence);
     if (!iteration.evidence.length || !verifierEvidence) {
@@ -254,11 +273,12 @@ async function recordLoopLocked(root, options, { path, state }) {
 export async function runLoopIteration(root, options, dependencies = {}) {
   // Hold the record lock throughout provider/check execution. A second runner,
   // recorder, or stop request must fail visibly instead of overwriting this run.
-  return withLockedLoop(root, options.id, (record) => runLoopIterationLocked(root, options, dependencies, record));
+  return withLockedLoop(root, options.id, (record) => runLoopIterationLocked(root, options, dependencies, record), false);
 }
 
 async function runLoopIterationLocked(root, options, dependencies, { path, state }) {
   if (TERMINAL.has(state.status)) throw new Error(`Loop is terminal: ${state.status}`);
+  await assertSession(root, path, state);
   if (state.gate?.status === "pending") throw new Error(`Human gate is pending: ${state.gate.id}`);
   if (state.iterations.at(-1) && !state.iterations.at(-1).finishedAt) throw new Error("The previous iteration is unfinished. Record its outcome or cancel the loop; do not silently rerun it.");
   const budget = budgetState(state);
@@ -271,6 +291,7 @@ async function runLoopIterationLocked(root, options, dependencies, { path, state
   }
   await assertPolicy(root, path, state);
   if (!state.isolation.verified && !state.isolation.unsafeTestOverride) throw new Error("Loop isolation is not verified.");
+  await assertUiApproval(root, state);
   const prompt = nextPrompt(state);
   const invocation = state.provider === "manual" ? { command: null, args: [] } : providerInvocation(state, prompt);
   if (!options.execute) {
@@ -288,17 +309,24 @@ async function runLoopIterationLocked(root, options, dependencies, { path, state
 
   const number = state.iterations.length + 1;
   const iteration = { number, provider: state.provider, startedAt: timestamp(), finishedAt: null, checks: [] };
-  state.iterations.push(iteration);
-  state.updatedAt = iteration.startedAt;
-  await writeJson(path, state);
-  const run = dependencies.run ?? commandResult;
-  const providerResult = state.provider === "manual" ? { ok: true, status: 0, stdout: "manual work checked", stderr: "" } : await run(invocation.command, invocation.args, {
-    cwd: root,
-    timeout: remainingTimeout(state),
-    env: { ...process.env, HARNESS_LOOP_ID: state.id, HARNESS_SESSION_ID: state.sessionId },
+  const run = dependencies.run ?? commandResultAsync;
+  const started = await withFileLock(await sessionPath(root, state.sessionId), async () => {
+    await assertSession(root, path, state);
+    await assertUiApproval(root, state);
+    state.iterations.push(iteration);
+    state.updatedAt = iteration.startedAt;
+    await writeJson(path, state);
+    // Start inside the boundary; await outside it so checkpoint/close can proceed.
+    return observeInvocation(state.provider === 'manual' ? { ok: true, status: 0, stdout: 'manual work checked', stderr: '' } : run(invocation.command, invocation.args, {
+      cwd: root, timeout: remainingTimeout(state),
+      env: { ...process.env, HARNESS_LOOP_ID: state.id, HARNESS_SESSION_ID: state.sessionId },
+    }));
   });
+  const providerResult = await started.result;
   await assertPolicy(root, path, state);
   iteration.providerExit = providerResult.status;
+  await assertSession(root, path, state);
+  await assertUiApproval(root, state);
   iteration.providerOutputSha256 = sha256(`${providerResult.stdout}\n${providerResult.stderr}`);
   iteration.providerOutputBytes = Buffer.byteLength(`${providerResult.stdout}\n${providerResult.stderr}`);
   if (!providerResult.ok) {
@@ -318,9 +346,15 @@ async function runLoopIterationLocked(root, options, dependencies, { path, state
       iteration.finishedAt = timestamp(); iteration.outcome = "budget_exhausted";
       await writeJson(path, state); throw new Error(state.terminalReason);
     }
-    const result = await run(check[0], check.slice(1), { cwd: root, timeout: remainingTimeout(state) });
+    const startedCheck = await withFileLock(await sessionPath(root, state.sessionId), async () => {
+      await assertSession(root, path, state);
+      return observeInvocation(run(check[0], check.slice(1), { cwd: root, timeout: remainingTimeout(state) }));
+    });
+    const result = await startedCheck.result;
     iteration.checks.push({ command: check, status: result.ok ? "pass" : "fail", outputSha256: sha256(`${result.stdout}\n${result.stderr}`) });
+    await assertSession(root, path, state);
     await assertPolicy(root, path, state);
+    await assertUiApproval(root, state);
   }
   iteration.agentOutputRecorded = false;
   state.phase = iteration.checks.every((item) => item.status === "pass") ? "verify" : "implement";
@@ -328,6 +362,13 @@ async function runLoopIterationLocked(root, options, dependencies, { path, state
   await writeJson(path, state);
   console.log(JSON.stringify({ id: state.id, iteration: number, phase: state.phase, checks: iteration.checks }, null, 2));
   return state;
+}
+
+function observeInvocation(value) {
+  const result = Promise.resolve(value);
+  // Attach immediately: releasing the file lock awaits I/O before our caller awaits.
+  result.catch(() => {});
+  return { result };
 }
 
 function remainingTimeout(state) {
@@ -351,9 +392,14 @@ export async function approveLoopGate(root, options) {
 
 async function approveLoopGateLocked(root, options, { path, state }) {
   if (TERMINAL.has(state.status) || state.gate?.status !== "pending") throw new Error("No active pending gate exists.");
+  await assertSession(root, path, state, true);
   const evidence = cleanInline(options.evidence);
   const receipt = await readJson(pathInside(root, evidence, "gate approval"));
   if (receipt.decision !== "approved" || receipt.sessionId !== state.sessionId || receipt.gate !== state.gate.id || !receipt.actor || !receipt.evidence) throw new Error("A matching human approval record is required.");
+  if (state.gate.id === 'ui-mock') {
+    await validateUiApproval(root, receipt, { sessionId: state.sessionId });
+    state.uiApproval = { path: evidence, sha256: await fileHash(root, evidence) };
+  }
   for (const [artifact, hash] of Object.entries(receipt.artifactHashes ?? {})) {
     if (sha256(await readFile(pathInside(root, artifact))) !== hash) throw new Error(`Approval is stale: ${artifact}`);
   }
@@ -361,6 +407,34 @@ async function approveLoopGateLocked(root, options, { path, state }) {
   state.updatedAt = timestamp();
   await writeJson(path, state);
   return state;
+}
+
+async function assertUiApproval(root, state) {
+  const reference = state.uiApproval ?? (state.gate?.id === 'ui-mock' && state.gate.status === 'approved'
+    ? { path: state.gate.evidence } : null);
+  if (!reference) {
+    // Older loops may predate a UI approval or have moved to another gate.
+    const canonical = `work/approvals/${state.sessionId}/ui-mock.json`;
+    if (await exists(pathInside(root, canonical))) {
+      await validateUiApproval(root, await readJson(pathInside(root, canonical)), { sessionId: state.sessionId });
+    }
+    return;
+  }
+  if (!reference.path || (reference.sha256 && await fileHash(root, reference.path) !== reference.sha256)) {
+    throw new Error('UI contract: approval changed after loop validation; explicitly review the new approval.');
+  }
+  await validateUiApproval(root, await readJson(pathInside(root, reference.path)), { sessionId: state.sessionId });
+}
+
+async function assertSession(root, path, state, allowPending = false) {
+  try { await readLoopSession(root, state.sessionId, { allowPending }); }
+  catch (error) {
+    state.status = 'blocked';
+    state.terminalReason = `Session control stopped the loop: ${error.message} Preserve evidence; explicit handoff is required.`;
+    state.updatedAt = timestamp();
+    await writeJson(path, state);
+    throw new Error(state.terminalReason);
+  }
 }
 
 export async function stopLoop(root, options) {
@@ -386,7 +460,10 @@ export async function activeAutoLoop(root) {
     const state = await readJson(join(directory, name));
     if (process.env.HARNESS_LOOP_ID && process.env.HARNESS_LOOP_ID !== state.id) continue;
     if (!process.env.HARNESS_LOOP_ID && process.env.HARNESS_SESSION_ID && process.env.HARNESS_SESSION_ID !== state.sessionId) continue;
-    if (state.status === "active" && state.autoContinue) return { path: join(directory, name), state, budget: budgetState(state) };
+    if (state.status === "active" && state.autoContinue) {
+      try { await readLoopSession(root, state.sessionId); } catch { continue; }
+      return { path: join(directory, name), state, budget: budgetState(state) };
+    }
   }
   return null;
 }

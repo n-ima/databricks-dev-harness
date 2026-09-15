@@ -29,7 +29,7 @@ const uiDesign = [
   '|---|---|---|---|',
   '| 未確定 | 未確定 | 未確定 | 未確定 |',
   '',
-  '必要な状態（通常・読込・空・エラー・権限不足・部分データ）と入力の必須/検証/メッセージを定義する。配置・導線が不確かなら軽量HTML紙芝居で先に確認する。紙芝居だけの承認は入力や状態を確認したui-mock承認ではない。詳細は docs/product/ui/ に分離できる。',
+  '必要な状態（通常・読込・空・エラー・権限不足・部分データ）と入力の必須/検証/メッセージを定義する。UI設計からDatabricks Appsを既定とし、実AppKit部品・スタイル・版で描画する。外部画面は明示選択時だけ。独立した似せたHTMLは承認対象にしない。UI対応契約は docs/product/ui/、手順は docs/harness/operations/UI_RUNTIME_FIDELITY.md。項目/データ/ER設計も並行して整合する。',
 ].join('\n');
 
 async function template(name, values) {

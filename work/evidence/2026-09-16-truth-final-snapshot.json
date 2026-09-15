@@ -1,0 +1,232 @@
+{
+  "at": "2026-09-15T16:11:33.889Z",
+  "reviewer": "/root/truth_repair_final_review",
+  "environment": "win32 / v24.15.0",
+  "basisSha256": "1d8365cbe8e9d8364debff289f090e8142f358db6c902b6da28e560ff199e6a1",
+  "reviewedSha256": "1d55d71d1ef2b51314365dc8d04bd11ac4bd16db54020dfcb05d1c920520fd66",
+  "sources": [
+    {
+      "path": "docs/harness/requirements/2026-09-16-truth-repair.md",
+      "sha256": "f5922996f4a057fd09a55c06fe51dc0af2c422b49809f961845a6261c1844938"
+    },
+    {
+      "path": "docs/harness/design/TRUTH_REPAIR.md",
+      "sha256": "0723c582b7b6f61d6a503db6afcccb25e905440936e468f14ad7f732b84ced83"
+    },
+    {
+      "path": "docs/harness/operations/CLI_REFERENCE.md",
+      "sha256": "fdf74639729002e4259b7ab07b8fb4fb0237aaad304bf560ea2634952dddbc43"
+    },
+    {
+      "path": "docs/harness/operations/SETUP_WALKTHROUGH.md",
+      "sha256": "8b4abf61d3c368fc78ca6b77df5f0475a365e6b9a3180c6a58fc346fa64c964f"
+    },
+    {
+      "path": "docs/harness/operations/SAFE_LOCAL_UPDATE.md",
+      "sha256": "1597ecc5aaf05be72081a1b44385b514183d9271d7dd503388c941b7ccea0b9f"
+    },
+    {
+      "path": "docs/harness/operations/UPDATING_EXISTING_PROJECTS.md",
+      "sha256": "279fc4f4e4cc2cfea405627158b8986a57ec55452cf4d5d71d3d8a46eb4d4169"
+    },
+    {
+      "path": "tools/harness.mjs",
+      "sha256": "878336a39d405e72143fdaa95f0db905617117e1d713206a77a76285d7a20965"
+    },
+    {
+      "path": "tools/lib/loop.mjs",
+      "sha256": "25f5892cd2db047edf9d795803fbc5e8ae59d404ecd6d07a2c8c2351f9901806"
+    },
+    {
+      "path": "tools/lib/session-loop.mjs",
+      "sha256": "fb85cb5893f636769f093f156b54cef7a0008adf518edcf9516b4f152c7c017b"
+    },
+    {
+      "path": "tools/lib/memory.mjs",
+      "sha256": "c55b76592eb6d0344eef9f03f086e81b9e44cf60cb92595a2f1bc4ec7a1e5f4b"
+    },
+    {
+      "path": "tools/lib/command-async.mjs",
+      "sha256": "5d6f1a989e905dbdb506615d5114687b91080f9b76684f52021da875a463e952"
+    },
+    {
+      "path": "tools/lib/shared.mjs",
+      "sha256": "7263c67f48e4acaa4422f4b0f3737afac5824aec8fe6e5621b43b7021b2321e6"
+    },
+    {
+      "path": "tools/lib/skill-sync.mjs",
+      "sha256": "2421b22a3457f8052aed9dd070ed11969fc4500ceba8b580488ecbc69d0343c6"
+    },
+    {
+      "path": "tools/lib/vendor-patches.mjs",
+      "sha256": "c927473eb0c32ac8d6cd72b1eb66f6f172ee3593eaea252d16df20e172ffa3c1"
+    },
+    {
+      "path": "tools/lib/scaffold.mjs",
+      "sha256": "cb94cbb978f6a4f28e1c67691378267a0cddeb2f405f30a77a679c1e3dd35d8b"
+    },
+    {
+      "path": "tools/lib/distribution.mjs",
+      "sha256": "11eb828949da50a5eb091f5f32ce8029a829f5eea8af5b6b909a1f27b82bd2fa"
+    },
+    {
+      "path": "harness/vendor-patches.json",
+      "sha256": "6a869a029cc96495af65bb76175fec848bcd357f480cab34e083eed3aff34735"
+    },
+    {
+      "path": "harness/toolchain.lock.json",
+      "sha256": "54980666629bd0a07c771ba3821d7f14a2ef3202f666bd83af7c28860c7e1f9f"
+    },
+    {
+      "path": "tests/truth-assets.test.mjs",
+      "sha256": "5fb1ccd4ffe48a140c5e9d21fcf2c72679f03ef8fd63cead73390748e5f085e7"
+    },
+    {
+      "path": "tests/truth-asset-boundaries.test.mjs",
+      "sha256": "2578b1ce550044e9db7d44f325edd25646cf2b623292f325a0281b3b7d53ca16"
+    },
+    {
+      "path": "tests/truth-lifecycle.test.mjs",
+      "sha256": "05eaba09805f6822fb3feb3c25a1157631d50bf6947476668c33a8487836d452"
+    },
+    {
+      "path": "tests/truth-gates.test.mjs",
+      "sha256": "d7ec46dac2b1a725da6fbc6fe2a43a7dddd939df75c0a576f6be69f0a501d855"
+    },
+    {
+      "path": "work/evidence/2026-09-16-truth-gates-independent.test.mjs",
+      "sha256": "3dc066a8366d511da80ec46eac52754f1328f052220a2a55a61f3ebab18a43a1"
+    },
+    {
+      "path": "work/evidence/2026-09-16-truth-assets-independent.test.mjs",
+      "sha256": "477ba0b19b3a0e1766605be75edb0a5a6cdf25b3636e0a55e4c834e87d41942f"
+    },
+    {
+      "path": "work/evidence/2026-09-16-truth-preserve.mjs",
+      "sha256": "6e98d9e7fe451420e9360ea726141f37a1efc75d3d93d986805c3cec17a3f518"
+    },
+    {
+      "path": "work/evidence/2026-09-16-truth-verify.mjs",
+      "sha256": "5c4c9c1d023a5cf9e215a08b0e009e4d1870c4e8a912a60571d466a0d5b52811"
+    },
+    {
+      "path": "work/evidence/2026-09-16-truth-repair-baseline.json",
+      "sha256": "5cfc703a0304766307895fdc2fd687a605839e75c759b305e2db9c9da8f94baf"
+    },
+    {
+      "path": "vendor/databricks-skills/databricks-lakebase/SKILL.md",
+      "sha256": "b15709916917969f2d8acd447e38f048b621e5e16bd58b3d853cfe9ad605bcd9"
+    },
+    {
+      "path": ".claude/skills/databricks-lakebase/SKILL.md",
+      "sha256": "b15709916917969f2d8acd447e38f048b621e5e16bd58b3d853cfe9ad605bcd9"
+    },
+    {
+      "path": ".github/skills/databricks-lakebase/SKILL.md",
+      "sha256": "b15709916917969f2d8acd447e38f048b621e5e16bd58b3d853cfe9ad605bcd9"
+    },
+    {
+      "path": "tools/lib/ui-contract.mjs",
+      "sha256": "cb2dfb2b1f782492557577480e52931c326637bc9073aa788552f25ae0c169df"
+    },
+    {
+      "path": "tools/lib/scoped-approval.mjs",
+      "sha256": "f6dd8a55792567ce3715853d7fafbc0fa241abf386d8ead4f4b35af5b3591fc1"
+    }
+  ],
+  "executions": [
+    {
+      "id": "REPAIR-T01",
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "work/evidence/2026-09-16-truth-REPAIR-T01.log",
+          "sha256": "bc91ff5e8749bca757df6080f6ae8fba3b9c8425b96beee67644722bcb4aa58c"
+        }
+      ]
+    },
+    {
+      "id": "REPAIR-T02",
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "work/evidence/2026-09-16-truth-REPAIR-T02.log",
+          "sha256": "93bcda19281ab2c31c7a86b750a1b8d90b76f8e140aecb039b22a5116fc0ef43"
+        }
+      ]
+    },
+    {
+      "id": "REPAIR-T03",
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "work/evidence/2026-09-16-truth-REPAIR-T03.log",
+          "sha256": "c13a424fe1b0500b30406cb85cd4a7ab37694173031564c9dfacb42c9e6b1540"
+        }
+      ]
+    },
+    {
+      "id": "REPAIR-T04",
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "work/evidence/2026-09-16-truth-REPAIR-T04.log",
+          "sha256": "676b635b5a42aea1d1cf19d109b5b2131913a6adc8d423fe9ec790cc992ab406"
+        }
+      ]
+    },
+    {
+      "id": "REPAIR-T05",
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "work/evidence/2026-09-16-truth-REPAIR-T05.log",
+          "sha256": "e31a0f91586b16c8583d631105648c0651722157538e97dfa8581ed604322f99"
+        }
+      ]
+    },
+    {
+      "id": "REPAIR-T06",
+      "status": "pass",
+      "evidence": [
+        {
+          "path": "work/evidence/2026-09-16-truth-REPAIR-T06.log",
+          "sha256": "3ee45bd0742f25a34648216dd83fcb99d9447ee134b3eb4fbec4d661f44357e9"
+        }
+      ]
+    }
+  ],
+  "preservedCount": 34,
+  "mixedReviewed": [
+    "docs/harness/operations/CLI_REFERENCE.md",
+    "tools/harness.mjs",
+    "tools/lib/distribution.mjs",
+    "tools/lib/loop.mjs",
+    "tools/lib/scaffold.mjs",
+    "vendor/databricks-skills/databricks-lakebase/SKILL.md"
+  ],
+  "releases": [
+    {
+      "version": "0.4.0",
+      "manifestSha256": "90f06b95119d9c3d5f04d6e4d9863a310bea24851af06b7c12fb3ff1323b5b8c",
+      "payloadCount": 1012
+    },
+    {
+      "version": "0.5.0",
+      "manifestSha256": "28ac2790d76abe0ba49b3e05bcb1680b255d374572ae5c9700ed9be3388d4d18",
+      "payloadCount": 1057
+    },
+    {
+      "version": "0.6.0",
+      "manifestSha256": "4f5b27da15fc53f59a69b230bca0e8bf83319d2147ed36ad9c478aaf1637209c",
+      "payloadCount": 1067
+    },
+    {
+      "version": "0.6.1",
+      "manifestSha256": "d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d",
+      "payloadCount": 1068
+    }
+  ],
+  "findings": [],
+  "sourceSnapshotSha256": "a4b11b7709b4c2b6792b1be9aa47d422c1f4148106224fad77650efcd2b8ec8b"
+}

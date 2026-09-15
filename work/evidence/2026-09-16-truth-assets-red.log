@@ -1,0 +1,260 @@
+✖ FIX-04 re-setup refuses unknown skills in either provider before modifying either tree (7094.9387ms)
+✖ FIX-01 generated provider skill preserves existing Apps database resource type (3974.9824ms)
+✖ FIX-05 generated SQL embeds exactly the canonical metric YAML (3.2662ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11160.4518
+
+✖ failing tests:
+
+test at tests\truth-assets.test.mjs:19:1
+✖ FIX-04 re-setup refuses unknown skills in either provider before modifying either tree (7094.9387ms)
+  AssertionError [ERR_ASSERTION]: Expected "actual" to be strictly unequal to: 0
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-assets.test.mjs:23:76)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\truth-assets.test.mjs:26:1
+✖ FIX-01 generated provider skill preserves existing Apps database resource type (3974.9824ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /migrate to the `postgres` resource key/. Input:
+  
+  '---\n' +
+    'name: databricks-lakebase\n' +
+    'description: "Databricks Lakebase Postgres: projects, scaling, connectivity, Lakebase synced tables, and Data API. Use when asked about Lakebase databases, OLTP storage, or connecting apps to Postgres on Databricks."\n' +
+    'compatibility: Requires databricks CLI (>= v0.294.0)\n' +
+    'metadata:\n' +
+    '  version: "0.1.0"\n' +
+    'parent: databricks-core\n' +
+    '---\n' +
+    '\n' +
+    '# Lakebase Postgres Autoscaling\n' +
+    '\n' +
+    '**FIRST**: Use the parent `databricks-core` skill for CLI basics, authentication, and profile selection.\n' +
+    '\n' +
+    "Lakebase is Databricks' serverless Postgres-compatible database, available on both AWS and Azure (GA). It provides fully managed OLTP storage with autoscaling, branching, and scale-to-zero.\n" +
+    '\n' +
+    "> **Provisioned Lakebase no longer exists — never create it.** The old Provisioned tier (static, non-scalable Postgres; `databricks database` CLI / `w.database` SDK) is being migrated to Autoscaling over summer 2026, with no customer action required. Lakebase today is Autoscaling-only (`databricks postgres` / `w.postgres`). Do not attempt to create Provisioned instances; if a user asks for one, tell them Provisioned instances don't exist anymore and point them to Autoscaling. Treat the legacy `database` resource key in app configs as retired — migrate to the `postgres` resource key. For the legacy DAB `synced_database_tables` resource, use the `databricks postgres create-synced-table` CLI flow instead (see the Common Issues row and `references/synced-tables.md`).\n" +
+    '\n' +
+    'For context when reading older configs or docs, here is how the retired Provisioned tier maps to Autoscaling:\n' +
+    '\n' +
+    '| Aspect | Provisioned (retired) | Autoscaling (current) |\n' +
+    '|--------|-----------------------|-----------------------|\n' +
+    '| CLI group | `databricks database` | `databricks postgres` |\n' +
+    '| Top-level resource | Instance | Project |\n' +
+    '| Capacity | CU_1–CU_8 (16 GB/CU) | 0.5–112 CU (2 GB/CU) |\n' +
+    '| Branching | Not supported | Full support |\n' +
+    '| Scale-to-zero | Not supported | Configurable |\n' +
+    '| HA | Readable secondaries | 1–3 secondaries + read replicas |\n' +
+    '| Data API | Not available | PostgREST HTTP API |\n' +
+    '| Cloud | AWS only | AWS and Azure |\n' +
+    '\n' +
+    '**Compliance:** Supports HIPAA, C5, TISAX, or None.\n' +
+    '\n' +
+    '## Capabilities\n' +
+    '\n' +
+    '- **Project lifecycle** -- create, update, delete Lakebase Postgres Autoscaling projects\n' +
+    '- **Branching** -- copy-on-write branches with TTL, point-in-time recovery, and reset\n' +
+    '- **Compute scaling** -- autoscale 0.5--32 CU, fixed 36--112 CU, scale-to-zero\n' +
+    '- **High availability** -- 1 primary + 1--3 secondaries, automatic failover\n' +
+    '- **PostgreSQL connectivity** -- OAuth token refresh, connection pooling, SSL\n' +
+    '- **Data API** -- PostgREST-compatible HTTP CRUD (Autoscaling only)\n' +
+    '- **Lakebase synced tables** -- sync Unity Catalog Delta tables into Postgres (previously known as Reverse ETL)\n' +
+    '- **Databricks App integration** -- scaffold apps with Lakebase feature, deploy-first workflow\n' +
+    '- **Cloud support** -- AWS and Azure (GA)\n' +
+    '\n' +
+    '**Reference docs:**\n' +
+    '- [computes-and-scaling.md](references/computes-and-scaling.md) — Sizing, endpoint management, scale-to-zero, HA\n' +
+    '- [connectivity.md](references/connectivity.md) — Connection patterns, token refresh, Data API\n' +
+    '- [synced-tables.md](references/synced-tables.md) — Lakebase synced tables, data type mapping, capacity planning\n' +
+    '- [lakehouse-sync.md](references/lakehouse-sync.md) — CDC from Lakebase Postgres to Unity Catalog Delta tables (**UI-only** — cannot be configured via CLI or API)\n' +
+    '- [pgvector.md](references/pgvector.md) — Vector similarity search with pgvector extension\n' +
+    '- [off-platform.md](references/off-platform.md) — Off-platform Lakebase (NOT Databricks Apps): external Node.js apps connecting via `@databricks/lakebase`, env management, token refresh, Drizzle ORM\n' +
+    '\n' +
+    '## Resource Hierarchy\n' +
+    '\n' +
+    '```\n' +
+    'Project (top-level container)\n' +
+    '  └── Branch (isolated database environment, copy-on-write)\n' +
+    '        ├── Endpoint (read-write or read-only)\n' +
+    '        ├── Database (standard Postgres DB)\n' +
+    '        └── Role (Postgres role)\n' +
+    '```\n' +
+    '\n' +
+    '- **Project**: Top-level container. Creating one auto-provisions a `production` branch and a `primary` read-write endpoint.\n' +
+    '- **Branch**: Isolated database environment sharing storage with parent (copy-on-write). States: `READY`, `ARCHIVED`.\n' +
+    '- **Endpoint** (called **Compute** in UI): Compute resource powering a branch. Types: `ENDPOINT_TYPE_READ_WRITE`, `ENDPOINT_TYPE_READ_ONLY`.\n' +
+    '- **Database**: Standard Postgres database within a branch. Default: `databricks_postgres`.\n' +
+    '- **Role**: Postgres role within a branch.\n' +
+    '\n' +
+    '### Resource Name Formats\n' +
+    '\n' +
+    '| Resource | Format |\n' +
+    '|----------|--------|\n' +
+    '| Project | `projects/{project_id}` |\n' +
+    '| Branch | `projects/{project_id}/branches/{branch_id}` |\n' +
+    '| Endpoint | `projects/{project_id}/branches/{branch_id}/endpoints/{endpoint_id}` |\n' +
+    '| Database | `projects/{project_id}/branches/{branch_id}/databases/{database_id}` |\n' +
+    '\n' +
+    'All IDs: 1-63 characters, start with lowercase letter, lowercase letters/numbers/hyphens only (RFC 1123).\n' +
+    '\n' +
+    '## CLI Discovery -- ALWAYS Do This First\n' +
+    '\n' +
+    '> **Note:** "Lakebase" is the product name; the CLI command group is `postgres`. All commands use `databricks postgres ...`.\n' +
+    '\n' +
+    '**Do NOT guess command syntax.** Discover available commands dynamically:\n' +
+    '\n' +
+    '```bash\n' +
+    'databricks postgres -h                    # List all subcommands\n' +
+    'databricks postgres <subcommand> -h       # Flags, args, JSON fields\n' +
+    '```\n' +
+    '\n' +
+    '## Create a Project\n' +
+    '\n' +
+    '> **First decide: reuse or create.** When building or attaching to an app, ask the user whether to reuse an existing project/branch/database — list them with `databricks postgres list-projects` (then `list-branches` / `list-databases`), let the user pick, and confirm which schema the app will own — or create a new project. Only skip listing and create directly when the user explicitly asked for a brand-new project.\n' +
+    '\n' +
+    '```bash\n' +
+    'databricks postgres create-project <PROJECT_ID> \\\n' +
+    `  --json '{"spec": {"display_name": "<DISPLAY_NAME>"}}' \\\n` +
+    '  --profile <PROFILE>\n' +
+    '```\n' +
+    '\n' +
+    'Auto-creates: `production` branch + `primary` read-write endpoint (1 CU min/max, scale-to-zero). Long-running operation; CLI waits by default. Use `--no-wait` to return immediately.\n' +
+    '\n' +
+    'After creation, verify:\n' +
+    '\n' +
+    '```bash\n' +
+    'databricks postgres list-branches projects/<PROJECT_ID> --profile <PROFILE>\n' +
+    'databricks postgres list-endpoints projects/<PROJECT_ID>/branches/<BRANCH_ID> --profile <PROFILE>\n' +
+    'databricks postgres list-databases projects/<PROJECT_ID>/branches/<BRANCH_ID> --profile <PROFILE>\n' +
+    '```\n' +
+    '\n' +
+    '**Extract connection values from JSON output:**\n' +
+    '\n' +
+    '| Value | JSON path | Used for |\n' +
+    '|-------|-----------|----------|\n' +
+    '| Endpoint host | `status.hosts.host` | `PGHOST`, `lakebase.postgres.host` |\n' +
+    '| Endpoint resource path | `name` | `LAKEBASE_ENDPOINT`, `lakebase.postgres.endpointPath` |\n' +
+    '| Database resource path | `name` | `lakebase.postgres.database` |\n' +
+    '| PostgreSQL database name | `status.postgres_database` | `PGDATABASE`, `lakebase.postgres.databaseName` |\n' +
+    '\n' +
+    '### Updating a Project\n' +
+    '\n' +
+    '```bash\n' +
+    'databricks postgres update-project projects/<PROJECT_ID> spec.display_name \\\n' +
+    `  --json '{"spec": {"display_name": "My Updated Application"}}' \\\n` +
+    '  --profile <PROFILE>\n' +
+    '```\n' +
+    '\n' +
+    '### Deleting a Project\n' +
+    '\n' +
+    '**WARNING:** Permanent -- deletes all branches, computes, databases, roles, and data. **Do not delete without explicit user permission.**\n' +
+    '\n' +
+    '```bash\n' +
+    'databricks postgres delete-project projects/<PROJECT_ID> --profile <PROFILE>\n' +
+    '```\n' +
+    '\n' +
+    '## Autoscaling\n' +
+    '\n' +
+    'Endpoints use **compute units (CU)** (~2 GB RAM per CU). Range: 0.5--32 CU (dynamic), 36--112 CU (fixed). Scale-to-zero enabled by default (5 min timeout).\n' +
+    '\n' +
+    'See [computes-and-scaling.md](references/computes-and-scaling.md) for sizing tables, endpoint CRUD, and configuration details.\n' +
+    '\n' +
+    '## Branches\n' +
+    '\n' +
+    'Branches are copy-on-write snapshots. Use for testing schema migrations, trying queries, or previewing data changes without affecting production.\n' +
+    '\n' +
+    '```bash\n' +
+    'databricks postgres create-branch projects/<PROJECT_ID> <BRANCH_ID> \\\n' +
+    `  --json '{"spec": {"source_branch": "projects/<PROJECT_ID>/branches/<SOURCE>", "no_expiry": true}}' \\\n` +
+    '  --profile <PROFILE>\n' +
+    '```\n' +
+    '\n' +
+    'Branches require an expiration policy: `"no_expiry": true` for permanent, or `"ttl": "<seconds>s"` (max 30 days).\n' +
+    '\n' +
+    '**Limits:** 10 unarchived branches per project. 8 TB logical data per branch. 1,000 projects per workspace.\n' +
+    '\n' +
+    '| Use Case | TTL |\n' +
+    '|----------|-----|\n' +
+    '| CI/CD environments | 2--4 hours (`"ttl": "14400s"`) |\n' +
+    '| Demos | 24--48 hours (`"ttl": "172800s"`) |\n' +
+    '| Feature development | 1--7 days (`"ttl": "604800s"`) |\n' +
+    '| Long-term testing | Up to 30 days (`"ttl": "2592000s"`) |\n' +
+    '\n' +
+    '**Point-in-time branching:** Create from a past state (within restore window) for recovery. Run `databricks postgres create-branch -h` for time specification fields.\n' +
+    '\n' +
+    '**Reset:** Replaces branch data with latest from parent. Local changes are lost. Root branches and branches with children cannot be reset.\n' +
+    '\n' +
+    '```bash\n' +
+    'databricks postgres reset-branch projects/<PROJECT_ID>/branches/<BRANCH_ID> --profile <PROFILE>\n' +
+    '```\n' +
+    '\n' +
+    '**Delete:** Protected branches must be unprotected first (`update-branch` to set `spec.is_protected` to `false`). Cannot delete branches with children. **Never delete the `production` branch.**\n' +
+    '\n' +
+    "## What's Next\n" +
+    '\n' +
+    '### Build a Databricks App\n' +
+    '\n' +
+    'After creating a project, scaffold a connected Databricks App:\n' +
+    '\n' +
+    '```bash\n' +
+    '# 1. Get branch name\n' +
+    'databricks postgres list-branches projects/<PROJECT_ID> --profile <PROFILE>\n' +
+    '\n' +
+    '# 2. Get database name\n' +
+    'databricks postgres list-databases projects/<PROJECT_ID>/branches/<BRANCH_ID> --profile <PROFILE>\n' +
+    '\n' +
+    '# 3. Scaffold with lakebase feature\n' +
+    'databricks apps init --name <APP_NAME> --features lakebase \\\n' +
+    '  --set "lakebase.postgres.branch=<BRANCH_NAME>" \\\n' +
+    '  --set "lakebase.postgres.database=<DATABASE_NAME>" \\\n' +
+    '  --run none --profile <PROFILE>\n' +
+    '```\n' +
+    '\n' +
+    'For the full app workflow, use the **`databricks-apps`** skill.\n' +
+    '\n' +
+    '### Attach Lakebase to an existing app\n' +
+    '\n' +
+    '`apps init --features lakebase` (above) wires the database at scaffold time. To\n' +
+    'attach a project to an **existing** app, update its resources.\n' +
+    '\n' +
+    '**Use the `postgres` resource key** — its fields are `branch` + `database`\n' +
+    '(full resource paths from the table above). The legacy'... 9148 more characters
+  
+      at TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-assets.test.mjs:30:12)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '---\nname: databricks-lakebase\ndescription: "Databricks Lakebase Postgres: projects, scaling, connectivity, Lakebase synced tables, and Data API. Use when asked about Lakebase databases, OLTP storage, or connecting apps to Postgres on Databricks."\ncompatibility: Requires databricks CLI (>= v0.294.0)\nmetadata:\n  version: "0.1.0"\nparent: databricks-core\n---\n\n# Lakebase Postgres Autoscaling\n\n**FIRST**: Use the parent `databricks-core` skill for CLI basics, authentication, and profile selection.\n\nLakebase is Databricks\' serverless Postgres-compatible database, available on both AWS and Azure (GA). It provides fully managed OLTP storage with autoscaling, branching, and scale-to-zero.\n\n> **Provisioned Lakebase no longer exists — never create it.** The old Provisioned tier (static, non-scalable Postgres; `databricks database` CLI / `w.database` SDK) is being migrated to Autoscaling over summer 2026, with no customer action required. Lakebase today is Autoscaling-only (`databricks postgres` / `w.postgres`). Do not attempt to create Provisioned instances; if a user asks for one, tell them Provisioned instances don\'t exist anymore and point them to Autoscaling. Treat the legacy `database` resource key in app configs as retired — migrate to the `postgres` resource key. For the legacy DAB `synced_database_tables` resource, use the `databricks postgres create-synced-table` CLI flow instead (see the Common Issues row and `references/synced-tables.md`).\n\nFor context when reading older configs or docs, here is how the retired Provisioned tier maps to Autoscaling:\n\n| Aspect | Provisioned (retired) | Autoscaling (current) |\n|--------|-----------------------|-----------------------|\n| CLI group | `databricks database` | `databricks postgres` |\n| Top-level resource | Instance | Project |\n| Capacity | CU_1–CU_8 (16 GB/CU) | 0.5–112 CU (2 GB/CU) |\n| Branching | Not supported | Full support |\n| Scale-to-zero | Not supported | Configurable |\n| HA | Readable secondaries | 1–3 secondaries + read replicas |\n| Data API | Not available | PostgREST HTTP API |\n| Cloud | AWS only | AWS and Azure |\n\n**Compliance:** Supports HIPAA, C5, TISAX, or None.\n\n## Capabilities\n\n- **Project lifecycle** -- create, update, delete Lakebase Postgres Autoscaling projects\n- **Branching** -- copy-on-write branches with TTL, point-in-time recovery, and reset\n- **Compute scaling** -- autoscale 0.5--32 CU, fixed 36--112 CU, scale-to-zero\n- **High availability** -- 1 primary + 1--3 secondaries, automatic failover\n- **PostgreSQL connectivity** -- OAuth token refresh, connection pooling, SSL\n- **Data API** -- PostgREST-compatible HTTP CRUD (Autoscaling only)\n- **Lakebase synced tables** -- sync Unity Catalog Delta tables into Postgres (previously known as Reverse ETL)\n- **Databricks App integration** -- scaffold apps with Lakebase feature, deploy-first workflow\n- **Cloud support** -- AWS and Azure (GA)\n\n**Reference docs:**\n- [computes-and-scaling.md](references/computes-and-scaling.md) — Sizing, endpoint management, scale-to-zero, HA\n- [connectivity.md](references/connectivity.md) — Connection patterns, token refresh, Data API\n- [synced-tables.md](references/synced-tables.md) — Lakebase synced tables, data type mapping, capacity planning\n- [lakehouse-sync.md](references/lakehouse-sync.md) — CDC from Lakebase Postgres to Unity Catalog Delta tables (**UI-only** — cannot be configured via CLI or API)\n- [pgvector.md](references/pgvector.md) — Vector similarity search with pgvector extension\n- [off-platform.md](references/off-platform.md) — Off-platform Lakebase (NOT Databricks Apps): external Node.js apps connecting via `@databricks/lakebase`, env management, token refresh, Drizzle ORM\n\n## Resource Hierarchy\n\n```\nProject (top-level container)\n  └── Branch (isolated database environment, copy-on-write)\n        ├── Endpoint (read-write or read-only)\n        ├── Database (standard Postgres DB)\n        └── Role (Postgres role)\n```\n\n- **Project**: Top-level container. Creating one auto-provisions a `production` branch and a `primary` read-write endpoint.\n- **Branch**: Isolated database environment sharing storage with parent (copy-on-write). States: `READY`, `ARCHIVED`.\n- **Endpoint** (called **Compute** in UI): Compute resource powering a branch. Types: `ENDPOINT_TYPE_READ_WRITE`, `ENDPOINT_TYPE_READ_ONLY`.\n- **Database**: Standard Postgres database within a branch. Default: `databricks_postgres`.\n- **Role**: Postgres role within a branch.\n\n### Resource Name Formats\n\n| Resource | Format |\n|----------|--------|\n| Project | `projects/{project_id}` |\n| Branch | `projects/{project_id}/branches/{branch_id}` |\n| Endpoint | `projects/{project_id}/branches/{branch_id}/endpoints/{endpoint_id}` |\n| Database | `projects/{project_id}/branches/{branch_id}/databases/{database_id}` |\n\nAll IDs: 1-63 characters, start with lowercase letter, lowercase letters/numbers/hyphens only (RFC 1123).\n\n## CLI Discovery -- ALWAYS Do This First\n\n> **Note:** "Lakebase" is the product name; the CLI command group is `postgres`. All commands use `databricks postgres ...`.\n\n**Do NOT guess command syntax.** Discover available commands dynamically:\n\n```bash\ndatabricks postgres -h                    # List all subcommands\ndatabricks postgres <subcommand> -h       # Flags, args, JSON fields\n```\n\n## Create a Project\n\n> **First decide: reuse or create.** When building or attaching to an app, ask the user whether to reuse an existing project/branch/database — list them with `databricks postgres list-projects` (then `list-branches` / `list-databases`), let the user pick, and confirm which schema the app will own — or create a new project. Only skip listing and create directly when the user explicitly asked for a brand-new project.\n\n```bash\ndatabricks postgres create-project <PROJECT_ID> \\\n  --json \'{"spec": {"display_name": "<DISPLAY_NAME>"}}\' \\\n  --profile <PROFILE>\n```\n\nAuto-creates: `production` branch + `primary` read-write endpoint (1 CU min/max, scale-to-zero). Long-running operation; CLI waits by default. Use `--no-wait` to return immediately.\n\nAfter creation, verify:\n\n```bash\ndatabricks postgres list-branches projects/<PROJECT_ID> --profile <PROFILE>\ndatabricks postgres list-endpoints projects/<PROJECT_ID>/branches/<BRANCH_ID> --profile <PROFILE>\ndatabricks postgres list-databases projects/<PROJECT_ID>/branches/<BRANCH_ID> --profile <PROFILE>\n```\n\n**Extract connection values from JSON output:**\n\n| Value | JSON path | Used for |\n|-------|-----------|----------|\n| Endpoint host | `status.hosts.host` | `PGHOST`, `lakebase.postgres.host` |\n| Endpoint resource path | `name` | `LAKEBASE_ENDPOINT`, `lakebase.postgres.endpointPath` |\n| Database resource path | `name` | `lakebase.postgres.database` |\n| PostgreSQL database name | `status.postgres_database` | `PGDATABASE`, `lakebase.postgres.databaseName` |\n\n### Updating a Project\n\n```bash\ndatabricks postgres update-project projects/<PROJECT_ID> spec.display_name \\\n  --json \'{"spec": {"display_name": "My Updated Application"}}\' \\\n  --profile <PROFILE>\n```\n\n### Deleting a Project\n\n**WARNING:** Permanent -- deletes all branches, computes, databases, roles, and data. **Do not delete without explicit user permission.**\n\n```bash\ndatabricks postgres delete-project projects/<PROJECT_ID> --profile <PROFILE>\n```\n\n## Autoscaling\n\nEndpoints use **compute units (CU)** (~2 GB RAM per CU). Range: 0.5--32 CU (dynamic), 36--112 CU (fixed). Scale-to-zero enabled by default (5 min timeout).\n\nSee [computes-and-scaling.md](references/computes-and-scaling.md) for sizing tables, endpoint CRUD, and configuration details.\n\n## Branches\n\nBranches are copy-on-write snapshots. Use for testing schema migrations, trying queries, or previewing data changes without affecting production.\n\n```bash\ndatabricks postgres create-branch projects/<PROJECT_ID> <BRANCH_ID> \\\n  --json \'{"spec": {"source_branch": "projects/<PROJECT_ID>/branches/<SOURCE>", "no_expiry": true}}\' \\\n  --profile <PROFILE>\n```\n\nBranches require an expiration policy: `"no_expiry": true` for permanent, or `"ttl": "<seconds>s"` (max 30 days).\n\n**Limits:** 10 unarchived branches per project. 8 TB logical data per branch. 1,000 projects per workspace.\n\n| Use Case | TTL |\n|----------|-----|\n| CI/CD environments | 2--4 hours (`"ttl": "14400s"`) |\n| Demos | 24--48 hours (`"ttl": "172800s"`) |\n| Feature development | 1--7 days (`"ttl": "604800s"`) |\n| Long-term testing | Up to 30 days (`"ttl": "2592000s"`) |\n\n**Point-in-time branching:** Create from a past state (within restore window) for recovery. Run `databricks postgres create-branch -h` for time specification fields.\n\n**Reset:** Replaces branch data with latest from parent. Local changes are lost. Root branches and branches with children cannot be reset.\n\n```bash\ndatabricks postgres reset-branch projects/<PROJECT_ID>/branches/<BRANCH_ID> --profile <PROFILE>\n```\n\n**Delete:** Protected branches must be unprotected first (`update-branch` to set `spec.is_protected` to `false`). Cannot delete branches with children. **Never delete the `production` branch.**\n\n## What\'s Next\n\n### Build a Databricks App\n\nAfter creating a project, scaffold a connected Databricks App:\n\n```bash\n# 1. Get branch name\ndatabricks postgres list-branches projects/<PROJECT_ID> --profile <PROFILE>\n\n# 2. Get database name\ndatabricks postgres list-databases projects/<PROJECT_ID>/branches/<BRANCH_ID> --profile <PROFILE>\n\n# 3. Scaffold with lakebase feature\ndatabricks apps init --name <APP_NAME> --features lakebase \\\n  --set "lakebase.postgres.branch=<BRANCH_NAME>" \\\n  --set "lakebase.postgres.database=<DATABASE_NAME>" \\\n  --run none --profile <PROFILE>\n```\n\nFor the full app workflow, use the **`databricks-apps`** skill.\n\n### Attach Lakebase to an existing app\n\n`apps init --features lakebase` (above) wires the database at scaffold time. To\nattach a project to an **existing** app, update its resources.\n\n**Use the `postgres` resource key** — its fields are `branch` + `database`\n(full resource paths from the table above). The legacy'... 9148 more characters,
+    expected: /migrate to the `postgres` resource key/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at tests\truth-assets.test.mjs:35:1
+✖ FIX-05 generated SQL embeds exactly the canonical metric YAML (3.2662ms)
+  Error: ENOENT: no such file or directory, open 'C:\Users\nimao\AppData\Local\Temp\truth-assets-8fDuOE\project\harness\toolchain.lock.json'
+      at async open (node:internal/fs/promises:640:25)
+      at async readFile (node:internal/fs/promises:1287:14)
+      at async readJson (file:///D:/projects/databricks-dev-harness/tools/lib/shared.mjs:18:21)
+      at async planScaffold (file:///D:/projects/databricks-dev-harness/tools/lib/scaffold.mjs:409:21)
+      at async TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/truth-assets.test.mjs:37:14)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'C:\\Users\\nimao\\AppData\\Local\\Temp\\truth-assets-8fDuOE\\project\\harness\\toolchain.lock.json'
+  }

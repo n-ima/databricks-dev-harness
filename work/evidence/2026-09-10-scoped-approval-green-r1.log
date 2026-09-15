@@ -1,0 +1,539 @@
+TAP version 13
+# Subtest: same exact scoped decision survives session handoff without claiming execution authority
+not ok 1 - same exact scoped decision survives session handoff without claiming execution authority
+  ---
+  duration_ms: 269.7964
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:40:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Harness error: Possible secret detected. Remove credentials before persisting durable memory.
+    
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:43:40)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3)
+  ...
+# Subtest: same ID never overwrites the original approval
+not ok 2 - same ID never overwrites the original approval
+  ---
+  duration_ms: 265.263
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:52:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:53:45)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed environment does not inherit approval
+not ok 3 - changed environment does not inherit approval
+  ---
+  duration_ms: 290.0544
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed resource does not inherit approval
+not ok 4 - changed resource does not inherit approval
+  ---
+  duration_ms: 267.6468
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed principal does not inherit approval
+not ok 5 - changed principal does not inherit approval
+  ---
+  duration_ms: 278.597
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed operation does not inherit approval
+not ok 6 - changed operation does not inherit approval
+  ---
+  duration_ms: 262.6446
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed permission does not inherit approval
+not ok 7 - changed permission does not inherit approval
+  ---
+  duration_ms: 271.9457
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed cost does not inherit approval
+not ok 8 - changed cost does not inherit approval
+  ---
+  duration_ms: 284.7401
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed candidate does not inherit approval
+not ok 9 - changed candidate does not inherit approval
+  ---
+  duration_ms: 272.8402
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed workspace does not inherit approval
+not ok 10 - changed workspace does not inherit approval
+  ---
+  duration_ms: 268.9997
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed profile does not inherit approval
+not ok 11 - changed profile does not inherit approval
+  ---
+  duration_ms: 271.8214
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed host does not inherit approval
+not ok 12 - changed host does not inherit approval
+  ---
+  duration_ms: 313.6575
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed product does not inherit approval
+not ok 13 - changed product does not inherit approval
+  ---
+  duration_ms: 290.2849
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed currency does not inherit approval
+not ok 14 - changed currency does not inherit approval
+  ---
+  duration_ms: 281.4751
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed smaller scope does not inherit approval
+not ok 15 - changed smaller scope does not inherit approval
+  ---
+  duration_ms: 276.3016
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:66:4'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:67:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: array ordering is not a scope expansion
+not ok 16 - array ordering is not a scope expansion
+  ---
+  duration_ms: 320.4694
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:72:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:73:54)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed bound bytes invalidate scope: product.config.json
+not ok 17 - changed bound bytes invalidate scope: product.config.json
+  ---
+  duration_ms: 292.6774
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:78:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:79:47)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed bound bytes invalidate scope: docs/product/requirements/orders.md
+not ok 18 - changed bound bytes invalidate scope: docs/product/requirements/orders.md
+  ---
+  duration_ms: 276.0912
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:78:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:79:47)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed bound bytes invalidate scope: docs/product/architecture/orders.md
+not ok 19 - changed bound bytes invalidate scope: docs/product/architecture/orders.md
+  ---
+  duration_ms: 275.4182
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:78:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:79:47)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: changed bound bytes invalidate scope: work/evidence/decision.md
+not ok 20 - changed bound bytes invalidate scope: work/evidence/decision.md
+  ---
+  duration_ms: 280.4041
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:78:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:79:47)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: revocation is append-only and cannot be undone by duplicate record
+not ok 21 - revocation is append-only and cannot be undone by duplicate record
+  ---
+  duration_ms: 286.6431
+  type: 'test'
+  location: 'D:\\projects\\databricks-dev-harness\\tests\\scoped-approval.test.mjs:83:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/projects/databricks-dev-harness/tests/scoped-approval.test.mjs:84:45)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: malformed request rejected before persistence: unknown field
+ok 22 - malformed request rejected before persistence: unknown field
+  ---
+  duration_ms: 266.4845
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: duplicate resource
+ok 23 - malformed request rejected before persistence: duplicate resource
+  ---
+  duration_ms: 278.7714
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: wildcard
+ok 24 - malformed request rejected before persistence: wildcard
+  ---
+  duration_ms: 283.5443
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: negative cost
+ok 25 - malformed request rejected before persistence: negative cost
+  ---
+  duration_ms: 294.9313
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: unsafe integer
+ok 26 - malformed request rejected before persistence: unsafe integer
+  ---
+  duration_ms: 280.0529
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: foreign permission
+ok 27 - malformed request rejected before persistence: foreign permission
+  ---
+  duration_ms: 268.1534
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: credential URL
+ok 28 - malformed request rejected before persistence: credential URL
+  ---
+  duration_ms: 290.0005
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: URL query
+ok 29 - malformed request rejected before persistence: URL query
+  ---
+  duration_ms: 271.0502
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: component root
+ok 30 - malformed request rejected before persistence: component root
+  ---
+  duration_ms: 274.3309
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: harness component
+ok 31 - malformed request rejected before persistence: harness component
+  ---
+  duration_ms: 277.5148
+  type: 'test'
+  ...
+# Subtest: unknown/duplicate/missing CLI options fail without issuing a record
+ok 32 - unknown/duplicate/missing CLI options fail without issuing a record
+  ---
+  duration_ms: 559.1385
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 11
+# fail 21
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9310.0183

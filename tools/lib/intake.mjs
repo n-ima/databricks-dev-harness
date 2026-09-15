@@ -122,7 +122,7 @@ updated: ${manifest.updatedAt}
 # ${manifest.title} — 実行計画
 
 1. 重要な確認事項を解決し、利用者が要件の意図を承認する。
-2. ${manifest.capabilities.ui ? "配置・導線が不確かな場合だけHTML紙芝居で確認。必要な入力・状態を含むfixtureモックを実行してui-mock承認を得る。二つの完成品を作らない。" : "API/分析等の入出力契約をfixtureで確認する。UIを追加しない限りUI承認は不要。"}
+2. ${manifest.capabilities.ui ? "設計からDatabricks Appsを既定にし、同じAppKit部品/スタイル/版でfixture描画する。静的HTMLは実部品からの描画のみ。外部画面は明示選択時だけ。UI対応契約と別contextレビューを用意し、入力・状態の実行確認後にui-mock承認を得る。項目/データ/ER設計も並行。承認後は同じappを本実装へ引き継ぐ。" : "API/分析等の入出力契約をfixtureで確認する。UIを追加しない限りUI承認は不要。"}
 3. 対象sliceの項目・業務規則・外部境界と試験観点/ケースを具体化し、別contextで設計をレビューする。品質契約はagentが work/quality/${name}.json に作成する（利用者のJSON記入は不要）。
 4. 本実装前に npm run harness -- delivery check --contract work/quality/${name}.json --phase design で対応漏れを診断し、最小の実装と決定的テストを行う。
 5. 必要な実環境確認を明示された開発profileで実施し、未実行は未実行と記録。品質契約を --phase verify で診断し、別contextの独立検証で全受入条件と証拠を照合する。診断0件だけでは完了ではない。

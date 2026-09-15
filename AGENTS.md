@@ -35,6 +35,7 @@ Build maintainable Databricks data and AI products from explicit intent. Optimiz
 ## Architecture invariants
 
 - Prefer Databricks AppKit for new rich applications. Use Python UI frameworks only for justified exceptions.
+- UI design and previews default to Databricks Apps hosting and the same production components/styles as the app; standalone look-alike HTML is not an approval surface. External hosting requires an explicit product decision. Follow `docs/harness/operations/UI_RUNTIME_FIDELITY.md`.
 - Use AppKit UI chart and table primitives before adding another visualization library.
 - Use Lakebase for transactional CRUD and Delta tables for analytical storage and batch/stream processing.
 - Put reusable business metrics in Unity Catalog metric views where practical.

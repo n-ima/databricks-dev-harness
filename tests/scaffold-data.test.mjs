@@ -265,7 +265,8 @@ test("AppKit commands cannot inherit custom template overrides or resource-valid
   for (const integration of [false, true]) {
     const context = await appFixture(t, { integration });
     const plan = await planScaffold(context.root, context.options, context);
-    await applyScaffold(context.root, { plan: planPath(plan), yes: true }, context);
+    if (integration) await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, context), /reuse-reviewed-app/);
+    else await applyScaffold(context.root, { plan: planPath(plan), yes: true }, context);
     for (const call of context.calls) {
       assert.equal(call.execution.env.DATABRICKS_APPKIT_TEMPLATE_PATH, undefined);
       assert.equal(call.execution.env.DATABRICKS_APPS_AGENTIC_MODE, undefined);
@@ -275,20 +276,21 @@ test("AppKit commands cannot inherit custom template overrides or resource-valid
   }
 });
 
-test("AppKit auto-approve is plan-time opt-in and nested integration bundles remain intact", async (t) => {
-  const context = await appFixture(t, { integration: true });
+test("AppKit auto-approve is plan-time opt-in and fixture bundles remain quarantined", async (t) => {
+  const context = await appFixture(t);
   const plan = await planScaffold(context.root, { ...context.options, auto_approve: true }, context);
   assert.equal(plan.status, "ready");
   assert.equal(plan.command.filter((arg) => arg === "--auto-approve").length, 1);
   const applied = await applyScaffold(context.root, { plan: planPath(plan), yes: true }, context);
   assert.equal(applied.bundleTopology, "nested-component-bundle");
-  assert.equal(await exists(join(context.root, "apps/fixture-app/databricks.yml")), true);
+  assert.equal(await exists(join(context.root, "apps/fixture-app/databricks.yml")), false);
+  assert.equal(await exists(join(context.root, "apps/fixture-app/databricks.fixture-only.yml")), true);
   assert.equal(await exists(join(context.root, "databricks.yml")), false);
   assert.equal(context.calls.find((item) => item.args[1] === "init").args.filter((arg) => arg === "--auto-approve").length, 1);
 });
 
 test("AppKit success remains a starter with pending after-init MUST rules, not deploy-ready", async (t) => {
-  const context = await appFixture(t, { integration: true, rules: { must: ["After init, configure the plugin contract"], never: ["Deploy without approval"] } });
+  const context = await appFixture(t, { rules: { must: ["After init, configure the plugin contract"], never: ["Deploy without approval"] } });
   const plan = await planScaffold(context.root, context.options, context);
   const applied = await applyScaffold(context.root, { plan: planPath(plan), yes: true }, context);
   assert.equal(applied.validation.status, "passed");
@@ -298,7 +300,7 @@ test("AppKit success remains a starter with pending after-init MUST rules, not d
 });
 
 test("AppKit refuses changed plans and changed approval evidence before invoking init", async (t) => {
-  const context = await appFixture(t, { integration: true });
+  const context = await appFixture(t, { rules: { never: ["Deploy without approval"] } });
   const plan = await planScaffold(context.root, context.options, context);
   const changed = await readJson(join(context.root, planPath(plan)));
   changed.command = ["databricks", "apps", "deploy", "--target", "prod"];
@@ -306,24 +308,31 @@ test("AppKit refuses changed plans and changed approval evidence before invoking
   await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, context), /changed after planning/);
   assert.equal(context.calls.filter((item) => item.args[0] === "apps").length, 1);
   const fresh = await planScaffold(context.root, context.options, context);
-  await writeFile(join(context.root, "work/evidence/mock.md"), "Approval artifact changed after planning.\n");
+  await writeFile(join(context.root, "work/evidence/rules.md"), "Approval artifact changed after planning.\n");
   await assert.rejects(applyScaffold(context.root, { plan: planPath(fresh), yes: true }, context), /evidence changed/);
   assert.equal(context.calls.filter((item) => item.args[0] === "apps").length, 2);
 });
 
-test("AppKit integration binds the reviewed mock and rechecks its hashes before init", async (t) => {
+test("AppKit integration diagnostics retain old evidence but forbid approval transfer to a new app", async (t) => {
   const context = await appFixture(t, { integration: true });
   const plan = await planScaffold(context.root, context.options, context);
-  assert.equal(plan.status, "ready");
+  assert.equal(plan.status, "needs-input");
+  assert.ok(plan.missing.some(item => item.startsWith('reuse-reviewed-app:')));
   assert.ok(plan.evidenceFiles.some((item) => item.path === "apps/mock-ui/fixture.json"));
   await writeFile(join(context.root, "apps/mock-ui/fixture.json"), '{"orders":[]}\n');
   const stale = await planScaffold(context.root, context.options, context);
   assert.equal(stale.status, "needs-input");
   assert.ok(stale.missing.includes("stale-approval-artifact:apps/mock-ui/fixture.json"));
   const before = context.calls.length;
-  await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, context), /evidence changed/);
+  await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, context), /reuse-reviewed-app/);
   assert.equal(context.calls.length, before, "a changed approved mock must not invoke init");
-  assert.equal((await readJson(join(context.root, planPath(plan)))).status, "needs-replan");
+  assert.equal((await readJson(join(context.root, planPath(plan)))).status, "needs-input");
+  const legacy = { ...plan, status: 'ready', missing: [] };
+  delete legacy.integrityHash;
+  legacy.integrityHash = sha256(JSON.stringify(legacy));
+  await writeJson(join(context.root, planPath(plan)), legacy);
+  await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, context), /integration init is no longer supported/);
+  assert.equal(context.calls.length, before, 'even a sealed legacy plan cannot regenerate the approved app');
   const receipt = await readJson(join(context.root, "work/approvals/mock.json"));
   delete receipt.artifactHashes;
   await writeJson(join(context.root, "work/approvals/mock.json"), receipt);
@@ -336,7 +345,7 @@ test("AppKit integration binds the reviewed mock and rechecks its hashes before 
 });
 
 test("AppKit init failure and post-init validation failure persist distinct failed states", async (t) => {
-  const context = await appFixture(t, { integration: true });
+  const context = await appFixture(t);
   const plan = await planScaffold(context.root, context.options, context);
   await assert.rejects(applyScaffold(context.root, { plan: planPath(plan), yes: true }, { run: (command, args, execution) => args[0] === "apps" && args[1] === "init" ? failure("token=secret-value init failed") : context.run(command, args, execution) }), /init failed/);
   const failed = await readJson(join(context.root, planPath(plan)));
@@ -356,7 +365,7 @@ test("AppKit init failure and post-init validation failure persist distinct fail
 });
 
 test("local AppKit manifest provenance must bind the exact pinned version", async (t) => {
-  const context = await appFixture(t, { integration: true });
+  const context = await appFixture(t);
   await writeJson(join(context.root, "manifest.json"), context.manifest);
   await assert.rejects(planScaffold(context.root, { ...context.options, manifest_file: "manifest.json" }, context), /manifest-template-version/);
   const plan = await planScaffold(context.root, { ...context.options, manifest_file: "manifest.json", manifest_template_version: "v0.69.1" }, context);

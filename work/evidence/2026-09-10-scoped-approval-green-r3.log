@@ -1,0 +1,310 @@
+TAP version 13
+# Subtest: same exact scoped decision survives session handoff without claiming execution authority
+ok 1 - same exact scoped decision survives session handoff without claiming execution authority
+  ---
+  duration_ms: 414.9152
+  type: 'test'
+  ...
+# Subtest: same ID never overwrites the original approval
+ok 2 - same ID never overwrites the original approval
+  ---
+  duration_ms: 375.4338
+  type: 'test'
+  ...
+# Subtest: changed environment does not inherit approval
+ok 3 - changed environment does not inherit approval
+  ---
+  duration_ms: 359.1023
+  type: 'test'
+  ...
+# Subtest: changed resource does not inherit approval
+ok 4 - changed resource does not inherit approval
+  ---
+  duration_ms: 372.1721
+  type: 'test'
+  ...
+# Subtest: changed principal does not inherit approval
+ok 5 - changed principal does not inherit approval
+  ---
+  duration_ms: 352.5018
+  type: 'test'
+  ...
+# Subtest: changed operation does not inherit approval
+ok 6 - changed operation does not inherit approval
+  ---
+  duration_ms: 335.766
+  type: 'test'
+  ...
+# Subtest: changed permission does not inherit approval
+ok 7 - changed permission does not inherit approval
+  ---
+  duration_ms: 405.7851
+  type: 'test'
+  ...
+# Subtest: changed cost does not inherit approval
+ok 8 - changed cost does not inherit approval
+  ---
+  duration_ms: 346.4993
+  type: 'test'
+  ...
+# Subtest: changed candidate does not inherit approval
+ok 9 - changed candidate does not inherit approval
+  ---
+  duration_ms: 397.443
+  type: 'test'
+  ...
+# Subtest: changed workspace does not inherit approval
+ok 10 - changed workspace does not inherit approval
+  ---
+  duration_ms: 364.9034
+  type: 'test'
+  ...
+# Subtest: changed profile does not inherit approval
+ok 11 - changed profile does not inherit approval
+  ---
+  duration_ms: 363.7782
+  type: 'test'
+  ...
+# Subtest: changed host does not inherit approval
+ok 12 - changed host does not inherit approval
+  ---
+  duration_ms: 371.0778
+  type: 'test'
+  ...
+# Subtest: changed product does not inherit approval
+ok 13 - changed product does not inherit approval
+  ---
+  duration_ms: 386.2404
+  type: 'test'
+  ...
+# Subtest: changed currency does not inherit approval
+ok 14 - changed currency does not inherit approval
+  ---
+  duration_ms: 396.886
+  type: 'test'
+  ...
+# Subtest: changed smaller scope does not inherit approval
+ok 15 - changed smaller scope does not inherit approval
+  ---
+  duration_ms: 368.4101
+  type: 'test'
+  ...
+# Subtest: array ordering is not a scope expansion
+ok 16 - array ordering is not a scope expansion
+  ---
+  duration_ms: 413.3948
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: product.config.json
+ok 17 - changed bound bytes invalidate scope: product.config.json
+  ---
+  duration_ms: 397.7322
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: docs/product/requirements/orders.md
+ok 18 - changed bound bytes invalidate scope: docs/product/requirements/orders.md
+  ---
+  duration_ms: 391.9008
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: docs/product/architecture/orders.md
+ok 19 - changed bound bytes invalidate scope: docs/product/architecture/orders.md
+  ---
+  duration_ms: 383.4716
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: work/evidence/decision.md
+ok 20 - changed bound bytes invalidate scope: work/evidence/decision.md
+  ---
+  duration_ms: 436.5566
+  type: 'test'
+  ...
+# Subtest: revocation is append-only and cannot be undone by duplicate record
+ok 21 - revocation is append-only and cannot be undone by duplicate record
+  ---
+  duration_ms: 643.3678
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: unknown field
+ok 22 - malformed request rejected before persistence: unknown field
+  ---
+  duration_ms: 263.1469
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: duplicate resource
+ok 23 - malformed request rejected before persistence: duplicate resource
+  ---
+  duration_ms: 263.5168
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: wildcard
+ok 24 - malformed request rejected before persistence: wildcard
+  ---
+  duration_ms: 277.0232
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: negative cost
+ok 25 - malformed request rejected before persistence: negative cost
+  ---
+  duration_ms: 270.4284
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: unsafe integer
+ok 26 - malformed request rejected before persistence: unsafe integer
+  ---
+  duration_ms: 260.9148
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: foreign permission
+ok 27 - malformed request rejected before persistence: foreign permission
+  ---
+  duration_ms: 269.2737
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: credential URL
+ok 28 - malformed request rejected before persistence: credential URL
+  ---
+  duration_ms: 272.3573
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: URL query
+ok 29 - malformed request rejected before persistence: URL query
+  ---
+  duration_ms: 279.2347
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: component root
+ok 30 - malformed request rejected before persistence: component root
+  ---
+  duration_ms: 282.5739
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: harness component
+ok 31 - malformed request rejected before persistence: harness component
+  ---
+  duration_ms: 283.9401
+  type: 'test'
+  ...
+# Subtest: unknown/duplicate/missing CLI options fail without issuing a record
+ok 32 - unknown/duplicate/missing CLI options fail without issuing a record
+  ---
+  duration_ms: 572.7297
+  type: 'test'
+  ...
+# Subtest: expiry is strict at equality and does not renew on check
+ok 33 - expiry is strict at equality and does not renew on check
+  ---
+  duration_ms: 197.9052
+  type: 'test'
+  ...
+# Subtest: invalid calendar, expired and excessive approval windows reject
+ok 34 - invalid calendar, expired and excessive approval windows reject
+  ---
+  duration_ms: 50.1635
+  type: 'test'
+  ...
+# Subtest: origin completed can hand off its exact scope to active target
+ok 35 - origin completed can hand off its exact scope to active target
+  ---
+  duration_ms: 153.1184
+  type: 'test'
+  ...
+# Subtest: origin blocked can hand off its exact scope to active target
+ok 36 - origin blocked can hand off its exact scope to active target
+  ---
+  duration_ms: 148.3223
+  type: 'test'
+  ...
+# Subtest: origin superseded can hand off its exact scope to active target
+ok 37 - origin superseded can hand off its exact scope to active target
+  ---
+  duration_ms: 148.5719
+  type: 'test'
+  ...
+# Subtest: session progress is not scope; pending gate remains a separate decision
+ok 38 - session progress is not scope; pending gate remains a separate decision
+  ---
+  duration_ms: 153.3886
+  type: 'test'
+  ...
+# Subtest: harness source without product initialization cannot record product authority
+ok 39 - harness source without product initialization cannot record product authority
+  ---
+  duration_ms: 309.8695
+  type: 'test'
+  ...
+# Subtest: wrong or missing product context never falls back to another active session
+ok 40 - wrong or missing product context never falls back to another active session
+  ---
+  duration_ms: 448.3966
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys rejected: top-level
+ok 41 - duplicate JSON keys rejected: top-level
+  ---
+  duration_ms: 275.0447
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys rejected: nested
+ok 42 - duplicate JSON keys rejected: nested
+  ---
+  duration_ms: 272.2853
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys rejected: escaped
+ok 43 - duplicate JSON keys rejected: escaped
+  ---
+  duration_ms: 290.6719
+  type: 'test'
+  ...
+# Subtest: invalid UTF-8 and over-limit user evidence are rejected
+ok 44 - invalid UTF-8 and over-limit user evidence are rejected
+  ---
+  duration_ms: 463.3097
+  type: 'test'
+  ...
+# Subtest: hardlinked evidence and linked input ancestors are refused without record writes
+ok 45 - hardlinked evidence and linked input ancestors are refused without record writes
+  ---
+  duration_ms: 280.4555
+  type: 'test'
+  ...
+# Subtest: append-only lock rejects contention and keeps existing lock untouched
+ok 46 - append-only lock rejects contention and keeps existing lock untouched
+  ---
+  duration_ms: 91.1138
+  type: 'test'
+  ...
+# Subtest: corrupted or mismatched revocation never re-enables approval
+ok 47 - corrupted or mismatched revocation never re-enables approval
+  ---
+  duration_ms: 134.1546
+  type: 'test'
+  ...
+# Subtest: control-code drift invalidates prior local scope without changing it
+ok 48 - control-code drift invalidates prior local scope without changing it
+  ---
+  duration_ms: 144.3828
+  type: 'test'
+  ...
+# Subtest: new scope records are not legacy loop approvals
+ok 49 - new scope records are not legacy loop approvals
+  ---
+  duration_ms: 458.7547
+  type: 'test'
+  ...
+# Subtest: old approval JSON is not a scoped decision
+ok 50 - old approval JSON is not a scoped decision
+  ---
+  duration_ms: 52.5941
+  type: 'test'
+  ...
+1..50
+# tests 50
+# suites 0
+# pass 50
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15728.8455

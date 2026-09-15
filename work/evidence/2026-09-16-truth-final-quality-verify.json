@@ -1,0 +1,8 @@
+{
+  "mode": "advisory",
+  "certifiesAcceptance": false,
+  "phase": "verify",
+  "findings": [],
+  "recordedExecutions": 6,
+  "summary": "構造上の指摘はありません。業務受入・実行事実・実環境の成功を証明するものではありません。"
+}

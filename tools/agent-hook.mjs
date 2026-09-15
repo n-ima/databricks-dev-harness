@@ -42,6 +42,7 @@ async function contextMessage() {
     "Read AGENTS.md and load the orchestrate-work skill for every non-trivial request.",
     "Treat chat as transport, not memory. Start/resume a work/sessions file and checkpoint it before handoff or completion.",
     "Harness design belongs under docs/harness/; target product design belongs under docs/product/.",
+    "UI design defaults to Databricks Apps and the actual app components/styles. Do not approve look-alike standalone HTML. Read docs/harness/operations/UI_RUNTIME_FIDELITY.md for explicit exceptions and runtime correspondence checks.",
     renderWorkState(state),
   ].join("\n");
 }
