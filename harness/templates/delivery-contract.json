@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "producer": {
+    "actor": "実装担当のID",
+    "context": "実装contextのID"
+  },
+  "requirement": {
+    "path": "docs/product/requirements/FEATURE.md",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "artifacts": [
+    {
+      "path": "docs/product/architecture/FEATURE.md",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "requirements": [
+    "AC-01"
+  ],
+  "risks": [
+    {
+      "id": "RISK-01",
+      "description": "未確定: 対象のリスクに具体化する",
+      "testIds": [
+        "TC-01"
+      ]
+    }
+  ],
+  "interfaces": [],
+  "testCases": [
+    {
+      "id": "TC-01",
+      "requirements": [
+        "AC-01"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "未確定: データ・権限などの前提",
+      "steps": [
+        "未確定: 実行手順"
+      ],
+      "expected": "未確定: 観測可能な結果・判定値",
+      "result": null
+    }
+  ],
+  "operations": [
+    {
+      "id": "ownership",
+      "status": "applicable",
+      "reason": "未確定: 適用方針を判断する",
+      "testIds": [],
+      "document": {
+        "path": "docs/product/architecture/FEATURE.md",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "monitoring",
+      "status": "applicable",
+      "reason": "未確定: 適用方針を判断する",
+      "testIds": [],
+      "document": {
+        "path": "docs/product/architecture/FEATURE.md",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "recovery",
+      "status": "applicable",
+      "reason": "未確定: 適用方針を判断する",
+      "testIds": [],
+      "document": {
+        "path": "docs/product/architecture/FEATURE.md",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "data-protection",
+      "status": "applicable",
+      "reason": "未確定: 適用方針を判断する",
+      "testIds": [],
+      "document": {
+        "path": "docs/product/architecture/FEATURE.md",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "cost",
+      "status": "applicable",
+      "reason": "未確定: 適用方針を判断する",
+      "testIds": [],
+      "document": {
+        "path": "docs/product/architecture/FEATURE.md",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "dependency-updates",
+      "status": "applicable",
+      "reason": "未確定: 適用方針を判断する",
+      "testIds": [],
+      "document": {
+        "path": "docs/product/architecture/FEATURE.md",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "reviews": []
+}

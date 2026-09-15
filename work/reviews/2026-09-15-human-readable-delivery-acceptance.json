@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/japanese_generation_code_review",
+  "provider": "codex",
+  "independent": true,
+  "reviewDate": "2026-09-15",
+  "requirement": "docs/harness/requirements/2026-09-15-human-readable-delivery.md",
+  "sessionId": "20260914-230811-631-human-readable-delivery-adoption",
+  "scope": "HARNESS-HUMAN-DELIVERY HD-01〜HD-05。ハーネス開発元での品質診断CLI・配布対象・日本語文書生成・標準workflowへのローカル統合と検証。",
+  "conclusion": "この限定した採用範囲について全受入条件を満たし、未解消の阻害指摘はない。要件・実装・証拠要約を変更せず、設計とコードの独立レビュー、最終証拠、現行snapshotを照合して判定した。",
+  "acceptance": [
+    {
+      "id": "HD-01",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-human-readable-delivery.md",
+        "work/reviews/2026-09-15-delivery-adoption-code-review.md",
+        "work/reviews/2026-09-15-delivery-adoption-probe.mjs"
+      ],
+      "rationale": "専任の別contextレビューで旧56試験の維持と正式CLI・配布manifestを確認済み。最終判定者もCLI probe 7件を再実行し全成功。参考診断、certifiesAcceptance:false、記録commandの非実行、fixture bytesの不変、不正入力の終了2、design/verifyとstale hashの区別を確認。HD-IR-01は修正済みsnapshotで解消。"
+    },
+    {
+      "id": "HD-02",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-human-readable-delivery.md",
+        "work/reviews/2026-09-15-human-documents-code-review.json",
+        "work/reviews/2026-09-15-human-docs-design-review.md"
+      ],
+      "rationale": "intakeが共通の日本語要件・設計テンプレートと日本語計画を生成することを公開CLIと合成fixtureで確認。用語・業務・機能・データ/項目・画面/遷移・外部境界・試験/運用を参照でき、未確定を確定仕様に変換しない。最低属性とID対応への正本参照に関するHDR-01も別context再レビューで解消。"
+    },
+    {
+      "id": "HD-03",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-human-readable-delivery.md",
+        "work/reviews/2026-09-15-human-documents-code-review.json"
+      ],
+      "rationale": "機械IDを維持し、日本語/英語回答台帳で同じ受入IDを取得。新旧sessionのcheckpoint、承認bytes/hash、未回答・不正AC・上書きの拒否、再回答による承認失効を独立再実行した。承認済文書を一括翻訳する処理は追加されず、show前後の承認済要件bytes不変も確認。狭い互換回帰は150pass/0fail/既存skip1、全回帰も独立終了0。"
+    },
+    {
+      "id": "HD-04",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-human-readable-delivery.md",
+        "work/reviews/2026-09-15-human-documents-code-review.json",
+        "work/reviews/2026-09-15-human-docs-design-review.md"
+      ],
+      "rationale": "API-onlyはui=falseで画面定義表を生成せず、計画もUI承認不要とする。UI選択時は画面表と必要な入力・状態を含むfixture確認を生成する。軽量HTMLは任意の配置/導線確認であり、紙芝居承認だけでui-mock gateを満たさないことを文書・skill・模擬利用で確認した。"
+    },
+    {
+      "id": "HD-05",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-human-readable-delivery.md",
+        "work/reviews/2026-09-15-human-documents-code-review.json",
+        "work/reviews/2026-09-15-human-docs-design-review.md",
+        "work/reviews/2026-09-15-delivery-adoption-code-review.md"
+      ],
+      "rationale": "Claude Code/Copilotの生成資産同期をharness:checkで独立確認。orchestrate/define/build/mock/reviewの通常入口から文書標準とdelivery design/verifyへ接続され、別contextでの設計模擬利用と実装検証を記録した。実provider canaryを実行済みとせず、ローカル分類・生成資産・CLI試験と明確に区別している。"
+    }
+  ],
+  "resolvedFindings": [
+    {"id": "HDR-01", "status": "resolved", "basis": "定義の最低属性・ID対応・未確定の扱いを正本文書へ明示的に接続。最終設計レビューと現行hashを照合。"},
+    {"id": "HD-IR-01", "status": "resolved", "basis": "不正phaseの終了値2を現行CLIで再実行し、独立probeが成功。"}
+  ],
+  "unresolvedFindings": [],
+  "verification": {
+    "environment": "Windows / PowerShell / Node.js v24.15.0",
+    "narrowRegression": "151件、150pass、0fail、既存skip1。symlink権限不足によるskipで、directory junction試験は成功。",
+    "fullRegression": "最終判定者が node --test --test-reporter=dot tests/*.test.mjs を独立再実行しexit 0。主担当の619件/618pass/1skip集計とは区別する。",
+    "additionalFinalCheck": "node --test work/reviews/2026-09-15-delivery-adoption-probe.mjs: 7件、7pass、0fail、0skip、exit 0。",
+    "snapshotValidation": "日本語コードレビュー22件、HD-01レビュー11件、最終設計レビュー4件の計37比較・30個の異なるartifactについて、記録hashと現行bytesの一致を確認。修正前の設計hashは履歴であり受入snapshotに含めない。"
+  },
+  "reviewedEvidenceHashes": {
+    "docs/harness/requirements/2026-09-15-human-readable-delivery.md": "51ea7b7046c86dbecb8c7fa265624858950cce1a44b96e3a77aa5b68c3b95b1b",
+    "work/evidence/2026-09-15-human-readable-delivery.md": "da0b0fffa6e132ceb43c23d83196d0bc5c778058370a463c6f0a40036f031945",
+    "work/plans/2026-09-15-human-readable-delivery.md": "0fec20c73770b8619c1f7c21023e6e4d5c0cfb295a39c58930a9f51255c06dad",
+    "work/reviews/2026-09-15-human-documents-code-review.json": "f556ca2ae4e3284bfbf46f1112d4826d4feef1f1d8b0495e65513fd4f5ec7747",
+    "work/reviews/2026-09-15-delivery-adoption-code-review.md": "80bb0bbfff7a2f8726b7afe87a65fc3d64c5dad6c6cc6aa9caad16b480504b93",
+    "work/reviews/2026-09-15-human-docs-design-review.md": "13702b523be45a051f1a57ba86e15cb0075e49959061f269e9aab6e1df054b89"
+  },
+  "notVerified": [
+    "実Claude Code/Copilotの自然言語canary。生成資産同期とローカルCLI成功は実providerの成功を意味しない。",
+    "実Databricks、認証、権限、実データ、課金モデル比較、個別案件、remote push、実際のリリース配布、Linux/macOS。",
+    "各案件での業務定義・適用外判断・具体的期待値の妥当性。この変更は初期文書と作成指示を整備するもので、全案件の完成や完全網羅を保証しない。",
+    "HARD-03の正式採用と別件dirty変更。今回の要件と受入対象に含めない。"
+  ],
+  "handoff": "既存evidence.mjs形式の独立review記録のみ。親taskが現行対象artifactも含めてreceiptを発行し、必要なtask/session更新を行う。本検証者はreceipt発行、完了更新、承認gate変更をしていない。"
+}

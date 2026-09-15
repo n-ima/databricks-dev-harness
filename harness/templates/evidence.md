@@ -6,36 +6,36 @@ verifier: independent-agent-or-human
 environment: local-or-dev-target
 ---
 
-# Completion evidence
+# 完了の証拠
 
-## Acceptance criteria
+## 受入条件との対応
 
-| Criterion | Evidence | Result |
+| 受入ID | 証拠 | 結果 |
 |---|---|---|
-| AC-01 | command, test, query, screenshot | pass/fail |
+| AC-01 | コマンド、テスト、query、画像 | pass/fail/not-run |
 
-## Commands and results
+## コマンドと結果
 
-Record exact versions, commands, exit status, and concise non-secret output.
+版、コマンド、終了状態、機密を除いた出力を正確に記録する。
 
-## User-visible verification
+## 利用者が使う面の確認
 
-- Journey:
-- Desktop/narrow screenshots:
-- Loading/empty/error/denied/success:
+- 業務の流れ:
+- 通常幅/狭い画面の画像:
+- 読込/空/エラー/拒否/成功:
 - Console/network:
-- Accessibility:
+- アクセシビリティ:
 
-## Data and Databricks verification
+## データとDatabricksの確認
 
-- Contract, counts, duplicates, idempotency, reconciliation:
-- Bundle target and validation/deploy:
-- Resource and permission diff:
+- 契約、件数、重複、冪等性、照合:
+- 案件のBundle targetと検証/配備（ハーネス自体は配備しない）:
+- resourceと権限の差分:
 
-## Independent review
+## 独立レビュー
 
-- Findings and re-verification:
+- 指摘と再検証:
 
-## Remaining risks
+## 残るリスク
 
-- 
+-

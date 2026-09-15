@@ -1,34 +1,97 @@
 ---
-id: DESIGN-SLUG
-requirement: ../requirements/REQUIREMENT.md
+id: {{id}}-architecture
 status: proposed
-last_updated: YYYY-MM-DD
+requirement: {{requirement}}
+updated: {{updated}}
 ---
 
-# Product architecture
+# {{title}} — 設計書
 
-## Context and boundaries
+## 全体像と読み方
 
-Describe users, external systems, trust boundaries, and authoritative stores.
+これは案件の設計書。ハーネス自体の設計は `docs/harness/` に分ける。
+利用者は業務・用語・機能・画面・データ・外部連携の順に確認できる。小案件はこの文書内の表を正本とし、長くなった部分だけ別紙へ分けてリンクする。同じ定義を複製しない。
+未確定は未承認であり、空欄をAIが推測で埋めない。詳細化は今回実装する最小範囲ごとに行う。
 
-## Decisions
+## 設計を左右する条件
 
-| Concern | Decision | Alternatives | Evidence |
+{{boundaries}}
+
+要件と実際の利用可能性を確認して選択する。機械識別子・API名は原語のまま、日本語で意味と採用理由を説明する。
+
+## 用語集
+
+| 用語ID | 日本語名 | 原語・別名 | 業務上の意味・含めない意味 | 根拠・責任者 |
+|---|---|---|---|---|
+| TERM-01 | 未確定 | 未確定 | 未確定 | 未確定 |
+
+## 業務利用と機能一覧
+
+| 機能ID | 機能名・利用目的 | 利用者/権限 | 入力と結果 | 例外・取消・再送 | 要件の受入ID | 関連画面/データ/外部IF |
+|---|---|---|---|---|---|---|
+| FN-01 | 未確定 | 未確定 | 未確定 | 未確定 | 未確定 | 未確定 |
+
+業務の通常・例外・締め・訂正・引継ぎを要件書と照合する。機能の実現方法を利用者の業務要件と混同しない。
+
+## データ一覧
+
+| データID | 日本語名 / 物理名 | 目的・1行の粒度 | 正本・責任者 | キー・関連・多重度 | 読取/更新する機能 | 機密・保持/削除・鮮度 |
+|---|---|---|---|---|---|---|
+| DATA-01 | 未確定 | 未確定 | 未確定 | 未確定 | 未確定 | 未確定 |
+
+## データ項目と規則
+
+| データID.項目ID | 日本語名 / 物理名 | 意味・根拠 | 型・桁・単位 | 必須/NULL・既定値 | 許容値・一意/参照制約 | 計算・時刻帯・具体例 |
+|---|---|---|---|---|---|---|
+| DATA-01.FIELD-01 | 未確定 | 未確定 | 未確定 | 未確定 | 未確定 | 未確定 |
+
+論理定義を先に合意し、DDL・OpenAPI・スキーマと対応付ける。計算式、重複、競合、訂正履歴、再実行/削除は業務規則を根拠とする。物理定義から出力する一覧には生成元と更新コマンドを記録し、二重管理を避ける。大きくなれば `docs/product/data/` に分離する。
+
+## 画面一覧・画面遷移
+
+{{uiDesign}}
+
+## 外部境界・インターフェース
+
+| IF ID | 相手・責任者 | 送受信方向・機能ID | データ・頻度・件数 | プロトコル/版・契約への参照 | 認証/認可・実行主体 | 失敗・再送・上限・変更通知 |
+|---|---|---|---|---|---|---|
+| IF-01 | 未確定 | 未確定 | 未確定 | 未確定 | 未確定 | 未確定 |
+
+HTTP APIはOpenAPIを機械可読の正本にし、operationId、入出力項目、成功/エラー例、認証/認可、冪等性、競合、ページング、互換性、廃止方針を日本語で説明する。AppsのHTTP、Model Serving、Lakebase Data API、外部APIクライアントを混同しない。API以外もファイル/イベント/人手受渡しの形式・責任・失敗を定義する。対象外なら相手がない根拠を記し、空欄だけにしない。
+
+## 構成・セキュリティ・技術判断
+
+- 必要に応じて利用者→システム→保存先の図と信頼境界を示す。文字だけで十分な関係に図は作らない。
+- service principal / OBO、最小権限、機密情報・設定の注入、監査を明記する。resource IDとsecretをコードに固定しない。
+- 本番配備、破壊的変更、権限拡張は人の承認が必要。
+
+| 論点 | 採用案 | 比較案・不採用理由 | 根拠と見直し条件 |
 |---|---|---|---|
-| Runtime | | | |
+| 実行基盤・保存先 | 未確定 | 未確定 | 未確定 |
 
-## Components and flows
+## 試験観点・ケース・証拠
 
-Describe data ingestion, operational writes, analytical models, APIs, UI, Genie, and deployment.
+{{verification}}
 
-## Data and authorization
+要件ID→機能/データ/画面/IF→リスク→テストID→証拠を対応付ける。正常・異常・境界値、認可拒否、再送、同時実行、日付境界、回復を対象に応じて検討する。前提・手順・期待結果・環境を実行前に定義する。詳細は `work/quality/{{name}}.json` と `work/evidence/`、独立レビューは `work/reviews/`。適用外は理由を記録する。
+ローカルfixtureは実環境の認証・権限・実行基盤・性能を証明しない。
 
-Link contracts under `docs/product/data/`. Include identity propagation and least-privilege resources.
+## 運用・保守
 
-## Failure, recovery, and observability
+| 観点 | 担当・方針・判定値 | 手順/試験/証拠への参照 |
+|---|---|---|
+| 責任者・利用手順・問い合わせ | 未確定 | 未確定 |
+| 監視・障害切分け・SLO | 未確定 | 未確定 |
+| 再実行・整合・復旧・ロールバック | 未確定 | 未確定 |
+| 権限・保持/削除・バックアップ | 未確定 | 未確定 |
+| 費用・上限・停止・依存更新 | 未確定 | 未確定 |
 
-Define retries, idempotency, partial failure, reconciliation, alerts, and rollback.
+継続利用する手順は `docs/product/runbooks/` に置く。環境ごとの動作確認・配備版・確認日時は既存の進捗と証拠へ記録し、別の稼働状況画面を増やさない。
 
-## Verification
+## 未確定事項と変更影響
 
-Map architecture risks to tests and evidence.
+| 論点・質問ID | 判断担当 | 確定が必要な工程 | 対象のID/文書・テスト |
+|---|---|---|---|
+| 未確定 | 未確定 | 対象sliceの実装前 | 未確定 |
+
+用語・項目・業務規則・API・画面の変更時は関連IDと試験を更新する。承認対象や振る舞いが変われば再承認・再検証し、既存の証拠を流用しない。

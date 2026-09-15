@@ -17,6 +17,8 @@ Do not add MUI, another design system, Recharts, Plotly, Highcharts, or another 
 
 ## Executable mock gate
 
+軽量HTML紙芝居は、配置・ラベル・導線が未確定な場合だけ使う設計補助で、以下の実行可能モックとは別。必要性と再利用方針は `docs/harness/operations/DOCUMENTATION_STANDARD.md` に従う。紙芝居の承認だけでui-mock gateを解除しない。
+
 Mocks use production components and synthetic fixtures. They are kept as deterministic application states and tests, not discarded after approval.
 
 Required evidence:

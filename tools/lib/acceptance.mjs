@@ -73,7 +73,7 @@ export function acceptanceIds(content) {
     if (heading) {
       if (heading.underline) continue;
       if (questionLedger !== null && heading.depth <= questionLedger) questionLedger = null;
-      if (heading.title === "Refined answers — authoritative question ledger") questionLedger = heading.depth;
+      if (["Refined answers — authoritative question ledger", "確認済みの回答 — 正本の質問台帳"].includes(heading.title)) questionLedger = heading.depth;
       const generatedQuestion = questionLedger !== null && heading.depth === questionLedger + 1 &&
         /^Q-[A-Z0-9-]+ [a-z]+(?:-[a-z]+)*$/.test(heading.title);
       if (!generatedQuestion && candidate(heading.title)) {

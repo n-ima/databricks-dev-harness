@@ -34,6 +34,7 @@ import { writeJson as atomicWriteJson } from "./lib/shared.mjs";
 import { stageVendorLegal, verifyVendorLegal } from "./lib/vendor-legal.mjs";
 import { loadWorkloads, resolveWorkloads, resolveRoute } from "./lib/workloads.mjs";
 import { deploymentCommand } from "./lib/deployment-simulation.mjs";
+import { deliveryCommand } from "./lib/delivery-assurance.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const canonicalSkills = join(root, "harness", "skills");
@@ -523,6 +524,8 @@ Commands:
   loop init --session ID --provider manual|claude|copilot [--max-iterations 8]
   loop show|run|record|gate|approve|stop --id ID (run defaults to dry-run; --execute opts in)
   evidence seal --review work/reviews/FILE.json --session ID --requirement PATH
+  delivery check --contract work/quality/FILE.json [--phase design|verify] (read-only diagnostic)
+  delivery hashes --contract work/quality/FILE.json (hashes are not execution evidence)
   deployment simulate --id RUN_ID --session SESSION_ID --scenario success|validation-failed|deployment-failed|deployment-pending|start-failed|health-failed|deployment-timeout|scope-mismatch
   deployment show --id RUN_ID (read-only; synthetic observations, never live)
   approval create --session ID --gate GATE --actor PERSON --evidence PATH --artifact PATH
@@ -576,6 +579,13 @@ try {
   else if (command === "intake" && subcommand === "answer") await answerIntake(root, options);
   else if (command === "intake" && subcommand === "approve") await approveIntake(root, options);
   else if (command === "intake" && subcommand === "show") await showIntake(root, options);
+  else if (command === "delivery") {
+    try {
+      const report = await deliveryCommand(root, subcommand, rest);
+      console.log(JSON.stringify(report, null, 2));
+      if (report.findings?.length) process.exitCode = 1;
+    } catch { console.error("品質契約または引数を読み取れません。外部接続・記載commandの実行は行いません。"); process.exitCode = 2; }
+  }
   else if (command === "scaffold" && subcommand === "plan") await planScaffold(root, options);
   else if (command === "scaffold" && subcommand === "apply") await applyScaffold(root, options);
   else if (command === "loop" && subcommand === "init") await initLoop(root, options);

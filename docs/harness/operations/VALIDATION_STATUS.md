@@ -1,4 +1,8 @@
-# Validation status — 0.4.0 local candidate
+# 検証状況 — 0.5.0
+
+2026-09-15: 品質契約の正式CLIと日本語文書・軽量UI確認フローを採用。公開対象から未採用HARD-03を除いたsnapshotで、構造検査と全567試験（566成功・失敗0・既存skip1）を確認。公開・配布bytes・独立確認は[0.5.0の公開記録](../../../work/evidence/2026-09-15-private-publication.md)、既存案件への反映は[差分更新手順](UPDATING_EXISTING_PROJECTS.md)を参照。実Databricksや実Claude Code/Copilotの新たな適合検証とは異なり、成熟度L1を維持する。
+
+以下は過去の時点の記録である。「候補」「未公開」や試験数は記録時点を表す。
 
 2026-09-10 HARD-08正式採用: [採用判断](../decisions/ADR-0008-initialization-safety-adoption.md)、[初期化fixtureと生成root検査の証拠](../../../work/evidence/2026-09-10-initialization-hardening.md)。既存案件の設定混入を防止し、生成rootの型・上限・同一性を検証。独立指摘HI-01〜04を修正、全体504 pass / 0 fail / 1既存skip、独立42 pass。privateソースpushは別途承認済み。実CLI/AppKit生成や実providerの適合証拠ではなく、L1を維持する。
 

@@ -14,6 +14,7 @@ const OWNED_FILES = new Set([
   "tests/approval.test.mjs", "tests/databricks-identity.test.mjs", "tests/vendor-legal.test.mjs",
   "tests/workloads.test.mjs", "tests/helpers/workloads.mjs",
   "tests/initialization.test.mjs", "tests/helpers/initialization.mjs", "tests/scaffold-output.test.mjs",
+  "tests/delivery-assurance.test.mjs", "tests/delivery-independent.test.mjs", "tests/human-documents.test.mjs",
   "docs/USAGE.md",
 ]);
 const OWNED_DIRECTORIES = ["tools", "scripts", "harness", "docs/harness", "docs/site", "vendor/databricks-skills", ".claude/skills", ".claude/agents", ".claude/rules", ".github/skills", ".github/instructions", ".github/agents", ".github/hooks"];

@@ -3,7 +3,7 @@ import { basename, join, sep } from "node:path";
 import { atomicWrite, cleanInline, compactTimestamp, exists, pathInside, replaceFrontmatterField, repoRelative, slugify, timestamp, withFileLock, assertNoSecrets } from "./shared.mjs";
 import { validateReceipt, fileHash } from "./evidence.mjs";
 import { sha256 } from "./shared.mjs";
-import { sectionBody, replaceSection, currentCheckpoint, sessionRecords } from "./session-state.mjs";
+import { sectionBody, replaceSection, currentCheckpoint, sessionRecords, localizeNewSession } from "./session-state.mjs";
 import { taskRecords } from "./tasks.mjs";
 
 export async function sessions(root) {
@@ -29,7 +29,7 @@ export async function startSession(root, options) {
   const routeFile = JSON.parse(await readFile(join(root, "harness/router.json"), "utf8"));
   if (!routeFile.routes.some((r) => r.id === intent)) throw new Error(`Unknown session intent: ${intent}`);
   const requiredGate = ["build", "define", "mock-ui"].includes(intent) ? "product-intent" : "none";
-  const content = `---\nid: ${id}\ntitle: ${title}\nstatus: active\nintent: ${intent}\nprovider: ${cleanInline(options.provider, "unspecified")}\nphase: define\ngate: ${requiredGate}\ngate_status: ${requiredGate === "none" ? "not-applicable" : "pending"}\nstarted: ${now}\nupdated: ${now}\nlast_checkpoint: ${now}\nrequirement: ${cleanInline(options.requirement, "unassigned")}\narchitecture: ${cleanInline(options.architecture, "unassigned")}\nplan: ${cleanInline(options.plan, "unassigned")}\nbranch: ${cleanInline(options.branch, "unassigned")}\nworktree: ${cleanInline(options.worktree, ".")}\nresources: none\n---\n\n# Work session: ${title}\n\n## Objective\n\n${cleanInline(options.objective, title)}\n\n## Verified current state\n\n- Repository inspection is pending.\n\n## Decisions\n\n- None yet.\n\n## Progress and evidence\n\n- ${now} — Session started.\n\n## Next actions\n\n- Read linked requirement/design, resolve material questions, then take the smallest complete slice.\n\n## Blockers and human gates\n\n- ${requiredGate}\n\n## Handoff\n\n- Reverify current state before continuing. Chat history is not required.\n`;
+  const content = localizeNewSession(`---\nid: ${id}\ntitle: ${title}\nstatus: active\nintent: ${intent}\nprovider: ${cleanInline(options.provider, "unspecified")}\nphase: define\ngate: ${requiredGate}\ngate_status: ${requiredGate === "none" ? "not-applicable" : "pending"}\nstarted: ${now}\nupdated: ${now}\nlast_checkpoint: ${now}\nrequirement: ${cleanInline(options.requirement, "unassigned")}\narchitecture: ${cleanInline(options.architecture, "unassigned")}\nplan: ${cleanInline(options.plan, "unassigned")}\nbranch: ${cleanInline(options.branch, "unassigned")}\nworktree: ${cleanInline(options.worktree, ".")}\nresources: none\n---\n\n# 作業セッション: ${title}\n\n## Objective\n\n${cleanInline(options.objective, title)}\n\n## Verified current state\n\n- リポジトリの現状確認は未実施。\n\n## Decisions\n\n- まだ確定していない。\n\n## Progress and evidence\n\n- ${now} — 作業セッションを開始。\n\n## Next actions\n\n- 関連する要件・設計を読み、重要な確認事項を解決してから最小の実装範囲へ進む。\n\n## Blockers and human gates\n\n- ${requiredGate}\n\n## Handoff\n\n- 再開前に現在の状態を再確認する。チャット履歴には依存しない。\n`);
   const path = join(root, "work/sessions", `${id}.md`);
   await atomicWrite(path, content);
   console.log(repoRelative(root, path));

@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/japanese_generation_code_review",
+  "reviewDate": "2026-09-15",
+  "scope": "HARNESS-HUMAN-DELIVERY HD-02〜HD-05の新規日本語文書生成、既存互換、API-only/UI分岐、標準workflow接続を独立レビューした。HARD-03等の別件dirty差分は受入対象外。",
+  "conclusion": "確認範囲に未解消の阻害指摘なし。実装ファイルを変更せず独立にコードを読み、ローカル合成fixtureと公開CLIで検証した。",
+  "findings": [],
+  "environment": {"os": "Windows", "shell": "PowerShell", "node": "v24.15.0", "root": "D:/projects/databricks-dev-harness"},
+  "executionNote": "通常sandboxの初期化が失敗したため、許可されたrequire_escalatedでローカル検査を実行した。",
+  "coverage": [
+    {"id": "HD-02", "evidence": "共通product-requirement/product-architectureテンプレートを実際のintake生成が使用する。生成された要件・設計・計画の日本語本文、業務、用語、機能、データ/項目、画面/遷移、外部境界、試験/運用への参照と未確定表示を確認。具体的な業務仕様や受入値を自動確定しない。"},
+    {"id": "HD-03", "evidence": "日本語/英語の正本質問台帳から同じAC-01/AC-02集合を解析。新規日本語sessionと旧英語sessionのcheckpoint互換、承認hash、重複上書き拒否、不正AC拒否、承認前gate、再回答による承認失効を再実行。showは承認済要件bytesを変更しない。"},
+    {"id": "HD-04", "evidence": "インストール先CLIでAPI-onlyはui=false、画面表なし、UI工程を追加しない計画を生成。UIは画面表とfixtureモック確認を生成。標準文書/skillは軽量HTMLの任意の設計確認とui-mockの挙動・状態・承認を区別している。"},
+    {"id": "HD-05", "evidence": "orchestrate/define/build/mock/reviewの正本skillと生成指示を読み、自然言語route、文書標準、delivery design/verifyへの接続を確認。harness:checkでClaude Code/Copilot生成資産との同期を独立に確認。実providerは実行していない。"}
+  ],
+  "checks": [
+    {"command": "node --test tests/human-documents.test.mjs tests/acceptance.test.mjs tests/memory.test.mjs tests/approval.test.mjs tests/task-visibility.test.mjs tests/workloads.test.mjs tests/distribution.test.mjs", "exitCode": 0, "tests": 151, "pass": 150, "fail": 0, "skipped": 1, "skipReason": "This host does not permit test symlinks. Directory junction試験は成功。"},
+    {"command": "npm run harness:check", "exitCode": 0, "result": "Harness check passed."},
+    {"command": "git diff --check", "exitCode": 0},
+    {"command": "node --test --test-reporter=dot tests/*.test.mjs", "exitCode": 0, "result": "全回帰を検証者が独立再実行し成功。dot reporterは成功/失敗/skipの集計を出力しないため、主担当の618pass/1skipという集計を独立集計として転記しない。"},
+    {"command": "一時fixtureにtoolsとharness/templates、workload catalogをコピーし、node tools/harness.mjsを子processで起動した独立probe", "exitCode": 0, "checks": ["installed-cli-api-only", "installed-cli-ui", "unknown-Q00", "Japanese-and-English-ledger", "approval-byte-hashes", "read-only-show", "Japanese-resume", "answer-revokes-approval", "answer-preserves-checkpoint"], "details": "API-only/画面あり/未知の3つの合成依頼を生成。全質問に合成回答を記録し、合成承認のartifactHashesと実ファイルbytesを比較。show前後の要件bytes一致、checkpoint保持、再回答時decision=revokedをassertした。fixtureを安全な一時directoryに限定し、終了時に削除した。"}
+  ],
+  "limitations": [
+    "実Claude Code/Copilotの自然言語canaryは未実施。生成資産同期とローカルCLI成功は実providerの成功を意味しない。",
+    "実Databricks、認証、課金、個別案件、remote操作、リリース配布、Linux/macOSは未実施。",
+    "この変更は文書の初期案と作成指示を整備する。案件の業務意味、適用外理由、具体的期待値の妥当性を生成処理だけで保証しない。",
+    "HD-01の専用コードレビューは別記録。本報告単独では全体受入receipt、実行権限や人の承認を発行しない。"
+  ],
+  "artifactHashes": {
+    "tools/lib/product-documents.mjs": "e410bca5d2952154b251af8764be2eba4a6fbecd16cd01377a85c391a34ac8b6",
+    "tools/lib/intake.mjs": "6f8fd44372f14763f05b3d399283dfcc85a358735cc669eb4ccf5988f9df582a",
+    "tools/lib/acceptance.mjs": "fa8506f8c1d7c267135b4720958bb02933867c4f3fa8be1f6ce153c5ca1b39f3",
+    "tools/lib/session-state.mjs": "fcb92adb709ee795bfc357cf4baf53682e94b2c35928230f2ff79f5f9c991c8a",
+    "tools/lib/memory.mjs": "1a15df29859f46f03f39f97a58da5364dca99f7f5620a91de964d7ce6209bc4b",
+    "tests/human-documents.test.mjs": "c411fa6583d82dbe0a94df97a7f73d9e4186bf7f780e6ae35874b025641cecfb",
+    "harness/templates/evidence.md": "314deaaa029c2238a98f2fa2fef17f79fa05e6fd258423eecfea9c3321ac1de0",
+    "harness/templates/execution-plan.md": "8f39aaf491ff3006ecc60e3b570512736f8a8448bd0210de30663448851fa1ef",
+    "harness/templates/knowledge.md": "f971834e1b34054d916cc35f006f65f6d3d6a136d1cb311171d471dba1cbfa3b",
+    "harness/templates/product-architecture.md": "b99a7e18757646b2d273a2d4ae7a50baf075a860de4eaed1fc1d28cb4d840ee2",
+    "harness/templates/product-requirement.md": "ffb266b7f83a9c84f343cf0e45318d9f373cfed1990ff58ce1a2006a3af77f6f",
+    "harness/templates/session.md": "9d855222bab8d70a2c18c11fb25fcbb08caa10e198b1022c68e1531baef7e760",
+    "harness/skills/orchestrate-work/SKILL.md": "c0e42b8305fdc1360bbc320f7b24b32c81ab4dfe8266196d5378ac5ff2f2d7eb",
+    "harness/skills/define-work/SKILL.md": "4f8a2b91a761dda15f27e6ca134fb4d8b0a8a223d58068b903921c1775383738",
+    "harness/skills/build-work/SKILL.md": "9fb78502511821862ac49518e20d6caec349a477962f45604113f0b994a063a2",
+    "harness/skills/review-work/SKILL.md": "a8d7578dfe1dfdde34a3a484dae4af648e15f55fd99c0ac64891dcd8633452ae",
+    "harness/skills/mock-ui/SKILL.md": "aed0ba1ade40f0f7faf3b740192995e74b2aee26346bcc06e6025e1e22e2d0fd",
+    "docs/harness/operations/DOCUMENTATION_STANDARD.md": "9efa954e8bbca8918af41e9a0d8e05c9961da2335a1f94d2ce3ac7f6722538c0",
+    "docs/product/standards/FRONTEND.md": "d341a5c8c2f3ce53312bd67dc436af521e4ddd5e370c2106c2f769896c9b58bd",
+    "harness/instructions.json": "e78d703eda641f060e42d31b01ce6a7f6b3d3475a589ed1f3df486b5e4b3967a",
+    "docs/harness/requirements/2026-09-15-human-readable-delivery.md": "51ea7b7046c86dbecb8c7fa265624858950cce1a44b96e3a77aa5b68c3b95b1b",
+    "docs/harness/design/HUMAN_READABLE_DELIVERY.md": "72ff0637b5355fe022af2fe470b862ca974719025acda9b8983f74c26d1e3f76"
+  },
+  "handoff": "親taskが本snapshot、設計レビュー、HD-01の独立レビューと全体証拠を照合してsessionへcheckpointする。対象bytesが変われば差分とhashを再確認する。"
+}

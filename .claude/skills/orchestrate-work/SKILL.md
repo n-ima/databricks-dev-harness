@@ -10,6 +10,7 @@ description: Route any non-trivial natural-language request into the repository'
 3. For advice-only work, remain read-only unless the user requests changes. For changes, start or resume a session under `work/sessions/`.
 4. Load the routed skill and only the scoped standards it references.
 5. Make product intent durable under `docs/product/requirements/`; make target-system design durable under `docs/product/architecture/`, `data/`, or `ui/`.
+   For human-facing artifacts, follow `docs/harness/operations/DOCUMENTATION_STANDARD.md`: Japanese prose and labels, original machine identifiers, scoped definitions, and explicit unknowns. Do not bulk-translate accepted artifacts.
 6. Stop at the first unresolved human gate. Otherwise proceed autonomously through the smallest verifiable slice.
 7. Before compaction, handoff, or ending the turn, checkpoint decisions, observed state, evidence, blockers, and exact next actions in the session file.
 8. Promote stable conclusions to product or harness knowledge. Never promote guesses, raw chat, secrets, or transient debugging output.

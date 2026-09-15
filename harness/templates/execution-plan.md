@@ -8,32 +8,32 @@ started: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-# Execution plan
+# 実行計画
 
-## Goal and machine-checkable stop condition
+## 目的と検証可能な終了条件
 
-## Verified current state
+## 確認済みの状態
 
-## Constraints and human gates
+## 制約と人の判断
 
-## End-to-end slices
+## 最小の完結した実装範囲
 
-- [ ] Slice 1 — outcome, checks, evidence
+- [ ] 最初の範囲 — 成果、確認方法、証拠
 
-## Verification plan
+## 検証計画
 
-- Deterministic:
-- Data:
-- Browser:
-- Databricks development target:
-- Independent verifier:
+- 決定的なテスト:
+- データ:
+- ブラウザー:
+- Databricksの開発環境:
+- 独立検証担当:
 
-## Progress and decisions
+## 進捗と判断
 
-- Timestamp — observation, action, result, next.
+- 確認日時 — 観測、作業、結果、次の作業。
 
-## Recovery and rollback
+## 復旧とロールバック
 
-## Completion evidence
+## 完了の証拠
 
-Link `work/evidence/` and each acceptance criterion.
+`work/evidence/` と各受入条件を紐づける。

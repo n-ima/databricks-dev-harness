@@ -12,6 +12,7 @@ description: Turn a short Databricks product request into a durable product requ
 4. State assumptions. Ask only questions whose answers alter behavior, sensitive-data handling, authority, cost, or irreversible design.
 5. For user-facing work, define an executable mock gate before backend integration.
 6. Create or update one requirement under `docs/product/requirements/` and a design skeleton under `docs/product/architecture/`.
+   Read `docs/harness/operations/DOCUMENTATION_STANDARD.md`. Define the scoped business journeys, glossary, functions, data/field dictionary, UI inventory/transitions where applicable, and external interfaces with stable cross-references. Keep small scopes in the two documents; split only when useful. Resolve behavior-critical unknowns for the slice before implementation. Read `docs/harness/operations/DELIVERY_ASSURANCE.md` for requirement/risk/test mappings; generate them for the user, not as a form the user must fill.
 7. Checkpoint the durable session with decisions, open gates, and the exact next step. Do not implement during an intent-definition-only request.
 
 Use `npm run intake -- create` for new products/features and `intake answer` to preserve answered material questions. Combine related questions into a short conversation; do not dump the entire ledger onto the user. Record answers already explicit in supplied material with their source, and ask only unresolved material questions. Refine generic scaffold acceptance criteria into feature-specific, observable cases before requesting approval.

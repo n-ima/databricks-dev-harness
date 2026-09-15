@@ -2,19 +2,35 @@ import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { exists, parseFrontmatter, pathInside, sha256 } from "./shared.mjs";
 
+const sessionLabels = {
+  Objective: "目的", "Verified current state": "確認済みの状態", Decisions: "判断記録",
+  "Progress and evidence": "進捗と証拠", "Next actions": "次の作業",
+  "Blockers and human gates": "停止理由と人の判断", Handoff: "引継ぎ",
+};
+
+export function localizeNewSession(text) {
+  return text.replace(/^## (.+)$/gm, (line, label) => sessionLabels[label] ? "## " + sessionLabels[label] : line);
+}
+
+function sectionMarker(text, heading) {
+  // Preserve an existing record's language and support legacy English readers.
+  const candidates = [heading, sessionLabels[heading]].filter(Boolean).map(h => "\n## " + h + "\n");
+  return candidates.find(marker => text.includes(marker)) || candidates[0];
+}
+
 export function sectionBody(text, heading) {
   const normalized = text.replaceAll("\r\n", "\n");
-  const marker = "## " + heading + "\n";
-  const start = normalized.indexOf("\n" + marker);
+  const marker = sectionMarker(normalized, heading);
+  const start = normalized.indexOf(marker);
   if (start < 0) return "";
-  const bodyStart = start + marker.length + 1;
+  const bodyStart = start + marker.length;
   const end = normalized.indexOf("\n## ", bodyStart);
   return normalized.slice(bodyStart, end < 0 ? undefined : end).trim();
 }
 
 export function replaceSection(text, heading, body) {
   const normalized = text.replaceAll("\r\n", "\n");
-  const marker = "\n## " + heading + "\n";
+  const marker = sectionMarker(normalized, heading);
   const start = normalized.indexOf(marker);
   if (start < 0) return normalized + marker + "\n" + body.trim() + "\n";
   const end = normalized.indexOf("\n## ", start + marker.length);

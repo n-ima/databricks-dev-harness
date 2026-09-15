@@ -18,32 +18,32 @@ worktree: unassigned
 resources: none
 ---
 
-# Work session: SESSION-TITLE
+# 作業セッション: SESSION-TITLE
 
-## Objective
+## 目的
 
-State the requested observable outcome.
+利用者が確認できる目的・成果を記す。
 
-## Verified current state
+## 確認済みの状態
 
-- Record facts proven from files, commands, APIs, or user decisions.
+- ファイル・コマンド・API・利用者の判断から確認できた事実を記す。
 
-## Decisions
+## 判断記録
 
-- Decision, alternatives considered, evidence, and consequence.
+- 判断、比較案、根拠、影響を記す。
 
-## Progress and evidence
+## 進捗と証拠
 
-- Timestamp — action, result, evidence path.
+- 確認日時 — 作業、結果、証拠のパス。
 
-## Next actions
+## 次の作業
 
-- Exact next executable step.
+- 再開時に実行する具体的な手順。
 
-## Blockers and human gates
+## 停止理由と人の判断
 
-- State what decision or authority is missing.
+- 足りない判断や権限を記す。解消済みならその根拠を記す。
 
-## Handoff
+## 引継ぎ
 
-- Write enough for a fresh agent to continue without chat history.
+- 新しいagentがチャット履歴なしで再開できる情報を残す。

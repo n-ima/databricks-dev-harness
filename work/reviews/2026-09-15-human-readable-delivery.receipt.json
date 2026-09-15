@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "20260914-230811-631-human-readable-delivery-adoption",
+  "requirement": "docs/harness/requirements/2026-09-15-human-readable-delivery.md",
+  "status": "pass",
+  "reviewer": "/root/japanese_generation_code_review",
+  "provider": "codex",
+  "independent": true,
+  "provenance": {
+    "type": "review-record",
+    "source": "work/reviews/2026-09-15-human-readable-delivery-acceptance.json",
+    "identityAuthenticated": false
+  },
+  "acceptance": [
+    {
+      "id": "HD-01",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-human-readable-delivery.md",
+        "work/reviews/2026-09-15-delivery-adoption-code-review.md",
+        "work/reviews/2026-09-15-delivery-adoption-probe.mjs"
+      ],
+      "rationale": "専任の別contextレビューで旧56試験の維持と正式CLI・配布manifestを確認済み。最終判定者もCLI probe 7件を再実行し全成功。参考診断、certifiesAcceptance:false、記録commandの非実行、fixture bytesの不変、不正入力の終了2、design/verifyとstale hashの区別を確認。HD-IR-01は修正済みsnapshotで解消。"
+    },
+    {
+      "id": "HD-02",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-human-readable-delivery.md",
+        "work/reviews/2026-09-15-human-documents-code-review.json",
+        "work/reviews/2026-09-15-human-docs-design-review.md"
+      ],
+      "rationale": "intakeが共通の日本語要件・設計テンプレートと日本語計画を生成することを公開CLIと合成fixtureで確認。用語・業務・機能・データ/項目・画面/遷移・外部境界・試験/運用を参照でき、未確定を確定仕様に変換しない。最低属性とID対応への正本参照に関するHDR-01も別context再レビューで解消。"
+    },
+    {
+      "id": "HD-03",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-human-readable-delivery.md",
+        "work/reviews/2026-09-15-human-documents-code-review.json"
+      ],
+      "rationale": "機械IDを維持し、日本語/英語回答台帳で同じ受入IDを取得。新旧sessionのcheckpoint、承認bytes/hash、未回答・不正AC・上書きの拒否、再回答による承認失効を独立再実行した。承認済文書を一括翻訳する処理は追加されず、show前後の承認済要件bytes不変も確認。狭い互換回帰は150pass/0fail/既存skip1、全回帰も独立終了0。"
+    },
+    {
+      "id": "HD-04",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-human-readable-delivery.md",
+        "work/reviews/2026-09-15-human-documents-code-review.json",
+        "work/reviews/2026-09-15-human-docs-design-review.md"
+      ],
+      "rationale": "API-onlyはui=falseで画面定義表を生成せず、計画もUI承認不要とする。UI選択時は画面表と必要な入力・状態を含むfixture確認を生成する。軽量HTMLは任意の配置/導線確認であり、紙芝居承認だけでui-mock gateを満たさないことを文書・skill・模擬利用で確認した。"
+    },
+    {
+      "id": "HD-05",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-15-human-readable-delivery.md",
+        "work/reviews/2026-09-15-human-documents-code-review.json",
+        "work/reviews/2026-09-15-human-docs-design-review.md",
+        "work/reviews/2026-09-15-delivery-adoption-code-review.md"
+      ],
+      "rationale": "Claude Code/Copilotの生成資産同期をharness:checkで独立確認。orchestrate/define/build/mock/reviewの通常入口から文書標準とdelivery design/verifyへ接続され、別contextでの設計模擬利用と実装検証を記録した。実provider canaryを実行済みとせず、ローカル分類・生成資産・CLI試験と明確に区別している。"
+    }
+  ],
+  "artifactHashes": {
+    "work/reviews/2026-09-15-human-readable-delivery-acceptance.json": "eef9ed803bfaf196df2667afb11884d2f6c1e2807f6beb3bb3738a48eb3147cc",
+    "docs/harness/requirements/2026-09-15-human-readable-delivery.md": "51ea7b7046c86dbecb8c7fa265624858950cce1a44b96e3a77aa5b68c3b95b1b",
+    "tools/lib/product-documents.mjs": "e410bca5d2952154b251af8764be2eba4a6fbecd16cd01377a85c391a34ac8b6",
+    "tools/lib/intake.mjs": "6f8fd44372f14763f05b3d399283dfcc85a358735cc669eb4ccf5988f9df582a",
+    "tools/lib/acceptance.mjs": "fa8506f8c1d7c267135b4720958bb02933867c4f3fa8be1f6ce153c5ca1b39f3",
+    "tools/lib/session-state.mjs": "fcb92adb709ee795bfc357cf4baf53682e94b2c35928230f2ff79f5f9c991c8a",
+    "tools/lib/memory.mjs": "1a15df29859f46f03f39f97a58da5364dca99f7f5620a91de964d7ce6209bc4b",
+    "tests/human-documents.test.mjs": "c411fa6583d82dbe0a94df97a7f73d9e4186bf7f780e6ae35874b025641cecfb",
+    "harness/templates/evidence.md": "314deaaa029c2238a98f2fa2fef17f79fa05e6fd258423eecfea9c3321ac1de0",
+    "harness/templates/execution-plan.md": "8f39aaf491ff3006ecc60e3b570512736f8a8448bd0210de30663448851fa1ef",
+    "harness/templates/knowledge.md": "f971834e1b34054d916cc35f006f65f6d3d6a136d1cb311171d471dba1cbfa3b",
+    "harness/templates/product-architecture.md": "b99a7e18757646b2d273a2d4ae7a50baf075a860de4eaed1fc1d28cb4d840ee2",
+    "harness/templates/product-requirement.md": "ffb266b7f83a9c84f343cf0e45318d9f373cfed1990ff58ce1a2006a3af77f6f",
+    "harness/templates/session.md": "9d855222bab8d70a2c18c11fb25fcbb08caa10e198b1022c68e1531baef7e760",
+    "harness/skills/orchestrate-work/SKILL.md": "c0e42b8305fdc1360bbc320f7b24b32c81ab4dfe8266196d5378ac5ff2f2d7eb",
+    "harness/skills/define-work/SKILL.md": "4f8a2b91a761dda15f27e6ca134fb4d8b0a8a223d58068b903921c1775383738",
+    "harness/skills/build-work/SKILL.md": "9fb78502511821862ac49518e20d6caec349a477962f45604113f0b994a063a2",
+    "harness/skills/review-work/SKILL.md": "a8d7578dfe1dfdde34a3a484dae4af648e15f55fd99c0ac64891dcd8633452ae",
+    "harness/skills/mock-ui/SKILL.md": "aed0ba1ade40f0f7faf3b740192995e74b2aee26346bcc06e6025e1e22e2d0fd",
+    "docs/harness/operations/DOCUMENTATION_STANDARD.md": "9efa954e8bbca8918af41e9a0d8e05c9961da2335a1f94d2ce3ac7f6722538c0",
+    "docs/product/standards/FRONTEND.md": "d341a5c8c2f3ce53312bd67dc436af521e4ddd5e370c2106c2f769896c9b58bd",
+    "harness/instructions.json": "e78d703eda641f060e42d31b01ce6a7f6b3d3475a589ed1f3df486b5e4b3967a",
+    "docs/harness/design/HUMAN_READABLE_DELIVERY.md": "72ff0637b5355fe022af2fe470b862ca974719025acda9b8983f74c26d1e3f76",
+    "work/evidence/2026-09-15-human-readable-delivery.md": "da0b0fffa6e132ceb43c23d83196d0bc5c778058370a463c6f0a40036f031945",
+    "work/plans/2026-09-15-human-readable-delivery.md": "0fec20c73770b8619c1f7c21023e6e4d5c0cfb295a39c58930a9f51255c06dad",
+    "work/reviews/2026-09-15-human-documents-code-review.json": "f556ca2ae4e3284bfbf46f1112d4826d4feef1f1d8b0495e65513fd4f5ec7747",
+    "work/reviews/2026-09-15-delivery-adoption-code-review.md": "80bb0bbfff7a2f8726b7afe87a65fc3d64c5dad6c6cc6aa9caad16b480504b93",
+    "work/reviews/2026-09-15-human-docs-design-review.md": "13702b523be45a051f1a57ba86e15cb0075e49959061f269e9aab6e1df054b89",
+    "tools/lib/delivery-assurance.mjs": "9584432361f776c17f72beab197785b64b2e812380155ffa042bd9b65148a6da",
+    "tools/harness.mjs": "98f6ac9ea227cb5f34c3842b738f300a8129a3b4ff708e1a541439c88aede701",
+    "tools/lib/distribution.mjs": "763eefafdb278ad3edd0113fa47150cd756d6af0f478e383f5535dcd2aa41a31",
+    "tests/delivery-assurance.test.mjs": "8045b380de808992c47f97a65c80225c310a0fedaf5d1709195904acd982ffac",
+    "tests/delivery-independent.test.mjs": "596f544de3e7dcfa3b28a3f8d14e63740eede88f523a3d1815f26afc86854b39",
+    "harness/templates/delivery-contract.json": "b883d5a2b6b4e411c48d781a0162f7776b119402799c6f73b4463715654df6ee",
+    "docs/harness/operations/DELIVERY_ASSURANCE.md": "a31498656c91f746da1615cd442b64572b75ea9a767f2d5e206c5f5fd8eb7ca4",
+    "docs/harness/decisions/ADR-0010-human-readable-delivery.md": "19263304fa01fb6d390c86540b772212a4807853045c1d0a0dbd1834b15c6f44",
+    "docs/USAGE.md": "d9dd2744c3fbcee31389eb10e88a4c5487fc4f5cb98f22cc8cc0f4255160160a",
+    "docs/harness/operations/CLI_REFERENCE.md": "3f814b43cdb62c23897ad3edcb2324ebaa55833e0568de1a772b2ab4f6e41434",
+    ".claude/agents/independent-verifier.md": "a723fc2e752aedafe0d6aa1f94a98fcf223727cf02e5c77898de49c237595ba6",
+    ".github/agents/independent-verifier.agent.md": "1a2adf68ff8a224363cf8b664d4096d94c61bd67d5291379b0a4d49f4f8ca329",
+    ".claude/rules/documentation.md": "2d1754cd6bee7fccd87b980d1ce86d59f297fb14b1160f14a8737e03b0a72150",
+    ".github/instructions/documentation.instructions.md": "f54ff0af7e25a96ed8ddb26631720f9e0b1007ea5b31e513750be29afc1b8296",
+    ".claude/skills/orchestrate-work/SKILL.md": "c0e42b8305fdc1360bbc320f7b24b32c81ab4dfe8266196d5378ac5ff2f2d7eb",
+    ".claude/skills/define-work/SKILL.md": "4f8a2b91a761dda15f27e6ca134fb4d8b0a8a223d58068b903921c1775383738",
+    ".claude/skills/build-work/SKILL.md": "9fb78502511821862ac49518e20d6caec349a477962f45604113f0b994a063a2",
+    ".claude/skills/review-work/SKILL.md": "a8d7578dfe1dfdde34a3a484dae4af648e15f55fd99c0ac64891dcd8633452ae",
+    ".claude/skills/mock-ui/SKILL.md": "aed0ba1ade40f0f7faf3b740192995e74b2aee26346bcc06e6025e1e22e2d0fd",
+    ".github/skills/orchestrate-work/SKILL.md": "c0e42b8305fdc1360bbc320f7b24b32c81ab4dfe8266196d5378ac5ff2f2d7eb",
+    ".github/skills/define-work/SKILL.md": "4f8a2b91a761dda15f27e6ca134fb4d8b0a8a223d58068b903921c1775383738",
+    ".github/skills/build-work/SKILL.md": "9fb78502511821862ac49518e20d6caec349a477962f45604113f0b994a063a2",
+    ".github/skills/review-work/SKILL.md": "a8d7578dfe1dfdde34a3a484dae4af648e15f55fd99c0ac64891dcd8633452ae",
+    ".github/skills/mock-ui/SKILL.md": "aed0ba1ade40f0f7faf3b740192995e74b2aee26346bcc06e6025e1e22e2d0fd",
+    "work/reviews/2026-09-15-delivery-adoption-probe.mjs": "2082809520c8c2dc2bceee310229c642d8210cb9c4c8e481636d04ef826bbb2f"
+  },
+  "policyHash": "a4cdc1d59a0603725a6818435161eac30e4399a9c78c320667ae822895338d2a",
+  "createdAt": "2026-09-14T23:42:52Z"
+}

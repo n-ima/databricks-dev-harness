@@ -1,5 +1,9 @@
 # 利用手順 — Databricks development harness
 
+既に開発中の案件は作り直さず、[既存案件への差分更新手順](harness/operations/UPDATING_EXISTING_PROJECTS.md)に従います。テンプレート元へのpushだけでは自動更新されません。
+
+2026-09-15更新: 人が確認する新規文書は日本語を標準にしました。[何をどこで定義するか・HTML紙芝居の使い分け](harness/operations/DOCUMENTATION_STANDARD.md)と[品質契約の診断手順](harness/operations/DELIVERY_ASSURANCE.md)を参照してください。利用者は案件のチャットで要件と資料を渡すだけで、agentが文書・試験案を作成します。初期のひな型は未承認の案です。
+
 2026-09-08更新: API-only、Notebook/SQL、ML/Serving、RAG/MCP等は[全領域の開発手順](harness/operations/PLATFORM_PLAYBOOK.md)を参照してください。[最新調査と採用理由](harness/research/2026-09-08-platform-audit.md)、[Claude/Copilot・モデル・版の互換性](harness/operations/PROVIDER_COMPATIBILITY.md)も分けて記録しています。
 
 使い方は、**案件ごとにテンプレートからリポジトリを作り、VS Codeで目的を普通に伝える**ことです。エージェントが要件・設計・モック・実装・検証・記録を進め、人は業務上の判断、画面承認、権限、本番反映に関わります。

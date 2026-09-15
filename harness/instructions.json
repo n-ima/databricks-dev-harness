@@ -1,8 +1,33 @@
 {
   "schemaVersion": 1,
   "rules": [
-    { "id": "product", "paths": ["apps/**", "src/**", "resources/**"], "body": "Read the relevant accepted requirement/design under docs/product and its active session. Follow docs/product/standards. Use AppKit UI before adding UI libraries; Lakebase for transactional CRUD and Delta for analytical writes. Do not connect live data before the UI mock gate. Bundle changes require strict validation with an explicit profile. Never hardcode secrets or workspace/resource identifiers." },
-    { "id": "documentation", "paths": ["docs/**", "work/**"], "body": "Harness design belongs under docs/harness; target-product requirements/design under docs/product. work/sessions is durable task state, not permanent knowledge. Distinguish observed facts, proposals, not-run checks, and approved decisions. Knowledge needs source, confidence, applicability and review date. Never record credentials, raw production rows or hidden reasoning." },
-    { "id": "harness", "paths": ["harness/**", "tools/**", "tests/*test.mjs", ".github/**", ".claude/**"], "body": "Harness changes require their own requirement/evidence and independent review. Canonical skills live in harness/skills; generated provider copies must not be hand-edited. Run npm run agent-assets:sync, npm run harness:check and npm run test:harness. Policy, verifier, budget and release thresholds cannot be weakened by the implementing loop." }
+    {
+      "id": "product",
+      "paths": [
+        "apps/**",
+        "src/**",
+        "resources/**"
+      ],
+      "body": "Read the relevant accepted requirement/design under docs/product and its active session. Follow docs/product/standards. Use AppKit UI before adding UI libraries; Lakebase for transactional CRUD and Delta for analytical writes. Do not connect live data before the UI mock gate. Bundle changes require strict validation with an explicit profile. Never hardcode secrets or workspace/resource identifiers."
+    },
+    {
+      "id": "documentation",
+      "paths": [
+        "docs/**",
+        "work/**"
+      ],
+      "body": "Harness design belongs under docs/harness; target-product requirements/design under docs/product. work/sessions is durable task state, not permanent knowledge. Distinguish observed facts, proposals, not-run checks, and approved decisions. Knowledge needs source, confidence, applicability and review date. Never record credentials, raw production rows or hidden reasoning. Human-facing prose, tables, test descriptions, reviews and runbooks default to Japanese; keep machine keys, code, APIs and exact quoted terms unchanged with Japanese explanations where needed. Follow docs/harness/operations/DOCUMENTATION_STANDARD.md. Do not automatically translate existing approved artifacts."
+    },
+    {
+      "id": "harness",
+      "paths": [
+        "harness/**",
+        "tools/**",
+        "tests/*test.mjs",
+        ".github/**",
+        ".claude/**"
+      ],
+      "body": "Harness changes require their own requirement/evidence and independent review. Canonical skills live in harness/skills; generated provider copies must not be hand-edited. Run npm run agent-assets:sync, npm run harness:check and npm run test:harness. Policy, verifier, budget and release thresholds cannot be weakened by the implementing loop."
+    }
   ]
 }

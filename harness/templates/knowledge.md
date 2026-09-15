@@ -10,18 +10,18 @@ applies_to: EXPLICIT-SCOPE
 supersedes: none
 ---
 
-# Knowledge title
+# ナレッジの題名
 
-State the reusable conclusion, not the conversation that produced it.
+会話そのものではなく、再利用する結論を記す。
 
-## Evidence
-
-- 
-
-## Applicability and exceptions
+## 根拠
 
 - 
 
-## Supersedes or related knowledge
+## 適用範囲と例外
 
 - 
+
+## 置換する知見と関連する知見
+
+-
