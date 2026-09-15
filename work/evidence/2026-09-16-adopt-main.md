@@ -15,7 +15,9 @@
 
 ## 到達状況
 
-この時点ではmain push前。最終到達はpush後の独立確認と追記で記録する。
+採用commit `3fe262d2dca12bd442bae55d15d1dbd15a827270`を作成し、local mainをfast-forward、`git push origin main`で送信した。`git ls-remote --heads origin main`が同じSHAを返した。旧mainの履歴とレビュー済みcommitを保持している。
+
+push後の[独立確認](../reviews/2026-09-16-main-adoption-review.md)を別途保存する。この到達記録・独立レビュー・receipt・session/task終結だけの追記commitが続く場合、最終HEADはread-only照会で確認し利用者に返す。上記SHAは採用snapshotであり、後続記録commitのSHAを先取りしたものではない。
 
 ## 限界
 

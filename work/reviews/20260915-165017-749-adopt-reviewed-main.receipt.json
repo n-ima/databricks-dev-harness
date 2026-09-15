@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "20260915-165017-749-adopt-reviewed-main",
+  "requirement": "docs/harness/requirements/2026-09-16-adopt-main.md",
+  "status": "pass",
+  "reviewer": "/root/main_adoption_review",
+  "provider": "codex",
+  "independent": true,
+  "provenance": {
+    "type": "review-record",
+    "source": "work/reviews/2026-09-16-main-adoption-review.json",
+    "identityAuthenticated": false
+  },
+  "acceptance": [
+    {
+      "id": "MAIN-01",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-main-adoption-review.md",
+        "work/evidence/2026-09-16-adopt-main.md"
+      ]
+    },
+    {
+      "id": "MAIN-02",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-main-adoption-review.md",
+        "work/evidence/2026-09-16-adopt-main.md"
+      ]
+    },
+    {
+      "id": "MAIN-03",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-main-adoption-review.md",
+        "work/evidence/2026-09-16-adopt-main.md"
+      ]
+    }
+  ],
+  "artifactHashes": {
+    "work/reviews/2026-09-16-main-adoption-review.json": "03d8296ed7239d58b994e43f58dcb04d7cb9301c8bb55c788042a9683c908d29",
+    "docs/harness/requirements/2026-09-16-adopt-main.md": "41bfd93ba3d2dd1add54c257e35e5ea2e5c054b5e33488b5f09d67a3d6c3fbe6",
+    "docs/harness/decisions/ADR-0012-ui-scope-adoption.md": "6e50d6ae3a0e55888d4ee40da5873d45bf4389017c8637648c37cee4acaf2aab",
+    "docs/harness/operations/CLI_REFERENCE.md": "bf7b07d134732e99e6fd00b0368b81d2d1ddf9e281344715db5673247904468f",
+    "docs/harness/operations/SCOPED_APPROVALS.md": "1c0da64b2c1b9203eadd290a505d714b8da0fa83612f9a4c9aa4dd2654e0003f",
+    "docs/harness/operations/UI_RUNTIME_FIDELITY.md": "612c0cfabe9e41c100ad0792b10b88964033921272557fce280ca182e8c276f3",
+    "work/evidence/2026-09-16-adopt-main-tests.json": "8a88aec87763f0b5d8e5af62a8d446ecf54b3e440d031f384a74aa753191de69",
+    "work/evidence/2026-09-16-adopt-main-tests.log": "4f211f1cf8943f09eec1208d4b191bab1537d3403bf5a63dc3136a39bb0859ae",
+    "work/evidence/2026-09-16-adopt-main-check.mjs": "606df8a5934d0a33115c66ce9bade9c27c510dd362d86994d66aab16b6eebe52",
+    "work/reviews/2026-09-16-main-adoption-review.md": "03620ef81cddd98f8f51e22c29955065fa7a7a2dba5c8c0109e6ca7bc68a884b",
+    "work/evidence/2026-09-16-adopt-main.md": "ef03b26ef08d1b6e41252ca7e664b5130e40e5f10acd18ea6c2dc663476ec613"
+  },
+  "policyHash": "9363ec7a77ca45add682aada5670265bc54117eb4ceefd58c91be06d8d91c407",
+  "createdAt": "2026-09-15T17:01:44Z"
+}

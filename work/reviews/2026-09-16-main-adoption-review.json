@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "reviewer": "/root/main_adoption_review",
+  "provider": "codex",
   "context": "2026-09-16-main-adoption-independent",
   "independent": true,
   "observedAt": "2026-09-15T16:55:31.531Z",
@@ -9,7 +10,12 @@
   "criteria": [
     { "id": "MAIN-01", "status": "pass", "evidence": "採用要件/ADR/opsと旧session・UIF taskの現在欄を独立照合。範囲・非互換・未検証を区別。" },
     { "id": "MAIN-02", "status": "pass", "evidence": "非文書1,042 tracked filesはbaseline blobとのraw bytes一致。全4,204公開payloadと4manifest一致。harness:check/diff --check成功。" },
-    { "id": "MAIN-03", "status": "not-run", "evidence": "push後のremote確認待ち。" }
+    { "id": "MAIN-03", "status": "pass", "evidence": "private/default main、remote main=local main=3fe262d、旧mainとreview baselineの祖先関係、採用文書5件のcommit内hash一致を独立確認。" }
+  ],
+  "acceptance": [
+    { "id": "MAIN-01", "status": "pass", "evidence": ["work/reviews/2026-09-16-main-adoption-review.md", "work/evidence/2026-09-16-adopt-main.md"] },
+    { "id": "MAIN-02", "status": "pass", "evidence": ["work/reviews/2026-09-16-main-adoption-review.md", "work/evidence/2026-09-16-adopt-main.md"] },
+    { "id": "MAIN-03", "status": "pass", "evidence": ["work/reviews/2026-09-16-main-adoption-review.md", "work/evidence/2026-09-16-adopt-main.md"] }
   ],
   "findings": [],
   "nonDocumentationFiles": 1042,
@@ -28,7 +34,19 @@
     { "version": "0.6.1", "files": 1068, "manifestSha256": "d9c637a2c5a25182b58ce67c71792ccf02b1920ec22cc37f70afb209d71d726d" }
   ],
   "parentRegression": { "independentlyRerun": false, "logInspected": true, "tests": 711, "pass": 709, "fail": 0, "skipped": 2, "path": "work/evidence/2026-09-16-adopt-main-tests.log", "sha256": "4f211f1cf8943f09eec1208d4b191bab1537d3403bf5a63dc3136a39bb0859ae" },
-  "remoteVerification": null,
+  "remoteVerification": {
+    "observedAt": "2026-09-15T16:59:22.674Z",
+    "repository": "n-ima/databricks-dev-harness",
+    "visibility": "PRIVATE",
+    "defaultBranch": "main",
+    "isTemplate": true,
+    "localMain": "3fe262d2dca12bd442bae55d15d1dbd15a827270",
+    "remoteMain": "3fe262d2dca12bd442bae55d15d1dbd15a827270",
+    "baselineIsAncestor": true,
+    "previousMainIsAncestor": true,
+    "committedDocumentHashMatches": 5,
+    "trackedHarnessBackupFiles": 0
+  },
   "liveProviderTested": false,
   "databricksTested": false,
   "releaseReissued": false
