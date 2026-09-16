@@ -1,0 +1,284 @@
+{
+  "status": "pass",
+  "checkedAt": "2026-09-16T09:43:05.135Z",
+  "fromVersion": "0.7.0",
+  "toVersion": "0.7.2",
+  "manifestSha256": "da753bd8d5ea6dcdb943dc0182a647d54d59ea767c7e03717fb1f9efede9c42c",
+  "checks": [
+    "cache-free real Git clone: complete stamped source, LF bytes and committed scope verified",
+    "old 0.7.0 CLI plan exit=0; actual update uses the trusted new standalone CLI",
+    "from-source: 0.7.0 -> 0.7.2, 1110 hashes verified, all 9 product/local files preserved, repeat idempotent, publication tests pass",
+    "from-payload: 0.7.0 -> 0.7.2, 1110 hashes verified, all 9 product/local files preserved, repeat idempotent, publication tests pass",
+    "conflict refuses all writes; all 1102 managed files unchanged",
+    "published 0.7.0 manifest and every payload file unchanged"
+  ],
+  "commands": [
+    {
+      "command": "git",
+      "args": [
+        "-c",
+        "core.hooksPath=C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\empty-git-hooks",
+        "-c",
+        "init.templateDir=C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\empty-git-hooks",
+        "-c",
+        "core.autocrlf=true",
+        "init",
+        "-q"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\source",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "git",
+      "args": [
+        "-c",
+        "core.hooksPath=C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\empty-git-hooks",
+        "-c",
+        "init.templateDir=C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\empty-git-hooks",
+        "-c",
+        "core.autocrlf=true",
+        "add",
+        "--all"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\source",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "git",
+      "args": [
+        "-c",
+        "core.hooksPath=C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\empty-git-hooks",
+        "-c",
+        "init.templateDir=C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\empty-git-hooks",
+        "-c",
+        "core.autocrlf=true",
+        "-c",
+        "user.name=Publication test",
+        "-c",
+        "user.email=fixture@example.invalid",
+        "-c",
+        "commit.gpgSign=false",
+        "commit",
+        "-qm",
+        "local release canary"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\source",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "git",
+      "args": [
+        "-c",
+        "core.hooksPath=C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\empty-git-hooks",
+        "-c",
+        "init.templateDir=C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\empty-git-hooks",
+        "-c",
+        "core.autocrlf=true",
+        "clone",
+        "--quiet",
+        "--no-hardlinks",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\source",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "tools/harness-publication.mjs",
+        "check",
+        "--committed"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"stamp-valid\",\n  \"version\": \"0.7.2\",\n  \"manifestSha256\": \"da753bd8d5ea6dcdb943dc0182a647d54d59ea767c7e03717fb1f9efede9c42c\",\n  \"managedFiles\": 1110,\n  \"baseStatus\": \"not-requested\",\n  \"committed\": true,\n  \"certifiesAcceptance\": false,\n  \"warning\": \"版と配布内容の整合検査。独立レビュー・更新試験・remote到達の証明ではありません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "tools/update-harness.mjs",
+        "plan",
+        "--source",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-source",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"計画済み\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\from-source\",\n  \"fromVersion\": \"0.7.0\",\n  \"toVersion\": \"0.7.2\",\n  \"source\": {\n    \"requested\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\fresh-clone\",\n    \"resolved\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\fresh-clone\",\n    \"kind\": \"source-tree\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-094205-585-f29a99ef.json\",\n  \"canApply\": true,\n  \"counts\": {\n    \"keep\": 1075,\n    \"update\": 27,\n    \"add\": 8\n  },\n  \"conflicts\": [],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone\\tools\\update-harness.mjs",
+        "plan",
+        "--source",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-source"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-source",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"計画済み\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\from-source\",\n  \"fromVersion\": \"0.7.0\",\n  \"toVersion\": \"0.7.2\",\n  \"source\": {\n    \"requested\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\fresh-clone\",\n    \"resolved\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\fresh-clone\",\n    \"kind\": \"source-tree\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-094211-326-319b9752.json\",\n  \"canApply\": true,\n  \"counts\": {\n    \"keep\": 1075,\n    \"update\": 27,\n    \"add\": 8\n  },\n  \"conflicts\": [],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone\\tools\\update-harness.mjs",
+        "apply",
+        "--plan",
+        ".harness/updates/update-20260916-094211-326-319b9752.json",
+        "--yes",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-source"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-source",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"ファイル更新・hash確認済み\",\n  \"version\": \"0.7.2\",\n  \"backupPath\": \".harness/backups/update-20260916-094211-326-319b9752\",\n  \"changedFiles\": 35,\n  \"deletedFiles\": [],\n  \"managedFilesVerified\": 1110,\n  \"humanReviewRequired\": true,\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\from-source\",\n  \"next\": \"案件試験と独立レビュー後に開発を再開してください。受入完了・配備ではありません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone\\tools\\update-harness.mjs",
+        "plan",
+        "--source",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-source"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-source",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"計画済み\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\from-source\",\n  \"fromVersion\": \"0.7.2\",\n  \"toVersion\": \"0.7.2\",\n  \"source\": {\n    \"requested\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\fresh-clone\",\n    \"resolved\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\fresh-clone\",\n    \"kind\": \"source-tree\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-094220-129-a429c0f4.json\",\n  \"canApply\": true,\n  \"counts\": {\n    \"keep\": 1110\n  },\n  \"conflicts\": [],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "--test",
+        "tests/publication.test.mjs"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-source",
+      "exitCode": 0,
+      "stdout": "✔ publication checks complete source without using cached payload (266.645ms)\n✔ publication rejects missing stamp, deleted file and same-byte omitted file (185.2616ms)\n✔ package and lock versions and release notes are required (792.0165ms)\n✔ immutable version compares files, migrations and executable attributes; rejects downgrade (120.6051ms)\n✔ source checker and hook reject product repositories and links (270.5066ms)\n✔ Git guard matches actual destination main and only committed HEAD (760.3085ms)\n✔ Git guard refuses staged uncommitted publication even when source stamp is coherent (626.1186ms)\n✔ Git guard refuses a deleted managed file still present in the pushed commit (1060.2449ms)\n✔ hook install is idempotent and preserves existing hook and custom hooksPath (1293.5536ms)\n✔ real local Git push passes stamped main, blocks stale main and still allows backup (2263.1451ms)\n✔ cache-free source and immutable payload update preserve product files and stop conflicts (880.9834ms)\n✔ natural-language publication routes only the harness source and preserves explicit inspection (419.0719ms)\nℹ tests 12\nℹ suites 0\nℹ pass 12\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 9001.3642\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone\\tools\\update-harness.mjs",
+        "plan",
+        "--source",
+        "D:\\projects\\databricks-dev-harness\\.harness\\releases\\0.7.2",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-payload"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-payload",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"計画済み\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\from-payload\",\n  \"fromVersion\": \"0.7.0\",\n  \"toVersion\": \"0.7.2\",\n  \"source\": {\n    \"requested\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\releases\\\\0.7.2\",\n    \"resolved\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\releases\\\\0.7.2\",\n    \"kind\": \"release\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-094239-664-7752263e.json\",\n  \"canApply\": true,\n  \"counts\": {\n    \"keep\": 1075,\n    \"update\": 27,\n    \"add\": 8\n  },\n  \"conflicts\": [],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone\\tools\\update-harness.mjs",
+        "apply",
+        "--plan",
+        ".harness/updates/update-20260916-094239-664-7752263e.json",
+        "--yes",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-payload"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-payload",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"ファイル更新・hash確認済み\",\n  \"version\": \"0.7.2\",\n  \"backupPath\": \".harness/backups/update-20260916-094239-664-7752263e\",\n  \"changedFiles\": 35,\n  \"deletedFiles\": [],\n  \"managedFilesVerified\": 1110,\n  \"humanReviewRequired\": true,\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\from-payload\",\n  \"next\": \"案件試験と独立レビュー後に開発を再開してください。受入完了・配備ではありません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone\\tools\\update-harness.mjs",
+        "plan",
+        "--source",
+        "D:\\projects\\databricks-dev-harness\\.harness\\releases\\0.7.2",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-payload"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-payload",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"計画済み\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\from-payload\",\n  \"fromVersion\": \"0.7.2\",\n  \"toVersion\": \"0.7.2\",\n  \"source\": {\n    \"requested\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\releases\\\\0.7.2\",\n    \"resolved\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\releases\\\\0.7.2\",\n    \"kind\": \"release\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-094248-580-dd2b4314.json\",\n  \"canApply\": true,\n  \"counts\": {\n    \"keep\": 1110\n  },\n  \"conflicts\": [],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "--test",
+        "tests/publication.test.mjs"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\from-payload",
+      "exitCode": 0,
+      "stdout": "✔ publication checks complete source without using cached payload (256.3466ms)\n✔ publication rejects missing stamp, deleted file and same-byte omitted file (174.9676ms)\n✔ package and lock versions and release notes are required (691.7426ms)\n✔ immutable version compares files, migrations and executable attributes; rejects downgrade (119.8083ms)\n✔ source checker and hook reject product repositories and links (254.7062ms)\n✔ Git guard matches actual destination main and only committed HEAD (695.4004ms)\n✔ Git guard refuses staged uncommitted publication even when source stamp is coherent (539.8727ms)\n✔ Git guard refuses a deleted managed file still present in the pushed commit (987.8682ms)\n✔ hook install is idempotent and preserves existing hook and custom hooksPath (1186.8712ms)\n✔ real local Git push passes stamped main, blocks stale main and still allows backup (2248.21ms)\n✔ cache-free source and immutable payload update preserve product files and stop conflicts (858.0247ms)\n✔ natural-language publication routes only the harness source and preserves explicit inspection (401.5694ms)\nℹ tests 12\nℹ suites 0\nℹ pass 12\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 8475.3398\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone\\tools\\update-harness.mjs",
+        "plan",
+        "--source",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\conflict"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\conflict",
+      "exitCode": 1,
+      "stdout": "{\n  \"status\": \"競合のため停止\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\conflict\",\n  \"fromVersion\": \"0.7.0\",\n  \"toVersion\": \"0.7.2\",\n  \"source\": {\n    \"requested\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\fresh-clone\",\n    \"resolved\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publish-072-update-j4RcuM\\\\fresh-clone\",\n    \"kind\": \"source-tree\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-094304-746-f248bb89.json\",\n  \"canApply\": false,\n  \"counts\": {\n    \"keep\": 1074,\n    \"update\": 27,\n    \"conflict\": 1,\n    \"add\": 8\n  },\n  \"conflicts\": [\n    {\n      \"path\": \"AGENTS.md\",\n      \"action\": \"conflict\",\n      \"beforeSha256\": \"aa1ef552008d23278bdbc93a497aedfb5991900eb243e623419bbe251a2fe932\",\n      \"afterSha256\": \"b57c82afe7405ebc0eeac067b452bc5b43dc278fa552865b375c3bcf97678ed4\",\n      \"reason\": \"Downstream file changed since the installed baseline.\"\n    }\n  ],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\fresh-clone\\tools\\update-harness.mjs",
+        "apply",
+        "--plan",
+        ".harness/updates/update-20260916-094304-746-f248bb89.json",
+        "--yes",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\conflict"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publish-072-update-j4RcuM\\conflict",
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "更新を停止しました: Update has downstream conflicts; no file was changed.\n",
+      "error": null
+    }
+  ],
+  "networkUsed": false,
+  "realProjectChanged": false,
+  "realRepositoryCommitted": false
+}

@@ -34,6 +34,8 @@ node tools/harness-publication.mjs install-hook
 
 ## 新版の作成
 
+stampの前に、今回のaccepted要件を既存の`tools/lib/acceptance.mjs`の`acceptanceIds`で解析し、独立reviewとのID対応を`assertAcceptanceCoverage`で確認する。人の目で読めても機械が受理するとは限らない。完了記録の発行時までこの確認を延期しない。書式違反は要件側を直し、検証器を緩めない。
+
 `harness.config.json`、`package.json`、`package-lock.json`のroot版を一致させる。依存を不用意に更新しない。`docs/harness/releases/VERSION.md`には変更、互換性、対象/対象外、検証範囲、案件が必要とする移行、復旧方針を書く。データ/権限/承認方式の非互換をpatch扱いで隠さず、0.xの非互換はminorを上げる。
 
 ```text

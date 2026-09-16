@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { sealEvidence, validateReceipt } from '../../tools/lib/evidence.mjs';
+import { checkPublication } from '../../tools/lib/publication.mjs';
+const root=process.cwd();
+const review='work/reviews/2026-09-16-publish-071-final.json';
+const result=JSON.parse(await readFile(review));
+assert.equal(result.independent,true);
+assert.ok(result.acceptance.length===4&&result.acceptance.every(a=>a.status==='pass'));
+const publication=await checkPublication(root,{committed:true,base:'6fedb4a4dd6f3bc9db1982cd195166f078864b0a'});
+assert.equal(publication.manifestSha256,'44c108e6190995de279842e8c237cfa89d65d5710b895fe558273790fa918bbb');
+await validateReceipt(root,'work/reviews/20260916-071045-256-purpose-driven-delivery.receipt.json');
+const receipt=await sealEvidence(root,{review,session:'20260916-091431-687-publish-harness-0-7-1',requirement:'docs/harness/requirements/2026-09-16-publish-071.md',artifact:['harness/base-release.json','harness.config.json','package.json','package-lock.json','docs/harness/releases/0.7.1.md','docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md','work/evidence/2026-09-16-publish-071-prepush.md','work/quality/2026-09-16-purpose-adopted.json']});
+assert.equal(receipt.status,'pass');
+console.log(JSON.stringify({receiptStatus:receipt.status,publication,ciSuccessClaimed:false,realProjectChanged:false},null,2));

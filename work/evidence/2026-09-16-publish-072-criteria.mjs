@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import { readFile,writeFile } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { acceptanceIds,assertAcceptanceCoverage } from '../../tools/lib/acceptance.mjs';
+import { sha256 } from '../../tools/lib/shared.mjs';
+const path='docs/harness/requirements/2026-09-16-publish-071.md';
+const old=execFileSync('git',['show','12a8feae976cb6b1ec0ec2b8a77c716764be6d1f:'+path],{encoding:'utf8'});
+const current=await readFile(path,'utf8');
+assert.throws(()=>acceptanceIds(old),/Invalid acceptance ID/);
+const ids=acceptanceIds(current);assert.deepEqual(ids,['PUB-01','PUB-02','PUB-03','PUB-04']);
+const previousText=[...old.matchAll(/^- PUB-071-\d+: (.+)$/gm)].map(m=>m[1]);
+const currentText=[...current.matchAll(/^- PUB-\d+: (.+)$/gm)].map(m=>m[1]);
+assert.equal(previousText.length,4);assert.deepEqual(currentText,previousText);
+const previous=JSON.parse(await readFile('work/reviews/2026-09-16-publish-071-final.json'));
+const mapped=previous.acceptance.map(a=>({...a,id:a.id.replace('PUB-071-','PUB-')}));
+assertAcceptanceCoverage(ids,mapped);
+await writeFile('work/evidence/2026-09-16-publish-072-criteria.json',JSON.stringify({checkedAt:new Date().toISOString(),status:'pass',requirement:path,requirementSha256:sha256(current),oldFormatRejected:true,currentIds:ids,criterionBodiesUnchanged:true,oldReviewMappingCoverage:true,certifiesNewRelease:false,limitation:'形式と既存reviewのID対応の検査。新配布物の試験・独立レビュー・公開の代用ではない。'},null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({status:'pass',ids,oldFormatRejected:true,criterionBodiesUnchanged:true}));

@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { sealEvidence } from '../../tools/lib/evidence.mjs';
+import { acceptanceIds,assertAcceptanceCoverage } from '../../tools/lib/acceptance.mjs';
+import { checkPublication } from '../../tools/lib/publication.mjs';
+const root=process.cwd(),review='work/reviews/2026-09-16-publish-072-final.json';
+const requirement='docs/harness/requirements/2026-09-16-publish-071.md';
+const result=JSON.parse(await readFile(review));
+assert.equal(result.independent,true);
+assertAcceptanceCoverage(acceptanceIds(await readFile(requirement,'utf8')),result.acceptance);
+assert.ok(result.acceptance.every(a=>a.status==='pass'));
+const publication=await checkPublication(root,{committed:true,base:'12a8feae976cb6b1ec0ec2b8a77c716764be6d1f'});
+assert.equal(publication.manifestSha256,'da753bd8d5ea6dcdb943dc0182a647d54d59ea767c7e03717fb1f9efede9c42c');
+const receipt=await sealEvidence(root,{review,session:'20260916-091431-687-publish-harness-0-7-1',requirement,artifact:['harness/base-release.json','harness.config.json','package.json','package-lock.json','docs/harness/releases/0.7.2.md','docs/harness/operations/HARNESS_DEVELOPMENT.md','work/evidence/2026-09-16-publish-072-criteria.json']});
+assert.equal(receipt.status,'pass');
+console.log(JSON.stringify({receiptStatus:receipt.status,publication,ciSuccessClaimed:false,realProjectChanged:false},null,2));

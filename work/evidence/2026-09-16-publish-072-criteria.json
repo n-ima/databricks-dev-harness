@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-09-16T09:40:37.730Z",
+  "status": "pass",
+  "requirement": "docs/harness/requirements/2026-09-16-publish-071.md",
+  "requirementSha256": "bf61d1c1f04212c8315c7edf8d2f4c3afaa3180b28175e44273563a117ff4887",
+  "oldFormatRejected": true,
+  "currentIds": [
+    "PUB-01",
+    "PUB-02",
+    "PUB-03",
+    "PUB-04"
+  ],
+  "criterionBodiesUnchanged": true,
+  "oldReviewMappingCoverage": true,
+  "certifiesNewRelease": false,
+  "limitation": "形式と既存reviewのID対応の検査。新配布物の試験・独立レビュー・公開の代用ではない。"
+}

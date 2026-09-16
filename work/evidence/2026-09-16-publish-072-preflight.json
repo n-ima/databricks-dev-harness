@@ -1,0 +1,121 @@
+{
+  "checkedAt": "2026-09-16T09:45:50.410Z",
+  "base": "12a8feae976cb6b1ec0ec2b8a77c716764be6d1f",
+  "publication": {
+    "status": "stamp-valid",
+    "version": "0.7.2",
+    "manifestSha256": "da753bd8d5ea6dcdb943dc0182a647d54d59ea767c7e03717fb1f9efede9c42c",
+    "managedFiles": 1110,
+    "baseStatus": "compared",
+    "committed": false,
+    "certifiesAcceptance": false,
+    "warning": "版と配布内容の整合検査。独立レビュー・更新試験・remote到達の証明ではありません。"
+  },
+  "ids": [
+    "PUB-01",
+    "PUB-02",
+    "PUB-03",
+    "PUB-04"
+  ],
+  "review": "work/reviews/2026-09-16-publish-072-independent.json",
+  "selected": [
+    {
+      "path": "docs/harness/operations/HARNESS_DEVELOPMENT.md",
+      "sha256": "bc14bd13b09bcd26ba28ba89e21144926c67a4f952b909ee138408c39fec83ac"
+    },
+    {
+      "path": "docs/harness/requirements/2026-09-16-publish-071.md",
+      "sha256": "bf61d1c1f04212c8315c7edf8d2f4c3afaa3180b28175e44273563a117ff4887"
+    },
+    {
+      "path": "harness.config.json",
+      "sha256": "35459302b8263f346ffe49e88d149b9c09e214d6bfa1ad56bb3f32980000f91a"
+    },
+    {
+      "path": "harness/base-release.json",
+      "sha256": "da753bd8d5ea6dcdb943dc0182a647d54d59ea767c7e03717fb1f9efede9c42c"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "61490e867967cc3b3ae437cafd1f18b3831231e607721aa921a23787936bedda"
+    },
+    {
+      "path": "package.json",
+      "sha256": "4fdd9f0ef6729c01476b247c017d4e99535bd5266c84656b585d990da61be8f2"
+    },
+    {
+      "path": "work/sessions/20260916-091431-687-publish-harness-0-7-1.md",
+      "sha256": "70b54d5cd75ce7f958344b69002bdd5bfb49c71c1b7406667854db6c764d634f"
+    },
+    {
+      "path": "docs/harness/releases/0.7.2.md",
+      "sha256": "46d314b6abfbee134f98d149356af77f05201e3903006078494d8831a1cf6415"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-071-close.mjs",
+      "sha256": "c4cb1144ed1fb79f8e878e02bb9416cddd6e7e433ee0e3178ed959dba94e251e"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-071-remote.json",
+      "sha256": "0c76ac2736d45e05272c52922a351c4a12b2b9fdff0925f5902ed4c46fafdbf3"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-072-bytes.json",
+      "sha256": "863e863793d59549f046eb995e3e0702830de1a71c50632406c7445394e60cd6"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-072-close.mjs",
+      "sha256": "0b22c27bf64521734610b3997fc34280d9937336f069a8c58fcb760f132d0697"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-072-criteria.json",
+      "sha256": "e516986dc3f7957afac881e53eb9d13733e16be13e81f891ea01e41afeba65df"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-072-criteria.mjs",
+      "sha256": "b38fc16f9e23fb1eb5e69bbe0164a9a0430444f7a7cb7c1d9d4c1dbfe38a6953"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-072-independent-format.json",
+      "sha256": "4a056f84d31bab0b768ea77d91fa36bf38271d17c3d7e1c60f030849878293bc"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-072-preflight.mjs",
+      "sha256": "72fff0b368f91f0325e68f7c31435c36e080d141caf101e4cd90d949f642b5bb"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-072-regression.tap",
+      "sha256": "75df45d844fde9fe106934fee14cd23012de6030c7a82aafa132c8bf45dbcc20"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-072-update-r1.json",
+      "sha256": "f3f99fa752fb5bb08d5b81a44ac85f2dc8c3bd46c0bfcebae9b76bf57e58501a"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-072-update-r2.json",
+      "sha256": "a649a3b843009e21ac02d2f397c6d0047e3303c080cabde9593f76264d71fff5"
+    },
+    {
+      "path": "work/evidence/2026-09-16-publish-072-update.mjs",
+      "sha256": "3a0d28c893b7751287bee62ab559a5446ea96c499ab9eeb73afb54649068f244"
+    },
+    {
+      "path": "work/reviews/2026-09-16-publish-071-final.json",
+      "sha256": "224276457e0fea95c5a90712f6177677ff13b50efdc3e468af4273b0d206f8a6"
+    },
+    {
+      "path": "work/reviews/2026-09-16-publish-071-final.md",
+      "sha256": "e2ffb60312fa1d4d3db377308d729bf97c1495d5fa88dc9d7a5d4868b5dbfa7a"
+    },
+    {
+      "path": "work/reviews/2026-09-16-publish-072-independent.json",
+      "sha256": "afd24332901def1cb5efbfd73af88d19616aaad9e35d64b3d74e1bb6fe71e7cb"
+    },
+    {
+      "path": "work/reviews/2026-09-16-publish-072-independent.md",
+      "sha256": "88ac19cbc653796fef099a1d935e1c0554f2bb9fe4f81ffaff4f90d2ae2493d1"
+    }
+  ],
+  "excludedLocalBackups": 29,
+  "remotePush": false
+}

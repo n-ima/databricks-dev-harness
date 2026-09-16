@@ -1,0 +1,52 @@
+{
+  "observer": "publish_071_review",
+  "context": "/root/publish_071_review",
+  "checkedAt": "2026-09-16T09:33:43Z",
+  "repository": {
+    "nameWithOwner": "n-ima/databricks-dev-harness",
+    "url": "https://github.com/n-ima/databricks-dev-harness",
+    "isPrivate": true,
+    "defaultBranch": "main"
+  },
+  "releaseVersion": "0.7.1",
+  "sourceCommit": "12a8feae976cb6b1ec0ec2b8a77c716764be6d1f",
+  "localHead": "12a8feae976cb6b1ec0ec2b8a77c716764be6d1f",
+  "remoteMain": "12a8feae976cb6b1ec0ec2b8a77c716764be6d1f",
+  "mainMatched": true,
+  "publicationCheck": {
+    "command": "node tools/harness-publication.mjs check --committed --base 6fedb4a4dd6f3bc9db1982cd195166f078864b0a",
+    "status": "stamp-valid",
+    "version": "0.7.1",
+    "manifestSha256": "44c108e6190995de279842e8c237cfa89d65d5710b895fe558273790fa918bbb",
+    "managedFiles": 1109,
+    "committed": true,
+    "certifiesAcceptance": false
+  },
+  "ci": {
+    "scope": "exact sourceCommit only",
+    "runList": [],
+    "checkRuns": {"total_count":0,"check_runs":[]},
+    "combinedStatus": {"state":"pending","total_count":0,"statuses":[]},
+    "workflows": [
+      {"name":"Copilot setup steps","id":349744418,"state":"active","path":".github/workflows/copilot-setup-steps.yml"},
+      {"name":"Harness conformance","id":349744421,"state":"active","path":".github/workflows/harness-ci.yml"}
+    ],
+    "actionsPermissions": {"enabled":true,"allowed_actions":"all","sha_pinning_required":false},
+    "observation": "複数回の読み取りと45秒間隔後の最後の確認でも、exact commitのrun/checkは0。CI実行・成功は未観測。combined pendingはstatuses0のAPI応答であり、実ジョブの実行中を意味すると解釈しない。未観測の理由は未特定。",
+    "certifiesCiSuccess": false,
+    "workflowTriggeredOrSettingsChangedByReviewer": false
+  },
+  "readOnlyCommands": [
+    "git ls-remote origin refs/heads/main",
+    "gh repo view n-ima/databricks-dev-harness --json nameWithOwner,isPrivate,defaultBranchRef,url",
+    "gh run list --repo n-ima/databricks-dev-harness --commit 12a8feae976cb6b1ec0ec2b8a77c716764be6d1f --json databaseId,name,status,conclusion,headSha,event,url,createdAt,updatedAt",
+    "gh api repos/n-ima/databricks-dev-harness/commits/12a8feae976cb6b1ec0ec2b8a77c716764be6d1f/check-runs",
+    "gh api repos/n-ima/databricks-dev-harness/commits/12a8feae976cb6b1ec0ec2b8a77c716764be6d1f/status",
+    "gh workflow list --repo n-ima/databricks-dev-harness --all",
+    "gh api repos/n-ima/databricks-dev-harness/actions/permissions",
+    "gh api repos/n-ima/databricks-dev-harness/actions/workflows/349744421"
+  ],
+  "localBackupsIncludedInCommit": false,
+  "actualProductOrDatabricksChanged": false,
+  "plannedFollowup": "この公開後記録・receipt・task/session完了記録等のwork配下だけを別commitにする。配布source・stamp・版を変えず、最後のSHAは別の最終確認で照合する。"
+}

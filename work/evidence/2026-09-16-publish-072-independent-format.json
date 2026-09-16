@@ -1,0 +1,42 @@
+{
+  "reviewer": "publish_071_review",
+  "provider": "codex",
+  "context": "/root/publish_071_review",
+  "checkedOn": "2026-09-16",
+  "status": "pass",
+  "sourceBase": "12a8feae976cb6b1ec0ec2b8a77c716764be6d1f",
+  "requirement": "docs/harness/requirements/2026-09-16-publish-071.md",
+  "requirementSha256": "bf61d1c1f04212c8315c7edf8d2f4c3afaa3180b28175e44273563a117ff4887",
+  "oldFormatErrorObserved": "Invalid acceptance ID at line 15: PUB-071-01",
+  "currentIds": ["PUB-01","PUB-02","PUB-03","PUB-04"],
+  "checks": {
+    "oldPublishedRequirementRejected": true,
+    "currentRequirementAccepted": true,
+    "allFourCriterionBodiesByteEqual": true,
+    "currentReviewCoverageAccepted": true,
+    "missingCriterionRejected": true,
+    "oldReviewIdsRejected": true,
+    "acceptanceAndEvidenceParserEqualToPublished071": true
+  },
+  "parserHashes": {
+    "tools/lib/acceptance.mjs": "fa8506f8c1d7c267135b4720958bb02933867c4f3fa8be1f6ce153c5ca1b39f3",
+    "tools/lib/evidence.mjs": "10d68be98ac11c0c17921573d9f02ff23843f0b8b236a851fc9bb8c03d850e7d"
+  },
+  "targetedRegression": {
+    "command": "node --test tests/acceptance.test.mjs tests/contracts.test.mjs",
+    "exitCode": 0,
+    "tests": 105,
+    "pass": 105,
+    "fail": 0,
+    "skip": 0
+  },
+  "publicationCheck": {
+    "command": "node tools/harness-publication.mjs check --base 12a8feae976cb6b1ec0ec2b8a77c716764be6d1f",
+    "status": "stamp-valid",
+    "version": "0.7.2",
+    "manifestSha256": "da753bd8d5ea6dcdb943dc0182a647d54d59ea767c7e03717fb1f9efede9c42c",
+    "managedFiles": 1110
+  },
+  "correction": "071独立レビューは人向け内容と配布経路を確認したが、今回公開正本を既存parserへ渡す確認を省き、sealできないID形式を見逃した。旧観測記録は保持し、今回の負例と訂正後の受理で補正する。評価器や受入条件の意味は緩和しない。",
+  "limits": "既存contractsのPublication requirementsテストは9/15の2文書を固定参照するため、今回文書の受理は上記の実正本独立検査で確認した。105件だけで新規公開正本すべての自動検査を保証しない。0.7.2の更新・remote・CI結果は別確認。"
+}

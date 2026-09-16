@@ -1,0 +1,21 @@
+{
+  "reviewer": "publish_071_review",
+  "provider": "codex",
+  "context": "/root/publish_071_review",
+  "independent": true,
+  "status": "pass",
+  "reviewedAt": "2026-09-16T09:33:43Z",
+  "sourceCommit": "12a8feae976cb6b1ec0ec2b8a77c716764be6d1f",
+  "manifestSha256": "44c108e6190995de279842e8c237cfa89d65d5710b895fe558273790fa918bbb",
+  "reason": "PUB-071-01〜04の採用/配布整合/合成更新/private main到達を独立確認。CIはexact commitのrun/check0として実状態を明示しており、CI成功認定ではない。",
+  "acceptance": [
+    {"id":"PUB-071-01","status":"pass","evidence":["docs/harness/requirements/2026-09-16-publish-071.md","docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md","docs/harness/releases/0.7.1.md","work/reviews/2026-09-16-publish-071-independent.md"]},
+    {"id":"PUB-071-02","status":"pass","evidence":["harness/base-release.json","work/evidence/2026-09-16-publish-071-regression.tap","work/evidence/2026-09-16-publish-071-bytes.json","work/evidence/2026-09-16-publish-071-update-r2.json","work/reviews/2026-09-16-publish-071-stage.json","work/evidence/2026-09-16-publish-071-remote.json"]},
+    {"id":"PUB-071-03","status":"pass","evidence":["work/evidence/2026-09-16-publish-071-update-r2.json","work/evidence/2026-09-16-publish-071-independent-conflict.json","work/reviews/2026-09-16-publish-071-independent.md"]},
+    {"id":"PUB-071-04","status":"pass","evidence":["work/reviews/2026-09-16-publish-071-stage.json","work/evidence/2026-09-16-publish-071-remote.json","work/reviews/2026-09-16-publish-071-final.md"]}
+  ],
+  "ciSuccessVerified": false,
+  "ciState": "exact commitのActions run/check未観測。Actions/workflowはenabled/active。理由未特定。設定変更・rerunなし。",
+  "followupBoundary": "公開後の証拠/receipt/task/session完了等work配下だけの記録commitは許容。配布source/version/stamp不変が条件。最後のremote SHAは追って独立確認する。",
+  "notVerified": ["GitHub hosted CI success", "subsequent work-only final commit remote SHA", "actual downstream project application", "Databricks", "Claude Code/Copilot repeated comparison", "efficiency gain"]
+}

@@ -1,0 +1,29 @@
+{
+  "reviewer": "publish_071_review",
+  "provider": "codex",
+  "context": "/root/publish_071_review",
+  "independent": true,
+  "status": "not-run",
+  "stage": "pre-push",
+  "reviewedOn": "2026-09-16",
+  "baseSha": "12a8feae976cb6b1ec0ec2b8a77c716764be6d1f",
+  "manifestSha256": "da753bd8d5ea6dcdb943dc0182a647d54d59ea767c7e03717fb1f9efede9c42c",
+  "managedFiles": 1110,
+  "acceptance": [
+    {"id":"PUB-01","status":"pass","evidence":["docs/harness/requirements/2026-09-16-publish-071.md","docs/harness/releases/0.7.2.md","work/evidence/2026-09-16-publish-072-independent-format.json","work/reviews/2026-09-16-publish-072-independent.md"]},
+    {"id":"PUB-02","status":"pass","evidence":["harness/base-release.json","work/evidence/2026-09-16-publish-072-regression.tap","work/evidence/2026-09-16-publish-072-bytes.json","work/evidence/2026-09-16-publish-072-independent-format.json"]},
+    {"id":"PUB-03","status":"pass","evidence":["work/evidence/2026-09-16-publish-072-update-r1.json","work/evidence/2026-09-16-publish-072-update-r2.json","work/evidence/2026-09-16-publish-072-update.mjs","work/reviews/2026-09-16-publish-072-independent.md"]},
+    {"id":"PUB-04","status":"not-run","evidence":["work/reviews/2026-09-16-publish-072-independent.md"]}
+  ],
+  "evidenceHashes": {
+    "docs/harness/requirements/2026-09-16-publish-071.md":"bf61d1c1f04212c8315c7edf8d2f4c3afaa3180b28175e44273563a117ff4887",
+    "work/evidence/2026-09-16-publish-072-regression.tap":"75df45d844fde9fe106934fee14cd23012de6030c7a82aafa132c8bf45dbcc20",
+    "work/evidence/2026-09-16-publish-072-bytes.json":"863e863793d59549f046eb995e3e0702830de1a71c50632406c7445394e60cd6",
+    "work/evidence/2026-09-16-publish-072-update-r1.json":"f3f99fa752fb5bb08d5b81a44ac85f2dc8c3bd46c0bfcebae9b76bf57e58501a",
+    "work/evidence/2026-09-16-publish-072-update-r2.json":"a649a3b843009e21ac02d2f397c6d0047e3303c080cabde9593f76264d71fff5",
+    "work/evidence/2026-09-16-publish-072-independent-format.json":"4a056f84d31bab0b768ea77d91fa36bf38271d17c3d7e1c60f030849878293bc",
+    "docs/harness/releases/0.7.2.md":"46d314b6abfbee134f98d149356af77f05201e3903006078494d8831a1cf6415"
+  },
+  "scopeCorrection": "071で独立担当も正本parser実行を省きID不適合を見逃した。072では実正本の負例/正常/欠落拒否を確認し、評価器不変と4本文同等性を検証。旧reviewは履歴として保持。",
+  "notVerified": ["072 committed source and remote main", "072 exact commit CI execution/success", "actual downstream project acceptance", "Databricks", "real provider repeated comparison", "efficiency gain"]
+}

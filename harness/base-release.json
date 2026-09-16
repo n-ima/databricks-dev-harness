@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "0.7.1",
-  "releasedAt": "2026-09-16T09:18:16Z",
+  "version": "0.7.2",
+  "releasedAt": "2026-09-16T09:40:39Z",
   "managedFiles": [
     {
       "path": ".claude/agents/independent-verifier.md",
@@ -4618,9 +4618,9 @@
     },
     {
       "path": "docs/harness/operations/HARNESS_DEVELOPMENT.md",
-      "sha256": "9e37c3f4a839488ff393263639579d0e5fa40a0eb8b09a91134b033de8103824",
+      "sha256": "bc14bd13b09bcd26ba28ba89e21144926c67a4f952b909ee138408c39fec83ac",
       "strategy": "replace",
-      "bytes": 7464,
+      "bytes": 7842,
       "executable": false
     },
     {
@@ -4729,6 +4729,13 @@
       "executable": false
     },
     {
+      "path": "docs/harness/releases/0.7.2.md",
+      "sha256": "46d314b6abfbee134f98d149356af77f05201e3903006078494d8831a1cf6415",
+      "strategy": "replace",
+      "bytes": 1421,
+      "executable": false
+    },
+    {
       "path": "docs/harness/requirements/2026-09-14-delivery-assurance.md",
       "sha256": "b4734ac640df40cac5ce22c8040b3622eec1a8e4411c95acfb27eef7b4bb7716",
       "strategy": "replace",
@@ -4793,9 +4800,9 @@
     },
     {
       "path": "docs/harness/requirements/2026-09-16-publish-071.md",
-      "sha256": "255a0c1848e2c58686972767532a22759ce91793e30d1d9bf9bc339b849ab783",
+      "sha256": "bf61d1c1f04212c8315c7edf8d2f4c3afaa3180b28175e44273563a117ff4887",
       "strategy": "replace",
-      "bytes": 1179,
+      "bytes": 1665,
       "executable": false
     },
     {
@@ -4919,7 +4926,7 @@
     },
     {
       "path": "harness.config.json",
-      "sha256": "b0ee3326d2ec2144bb5b0a524f7ba9ae95291b2546967db5bc92b13aa2b9abf0",
+      "sha256": "35459302b8263f346ffe49e88d149b9c09e214d6bfa1ad56bb3f32980000f91a",
       "strategy": "replace",
       "bytes": 1213,
       "executable": false
