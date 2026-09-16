@@ -1,0 +1,29 @@
+{
+  "versions": {
+    "appkitUi": "0.72.0",
+    "react": "19.2.4",
+    "vite": "7.1.14",
+    "node": "v24.15.0",
+    "browser": "151.0.7922.34"
+  },
+  "sourceHashes": {
+    "main.jsx": "1e95aa5db03d4d2182a3c29939b0f7fd3f24e3a50a87b5e9e23ec55f4814729f",
+    "style.css": "010a1b19e1392cb6d5d431b3ce2f6ae3da3dbb6bcd9557c3f73bf8111d81406b",
+    "index.html": "25bcf4855fdcbaf679be79d0fe11e8daa9ded0da3c3f4439045e05c02066b18c",
+    "probe.mjs": "3b91f21ef95f08be8fe05affe1be6be14466464c4d30941d443cf40400ccc310"
+  },
+  "fixtureType": "prepared real-component display; not an agent/provider evaluation",
+  "checks": [
+    "actual Table and Input rendered",
+    "local input and explicit unimplemented save",
+    "actual LineChart static data and colored series rendered",
+    "same components support filter above table",
+    "narrow page has no horizontal overflow"
+  ],
+  "errors": [],
+  "remoteRequests": [],
+  "backendRequests": [],
+  "buildMilliseconds": 601,
+  "status": "pass",
+  "wallMilliseconds": 1338
+}

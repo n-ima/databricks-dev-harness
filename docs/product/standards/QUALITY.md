@@ -2,6 +2,8 @@
 
 ## Order of checks
 
+Select the applicable checks from the current outcome, change and risk; this is an order of preference, not a requirement to run every layer for every edit. A design-only review examines rules/examples, a layout draft checks actual rendering and isolation, and implementation acceptance proves the promised behavior in its target environment. Record why a check is inapplicable or deferred. Deferral is not a waiver of later required checks. Repeat a broad check only for a relevant change, failure or stated risk; a passing unchanged result is reusable evidence within its scope.
+
 1. Repository conformance, format, lint, type, schema, and generated-asset drift.
 2. Unit and contract tests.
 3. SQL/data quality, duplicate, late-data, retry, and idempotency tests.

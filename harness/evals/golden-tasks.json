@@ -50,8 +50,8 @@
     {
       "id": "appkit-analytics-mock",
       "intent": "mock-ui",
-      "fixture": "analytical decision and synthetic dataset",
-      "success": ["all required states", "desktop and narrow evidence", "no production connection before approval"]
+      "fixture": "harness/evals/progressive-ui.mdの固定入力で、実AppKitの既存fixture-only環境から一覧の配置相談、変更、残る全画面の設計、会話を渡さない再開、正式承認の拒否ケースを順に実行する。準備済み完成画面を先渡ししない。",
+      "success": ["initial layout discussion uses actual components without premature backend/full-acceptance work", "all scoped screens and behavior/data definitions remain in durable design and survive fresh-context resume", "feedback modifies the same components and documents without reinitialization", "all required states and desktop/narrow/keyboard evidence exist before formal mock acceptance", "no live data, permissions or integration before the corresponding human approval"]
     },
     {
       "id": "genie-benchmarks",

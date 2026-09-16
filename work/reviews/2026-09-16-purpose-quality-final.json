@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "purpose_design_review",
+  "provider": "Codex",
+  "context": "root/purpose_design_review-quality-final-20260916",
+  "independent": true,
+  "reviewedAt": "2026-09-16",
+  "status": "pass",
+  "scope": "改善候補の品質記録について、既存の独立レビュー、実行証拠、結果の主張範囲、リスク・運用対応を確認した。正式採用・公開・実provider有効性の認定ではない。",
+  "contract": {
+    "path": "work/quality/2026-09-16-purpose-driven-delivery.json",
+    "basisSha256": "ef3df54f838362ebe47303ab3cbe53141f303bb79a0f6e025f3cdff6c7defa9e",
+    "reviewedSha256": "4fc0123b361a8f0892bde9d3be51a1c3fa812c0ca0f3164f1799a926f3647fa2",
+    "hashBoundary": "reviewedSha256はreviewsを除く品質契約。本文の自己参照を作らず、この記録はreviewsからだけ参照する。"
+  },
+  "coverage": {
+    "requirements": ["PDD-01", "PDD-02", "PDD-03", "PDD-04", "PDD-05", "PDD-06"],
+    "risks": ["R-SCOPE", "R-SAFETY", "R-DISPLAY", "R-CLAIM"],
+    "interfaces": [],
+    "operations": ["ownership", "monitoring", "recovery", "data-protection", "cost", "dependency-updates"]
+  },
+  "caseJudgments": [
+    {
+      "id": "TC-REVIEW",
+      "status": "pass",
+      "basis": "凍結済み独立レビューはPDD-01〜06と解消したPDD-R1/R2、独立再実行と未検証の境界を記録している。結果欄はこの限定判定を正しく参照する。",
+      "evidence": [
+        {"path": "work/reviews/2026-09-16-purpose-independent.md", "sha256": "45736aa76eef9e50f5c8afc12912233bc410a3e863fd0b1818fe7f6e1fabffd4"},
+        {"path": "work/reviews/2026-09-16-purpose-independent.json", "sha256": "a7919c31e4588555bbfcfcef69cd9eb3ebd44861131a59bf7579d92dad75a067"}
+      ]
+    },
+    {
+      "id": "TC-DISPLAY",
+      "status": "pass",
+      "basis": "修正後runnerを独立実行したrun2に対応。実AppKit、合成3画面、局所操作・狭幅と接続なしの確認であり、準備済みfixtureの表示をagent作成効率や正式mock受入と主張していない。",
+      "evidence": [
+        {"path": "work/evidence/2026-09-16-purpose-ui-independent-run2/result.json", "sha256": "f660988151bec33701a3bc26fa422dbbe8f2887d49fc32c98a187ddb62bde51c"}
+      ]
+    },
+    {
+      "id": "TC-GATES",
+      "status": "pass",
+      "basis": "主担当の全回帰728件は726pass/0fail/2skipで、skipを成功へ算入していない。独立実行したUI/承認78件・出力保護5件と区別した。正式制御の差分なしを読み取り確認済み。",
+      "evidence": [
+        {"path": "work/evidence/2026-09-16-purpose-final-regression.tap", "sha256": "9534192b82085d28821289580e40d943166b0b577a900efc71a32e2098a6ef3a"},
+        {"path": "work/evidence/2026-09-16-purpose-structural-checks.json", "sha256": "22404386194042b7924cc3c1e1ca24dc11f846d199f0d6c836dd8259ac8d990b"}
+      ]
+    },
+    {
+      "id": "TC-ASSETS",
+      "status": "pass",
+      "basis": "canonicalと生成provider資産の整合・構造検査を確認した。これをClaude Code/Copilot実地利用、署名済み配布、案件更新と読み替えていない。",
+      "evidence": [
+        {"path": "work/evidence/2026-09-16-purpose-structural-checks.json", "sha256": "22404386194042b7924cc3c1e1ca24dc11f846d199f0d6c836dd8259ac8d990b"}
+      ]
+    },
+    {
+      "id": "TC-FORWARD",
+      "status": "pass",
+      "basis": "別contextの段階的なUI試行と新context再開、非UI4題の停止判断について保存ファイルを独立確認した。3画面・局所操作・全画面仕様・未決事項を保持し、続けてを正式承認としなかった。非UIの正確な分類入力・overrideは独立再実行で一致。",
+      "limits": "運用補足があり厳密blindではない。初期2段階のsource欠落、段階2画像上書きの除外、実データ不在、promptも変えたoverride比較の限界が開示されている。",
+      "evidence": [
+        {"path": "work/evidence/2026-09-16-purpose-forward-snapshot-manifest.json", "sha256": "e13d8cbd28df19b13282fd2a0c6d3e348c58268b304026e40e5fca629b91b46c"},
+        {"path": "work/evidence/2026-09-16-purpose-forward-snapshot/design.md", "sha256": "067838197846137e8949d0ec2ddc88d850e4234697c552c38ed53bf095588e9e"},
+        {"path": "work/evidence/2026-09-16-purpose-forward-snapshot/evidence-stage3.md", "sha256": "ed6fdf82cce9335db1b0bd1c756e3353157373dec8a73d92c80a9855be296c48"},
+        {"path": "work/evidence/2026-09-16-purpose-resume-trial.md", "sha256": "2489c151f7ca9db418749528f6c5a1f39a0daa28c750f481a525ea01325cbf14"},
+        {"path": "work/evidence/2026-09-16-purpose-non-ui-trial.md", "sha256": "9dfac397f122bc94103f2d2425f0090f7a00836d86431105c03ba05b242d3784"}
+      ]
+    }
+  ],
+  "riskJudgments": [
+    {"id": "R-SCOPE", "status": "pass", "basis": "TC-REVIEW/TC-FORWARDで全画面一覧・未決の期限・段階別の必要範囲を照合。保存等の先取りも、残画面を省いた完了主張も確認されなかった。"},
+    {"id": "R-SAFETY", "status": "pass", "basis": "TC-GATES/TC-REVIEWの拒否試験と正式制御不変に対応。下書き相談は正式承認を置換せず、再開試行も承認を推定しない。"},
+    {"id": "R-DISPLAY", "status": "pass", "basis": "TC-DISPLAYの独立実表示、TC-REVIEWのsourceと画像照合に対応。近似HTML、未接続機能の実動主張、描画前画像を根拠としない。"},
+    {"id": "R-CLAIM", "status": "pass", "basis": "TC-ASSETS/TC-REVIEW/TC-FORWARDの限界が明記され、構造一致やCodex補助試行を実provider効率改善・正式採用へ拡張していない。"}
+  ],
+  "operationJudgments": [
+    {"id": "ownership", "status": "pass", "basis": "候補と正式版の所有・採用境界を設計の互換性と移行で区別。人の正式採用・公開確認は未取得。"},
+    {"id": "monitoring", "status": "pass", "basis": "新しい運用基盤ではなく既存sessionと試行記録へ失敗・未検証・次の作業を保存する範囲。固定snapshotと再開記録で具体性を確認。"},
+    {"id": "recovery", "status": "pass", "basis": "既存正式版・案件を変更せず候補で試行し、案件再初期化や既存コードの無断削除をしない設計。実本番復旧試験の主張ではない。"},
+    {"id": "data-protection", "status": "pass", "basis": "合成fixtureと読取専用installed依存に限定。独立実表示のremote/backend要求0、出力先保護の独立反例再検証と5試験に対応。"},
+    {"id": "cost", "status": "pass", "basis": "実provider比較には条件・範囲・予算確認を分離する。測定していない時間/tokenや費用改善を成果として記録していない。"},
+    {"id": "dependency-updates", "status": "pass", "basis": "installed版と実行バージョンを固定して表示を確認。依存の一括更新や実案件のscript/.env/backend起動は範囲に含めていない。"}
+  ],
+  "independentIntegrityChecks": {
+    "manifestFileCount": 21,
+    "manifestHashMismatches": [],
+    "method": "PowerShellでmanifestの各pathにGet-FileHash -Algorithm SHA256を適用し、記録のsha256と比較。主担当の結果ではなく本reviewerによる観測。",
+    "frozenReviewHashesUnchanged": true,
+    "contractHashesMatchRequestedTarget": true,
+    "preRegistrationDiagnostic": {"findings": ["MISSING_REVIEW"], "recordedExecutions": 5, "certifiesAcceptance": false}
+  },
+  "findings": [],
+  "notVerified": [
+    "Claude Code/Copilotの実provider行動比較・反復比較",
+    "全段階sourceの厳密再現、速度/token/費用の改善率",
+    "正式UI受入、全状態・アクセシビリティの網羅的検証",
+    "Databricks配備・認証・実データ・DB操作・本番復旧",
+    "正式採用・公開・実案件への更新",
+    "敵対的な同時filesystem差替えへのOS隔離"
+  ]
+}

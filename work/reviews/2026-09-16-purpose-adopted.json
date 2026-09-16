@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "purpose_design_review",
+  "provider": "codex",
+  "context": "root/purpose_design_review-adopted-20260916",
+  "independent": true,
+  "reviewedAt": "2026-09-16",
+  "status": "pass",
+  "reason": "利用者の正式採用決定の記録を確認。候補時点からの変更は採用メタデータに限定され、受入条件・実装・既存試験証拠は不変。旧限定passの引継ぎは妥当。公開・stamp・案件適用は認定しない。",
+  "contract": {
+    "path": "work/quality/2026-09-16-purpose-adopted.json",
+    "basisSha256": "d52cc798fab2dd2cad402cbfb4bbbf794f73ad52392ec39f7f1b1b214a895fd8",
+    "reviewedSha256": "199614c8a4e52c737456884275422102a0d6a08016659d5a3aa649c3bebb9471"
+  },
+  "requirement": {
+    "path": "docs/harness/requirements/2026-09-16-purpose-driven-delivery.md",
+    "sha256": "43ec974e9ca1430ec880499abb21e0ac7beb189bb757a29928c8a604abd13368"
+  },
+  "design": {
+    "path": "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md",
+    "sha256": "bc8ee9c54e40e4a8738bfb27ff1151fe29adf36dd522e1edbac6a2c6b35738aa"
+  },
+  "coverage": {
+    "requirements": ["PDD-01", "PDD-02", "PDD-03", "PDD-04", "PDD-05", "PDD-06"],
+    "risks": ["R-SCOPE", "R-SAFETY", "R-DISPLAY", "R-CLAIM"],
+    "interfaces": [],
+    "operations": ["ownership", "monitoring", "recovery", "data-protection", "cost", "dependency-updates"]
+  },
+  "evidence": [
+    {"path": "work/reviews/2026-09-16-purpose-adopted.md", "sha256": "5a5f4a7f9ad67a594e237a25029042dcbf2cdbd4bda3285f70a8b05f9d2d3a23"},
+    {"path": "docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md", "sha256": "a2700e4657fb48c894bcbc3b426fe20a44031ae7dfd46aa65a99d8617f9f5137"},
+    {"path": "work/quality/2026-09-16-purpose-driven-delivery.json", "sha256": "f111bfa845f5803e6ce4cdd2b93d0f044ec65a826ce08ba231ccfd5bef0c0909"},
+    {"path": "work/reviews/2026-09-16-purpose-independent.md", "sha256": "45736aa76eef9e50f5c8afc12912233bc410a3e863fd0b1818fe7f6e1fabffd4"},
+    {"path": "work/reviews/2026-09-16-purpose-independent.json", "sha256": "a7919c31e4588555bbfcfcef69cd9eb3ebd44861131a59bf7579d92dad75a067"},
+    {"path": "work/reviews/2026-09-16-purpose-quality-final.json", "sha256": "2e76c7714219acde832df2fcdf0c4abf1dc840d7b422a55062dd309da17312e5"}
+  ],
+  "acceptance": [
+    {"id": "PDD-01", "status": "pass", "evidence": ["work/reviews/2026-09-16-purpose-independent.md", "work/reviews/2026-09-16-purpose-adopted.md", "docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md"], "limits": "既存の調査照合と採用記録の限定再確認。人の採用決定を記録するものでreviewerの自己承認ではない。"},
+    {"id": "PDD-02", "status": "pass", "evidence": ["work/reviews/2026-09-16-purpose-independent.json", "work/reviews/2026-09-16-purpose-adopted.md"], "limits": "受入条件と手順sourceが旧hashと一致し、既存判定を引き継ぐ。実provider行動比較は未実施。"},
+    {"id": "PDD-03", "status": "pass", "evidence": ["work/evidence/2026-09-16-purpose-ui-independent-run2/result.json", "work/evidence/2026-09-16-purpose-forward-snapshot/design.md", "work/evidence/2026-09-16-purpose-resume-trial.md", "work/reviews/2026-09-16-purpose-adopted.md"], "limits": "実部品独立表示・限定Codex3画面/局所操作・fresh-context再開の既存判定。初期source欠落、厳密blindでない限界と正式全状態UI受入の未実施は不変。今回の再実行ではない。"},
+    {"id": "PDD-04", "status": "pass", "evidence": ["work/evidence/2026-09-16-purpose-non-ui-trial.md", "work/reviews/2026-09-16-purpose-independent.json", "work/reviews/2026-09-16-purpose-adopted.md"], "limits": "非UI4題の手順・境界と分類再現の既存判定。実データの分析・推論・障害解決は未実施。"},
+    {"id": "PDD-05", "status": "pass", "evidence": ["work/evidence/2026-09-16-purpose-final-regression.tap", "work/reviews/2026-09-16-purpose-independent.md", "work/reviews/2026-09-16-purpose-adopted.md"], "limits": "実装と証拠不変に基づく引継ぎ。候補全回帰728件中726pass/0fail/2skipと独立78件・5件を保持し、今回の全回帰・runtime再実行とはしない。"},
+    {"id": "PDD-06", "status": "pass", "evidence": ["docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md", "work/reviews/2026-09-16-purpose-adopted.md", "work/reviews/2026-09-16-purpose-independent.json"], "limits": "今回も6skill/12providerコピーを独立hash照合。実Claude Code/Copilot反復比較は未実行。公開・更新経路・案件適用の成功は別工程。"}
+  ],
+  "adoption": {
+    "decisionBy": "user",
+    "decisionStatus": "recorded",
+    "source": "親担当に届いた利用者の正式採用してよい、すべて承認するので進めてくださいという指示の引継ぎ、およびADR-0013",
+    "reviewerAuthorizesAdoption": false,
+    "receiptIssuedByThisReviewer": false
+  },
+  "independentChecks": {
+    "oldSourceReferenceCount": 25,
+    "unchangedSourceCount": 23,
+    "changedSources": [
+      {"path": "docs/harness/requirements/2026-09-16-purpose-driven-delivery.md", "changes": "statusと採用段落のみ", "reverseInMemorySha256": "084b2215daea103066eb9644613a9dcb7df663079cbef7b4dd3a03b3bb1e24f3", "matchesOldHash": true},
+      {"path": "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md", "changes": "冒頭状態と比較表採用行のみ", "reverseInMemorySha256": "fe5229e7758cdd6c11ab06c3d0ca2f827b5e1f6ad337d02f56a7bab532eb53e8", "matchesOldHash": true}
+    ],
+    "existingResultEvidenceReferences": 11,
+    "existingEvidenceHashMismatches": [],
+    "providerCopyCount": 12,
+    "providerCopyHashMismatches": [],
+    "formalToolsAndRouterDiff": "empty",
+    "releaseMetadataDiff": "harness.config.json/package.json/package-lock.jsonは0.7.0から0.7.1への版文字列だけ。配布の検証は別工程。",
+    "sourceEditedByReviewer": false,
+    "runtimeTestsRerunThisReview": false,
+    "preRegistrationDiagnostic": {"findings": ["MISSING_REVIEW"], "recordedExecutions": 5, "certifiesAcceptance": false}
+  },
+  "resultCarryForward": {
+    "originalBasisSha256": "ef3df54f838362ebe47303ab3cbe53141f303bb79a0f6e025f3cdff6c7defa9e",
+    "testCases": ["TC-REVIEW", "TC-DISPLAY", "TC-GATES", "TC-ASSETS", "TC-FORWARD"],
+    "reason": "受入条件・source・証拠が不変で、採用メタデータだけを照合した。新contractのcommandに元basisと未再実行を明記。TC-REVIEWのみ今回のメタデータ再確認を追加。",
+    "riskAndOperationsAssessment": "元の4riskと6operationsを全件再確認。ownershipの人の採用判断は解消したが、監視記録・復旧境界・合成data保護・実provider予算分離・依存版固定と全画面/正式gateの保護は不変。HTTP契約はなくinterfaces空は妥当。"
+  },
+  "findings": [],
+  "notVerified": [
+    "Claude Code/Copilotの実provider反復比較と効率改善率",
+    "初期段階sourceの厳密再現・全状態とアクセシビリティの正式UI受入",
+    "Databricks認証・配備・実データ・DB操作",
+    "敵対的な同時filesystem差替えへのOS隔離",
+    "0.7.1のstamp・配布経路・main公開・案件適用・完了receipt"
+  ]
+}

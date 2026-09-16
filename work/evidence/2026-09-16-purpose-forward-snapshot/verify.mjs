@@ -1,0 +1,87 @@
+import { chromium } from 'file:///C:/Users/nimao/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import { readFile, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+
+const root = path.dirname(fileURLToPath(import.meta.url));
+const dist = path.join(root, 'dist');
+// Reserved .invalid origin is fulfilled from local files; no HTTP server or network access.
+const origin = 'http://purpose-forward.invalid';
+const defaultBrowser = chromium.executablePath();
+const edge = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
+const browser = await chromium.launch({ executablePath: existsSync(defaultBrowser) ? defaultBrowser : edge, headless: true, args: ['--disable-background-networking'] });
+const context = await browser.newContext({ viewport: { width: 1440, height: 960 }, colorScheme: 'light', locale: 'ja-JP' });
+const page = await context.newPage();
+const requests = [];
+const externalRequests = [];
+const errors = [];
+await context.route('**/*', async route => {
+  const url = route.request().url();
+  requests.push(url);
+  if (!url.startsWith(`${origin}/`)) { externalRequests.push(url); await route.abort(); }
+  else {
+    const requestPath = new URL(url).pathname;
+    const relative = requestPath === '/' ? 'index.html' : requestPath.replace(/^\//, '');
+    const target = path.resolve(dist, relative);
+    if (!target.startsWith(`${dist}${path.sep}`)) { await route.abort(); return; }
+    await route.fulfill({ body: await readFile(target), contentType: target.endsWith('.js') ? 'text/javascript' : target.endsWith('.css') ? 'text/css' : 'text/html; charset=utf-8' });
+  }
+});
+page.on('pageerror', error => errors.push(error.message));
+page.on('console', msg => { if (msg.type() === 'error') errors.push(msg.text()); });
+await page.goto(origin, { waitUntil: 'networkidle' });
+await page.getByRole('heading', { name: '商品一覧', exact: true }).waitFor();
+const columns = await page.getByRole('columnheader').allTextContents();
+const rows = await page.locator('tbody tr').count();
+const actualComponents = await page.locator('[data-slot="table"]').count();
+const theme = await page.evaluate(() => ({ primary: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(), bodyBackground: getComputedStyle(document.body).backgroundColor }));
+const filter = page.getByRole('combobox', { name: '商品分類で絞り込み' });
+const filterBox = await filter.boundingBox();
+const tableBox = await page.getByRole('table', { name: '商品一覧' }).boundingBox();
+const filterAboveTable = filterBox.y + filterBox.height < tableBox.y;
+await page.screenshot({ path: path.join(root, 'stage3-product-list.png'), fullPage: true, animations: 'disabled' });
+await filter.click();
+await page.getByRole('option', { name: 'ギフト', exact: true }).click();
+await page.waitForFunction(() => document.querySelectorAll('tbody tr').length === 1);
+const filteredRows = await page.locator('tbody tr').allTextContents();
+const filteredCount = await page.getByText('1 / 6 商品を表示', { exact: true }).textContent();
+await page.screenshot({ path: path.join(root, 'stage3-product-list-filtered.png'), fullPage: true, animations: 'disabled' });
+await filter.click();
+await page.getByRole('option', { name: 'すべての商品分類', exact: true }).click();
+await page.waitForFunction(() => document.querySelectorAll('tbody tr').length === 6);
+const restoredRows = await page.locator('tbody tr').count();
+await page.getByRole('button', { name: '売上入力', exact: true }).click();
+await page.getByRole('heading', { name: '売上入力', exact: true }).waitFor();
+const emptyPreviewDisabled = await page.getByRole('button', { name: '入力内容を確認', exact: true }).isDisabled();
+await page.getByLabel('売上日', { exact: true }).fill('2026-09-15');
+await page.getByRole('combobox', { name: '商品', exact: true }).click();
+await page.getByRole('option', { name: '深煎りブレンドコーヒー 200g', exact: true }).click();
+await page.getByLabel('数量', { exact: true }).fill('2');
+await page.screenshot({ path: path.join(root, 'stage3-sales-entry.png'), fullPage: true, animations: 'disabled' });
+await page.getByRole('button', { name: '入力内容を確認', exact: true }).click();
+const confirmation = await page.getByRole('dialog').innerText();
+await page.screenshot({ path: path.join(root, 'stage3-sales-confirmation.png'), fullPage: true, animations: 'disabled' });
+await page.getByRole('button', { name: '入力へ戻る', exact: true }).click();
+await page.getByRole('button', { name: '商品一覧へ戻る', exact: true }).click();
+await page.getByRole('heading', { name: '商品一覧', exact: true }).waitFor();
+await page.getByRole('button', { name: '売上入力', exact: true }).click();
+const retainedDraft = { salesDate: await page.getByLabel('売上日', { exact: true }).inputValue(), product: await page.getByRole('combobox', { name: '商品', exact: true }).innerText(), quantity: await page.getByLabel('数量', { exact: true }).inputValue() };
+await page.getByRole('button', { name: '日々の売上グラフ', exact: true }).click();
+await page.getByTestId('daily-sales-chart').locator('canvas').waitFor({ state: 'visible' });
+const chartCanvasSize = await page.getByTestId('daily-sales-chart').locator('canvas').boundingBox();
+await page.screenshot({ path: path.join(root, 'stage3-daily-sales-7days.png'), fullPage: true, animations: 'disabled' });
+await page.getByRole('button', { name: '数値を表示', exact: true }).click();
+const chartTable7Days = await page.getByRole('table', { name: '日別売上の数値' }).locator('tbody tr').count();
+await page.getByRole('combobox', { name: '表示期間', exact: true }).click();
+await page.getByRole('option', { name: '14日間', exact: true }).click();
+const chartTable14Days = await page.getByRole('table', { name: '日別売上の数値' }).locator('tbody tr').count();
+const chartRange14Days = await page.getByText('2026-09-03 〜 2026-09-16', { exact: true }).textContent();
+await page.getByRole('button', { name: '数値を閉じる', exact: true }).click();
+await page.screenshot({ path: path.join(root, 'stage3-daily-sales-14days.png'), fullPage: true, animations: 'disabled' });
+await browser.close();
+const result = { context: 'Codex isolated forward trial, not product approval or Claude Code/Copilot acceptance', stage: 3, viewport: { width: 1440, height: 960 }, columns, rows, actualAppKitTableCount: actualComponents, filterAboveTable, selectedCategory: 'ギフト', filteredRows, filteredCount, restoredRows, emptyPreviewDisabled, confirmation, retainedDraft, chartCanvasSize, chartTable7Days, chartTable14Days, chartRange14Days, theme, pageErrors: errors, externalRequests, localRequests: requests.length, screenshots: ['stage3-product-list.png', 'stage3-product-list-filtered.png', 'stage3-sales-entry.png', 'stage3-sales-confirmation.png', 'stage3-daily-sales-7days.png', 'stage3-daily-sales-14days.png'], scope: 'Remaining screen layout and local interaction discussion; no persistence, business validation, or formal mock approval' };
+await writeFile(path.join(root, 'render-evidence-step3.json'), `${JSON.stringify(result, null, 2)}\n`);
+console.log(JSON.stringify(result, null, 2));
+if (rows !== 6 || actualComponents !== 1 || columns.join('|') !== '商品分類|商品名|税込単価（円）' || !filterAboveTable || filteredRows.length !== 1 || !filteredRows[0].includes('季節のコーヒーと焼き菓子のギフトセット') || restoredRows !== 6 || errors.length || externalRequests.length) process.exitCode = 1;
+if (!emptyPreviewDisabled || !confirmation.includes('2026-09-15') || !confirmation.includes('深煎りブレンドコーヒー 200g') || retainedDraft.quantity !== '2' || retainedDraft.salesDate !== '2026-09-15' || chartCanvasSize.width <= 0 || chartTable7Days !== 7 || chartTable14Days !== 14) process.exitCode = 1;

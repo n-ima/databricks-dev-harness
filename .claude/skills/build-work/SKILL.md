@@ -5,6 +5,8 @@ description: Implement an approved Databricks product requirement through small 
 
 # Build work
 
+This skill implements the product, not every exploratory snippet. For an authorized layout draft use mock-ui; for a design-blocking technical probe, state the hypothesis, isolated inputs and stopping condition in the current plan, run only that probe and record its limits. Neither path authorizes integration, deployment, or bypassing a human gate. Do not require full product implementation paperwork merely to answer a scoped design question.
+
 1. Read the approved requirement, target design, `AGENTS.md`, relevant standards, and `harness/templates/execution-plan.md`.
 2. Confirm all predecessor human gates are approved. Stop if a required gate is missing.
    For UI, read `docs/harness/operations/UI_RUNTIME_FIDELITY.md` and run `delivery ui-approval-check --approval RECEIPT --session ID --app-root apps/NAME` before using the approval. Checking a newly edited contract alone does not validate the old human approval. Reuse the approved app and its actual components, styles and fixtures; do not reinitialize an integration app. If target/components/styles/versions or behavior change, assess the difference and obtain a fresh review/approval; old HTML or approval hashes are not sufficient. Backend integration and deployment remain separate approvals.
@@ -12,7 +14,7 @@ description: Implement an approved Databricks product requirement through small 
    Follow `docs/harness/operations/DOCUMENTATION_STANDARD.md` and `DELIVERY_ASSURANCE.md` in that directory. Before implementing behavior changes, make the slice's field/business/interface definitions concrete, prepare the quality contract and test cases, and obtain a fresh-context design review. Run `harness delivery check --contract work/quality/FEATURE.json --phase design`. For trivial behavior-preserving edits, record the documented omission rationale instead of producing full new paperwork. Neither a generic scaffold nor an all-unknown design is ready for implementation.
 4. Implement the smallest end-to-end slice that proves user value. Keep the repository runnable.
 5. Run deterministic checks before expensive integration or model-based checks.
-6. Exercise user-visible behavior through the browser and Databricks behavior through an isolated development target.
+6. Exercise changed user-visible behavior through the browser and claimed Databricks behavior through an authorized isolated development target. Select checks for the slice's acceptance/risk; an analysis report or API-only product does not need an unrelated UI, and local fixture success is never proof of live integration. Re-run after relevant changes/failures, not in an unchanged broad loop.
 7. Record evidence and request a fresh independent review. Do not grade your own implementation as accepted.
    Update actual artifacts/results, run the quality contract with `--phase verify`, and include its snapshot/diagnostics in the existing evidence review. A zero-finding advisory report is not acceptance and does not replace `evidence seal`. Explain findings and remaining work in Japanese.
 8. Iterate on genuine findings without weakening acceptance criteria or checks.

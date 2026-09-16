@@ -1,0 +1,30 @@
+{
+  "reviewer": "publish_071_review",
+  "provider": "codex",
+  "context": "/root/publish_071_review",
+  "independent": true,
+  "status": "not-run",
+  "stage": "pre-push",
+  "reviewedAt": "2026-09-16",
+  "baseSha": "6fedb4a4dd6f3bc9db1982cd195166f078864b0a",
+  "manifestSha256": "44c108e6190995de279842e8c237cfa89d65d5710b895fe558273790fa918bbb",
+  "managedFiles": 1109,
+  "reason": "PUB-071-01〜03はローカル独立確認pass。未pushのためPUB-071-04はnot-run。公開受入の完了記録ではない。",
+  "acceptance": [
+    {"id":"PUB-071-01","status":"pass","evidence":["docs/harness/requirements/2026-09-16-publish-071.md","docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md","docs/harness/releases/0.7.1.md","work/reviews/2026-09-16-publish-071-independent.md"]},
+    {"id":"PUB-071-02","status":"pass","evidence":["harness/base-release.json","work/evidence/2026-09-16-publish-071-regression.tap","work/evidence/2026-09-16-publish-071-bytes.json","work/evidence/2026-09-16-publish-071-update-r2.json","work/reviews/2026-09-16-publish-071-independent.md"]},
+    {"id":"PUB-071-03","status":"pass","evidence":["work/evidence/2026-09-16-publish-071-update-r2.json","work/evidence/2026-09-16-publish-071-independent-conflict.json","work/evidence/2026-09-16-publish-071-independent-conflict.mjs"]},
+    {"id":"PUB-071-04","status":"not-run","evidence":["work/reviews/2026-09-16-publish-071-independent.md"]}
+  ],
+  "evidenceHashes": {
+    "harness/base-release.json":"44c108e6190995de279842e8c237cfa89d65d5710b895fe558273790fa918bbb",
+    "docs/harness/requirements/2026-09-16-publish-071.md":"255a0c1848e2c58686972767532a22759ce91793e30d1d9bf9bc339b849ab783",
+    "docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md":"a2700e4657fb48c894bcbc3b426fe20a44031ae7dfd46aa65a99d8617f9f5137",
+    "docs/harness/releases/0.7.1.md":"74669e1c4aba070701787819ce4bd1db2b9bd52ede982fccc7f84d4b45ce25b0",
+    "work/evidence/2026-09-16-publish-071-regression.tap":"8921b2f7381e2e86ff2a056a57598313f73abee0fabef9a1a7353c32f57ec00d",
+    "work/evidence/2026-09-16-publish-071-bytes.json":"aa8b95dff3aeab28e9ecdaa5da03648666ed7caaf36e2c34eac37977dad73b39",
+    "work/evidence/2026-09-16-publish-071-update-r2.json":"155dcb94faa5af7bf300574737abffbcf427b04a86e306add52081b7dc84fda7",
+    "work/evidence/2026-09-16-publish-071-independent-conflict.json":"189204028c017c1bea834d7aa4b9c11ce74d92cd38040189622082accfe06820"
+  },
+  "notVerified": ["final staged/committed publication scope", "private remote main SHA and CI status", "real downstream project application", "Databricks", "Claude Code/Copilot repeated provider comparison", "efficiency improvement rate"]
+}

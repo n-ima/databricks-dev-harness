@@ -1,0 +1,420 @@
+{
+  "schemaVersion": 1,
+  "producer": {
+    "actor": "purpose-implementer",
+    "context": "root-purpose-20260916"
+  },
+  "requirement": {
+    "path": "docs/harness/requirements/2026-09-16-purpose-driven-delivery.md",
+    "sha256": "084b2215daea103066eb9644613a9dcb7df663079cbef7b4dd3a03b3bb1e24f3"
+  },
+  "artifacts": [
+    {
+      "path": "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md",
+      "sha256": "fe5229e7758cdd6c11ab06c3d0ca2f827b5e1f6ad337d02f56a7bab532eb53e8"
+    },
+    {
+      "path": "docs/harness/research/2026-09-16-purpose-driven-delivery.md",
+      "sha256": "c21229beae1b969757dc225ca44bee3f43c9b27aff200c38c8124be02a768ccb"
+    },
+    {
+      "path": "docs/harness/operations/OPERATING_MODEL.md",
+      "sha256": "31b78e427b2eef865924d3e4de20a07153a97ad6295ee9f8eaf04bee41128480"
+    },
+    {
+      "path": "docs/harness/operations/UI_RUNTIME_FIDELITY.md",
+      "sha256": "c70e923691969479981f05222582dd2fb1277fc4b5a5644d293f6ed8159940a6"
+    },
+    {
+      "path": "docs/harness/operations/DOCUMENTATION_STANDARD.md",
+      "sha256": "ad0a3359156a916a67a989793cd0b11130d46971f0b3371a919d1d8805e888f1"
+    },
+    {
+      "path": "docs/harness/operations/DELIVERY_ASSURANCE.md",
+      "sha256": "956e63717e049ea93aa8aee5784163cc5bb0d7e2bc4aa3d33401d66b878d6304"
+    },
+    {
+      "path": "docs/product/standards/FRONTEND.md",
+      "sha256": "e71f229f928cd697a6ecc34176b566ed605dbb4895dd7ce8272b3d1e5964b384"
+    },
+    {
+      "path": "docs/product/standards/QUALITY.md",
+      "sha256": "5262ecc1a8ed228501a7ab3f4be6486e3d160cbe70498cddec03bf53a8f47cac"
+    },
+    {
+      "path": "harness/skills/orchestrate-work/SKILL.md",
+      "sha256": "67f34388244f0c0ba4cd358c767f4dfb837fd24dcd51384cf9d04449f3ad02a8"
+    },
+    {
+      "path": "harness/skills/define-work/SKILL.md",
+      "sha256": "29d8709d8c9c3f273d8bab438ef15f7f1d3a8dd239e194d9445d63fcb18891ee"
+    },
+    {
+      "path": "harness/skills/mock-ui/SKILL.md",
+      "sha256": "9455cc49650cc87dc55c2efc1b42617486fdf5dc51ef5f8ad24f161376407408"
+    },
+    {
+      "path": "harness/skills/build-work/SKILL.md",
+      "sha256": "d1123dd272e67c4c66b58c288df1c1586ab37a938d0135cba6803be10db7f0de"
+    },
+    {
+      "path": "harness/skills/review-work/SKILL.md",
+      "sha256": "7982540218a93b950cbb091d3c73ed0ea8c26ba8208ac548d19f0607e9fd687f"
+    },
+    {
+      "path": "harness/skills/release-work/SKILL.md",
+      "sha256": "0a82876fde3d666623c2ae4877cf4f181114765bbc7f4e8e257270c54d5d842b"
+    },
+    {
+      "path": "harness/templates/execution-plan.md",
+      "sha256": "46a5e021401fd7d1b46b79e2c4b6cb40e0dfaa1d92d8fa984dc87d94cde0726c"
+    },
+    {
+      "path": "harness/templates/product-architecture.md",
+      "sha256": "14398f278f6954d413c4f73c911ba8c1584a1ff05244ab47e636e040a1509903"
+    },
+    {
+      "path": "harness/evals/golden-tasks.json",
+      "sha256": "006675d01aba3fc132f9c48b4a1a83aede0df5f5cce8d7bda589879bd6e8eef7"
+    },
+    {
+      "path": "harness/evals/progressive-ui.md",
+      "sha256": "5d848064e46f064c52a2588a5488b1c8b4860ba3c07cda5e799011c9797adbc7"
+    },
+    {
+      "path": "tests/fixtures/purpose-ui/main.jsx",
+      "sha256": "1e95aa5db03d4d2182a3c29939b0f7fd3f24e3a50a87b5e9e23ec55f4814729f"
+    },
+    {
+      "path": "tests/fixtures/purpose-ui/style.css",
+      "sha256": "010a1b19e1392cb6d5d431b3ce2f6ae3da3dbb6bcd9557c3f73bf8111d81406b"
+    },
+    {
+      "path": "tests/fixtures/purpose-ui/index.html",
+      "sha256": "25bcf4855fdcbaf679be79d0fe11e8daa9ded0da3c3f4439045e05c02066b18c"
+    },
+    {
+      "path": "tests/fixtures/purpose-ui/probe.mjs",
+      "sha256": "6977066acde3c30520e5c667e124f362ff3fa664c636b1ec105a12aa52d95ded"
+    },
+    {
+      "path": "tests/fixtures/purpose-ui/README.md",
+      "sha256": "2def0d056120064c3b7cd0f2de0bc2d453f3375c5415ff4e61abe1f40c0b2778"
+    },
+    {
+      "path": "tests/purpose-ui-probe.test.mjs",
+      "sha256": "cf09b7c956eee735b1a4780d150d6053789081a6da6c89e0140efeff14d7d3c5"
+    }
+  ],
+  "requirements": [
+    "PDD-01",
+    "PDD-02",
+    "PDD-03",
+    "PDD-04",
+    "PDD-05",
+    "PDD-06"
+  ],
+  "risks": [
+    {
+      "id": "R-SCOPE",
+      "description": "配置相談に本実装を先取りする、または全画面・仕様の保存を省く",
+      "testIds": [
+        "TC-REVIEW",
+        "TC-FORWARD"
+      ]
+    },
+    {
+      "id": "R-SAFETY",
+      "description": "途中feedbackを正式承認へ読み替える",
+      "testIds": [
+        "TC-GATES",
+        "TC-REVIEW"
+      ]
+    },
+    {
+      "id": "R-DISPLAY",
+      "description": "実部品を使わない、または表示前の画像を成功とする",
+      "testIds": [
+        "TC-DISPLAY",
+        "TC-REVIEW"
+      ]
+    },
+    {
+      "id": "R-CLAIM",
+      "description": "生成物同期や自己試験を実provider成功・正式公開と誤表示する",
+      "testIds": [
+        "TC-ASSETS",
+        "TC-REVIEW",
+        "TC-FORWARD"
+      ]
+    }
+  ],
+  "interfaces": [],
+  "testCases": [
+    {
+      "id": "TC-REVIEW",
+      "requirements": [
+        "PDD-01",
+        "PDD-02",
+        "PDD-03",
+        "PDD-04",
+        "PDD-05",
+        "PDD-06"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "候補branch、実案件・実DBは変更しない",
+      "steps": [
+        "調査・設計・差分と採否理由を別contextで確認",
+        "全画面・未決・安全な停止点と試験主張を反証"
+      ],
+      "expected": "独立レビューの根拠ある判定。未実施はnot-run",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "ef3df54f838362ebe47303ab3cbe53141f303bb79a0f6e025f3cdff6c7defa9e",
+        "evidence": [
+          {
+            "path": "work/reviews/2026-09-16-purpose-independent.md",
+            "sha256": "45736aa76eef9e50f5c8afc12912233bc410a3e863fd0b1818fe7f6e1fabffd4"
+          },
+          {
+            "path": "work/reviews/2026-09-16-purpose-independent.json",
+            "sha256": "a7919c31e4588555bbfcfcef69cd9eb3ebd44861131a59bf7579d92dad75a067"
+          }
+        ],
+        "command": "別contextによる設計/差分/証拠の独立レビューと限定再実行。報告のコマンドと対象hashを参照。",
+        "versions": "candidate source 2026-09-16; Node v24.15.0; Codex model/token usage unknown; not Claude Code/Copilot acceptance"
+      }
+    },
+    {
+      "id": "TC-DISPLAY",
+      "requirements": [
+        "PDD-03",
+        "PDD-05"
+      ],
+      "level": "e2e",
+      "environment": "local",
+      "preconditions": "候補branch、実案件・実DBは変更しない",
+      "steps": [
+        "実AppKit 0.72.0の合成3画面をbuildしheadless browserで表示",
+        "実系列描画・配置変更・入力の未接続表示と狭い画面を確認"
+      ],
+      "expected": "描画/配置変更ができ、console errorとremote/backend要求は0。本番/agent効率は認定しない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "ef3df54f838362ebe47303ab3cbe53141f303bb79a0f6e025f3cdff6c7defa9e",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-16-purpose-ui-independent-run2/result.json",
+            "sha256": "f660988151bec33701a3bc26fa422dbbe8f2887d49fc32c98a187ddb62bde51c"
+          }
+        ],
+        "command": "node tests/fixtures/purpose-ui/probe.mjs --runtime-root D:/projects/product-sales-management/apps/sales-management --browser-packages C:/Users/nimao/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules --output work/evidence/2026-09-16-purpose-ui-independent-run2",
+        "versions": "AppKit UI 0.72.0; React 19.2.4; Vite 7.1.14; Node v24.15.0; Chromium 151.0.7922.34"
+      }
+    },
+    {
+      "id": "TC-GATES",
+      "requirements": [
+        "PDD-05"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "候補branch、実案件・実DBは変更しない",
+      "steps": [
+        "既存の全回帰を実行",
+        "正式承認・更新・loop等の拒否を保持し検証器の差分がないことを確認"
+      ],
+      "expected": "回帰失敗0、skipは成功にしない。正式承認ロジック不変",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "ef3df54f838362ebe47303ab3cbe53141f303bb79a0f6e025f3cdff6c7defa9e",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-16-purpose-final-regression.tap",
+            "sha256": "9534192b82085d28821289580e40d943166b0b577a900efc71a32e2098a6ef3a"
+          },
+          {
+            "path": "work/evidence/2026-09-16-purpose-structural-checks.json",
+            "sha256": "22404386194042b7924cc3c1e1ca24dc11f846d199f0d6c836dd8259ac8d990b"
+          }
+        ],
+        "command": "node --test --test-reporter=tap --test-reporter-destination=work/evidence/2026-09-16-purpose-final-regression.tap tests/*.test.mjs; 726 pass, 0 fail, 2 skip（成功に含めない）",
+        "versions": "candidate source 2026-09-16; Node v24.15.0; Codex model/token usage unknown; not Claude Code/Copilot acceptance"
+      }
+    },
+    {
+      "id": "TC-ASSETS",
+      "requirements": [
+        "PDD-06"
+      ],
+      "level": "contract",
+      "environment": "local",
+      "preconditions": "候補branch、実案件・実DBは変更しない",
+      "steps": [
+        "canonical skillsを同期",
+        "harness:checkとdiff検査を実行"
+      ],
+      "expected": "両provider向け生成物が整合。実provider利用・公開は認定しない",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "ef3df54f838362ebe47303ab3cbe53141f303bb79a0f6e025f3cdff6c7defa9e",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-16-purpose-structural-checks.json",
+            "sha256": "22404386194042b7924cc3c1e1ca24dc11f846d199f0d6c836dd8259ac8d990b"
+          }
+        ],
+        "command": "node tools/harness.mjs check; git diff --check; 正式制御の差分なし（構造記録を参照）",
+        "versions": "candidate source 2026-09-16; Node v24.15.0; Codex model/token usage unknown; not Claude Code/Copilot acceptance"
+      }
+    },
+    {
+      "id": "TC-FORWARD",
+      "requirements": [
+        "PDD-02",
+        "PDD-03",
+        "PDD-04",
+        "PDD-05",
+        "PDD-06"
+      ],
+      "level": "evaluation",
+      "environment": "local",
+      "preconditions": "候補branch、実案件・実DBは変更しない",
+      "steps": [
+        "初回配置相談→変更→残画面設計→新context再開を固定入力で実行",
+        "API/分析/運用で目的外実装をしないか独立確認"
+      ],
+      "expected": "目的に合う成果、全画面・記録・権限を保持。Claude Code/Copilot実地結果は別途明示",
+      "result": {
+        "status": "pass",
+        "environment": "local",
+        "basisSha256": "ef3df54f838362ebe47303ab3cbe53141f303bb79a0f6e025f3cdff6c7defa9e",
+        "evidence": [
+          {
+            "path": "work/evidence/2026-09-16-purpose-forward-snapshot-manifest.json",
+            "sha256": "e13d8cbd28df19b13282fd2a0c6d3e348c58268b304026e40e5fca629b91b46c"
+          },
+          {
+            "path": "work/evidence/2026-09-16-purpose-forward-snapshot/design.md",
+            "sha256": "067838197846137e8949d0ec2ddc88d850e4234697c552c38ed53bf095588e9e"
+          },
+          {
+            "path": "work/evidence/2026-09-16-purpose-forward-snapshot/evidence-stage3.md",
+            "sha256": "ed6fdf82cce9335db1b0bd1c756e3353157373dec8a73d92c80a9855be296c48"
+          },
+          {
+            "path": "work/evidence/2026-09-16-purpose-resume-trial.md",
+            "sha256": "2489c151f7ca9db418749528f6c5a1f39a0daa28c750f481a525ea01325cbf14"
+          },
+          {
+            "path": "work/evidence/2026-09-16-purpose-non-ui-trial.md",
+            "sha256": "9dfac397f122bc94103f2d2425f0090f7a00836d86431105c03ba05b242d3784"
+          }
+        ],
+        "command": "Codex補助contextへ初回/変更/残画面設計を順番に依頼し、新contextへファイルと続けてを渡した。非UIは4入力の手順判断のみ。操作補足あり、完全blindではない。段階1/2 source未取得・段階2画像不採用の限界を含み、実provider/効率比較ではない。",
+        "versions": "candidate source 2026-09-16; Node v24.15.0; Codex model/token usage unknown; not Claude Code/Copilot acceptance"
+      }
+    }
+  ],
+  "operations": [
+    {
+      "id": "ownership",
+      "status": "applicable",
+      "reason": "ハーネス保守担当が候補と正式採用を区別する",
+      "testIds": [
+        "TC-REVIEW"
+      ],
+      "document": {
+        "path": "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md",
+        "sha256": "fe5229e7758cdd6c11ab06c3d0ca2f827b5e1f6ad337d02f56a7bab532eb53e8"
+      }
+    },
+    {
+      "id": "monitoring",
+      "status": "applicable",
+      "reason": "既存sessionへ失敗・未検証と次の作業を残す",
+      "testIds": [
+        "TC-REVIEW"
+      ],
+      "document": {
+        "path": "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md",
+        "sha256": "fe5229e7758cdd6c11ab06c3d0ca2f827b5e1f6ad337d02f56a7bab532eb53e8"
+      }
+    },
+    {
+      "id": "recovery",
+      "status": "applicable",
+      "reason": "既存正式版と案件を不変で保持し、未採用branchへ隔離する",
+      "testIds": [
+        "TC-REVIEW"
+      ],
+      "document": {
+        "path": "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md",
+        "sha256": "fe5229e7758cdd6c11ab06c3d0ca2f827b5e1f6ad337d02f56a7bab532eb53e8"
+      }
+    },
+    {
+      "id": "data-protection",
+      "status": "applicable",
+      "reason": "合成fixtureだけを使い、接続・実データ・資格情報は利用しない",
+      "testIds": [
+        "TC-DISPLAY",
+        "TC-GATES"
+      ],
+      "document": {
+        "path": "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md",
+        "sha256": "fe5229e7758cdd6c11ab06c3d0ca2f827b5e1f6ad337d02f56a7bab532eb53e8"
+      }
+    },
+    {
+      "id": "cost",
+      "status": "applicable",
+      "reason": "実providerの新たな課金・実行には範囲と上限・隔離の確認が必要",
+      "testIds": [
+        "TC-REVIEW"
+      ],
+      "document": {
+        "path": "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md",
+        "sha256": "fe5229e7758cdd6c11ab06c3d0ca2f827b5e1f6ad337d02f56a7bab532eb53e8"
+      }
+    },
+    {
+      "id": "dependency-updates",
+      "status": "applicable",
+      "reason": "表示試験は確認したinstalled版に限定し依存を一括更新しない",
+      "testIds": [
+        "TC-REVIEW"
+      ],
+      "document": {
+        "path": "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md",
+        "sha256": "fe5229e7758cdd6c11ab06c3d0ca2f827b5e1f6ad337d02f56a7bab532eb53e8"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "actor": "purpose_design_review",
+      "context": "root/purpose_design_review-quality-final-20260916",
+      "independent": true,
+      "status": "pass",
+      "reviewedSha256": "4fc0123b361a8f0892bde9d3be51a1c3fa812c0ca0f3164f1799a926f3647fa2",
+      "coverage": {
+        "requirements": ["PDD-01", "PDD-02", "PDD-03", "PDD-04", "PDD-05", "PDD-06"],
+        "risks": ["R-SCOPE", "R-SAFETY", "R-DISPLAY", "R-CLAIM"],
+        "interfaces": [],
+        "operations": ["ownership", "monitoring", "recovery", "data-protection", "cost", "dependency-updates"]
+      },
+      "evidence": [
+        {
+          "path": "work/reviews/2026-09-16-purpose-quality-final.json",
+          "sha256": "2e76c7714219acde832df2fcdf0c4abf1dc840d7b422a55062dd309da17312e5"
+        }
+      ]
+    }
+  ]
+}

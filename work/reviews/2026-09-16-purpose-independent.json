@@ -1,0 +1,31 @@
+{
+  "reviewer": "purpose_design_review",
+  "provider": "Codex",
+  "context": "root/purpose_design_review-20260916",
+  "independent": true,
+  "status": "pass",
+  "reason": "PDD-R1/R2解消。限定Codex試行の固定3画面・仕様・別context再開を確認しPDD-01〜06の候補範囲でpass。実provider比較・厳密な効率比較・正式採用/配布は認定しない。結果集約後の品質verifyは別確認。",
+  "reviewedAt": "2026-09-16",
+  "evidence": [
+    "work/reviews/2026-09-16-purpose-independent.md",
+    "work/evidence/2026-09-16-purpose-ui-independent-run1/result.json",
+    "work/evidence/2026-09-16-purpose-ui-independent-run2/result.json",
+    "work/evidence/2026-09-16-purpose-non-ui-trial.md",
+    "work/evidence/2026-09-16-purpose-resume-trial.md",
+    "work/evidence/2026-09-16-purpose-forward-snapshot/design.md",
+    "work/evidence/2026-09-16-purpose-forward-snapshot/render-evidence-step3.json"
+  ],
+  "acceptance": [
+    {"id":"PDD-01","status":"pass","evidence":["docs/harness/research/2026-09-16-purpose-driven-delivery.md","docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md","work/reviews/2026-09-16-purpose-independent.md"],"limits":"記録と一次資料の抜き取り照合。全資料全文・全研究の追試ではない。"},
+    {"id":"PDD-02","status":"pass","evidence":["docs/harness/operations/OPERATING_MODEL.md","harness/templates/execution-plan.md","harness/skills/orchestrate-work/SKILL.md"],"limits":"手順の独立静的レビュー。実provider行動比較は未実施。"},
+    {"id":"PDD-03","status":"pass","evidence":["harness/skills/mock-ui/SKILL.md","work/evidence/2026-09-16-purpose-ui-independent-run2/result.json","work/evidence/2026-09-16-purpose-forward-snapshot/design.md","work/evidence/2026-09-16-purpose-forward-snapshot/render-evidence-step3.json","work/evidence/2026-09-16-purpose-resume-trial.md"],"limits":"実部品独立表示と、限定Codex試行の固定3画面・仕様・新context再開を照合。初回/変更時source欠落のため厳密な全段階再現・効率比較は認定しない。実providerや正式mock受入は別。"},
+    {"id":"PDD-04","status":"pass","evidence":["docs/harness/operations/OPERATING_MODEL.md","harness/skills/build-work/SKILL.md","harness/skills/release-work/SKILL.md","work/evidence/2026-09-16-purpose-non-ui-trial.md"],"limits":"目的ごとの停止点と実環境受入境界、別contextの4題の回答/手順を確認。補足された正確な分類入力とoverrideは独立再実行一致。全workloadの実処理試験ではない。"},
+    {"id":"PDD-05","status":"pass","evidence":["work/reviews/2026-09-16-purpose-independent.md","work/evidence/2026-09-16-purpose-ui-independent-run2/result.json","tests/purpose-ui-probe.test.mjs"],"limits":"UI/承認関連78件、出力保護5件と元の独立反例、実表示を独立実行。PDD-R1解消。全回帰を独立で全件再実行した意味ではない。"},
+    {"id":"PDD-06","status":"pass","evidence":["docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md","work/evidence/2026-09-16-purpose-driven-delivery.md","work/reviews/2026-09-16-purpose-independent.md"],"limits":"providerコピー一致と移行境界・未実行開示を確認。実Claude Code/Copilot比較はnot-run。"}
+  ],
+  "findings": [
+    {"id":"PDD-R1","severity":"P2","status":"resolved","file":"tests/fixtures/purpose-ui/probe.mjs","line":18,"reviewedSha256":"6977066acde3c30520e5c667e124f362ff3fa664c636b1ec105a12aa52d95ded","testSha256":"cf09b7c956eee735b1a4780d150d6053789081a6da6c89e0140efeff14d7d3c5","summary":"symlink/junction祖先をmkdir前に拒否する修正を確認。元の反例はlinkRejected:true/outputCreatedOutsideRepo:false。","acceptance":"出力保護5件と元の独立反例が成功し、通常の実部品表示も再実行成功。敵対的な同時差替えに対するOS隔離は保証しない。"},
+    {"id":"PDD-R2","severity":"P3","status":"resolved","file":"work/evidence/2026-09-16-purpose-non-ui-trial.md","line":56,"reviewedSha256":"9dfac397f122bc94103f2d2425f0090f7a00836d86431105c03ba05b242d3784","summary":"正確な4入力とoverrideの元記録が追記され、独立再実行でraw分類・明示指定・executionAuthorized:falseが一致。","acceptance":"Aの実入力には公開したいを含む。overrideはpromptも要約したため、同一promptのflag比較とは主張しないことも確認。"}
+  ],
+  "notVerified": ["strict all-stage source reconstruction and baseline/candidate repeated efficiency comparison", "Claude Code/Copilot repeated provider comparison", "Databricks deployment/auth/data", "formal UI acceptance and all states/accessibility", "adoption/publication/project update", "final quality verify after result aggregation"]
+}

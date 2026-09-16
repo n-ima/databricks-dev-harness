@@ -1,0 +1,47 @@
+{
+  "reviewer": "publish_071_review",
+  "context": "root/publish_071_review",
+  "status": "pass",
+  "checkedAt": "2026-09-16T09:21:22.537Z",
+  "manifestSha256": "44c108e6190995de279842e8c237cfa89d65d5710b895fe558273790fa918bbb",
+  "unchangedFiles": 1106,
+  "newManagedPathsStillAbsent": [
+    "docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md",
+    "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md",
+    "docs/harness/releases/0.7.1.md",
+    "docs/harness/requirements/2026-09-16-publish-071.md",
+    "docs/harness/requirements/2026-09-16-purpose-driven-delivery.md",
+    "docs/harness/research/2026-09-16-purpose-driven-delivery.md",
+    "harness/evals/progressive-ui.md"
+  ],
+  "scope": "Every product/managed file and file set unchanged; .harness plan metadata excluded, not a claim of no filesystem writes.",
+  "commands": [
+    {
+      "args": [
+        "plan",
+        "--source",
+        "D:\\projects\\databricks-dev-harness",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\pub071-independent-conflict-1TqLh9"
+      ],
+      "exitCode": 1,
+      "stdout": "{\n  \"status\": \"競合のため停止\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\pub071-independent-conflict-1TqLh9\",\n  \"fromVersion\": \"0.7.0\",\n  \"toVersion\": \"0.7.1\",\n  \"source\": {\n    \"requested\": \"D:\\\\projects\\\\databricks-dev-harness\",\n    \"resolved\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\releases\\\\0.7.1\",\n    \"kind\": \"stamped-release\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-092122-293-17ead5ff.json\",\n  \"canApply\": false,\n  \"counts\": {\n    \"keep\": 1075,\n    \"update\": 26,\n    \"conflict\": 1,\n    \"add\": 7\n  },\n  \"conflicts\": [\n    {\n      \"path\": \"AGENTS.md\",\n      \"action\": \"conflict\",\n      \"beforeSha256\": \"898a27aebe77c476a0ab3c84cd61fb5604fcf790c7c24f907223511a584fce9a\",\n      \"afterSha256\": \"b57c82afe7405ebc0eeac067b452bc5b43dc278fa552865b375c3bcf97678ed4\",\n      \"reason\": \"Downstream file changed since the installed baseline.\"\n    }\n  ],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "apply",
+        "--plan",
+        ".harness/updates/update-20260916-092122-293-17ead5ff.json",
+        "--yes",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\pub071-independent-conflict-1TqLh9"
+      ],
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "更新を停止しました: Update has downstream conflicts; no file was changed.\n"
+    }
+  ],
+  "networkUsed": false,
+  "realProjectChanged": false
+}

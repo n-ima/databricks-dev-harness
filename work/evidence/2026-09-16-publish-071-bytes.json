@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-09-16T09:19:17.733Z",
+  "status": "pass",
+  "version": "0.7.1",
+  "managedFiles": 1109,
+  "sourceHashParity": true,
+  "freshGitCheckoutHashParity": true,
+  "checkoutCoreAutocrlf": true,
+  "networkUsed": false,
+  "realRepositoryCommitted": false,
+  "manifestSha256": "44c108e6190995de279842e8c237cfa89d65d5710b895fe558273790fa918bbb",
+  "limitations": [
+    "Local Windows Git roundtrip only; hosted Linux/macOS CI remains separate.",
+    "Byte parity does not authenticate the release publisher or certify product functionality."
+  ]
+}

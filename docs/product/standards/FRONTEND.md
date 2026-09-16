@@ -23,7 +23,9 @@ HTMLの紙芝居も、採用した実コンポーネント・スタイルを描�
 
 Mocks use production components and synthetic fixtures. They are kept as deterministic application states and tests, not discarded after approval.
 
-Required evidence:
+初期の配置相談では、実部品・共通styleで今回分を表示し、表示を妨げるエラーと実データへのアクセスがないことを確認する。入力等の小さな動作は必要に応じて作るが、DB保存や業務計算・全状態の完成は先取りしない。対象の全画面/動作を設計書に残し、順次確認する。一部だけで設計完了としない。
+
+Required evidence for **formal mock acceptance**, not the first layout discussion:
 
 - primary journey;
 - desktop and narrow screenshots;

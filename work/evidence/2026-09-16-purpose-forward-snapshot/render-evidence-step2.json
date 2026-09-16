@@ -1,0 +1,34 @@
+{
+  "context": "Codex isolated forward trial, not product approval or Claude Code/Copilot acceptance",
+  "stage": 2,
+  "viewport": {
+    "width": 1440,
+    "height": 960
+  },
+  "columns": [
+    "商品分類",
+    "商品名",
+    "税込単価（円）"
+  ],
+  "rows": 6,
+  "actualAppKitTableCount": 1,
+  "filterAboveTable": true,
+  "selectedCategory": "ギフト",
+  "filteredRows": [
+    "ギフト季節のコーヒーと焼き菓子のギフトセット¥3,240"
+  ],
+  "filteredCount": "1 / 6 商品を表示",
+  "restoredRows": 6,
+  "theme": {
+    "primary": "#1764c0",
+    "bodyBackground": "rgb(243, 247, 252)"
+  },
+  "pageErrors": [],
+  "externalRequests": [],
+  "localRequests": 3,
+  "screenshots": [
+    "product-list-filter.png",
+    "product-list-filter-active.png"
+  ],
+  "scope": "Product list category filter and requested column order only; other two screens retained in design but unrendered"
+}

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "20260916-071045-256-purpose-driven-delivery",
+  "requirement": "docs/harness/requirements/2026-09-16-purpose-driven-delivery.md",
+  "status": "pass",
+  "reviewer": "purpose_design_review",
+  "provider": "codex",
+  "independent": true,
+  "provenance": {
+    "type": "review-record",
+    "source": "work/reviews/2026-09-16-purpose-adopted.json",
+    "identityAuthenticated": false
+  },
+  "acceptance": [
+    {
+      "id": "PDD-01",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-purpose-independent.md",
+        "work/reviews/2026-09-16-purpose-adopted.md",
+        "docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md"
+      ],
+      "limits": "既存の調査照合と採用記録の限定再確認。人の採用決定を記録するものでreviewerの自己承認ではない。"
+    },
+    {
+      "id": "PDD-02",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-purpose-independent.json",
+        "work/reviews/2026-09-16-purpose-adopted.md"
+      ],
+      "limits": "受入条件と手順sourceが旧hashと一致し、既存判定を引き継ぐ。実provider行動比較は未実施。"
+    },
+    {
+      "id": "PDD-03",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-16-purpose-ui-independent-run2/result.json",
+        "work/evidence/2026-09-16-purpose-forward-snapshot/design.md",
+        "work/evidence/2026-09-16-purpose-resume-trial.md",
+        "work/reviews/2026-09-16-purpose-adopted.md"
+      ],
+      "limits": "実部品独立表示・限定Codex3画面/局所操作・fresh-context再開の既存判定。初期source欠落、厳密blindでない限界と正式全状態UI受入の未実施は不変。今回の再実行ではない。"
+    },
+    {
+      "id": "PDD-04",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-16-purpose-non-ui-trial.md",
+        "work/reviews/2026-09-16-purpose-independent.json",
+        "work/reviews/2026-09-16-purpose-adopted.md"
+      ],
+      "limits": "非UI4題の手順・境界と分類再現の既存判定。実データの分析・推論・障害解決は未実施。"
+    },
+    {
+      "id": "PDD-05",
+      "status": "pass",
+      "evidence": [
+        "work/evidence/2026-09-16-purpose-final-regression.tap",
+        "work/reviews/2026-09-16-purpose-independent.md",
+        "work/reviews/2026-09-16-purpose-adopted.md"
+      ],
+      "limits": "実装と証拠不変に基づく引継ぎ。候補全回帰728件中726pass/0fail/2skipと独立78件・5件を保持し、今回の全回帰・runtime再実行とはしない。"
+    },
+    {
+      "id": "PDD-06",
+      "status": "pass",
+      "evidence": [
+        "docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md",
+        "work/reviews/2026-09-16-purpose-adopted.md",
+        "work/reviews/2026-09-16-purpose-independent.json"
+      ],
+      "limits": "今回も6skill/12providerコピーを独立hash照合。実Claude Code/Copilot反復比較は未実行。公開・更新経路・案件適用の成功は別工程。"
+    }
+  ],
+  "artifactHashes": {
+    "work/reviews/2026-09-16-purpose-adopted.json": "aa21bcabf5ae42bc91f1ed62bc7cdce50d323166c20fca7991bed3ca093f39f7",
+    "docs/harness/requirements/2026-09-16-purpose-driven-delivery.md": "43ec974e9ca1430ec880499abb21e0ac7beb189bb757a29928c8a604abd13368",
+    "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md": "bc8ee9c54e40e4a8738bfb27ff1151fe29adf36dd522e1edbac6a2c6b35738aa",
+    "docs/harness/research/2026-09-16-purpose-driven-delivery.md": "c21229beae1b969757dc225ca44bee3f43c9b27aff200c38c8124be02a768ccb",
+    "docs/harness/operations/OPERATING_MODEL.md": "31b78e427b2eef865924d3e4de20a07153a97ad6295ee9f8eaf04bee41128480",
+    "docs/harness/operations/UI_RUNTIME_FIDELITY.md": "c70e923691969479981f05222582dd2fb1277fc4b5a5644d293f6ed8159940a6",
+    "docs/harness/operations/DOCUMENTATION_STANDARD.md": "ad0a3359156a916a67a989793cd0b11130d46971f0b3371a919d1d8805e888f1",
+    "docs/harness/operations/DELIVERY_ASSURANCE.md": "956e63717e049ea93aa8aee5784163cc5bb0d7e2bc4aa3d33401d66b878d6304",
+    "docs/product/standards/FRONTEND.md": "e71f229f928cd697a6ecc34176b566ed605dbb4895dd7ce8272b3d1e5964b384",
+    "docs/product/standards/QUALITY.md": "5262ecc1a8ed228501a7ab3f4be6486e3d160cbe70498cddec03bf53a8f47cac",
+    "harness/skills/orchestrate-work/SKILL.md": "67f34388244f0c0ba4cd358c767f4dfb837fd24dcd51384cf9d04449f3ad02a8",
+    "harness/skills/define-work/SKILL.md": "29d8709d8c9c3f273d8bab438ef15f7f1d3a8dd239e194d9445d63fcb18891ee",
+    "harness/skills/mock-ui/SKILL.md": "9455cc49650cc87dc55c2efc1b42617486fdf5dc51ef5f8ad24f161376407408",
+    "harness/skills/build-work/SKILL.md": "d1123dd272e67c4c66b58c288df1c1586ab37a938d0135cba6803be10db7f0de",
+    "harness/skills/review-work/SKILL.md": "7982540218a93b950cbb091d3c73ed0ea8c26ba8208ac548d19f0607e9fd687f",
+    "harness/skills/release-work/SKILL.md": "0a82876fde3d666623c2ae4877cf4f181114765bbc7f4e8e257270c54d5d842b",
+    "harness/templates/execution-plan.md": "46a5e021401fd7d1b46b79e2c4b6cb40e0dfaa1d92d8fa984dc87d94cde0726c",
+    "harness/templates/product-architecture.md": "14398f278f6954d413c4f73c911ba8c1584a1ff05244ab47e636e040a1509903",
+    "harness/evals/golden-tasks.json": "006675d01aba3fc132f9c48b4a1a83aede0df5f5cce8d7bda589879bd6e8eef7",
+    "harness/evals/progressive-ui.md": "5d848064e46f064c52a2588a5488b1c8b4860ba3c07cda5e799011c9797adbc7",
+    "tests/fixtures/purpose-ui/main.jsx": "1e95aa5db03d4d2182a3c29939b0f7fd3f24e3a50a87b5e9e23ec55f4814729f",
+    "tests/fixtures/purpose-ui/style.css": "010a1b19e1392cb6d5d431b3ce2f6ae3da3dbb6bcd9557c3f73bf8111d81406b",
+    "tests/fixtures/purpose-ui/index.html": "25bcf4855fdcbaf679be79d0fe11e8daa9ded0da3c3f4439045e05c02066b18c",
+    "tests/fixtures/purpose-ui/probe.mjs": "6977066acde3c30520e5c667e124f362ff3fa664c636b1ec105a12aa52d95ded",
+    "tests/fixtures/purpose-ui/README.md": "2def0d056120064c3b7cd0f2de0bc2d453f3375c5415ff4e61abe1f40c0b2778",
+    "tests/purpose-ui-probe.test.mjs": "cf09b7c956eee735b1a4780d150d6053789081a6da6c89e0140efeff14d7d3c5",
+    "docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md": "a2700e4657fb48c894bcbc3b426fe20a44031ae7dfd46aa65a99d8617f9f5137",
+    "work/quality/2026-09-16-purpose-driven-delivery.json": "f111bfa845f5803e6ce4cdd2b93d0f044ec65a826ce08ba231ccfd5bef0c0909",
+    ".claude/skills/orchestrate-work/SKILL.md": "67f34388244f0c0ba4cd358c767f4dfb837fd24dcd51384cf9d04449f3ad02a8",
+    ".github/skills/orchestrate-work/SKILL.md": "67f34388244f0c0ba4cd358c767f4dfb837fd24dcd51384cf9d04449f3ad02a8",
+    ".claude/skills/define-work/SKILL.md": "29d8709d8c9c3f273d8bab438ef15f7f1d3a8dd239e194d9445d63fcb18891ee",
+    ".github/skills/define-work/SKILL.md": "29d8709d8c9c3f273d8bab438ef15f7f1d3a8dd239e194d9445d63fcb18891ee",
+    ".claude/skills/mock-ui/SKILL.md": "9455cc49650cc87dc55c2efc1b42617486fdf5dc51ef5f8ad24f161376407408",
+    ".github/skills/mock-ui/SKILL.md": "9455cc49650cc87dc55c2efc1b42617486fdf5dc51ef5f8ad24f161376407408",
+    ".claude/skills/build-work/SKILL.md": "d1123dd272e67c4c66b58c288df1c1586ab37a938d0135cba6803be10db7f0de",
+    ".github/skills/build-work/SKILL.md": "d1123dd272e67c4c66b58c288df1c1586ab37a938d0135cba6803be10db7f0de",
+    ".claude/skills/review-work/SKILL.md": "7982540218a93b950cbb091d3c73ed0ea8c26ba8208ac548d19f0607e9fd687f",
+    ".github/skills/review-work/SKILL.md": "7982540218a93b950cbb091d3c73ed0ea8c26ba8208ac548d19f0607e9fd687f",
+    ".claude/skills/release-work/SKILL.md": "0a82876fde3d666623c2ae4877cf4f181114765bbc7f4e8e257270c54d5d842b",
+    ".github/skills/release-work/SKILL.md": "0a82876fde3d666623c2ae4877cf4f181114765bbc7f4e8e257270c54d5d842b",
+    "work/quality/2026-09-16-purpose-adopted.json": "572e3947fa8ded4444b4c6b34c483abb2ae5c8f77843ea1f7794b2469e048027",
+    "work/evidence/2026-09-16-purpose-driven-delivery.md": "f7c8d48d2d699a72fa9121e455d5e35ab141c1695494453255aa48e678fb35d1",
+    "work/reviews/2026-09-16-purpose-independent.md": "45736aa76eef9e50f5c8afc12912233bc410a3e863fd0b1818fe7f6e1fabffd4",
+    "work/reviews/2026-09-16-purpose-adopted.md": "5a5f4a7f9ad67a594e237a25029042dcbf2cdbd4bda3285f70a8b05f9d2d3a23",
+    "work/reviews/2026-09-16-purpose-independent.json": "a7919c31e4588555bbfcfcef69cd9eb3ebd44861131a59bf7579d92dad75a067",
+    "work/evidence/2026-09-16-purpose-ui-independent-run2/result.json": "f660988151bec33701a3bc26fa422dbbe8f2887d49fc32c98a187ddb62bde51c",
+    "work/evidence/2026-09-16-purpose-forward-snapshot/design.md": "067838197846137e8949d0ec2ddc88d850e4234697c552c38ed53bf095588e9e",
+    "work/evidence/2026-09-16-purpose-resume-trial.md": "2489c151f7ca9db418749528f6c5a1f39a0daa28c750f481a525ea01325cbf14",
+    "work/evidence/2026-09-16-purpose-non-ui-trial.md": "9dfac397f122bc94103f2d2425f0090f7a00836d86431105c03ba05b242d3784",
+    "work/evidence/2026-09-16-purpose-final-regression.tap": "9534192b82085d28821289580e40d943166b0b577a900efc71a32e2098a6ef3a"
+  },
+  "policyHash": "f8c53a8d840c07d4cadc0112214205dec5ddb0389b31375989c925253dccb4b7",
+  "createdAt": "2026-09-16T09:27:41Z"
+}

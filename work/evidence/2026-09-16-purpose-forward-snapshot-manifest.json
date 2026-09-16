@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "manifestCreatedAt": "2026-09-16T08:26:06.957Z",
+  "directory": "work/evidence/2026-09-16-purpose-forward-snapshot",
+  "scope": "Codex補助試行の第3段階後・新context再開前の選択ファイル。過去段階sourceの証拠ではない。",
+  "files": [
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/App.tsx",
+      "sha256": "36999bec39bc192dc3a56d6541dc7e8f68f0a237255dc006c0e6f0d6830ab811"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/SalesViews.tsx",
+      "sha256": "6504fa8723269c1bbfe012d0c06152ba8ee34b01a315be483bfd57e5276f9f35"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/build.mjs",
+      "sha256": "43cbe32aa6fcac84a9cb658ff51063117f57dd73ed3c00ad357718fd2196e69b"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/design.md",
+      "sha256": "067838197846137e8949d0ec2ddc88d850e4234697c552c38ed53bf095588e9e"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/evidence-stage3.md",
+      "sha256": "ed6fdf82cce9335db1b0bd1c756e3353157373dec8a73d92c80a9855be296c48"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/evidence.md",
+      "sha256": "21d66071dfb2c70c0162484fd4b823b5ef85fba1a8151ae584b7269aad64206e"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/fixtures.ts",
+      "sha256": "ec03885aa29391661c8fe37b8308a85c30f4c73f68cf6029f0d28571d2321944"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/index.html",
+      "sha256": "9c26cbbac9c6ed45f03e440aa2e03233581b666e5335a4dc0e49179d8967ab36"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/product-list.png",
+      "sha256": "ab19ed633e640e0888be076d82bd4aecc938bd7cddf3e8cfda74d139fd2c416b"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/render-evidence-step2.json",
+      "sha256": "1c2c5a3a6c43da82ff046acb0de8b29f9039fc9035fbb05e61ea97b330969656"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/render-evidence-step3.json",
+      "sha256": "0329e7083f3d7fa12ad5127050c38e696de75e1697146574749b9c681a972768"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/render-evidence.json",
+      "sha256": "34112264886062f1da12f5194a43589069714991a639ef3297c8e5cea58bc509"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/session.md",
+      "sha256": "c72c0004ed82ba62ff44c1755d43848226581bd478f52297b59c83c94ac9613e"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/stage3-daily-sales-14days.png",
+      "sha256": "2120e341e4aec58a7bbca329e3dc118c5caa4c575bea899f7ef340decbb526ff"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/stage3-daily-sales-7days.png",
+      "sha256": "8d2c0399c0ebc30ce06a04b92c40cb37406e648b1313ca62f6fa3c42434afb16"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/stage3-product-list-filtered.png",
+      "sha256": "ad0ab2dee5fd61f679e5f6803c8d3ef0635b127bacc98c446cc4056f437c83b4"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/stage3-product-list.png",
+      "sha256": "c4a0d67e92128208b592122ad87e17dce10e429e7f81aefd44b229f503501eaf"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/stage3-sales-confirmation.png",
+      "sha256": "6114a7af0387b1d2ae28b181fa1dca0ba972b1a5d37d77ca82c9858271b0a0ef"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/stage3-sales-entry.png",
+      "sha256": "9e22f089cc20a3ea355bd253cec19d4d478cf95cf166173367b92a08a615b551"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/styles.css",
+      "sha256": "93ba08553d8abb5ab65c3913d07beeb7fc0a3630e8dd7c91b8b191e959b1f27f"
+    },
+    {
+      "path": "work/evidence/2026-09-16-purpose-forward-snapshot/verify.mjs",
+      "sha256": "b1a5059cd4186de68bbf682e34f1e33a63a5a86ab6d1ba884366b1f10d31a81d"
+    }
+  ]
+}

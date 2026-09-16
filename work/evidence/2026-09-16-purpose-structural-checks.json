@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-09-16 08:30:26 UTC",
+  "scope": "Local structural checks only; not provider execution, adoption or publication",
+  "checks": [
+    {
+      "command": "node tools/harness.mjs check",
+      "exitCode": 0,
+      "output": "Harness check passed.\n"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": "git diff --name-only -- tools harness/router.json harness.config.json",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "command": "node tools/harness-publication.mjs guard-status",
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"installed\",\n  \"path\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.git\\\\hooks\\\\pre-push\"\n}\n"
+    }
+  ]
+}

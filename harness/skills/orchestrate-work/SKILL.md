@@ -9,6 +9,7 @@ description: Route any non-trivial natural-language request into the repository'
 2. Classify intent with `npm run harness:route -- --prompt "sanitized intent"`; discover all workload components with `npm run harness -- workload resolve --prompt "sanitized intent"`. `harness/router.json` and `harness/workloads.json` are the executable maps. Explicit intent and repository evidence override keyword matches; use `--intent` and repeated `--workload` / `--without` to correct hints.
 3. For advice-only work, remain read-only unless the user requests changes. For changes, start or resume a session under `work/sessions/`.
 4. Load the routed skill and only the scoped standards it references.
+   Use the purpose/exit guidance in `docs/harness/operations/OPERATING_MODEL.md` when planning work: identify the current decision, sufficient outcome/evidence, deferred work and stop/reconsideration condition in the existing plan/session. A route or stage name is not an instruction to execute every later stage. Do not duplicate a new checklist across documents.
 5. Make product intent durable under `docs/product/requirements/`; make target-system design durable under `docs/product/architecture/`, `data/`, or `ui/`.
    For human-facing artifacts, follow `docs/harness/operations/DOCUMENTATION_STANDARD.md`: Japanese prose and labels, original machine identifiers, scoped definitions, and explicit unknowns. Do not bulk-translate accepted artifacts.
 6. Stop at the first unresolved human gate. Otherwise proceed autonomously through the smallest verifiable slice.

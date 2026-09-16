@@ -1,0 +1,54 @@
+{
+  "context": "Codex isolated forward trial, not product approval or Claude Code/Copilot acceptance",
+  "stage": 3,
+  "viewport": {
+    "width": 1440,
+    "height": 960
+  },
+  "columns": [
+    "商品分類",
+    "商品名",
+    "税込単価（円）"
+  ],
+  "rows": 6,
+  "actualAppKitTableCount": 1,
+  "filterAboveTable": true,
+  "selectedCategory": "ギフト",
+  "filteredRows": [
+    "ギフト季節のコーヒーと焼き菓子のギフトセット¥3,240"
+  ],
+  "filteredCount": "1 / 6 商品を表示",
+  "restoredRows": 6,
+  "emptyPreviewDisabled": true,
+  "confirmation": "入力内容の確認\n\n内容を見直すための画面です。まだ保存されません。\n\n売上日\n2026-09-15\n商品\n深煎りブレンドコーヒー 200g\n数量\n2\n入力へ戻る",
+  "retainedDraft": {
+    "salesDate": "2026-09-15",
+    "product": "深煎りブレンドコーヒー 200g",
+    "quantity": "2"
+  },
+  "chartCanvasSize": {
+    "x": 313,
+    "y": 372.140625,
+    "width": 1054,
+    "height": 340
+  },
+  "chartTable7Days": 7,
+  "chartTable14Days": 14,
+  "chartRange14Days": "2026-09-03 〜 2026-09-16",
+  "theme": {
+    "primary": "#1764c0",
+    "bodyBackground": "rgb(243, 247, 252)"
+  },
+  "pageErrors": [],
+  "externalRequests": [],
+  "localRequests": 3,
+  "screenshots": [
+    "stage3-product-list.png",
+    "stage3-product-list-filtered.png",
+    "stage3-sales-entry.png",
+    "stage3-sales-confirmation.png",
+    "stage3-daily-sales-7days.png",
+    "stage3-daily-sales-14days.png"
+  ],
+  "scope": "Remaining screen layout and local interaction discussion; no persistence, business validation, or formal mock approval"
+}

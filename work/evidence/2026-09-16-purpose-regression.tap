@@ -1,0 +1,4383 @@
+TAP version 13
+# Subtest: acceptance grammar preserves legacy IDs and recognizes namespaced IDs and checkboxes
+ok 1 - acceptance grammar preserves legacy IDs and recognizes namespaced IDs and checkboxes
+  ---
+  duration_ms: 3.5354
+  type: 'test'
+  ...
+# Subtest: acceptance examples in fenced blocks are not live criteria
+ok 2 - acceptance examples in fenced blocks are not live criteria
+  ---
+  duration_ms: 0.3797
+  type: 'test'
+  ...
+# Subtest: frontmatter and comments are inert, and setext/ATX section boundaries are explicit
+ok 3 - frontmatter and comments are inert, and setext/ATX section boundaries are explicit
+  ---
+  duration_ms: 0.6575
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "- ac-02: lowercase.\\n"
+ok 4 - legacy headingless mode rejects ambiguous definition "- ac-02: lowercase.\\n"
+  ---
+  duration_ms: 0.211
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "1. AC-D01: ordered.\\n"
+ok 5 - legacy headingless mode rejects ambiguous definition "1. AC-D01: ordered.\\n"
+  ---
+  duration_ms: 0.142
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "| AC-D01 | table |\\n"
+ok 6 - legacy headingless mode rejects ambiguous definition "| AC-D01 | table |\\n"
+  ---
+  duration_ms: 0.1455
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "- **AC-D01**: formatted.\\n"
+ok 7 - legacy headingless mode rejects ambiguous definition "- **AC-D01**: formatted.\\n"
+  ---
+  duration_ms: 0.1063
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "- AC-D01：fullwidth colon.\\n"
+ok 8 - legacy headingless mode rejects ambiguous definition "- AC-D01：fullwidth colon.\\n"
+  ---
+  duration_ms: 0.1382
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "    - AC-D01: indented.\\n"
+ok 9 - legacy headingless mode rejects ambiguous definition "    - AC-D01: indented.\\n"
+  ---
+  duration_ms: 0.152
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "> - AC-D01: quoted.\\n"
+ok 10 - legacy headingless mode rejects ambiguous definition "> - AC-D01: quoted.\\n"
+  ---
+  duration_ms: 0.1721
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "- [✓] AC-D01: unsupported checkbox.\\n"
+ok 11 - legacy headingless mode rejects ambiguous definition "- [✓] AC-D01: unsupported checkbox.\\n"
+  ---
+  duration_ms: 0.2747
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "- AC​-02: hidden character.\\n"
+ok 12 - legacy headingless mode rejects ambiguous definition "- AC​-02: hidden character.\\n"
+  ---
+  duration_ms: 0.1356
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "- ＡＣ-０２: non-ASCII.\\n"
+ok 13 - legacy headingless mode rejects ambiguous definition "- ＡＣ-０２: non-ASCII.\\n"
+  ---
+  duration_ms: 0.1197
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "  - AC-D01: nested.\\n"
+ok 14 - legacy headingless mode rejects ambiguous definition "  - AC-D01: nested.\\n"
+  ---
+  duration_ms: 0.0525
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "\#\#\# AC-D01: heading.\\n"
+ok 15 - legacy headingless mode rejects ambiguous definition "\#\#\# AC-D01: heading.\\n"
+  ---
+  duration_ms: 0.0415
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "<div>\\n- AC-D01: HTML.\\n</div>\\n"
+ok 16 - legacy headingless mode rejects ambiguous definition "<div>\\n- AC-D01: HTML.\\n</div>\\n"
+  ---
+  duration_ms: 0.0364
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "\# H-D01 must be verified\\n"
+ok 17 - legacy headingless mode rejects ambiguous definition "\# H-D01 must be verified\\n"
+  ---
+  duration_ms: 0.1561
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "\# **AC-D01** must be verified\\n"
+ok 18 - legacy headingless mode rejects ambiguous definition "\# **AC-D01** must be verified\\n"
+  ---
+  duration_ms: 0.0562
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "• AC-D01: Unicode bullet requirement\\n"
+ok 19 - legacy headingless mode rejects ambiguous definition "• AC-D01: Unicode bullet requirement\\n"
+  ---
+  duration_ms: 0.0552
+  type: 'test'
+  ...
+# Subtest: legacy headingless mode rejects ambiguous definition "​• AC-D01: hidden prefix\\n"
+ok 20 - legacy headingless mode rejects ambiguous definition "​• AC-D01: hidden prefix\\n"
+  ---
+  duration_ms: 0.0416
+  type: 'test'
+  ...
+# Subtest: malformed metadata, comments and example fences are rejected, not used to hide criteria
+ok 21 - malformed metadata, comments and example fences are rejected, not used to hide criteria
+  ---
+  duration_ms: 0.2301
+  type: 'test'
+  ...
+# Subtest: acceptance rejects empty rather than silently dropping criteria
+ok 22 - acceptance rejects empty rather than silently dropping criteria
+  ---
+  duration_ms: 0.092
+  type: 'test'
+  ...
+# Subtest: acceptance rejects invalid ID rather than silently dropping criteria
+ok 23 - acceptance rejects invalid ID rather than silently dropping criteria
+  ---
+  duration_ms: 0.0753
+  type: 'test'
+  ...
+# Subtest: acceptance rejects duplicate rather than silently dropping criteria
+ok 24 - acceptance rejects duplicate rather than silently dropping criteria
+  ---
+  duration_ms: 0.0762
+  type: 'test'
+  ...
+# Subtest: acceptance rejects empty body rather than silently dropping criteria
+ok 25 - acceptance rejects empty body rather than silently dropping criteria
+  ---
+  duration_ms: 0.0715
+  type: 'test'
+  ...
+# Subtest: acceptance rejects lowercase rather than silently dropping criteria
+ok 26 - acceptance rejects lowercase rather than silently dropping criteria
+  ---
+  duration_ms: 0.5385
+  type: 'test'
+  ...
+# Subtest: acceptance rejects missing colon rather than silently dropping criteria
+ok 27 - acceptance rejects missing colon rather than silently dropping criteria
+  ---
+  duration_ms: 0.0801
+  type: 'test'
+  ...
+# Subtest: acceptance rejects numbered rather than silently dropping criteria
+ok 28 - acceptance rejects numbered rather than silently dropping criteria
+  ---
+  duration_ms: 0.0496
+  type: 'test'
+  ...
+# Subtest: acceptance rejects table rather than silently dropping criteria
+ok 29 - acceptance rejects table rather than silently dropping criteria
+  ---
+  duration_ms: 0.0901
+  type: 'test'
+  ...
+# Subtest: acceptance rejects formatted rather than silently dropping criteria
+ok 30 - acceptance rejects formatted rather than silently dropping criteria
+  ---
+  duration_ms: 0.0578
+  type: 'test'
+  ...
+# Subtest: acceptance rejects plain bullet rather than silently dropping criteria
+ok 31 - acceptance rejects plain bullet rather than silently dropping criteria
+  ---
+  duration_ms: 0.0529
+  type: 'test'
+  ...
+# Subtest: acceptance rejects unclosed fence rather than silently dropping criteria
+ok 32 - acceptance rejects unclosed fence rather than silently dropping criteria
+  ---
+  duration_ms: 0.0668
+  type: 'test'
+  ...
+# Subtest: AC-D01 survives seal, validate, and session completion with full independent fixture evidence
+ok 33 - AC-D01 survives seal, validate, and session completion with full independent fixture evidence
+  ---
+  duration_ms: 125.4089
+  type: 'test'
+  ...
+# Subtest: seal rejects mixed omitted without writing a receipt or changing session
+ok 34 - seal rejects mixed omitted without writing a receipt or changing session
+  ---
+  duration_ms: 31.4163
+  type: 'test'
+  ...
+# Subtest: seal rejects extra without writing a receipt or changing session
+ok 35 - seal rejects extra without writing a receipt or changing session
+  ---
+  duration_ms: 31.3053
+  type: 'test'
+  ...
+# Subtest: seal rejects invalid without writing a receipt or changing session
+ok 36 - seal rejects invalid without writing a receipt or changing session
+  ---
+  duration_ms: 79.5053
+  type: 'test'
+  ...
+# Subtest: seal rejects duplicate review without writing a receipt or changing session
+ok 37 - seal rejects duplicate review without writing a receipt or changing session
+  ---
+  duration_ms: 30.8846
+  type: 'test'
+  ...
+# Subtest: duplicate requirement definitions cannot be sealed
+ok 38 - duplicate requirement definitions cannot be sealed
+  ---
+  duration_ms: 29.2477
+  type: 'test'
+  ...
+# Subtest: receipt use revalidates exact coverage and refuses completing a forged incomplete receipt
+ok 39 - receipt use revalidates exact coverage and refuses completing a forged incomplete receipt
+  ---
+  duration_ms: 148.3573
+  type: 'test'
+  ...
+# Subtest: existing requirement approval rejects invalid definitions before any record changes
+ok 40 - existing requirement approval rejects invalid definitions before any record changes
+  ---
+  duration_ms: 54.8646
+  type: 'test'
+  ...
+# Subtest: intake generation uses valid IDs and approval rejects malformed edited requirements before mutation
+ok 41 - intake generation uses valid IDs and approval rejects malformed edited requirements before mutation
+  ---
+  duration_ms: 633.9934
+  type: 'test'
+  ...
+# Subtest: intake validates its final rendered answer ledger before changing any artifact or existing approval
+ok 42 - intake validates its final rendered answer ledger before changing any artifact or existing approval
+  ---
+  duration_ms: 511.2404
+  type: 'test'
+  ...
+# Subtest: product approval rejects concurrent requirement contents without approving
+ok 43 - product approval rejects concurrent requirement contents without approving
+  ---
+  duration_ms: 50.4641
+  type: 'test'
+  ...
+# Subtest: product approval rejects concurrent session requirement pointer without approving
+ok 44 - product approval rejects concurrent session requirement pointer without approving
+  ---
+  duration_ms: 78.8321
+  type: 'test'
+  ...
+# Subtest: seal rejects changed validated input docs/product/requirements/fixture.md
+ok 45 - seal rejects changed validated input docs/product/requirements/fixture.md
+  ---
+  duration_ms: 54.5507
+  type: 'test'
+  ...
+# Subtest: seal rejects changed validated input work/reviews/fixture.json
+ok 46 - seal rejects changed validated input work/reviews/fixture.json
+  ---
+  duration_ms: 95.1252
+  type: 'test'
+  ...
+# Subtest: receipt coverage is parsed from the same bytes as its validated requirement hash
+ok 47 - receipt coverage is parsed from the same bytes as its validated requirement hash
+  ---
+  duration_ms: 112.0495
+  type: 'test'
+  ...
+# Subtest: UI approval rejects approximate HTML without runtime correspondence and preserves the pending gate
+ok 48 - UI approval rejects approximate HTML without runtime correspondence and preserves the pending gate
+  ---
+  duration_ms: 32.4063
+  type: 'test'
+  ...
+# Subtest: mock approval binds executable artifacts and updates the active session
+ok 49 - mock approval binds executable artifacts and updates the active session
+  ---
+  duration_ms: 307.389
+  type: 'test'
+  ...
+# Subtest: mock approval cannot skip pending product intent
+ok 50 - mock approval cannot skip pending product intent
+  ---
+  duration_ms: 32.7984
+  type: 'test'
+  ...
+# Subtest: mock approval requires a real session, human evidence, and executable artifacts
+ok 51 - mock approval requires a real session, human evidence, and executable artifacts
+  ---
+  duration_ms: 44.9827
+  type: 'test'
+  ...
+# Subtest: existing accepted requirements can be approved but intake questions cannot be bypassed
+ok 52 - existing accepted requirements can be approved but intake questions cannot be bypassed
+  ---
+  duration_ms: 72.1897
+  type: 'test'
+  ...
+# Subtest: shared option parsing preserves repeated assignments and rejects escaping paths
+ok 53 - shared option parsing preserves repeated assignments and rejects escaping paths
+  ---
+  duration_ms: 11.5306
+  type: 'test'
+  ...
+# Subtest: Harness requirements expose all 20 stable acceptance IDs to the completion verifier
+ok 54 - Harness requirements expose all 20 stable acceptance IDs to the completion verifier
+  ---
+  duration_ms: 2.9696
+  type: 'test'
+  ...
+# Subtest: Publication requirements use strict acceptance IDs before release
+ok 55 - Publication requirements use strict acceptance IDs before release
+  ---
+  duration_ms: 1.1423
+  type: 'test'
+  ...
+# Subtest: Publication requirements seal real document bytes and retain rejection gates
+ok 56 - Publication requirements seal real document bytes and retain rejection gates
+  ---
+  duration_ms: 326.6565
+  type: 'test'
+  ...
+# Subtest: Databricks connect rejects a profile/host mismatch before identity lookup or persistence
+ok 57 - Databricks connect rejects a profile/host mismatch before identity lookup or persistence
+  ---
+  duration_ms: 7.3595
+  type: 'test'
+  ...
+# Subtest: Databricks connect rejects malformed auth JSON without recording a verified connection
+ok 58 - Databricks connect rejects malformed auth JSON without recording a verified connection
+  ---
+  duration_ms: 4.7906
+  type: 'test'
+  ...
+# Subtest: Databricks connect rejects auth JSON reporting an error even when the process exited zero
+ok 59 - Databricks connect rejects auth JSON reporting an error even when the process exited zero
+  ---
+  duration_ms: 3.1041
+  type: 'test'
+  ...
+# Subtest: Databricks connect requires a host on the selected profile to prove workspace identity
+ok 60 - Databricks connect requires a host on the selected profile to prove workspace identity
+  ---
+  duration_ms: 2.848
+  type: 'test'
+  ...
+# Subtest: Databricks connect persists only non-secret verified connection metadata
+ok 61 - Databricks connect persists only non-secret verified connection metadata
+  ---
+  duration_ms: 17.7076
+  type: 'test'
+  ...
+# Subtest: Databricks doctor detects project/profile host mismatch and does not validate the wrong workspace
+ok 62 - Databricks doctor detects project/profile host mismatch and does not validate the wrong workspace
+  ---
+  duration_ms: 37.0269
+  type: 'test'
+  ...
+# Subtest: Databricks doctor uses strict Bundle validation with the explicitly selected profile and target
+ok 63 - Databricks doctor uses strict Bundle validation with the explicitly selected profile and target
+  ---
+  duration_ms: 22.9836
+  type: 'test'
+  ...
+# Subtest: AppKit manifest contracts preserve required plugins, optional selection, resource origins, and scoped rules
+ok 64 - AppKit manifest contracts preserve required plugins, optional selection, resource origins, and scoped rules
+  ---
+  duration_ms: 86.4016
+  type: 'test'
+  ...
+# Subtest: AppKit planning reports required user resources but never demands optional/platform/local/fixed values
+ok 65 - AppKit planning reports required user resources but never demands optional/platform/local/fixed values
+  ---
+  duration_ms: 74.6672
+  type: 'test'
+  ...
+# Subtest: AppKit planning refuses unknown optional plugins and undeclared resource assignments
+ok 66 - AppKit planning refuses unknown optional plugins and undeclared resource assignments
+  ---
+  duration_ms: 60.6762
+  type: 'test'
+  ...
+# Subtest: AppKit planning refuses contradictory must and never manifest rules
+ok 67 - AppKit planning refuses contradictory must and never manifest rules
+  ---
+  duration_ms: 53.7496
+  type: 'test'
+  ...
+# Subtest: AppKit mandatory data plugins require the same data-access decision as optional selections
+ok 68 - AppKit mandatory data plugins require the same data-access decision as optional selections
+  ---
+  duration_ms: 88.293
+  type: 'test'
+  ...
+# Subtest: AppKit optional resources become required only when that resource group is selected
+ok 69 - AppKit optional resources become required only when that resource group is selected
+  ---
+  duration_ms: 91.8868
+  type: 'test'
+  ...
+# Subtest: AppKit refuses caller assignments to platform-managed manifest fields
+ok 70 - AppKit refuses caller assignments to platform-managed manifest fields
+  ---
+  duration_ms: 48.9403
+  type: 'test'
+  ...
+# Subtest: AppKit planning waits for mock approval and before-init MUST evidence
+ok 71 - AppKit planning waits for mock approval and before-init MUST evidence
+  ---
+  duration_ms: 109.7187
+  type: 'test'
+  ...
+# Subtest: AppKit rule approval must bind the exact manifest snapshot
+ok 72 - AppKit rule approval must bind the exact manifest snapshot
+  ---
+  duration_ms: 111.5168
+  type: 'test'
+  ...
+# Subtest: AppKit planning rejects mutable template versions before consulting a manifest
+ok 73 - AppKit planning rejects mutable template versions before consulting a manifest
+  ---
+  duration_ms: 51.5076
+  type: 'test'
+  ...
+# Subtest: AppKit validation failure is persisted as a failed scaffold, not a reusable ready plan
+ok 74 - AppKit validation failure is persisted as a failed scaffold, not a reusable ready plan
+  ---
+  duration_ms: 174.6778
+  type: 'test'
+  ...
+# Subtest: AppKit fixture-only mock still requires explicit workspace authentication, not business-data access
+ok 75 - AppKit fixture-only mock still requires explicit workspace authentication, not business-data access
+  ---
+  duration_ms: 68.7517
+  type: 'test'
+  ...
+# Subtest: AppKit mock does not invent a profile or authenticate when profile and host are omitted
+ok 76 - AppKit mock does not invent a profile or authenticate when profile and host are omitted
+  ---
+  duration_ms: 91.3887
+  type: 'test'
+  ...
+# Subtest: AppKit mock rejects DEFAULT and implicit authentication requests
+ok 77 - AppKit mock rejects DEFAULT and implicit authentication requests
+  ---
+  duration_ms: 37.5247
+  type: 'test'
+  ...
+# Subtest: AppKit profile-host mismatch is rejected before authenticating the unexpected workspace
+ok 78 - AppKit profile-host mismatch is rejected before authenticating the unexpected workspace
+  ---
+  duration_ms: 81.0457
+  type: 'test'
+  ...
+# Subtest: AppKit rechecks workspace identity immediately before init
+ok 79 - AppKit rechecks workspace identity immediately before init
+  ---
+  duration_ms: 116.8194
+  type: 'test'
+  ...
+# Subtest: AppKit integration rejects mock approval without executable artifact hashes
+ok 80 - AppKit integration rejects mock approval without executable artifact hashes
+  ---
+  duration_ms: 78.1064
+  type: 'test'
+  ...
+# Subtest: AppKit integration rejects a changed approved fixture before any init or auth recheck
+ok 81 - AppKit integration rejects a changed approved fixture before any init or auth recheck
+  ---
+  duration_ms: 106.4649
+  type: 'test'
+  ...
+# Subtest: Intake copies repository sources with hashes and an explicit untrusted-input classification
+ok 82 - Intake copies repository sources with hashes and an explicit untrusted-input classification
+  ---
+  duration_ms: 103.6068
+  type: 'test'
+  ...
+# Subtest: Intake refuses product approval while any material question is unanswered
+ok 83 - Intake refuses product approval while any material question is unanswered
+  ---
+  duration_ms: 249.7546
+  type: 'test'
+  ...
+# Subtest: Intake approval succeeds only after all material answers and records actor/evidence
+ok 84 - Intake approval succeeds only after all material answers and records actor/evidence
+  ---
+  duration_ms: 883.4638
+  type: 'test'
+  ...
+# Subtest: Intake approval updates the canonical requirement and durable session gate consistently
+ok 85 - Intake approval updates the canonical requirement and durable session gate consistently
+  ---
+  duration_ms: 950.8454
+  type: 'test'
+  ...
+# Subtest: Changing an accepted material answer invalidates the previous product approval
+ok 86 - Changing an accepted material answer invalidates the previous product approval
+  ---
+  duration_ms: 991.5716
+  type: 'test'
+  ...
+# Subtest: Ordinary Japanese intake does not require the user to invent an ASCII project slug
+ok 87 - Ordinary Japanese intake does not require the user to invent an ASCII project slug
+  ---
+  duration_ms: 107.8946
+  type: 'test'
+  ...
+# Subtest: Loop initialization rejects non-integer iteration budgets
+ok 88 - Loop initialization rejects non-integer iteration budgets
+  ---
+  duration_ms: 84.294
+  type: 'test'
+  ...
+# Subtest: Loop-generated budget fields conform to the published closed budget schema
+ok 89 - Loop-generated budget fields conform to the published closed budget schema
+  ---
+  duration_ms: 99.3548
+  type: 'test'
+  ...
+# Subtest: Loop iteration budget exhaustion is durable and starts no provider process
+ok 90 - Loop iteration budget exhaustion is durable and starts no provider process
+  ---
+  duration_ms: 113.4328
+  type: 'test'
+  ...
+# Subtest: Loop wall-clock budget exhaustion is durable and starts no provider process
+ok 91 - Loop wall-clock budget exhaustion is durable and starts no provider process
+  ---
+  duration_ms: 137.0869
+  type: 'test'
+  ...
+# Subtest: Loop process timeouts are capped by the remaining wall-clock budget
+ok 92 - Loop process timeouts are capped by the remaining wall-clock budget
+  ---
+  duration_ms: 293.841
+  type: 'test'
+  ...
+# Subtest: Loop policy hash changes block execution before a provider is started
+ok 93 - Loop policy hash changes block execution before a provider is started
+  ---
+  duration_ms: 124.0368
+  type: 'test'
+  ...
+# Subtest: Loop detects policy tampering performed during the provider iteration
+ok 94 - Loop detects policy tampering performed during the provider iteration
+  ---
+  duration_ms: 128.4538
+  type: 'test'
+  ...
+# Subtest: Loop pending human gates block all provider execution
+ok 95 - Loop pending human gates block all provider execution
+  ---
+  duration_ms: 116.4821
+  type: 'test'
+  ...
+# Subtest: Loop refuses a second iteration while the previous iteration has not been recorded
+ok 96 - Loop refuses a second iteration while the previous iteration has not been recorded
+  ---
+  duration_ms: 215.8341
+  type: 'test'
+  ...
+# Subtest: Loop provider failure persists a terminal failure and skips deterministic checks
+ok 97 - Loop provider failure persists a terminal failure and skips deterministic checks
+  ---
+  duration_ms: 146.2945
+  type: 'test'
+  ...
+# Subtest: Loop completion refuses missing implementation or verifier evidence and remains unfinished
+ok 98 - Loop completion refuses missing implementation or verifier evidence and remains unfinished
+  ---
+  duration_ms: 214.662
+  type: 'test'
+  ...
+# Subtest: Loop completion refuses evidence paths that do not exist
+ok 99 - Loop completion refuses evidence paths that do not exist
+  ---
+  duration_ms: 256.1541
+  type: 'test'
+  ...
+# Subtest: Loop completion refuses failed deterministic checks even when evidence files exist
+ok 100 - Loop completion refuses failed deterministic checks even when evidence files exist
+  ---
+  duration_ms: 274.8502
+  type: 'test'
+  ...
+# Subtest: Loop completion does not treat an empty verifier file as independent verification
+ok 101 - Loop completion does not treat an empty verifier file as independent verification
+  ---
+  duration_ms: 264.9554
+  type: 'test'
+  ...
+# Subtest: Loop completion does not accept a directory as implementation evidence
+ok 102 - Loop completion does not accept a directory as implementation evidence
+  ---
+  duration_ms: 243.6083
+  type: 'test'
+  ...
+# Subtest: Loop completion rechecks the policy hash after implementation and before achievement
+ok 103 - Loop completion rechecks the policy hash after implementation and before achievement
+  ---
+  duration_ms: 232.7009
+  type: 'test'
+  ...
+# Subtest: Loop achievement accepts a matching independent receipt covering every requirement criterion
+ok 104 - Loop achievement accepts a matching independent receipt covering every requirement criterion
+  ---
+  duration_ms: 296.6126
+  type: 'test'
+  ...
+# Subtest: Loop achievement rejects an independent receipt missing an acceptance criterion
+ok 105 - Loop achievement rejects an independent receipt missing an acceptance criterion
+  ---
+  duration_ms: 244.8701
+  type: 'test'
+  ...
+# Subtest: Loop achievement rejects a receipt from the implementing provider
+ok 106 - Loop achievement rejects a receipt from the implementing provider
+  ---
+  duration_ms: 273.8138
+  type: 'test'
+  ...
+# Subtest: Loop achievement rejects evidence changed after independent review
+ok 107 - Loop achievement rejects evidence changed after independent review
+  ---
+  duration_ms: 229.3205
+  type: 'test'
+  ...
+# Subtest: Loop achievement rejects acceptance evidence that is missing or not bound by an artifact hash
+ok 108 - Loop achievement rejects acceptance evidence that is missing or not bound by an artifact hash
+  ---
+  duration_ms: 236.8814
+  type: 'test'
+  ...
+# Subtest: Loop record rejects undeclared outcome values instead of silently treating them as progress
+ok 109 - Loop record rejects undeclared outcome values instead of silently treating them as progress
+  ---
+  duration_ms: 175.3245
+  type: 'test'
+  ...
+# Subtest: Operator stop cannot bypass the evidence-backed achieved transition
+ok 110 - Operator stop cannot bypass the evidence-backed achieved transition
+  ---
+  duration_ms: 91.7057
+  type: 'test'
+  ...
+# Subtest: profile inventory never validates credentials and sanitizes overrides without reading their values
+ok 111 - profile inventory never validates credentials and sanitizes overrides without reading their values
+  ---
+  duration_ms: 1.7155
+  type: 'test'
+  ...
+# Subtest: connect accepts unvalidated inventory and authenticates only the explicitly selected profile
+ok 112 - connect accepts unvalidated inventory and authenticates only the explicitly selected profile
+  ---
+  duration_ms: 21.3146
+  type: 'test'
+  ...
+# Subtest: explicit profile connection refuses expanded credential precedence before any CLI operation
+ok 113 - explicit profile connection refuses expanded credential precedence before any CLI operation
+  ---
+  duration_ms: 8.089
+  type: 'test'
+  ...
+# Subtest: connect rejects auth host drift after profile inventory before identity lookup or persistence
+ok 114 - connect rejects auth host drift after profile inventory before identity lookup or persistence
+  ---
+  duration_ms: 8.8369
+  type: 'test'
+  ...
+# Subtest: doctor rejects credential overrides and never starts a selected-profile authentication
+ok 115 - doctor rejects credential overrides and never starts a selected-profile authentication
+  ---
+  duration_ms: 9.9706
+  type: 'test'
+  ...
+# Subtest: doctor enforces CLI >= 1.6.0 and < 2.0.0 before workspace operations
+ok 116 - doctor enforces CLI >= 1.6.0 and < 2.0.0 before workspace operations
+  ---
+  duration_ms: 13.1073
+  type: 'test'
+  ...
+# Subtest: doctor without a profile only inventories unvalidated profiles and never chooses one
+ok 117 - doctor without a profile only inventories unvalidated profiles and never chooses one
+  ---
+  duration_ms: 9.3783
+  type: 'test'
+  ...
+# Subtest: doctor does not trust stale inventory valid flags and fails closed on error JSON
+ok 118 - doctor does not trust stale inventory valid flags and fails closed on error JSON
+  ---
+  duration_ms: 81.2222
+  type: 'test'
+  ...
+# Subtest: valid synthetic records have no diagnostics but never certify acceptance
+ok 119 - valid synthetic records have no diagnostics but never certify acceptance
+  ---
+  duration_ms: 92.774
+  type: 'test'
+  ...
+# Subtest: design supports not-run results without calling them executed
+ok 120 - design supports not-run results without calling them executed
+  ---
+  duration_ms: 167.1384
+  type: 'test'
+  ...
+# Subtest: missing requirement mapping
+ok 121 - missing requirement mapping
+  ---
+  duration_ms: 56.3096
+  type: 'test'
+  ...
+# Subtest: duplicate test
+ok 122 - duplicate test
+  ---
+  duration_ms: 46.3662
+  type: 'test'
+  ...
+# Subtest: unknown reference
+ok 123 - unknown reference
+  ---
+  duration_ms: 53.8978
+  type: 'test'
+  ...
+# Subtest: missing expected result
+ok 124 - missing expected result
+  ---
+  duration_ms: 19.0727
+  type: 'test'
+  ...
+# Subtest: uncovered requirement
+ok 125 - uncovered requirement
+  ---
+  duration_ms: 65.8913
+  type: 'test'
+  ...
+# Subtest: uncovered risk
+ok 126 - uncovered risk
+  ---
+  duration_ms: 32.3412
+  type: 'test'
+  ...
+# Subtest: missing API negative case
+ok 127 - missing API negative case
+  ---
+  duration_ms: 50.8926
+  type: 'test'
+  ...
+# Subtest: source API operation omitted
+ok 128 - source API operation omitted
+  ---
+  duration_ms: 24.3584
+  type: 'test'
+  ...
+# Subtest: missing API concern
+ok 129 - missing API concern
+  ---
+  duration_ms: 19.9223
+  type: 'test'
+  ...
+# Subtest: unjustified N/A
+ok 130 - unjustified N/A
+  ---
+  duration_ms: 10.8719
+  type: 'test'
+  ...
+# Subtest: missing operations
+ok 131 - missing operations
+  ---
+  duration_ms: 20.8797
+  type: 'test'
+  ...
+# Subtest: unexecuted
+ok 132 - unexecuted
+  ---
+  duration_ms: 46.922
+  type: 'test'
+  ...
+# Subtest: local cannot prove dev
+ok 133 - local cannot prove dev
+  ---
+  duration_ms: 31.0355
+  type: 'test'
+  ...
+# Subtest: stale execution
+ok 134 - stale execution
+  ---
+  duration_ms: 20.6818
+  type: 'test'
+  ...
+# Subtest: missing evidence
+ok 135 - missing evidence
+  ---
+  duration_ms: 19.1516
+  type: 'test'
+  ...
+# Subtest: same context
+ok 136 - same context
+  ---
+  duration_ms: 22.098
+  type: 'test'
+  ...
+# Subtest: same actor
+ok 137 - same actor
+  ---
+  duration_ms: 50.2571
+  type: 'test'
+  ...
+# Subtest: review misses risk
+ok 138 - review misses risk
+  ---
+  duration_ms: 46.9726
+  type: 'test'
+  ...
+# Subtest: review before new results
+ok 139 - review before new results
+  ---
+  duration_ms: 22.31
+  type: 'test'
+  ...
+# Subtest: unsupported schema
+ok 140 - unsupported schema
+  ---
+  duration_ms: 11.0944
+  type: 'test'
+  ...
+# Subtest: unknown top-level typo
+ok 141 - unknown top-level typo
+  ---
+  duration_ms: 9.7361
+  type: 'test'
+  ...
+# Subtest: stale file is detected without modifying it
+ok 142 - stale file is detected without modifying it
+  ---
+  duration_ms: 82.9689
+  type: 'test'
+  ...
+# Subtest: reject path ../secret
+ok 143 - reject path ../secret
+  ---
+  duration_ms: 48.4208
+  type: 'test'
+  ...
+# Subtest: reject path C:/secret
+ok 144 - reject path C:/secret
+  ---
+  duration_ms: 42.1009
+  type: 'test'
+  ...
+# Subtest: reject path docs/../secret
+ok 145 - reject path docs/../secret
+  ---
+  duration_ms: 19.4432
+  type: 'test'
+  ...
+# Subtest: reject path docs\\secret
+ok 146 - reject path docs\\secret
+  ---
+  duration_ms: 28.0153
+  type: 'test'
+  ...
+# Subtest: reject path .git/config
+ok 147 - reject path .git/config
+  ---
+  duration_ms: 45.8489
+  type: 'test'
+  ...
+# Subtest: reject path docs/.env
+ok 148 - reject path docs/.env
+  ---
+  duration_ms: 58.5921
+  type: 'test'
+  ...
+# Subtest: reject path docs/NUL
+ok 149 - reject path docs/NUL
+  ---
+  duration_ms: 86.8657
+  type: 'test'
+  ...
+# Subtest: reject path https://example.com/api
+ok 150 - reject path https://example.com/api
+  ---
+  duration_ms: 61.9158
+  type: 'test'
+  ...
+# Subtest: reject a directory junction
+ok 151 - reject a directory junction
+  ---
+  duration_ms: 59.7471
+  type: 'test'
+  ...
+# Subtest: malformed structures fail as diagnostics not crashes
+ok 152 - malformed structures fail as diagnostics not crashes
+  ---
+  duration_ms: 24.0609
+  type: 'test'
+  ...
+# Subtest: commands in cases remain inert data
+ok 153 - commands in cases remain inert data
+  ---
+  duration_ms: 77.8465
+  type: 'test'
+  ...
+# Subtest: independent baseline has no diagnostics
+ok 154 - independent baseline has no diagnostics
+  ---
+  duration_ms: 48.4187
+  type: 'test'
+  ...
+# Subtest: independent requirement omission cannot pass with resealed records
+ok 155 - independent requirement omission cannot pass with resealed records
+  ---
+  duration_ms: 32.4166
+  type: 'test'
+  ...
+# Subtest: independent duplicate source operation IDs cannot pass
+ok 156 - independent duplicate source operation IDs cannot pass
+  ---
+  duration_ms: 17.3122
+  type: 'test'
+  ...
+# Subtest: independent additionalOperations omitted inventory must be diagnosed
+ok 157 - independent additionalOperations omitted inventory must be diagnosed
+  ---
+  duration_ms: 114.4368
+  type: 'test'
+  ...
+# Subtest: independent source operation removal is diagnosed
+ok 158 - independent source operation removal is diagnosed
+  ---
+  duration_ms: 60.6832
+  type: 'test'
+  ...
+# Subtest: independent identical positive and negative case is diagnosed
+ok 159 - independent identical positive and negative case is diagnosed
+  ---
+  duration_ms: 42.2377
+  type: 'test'
+  ...
+# Subtest: independent duplicate concern and missing one are diagnosed
+ok 160 - independent duplicate concern and missing one are diagnosed
+  ---
+  duration_ms: 35.2369
+  type: 'test'
+  ...
+# Subtest: independent evidence bytes change is diagnosed
+ok 161 - independent evidence bytes change is diagnosed
+  ---
+  duration_ms: 35.0253
+  type: 'test'
+  ...
+# Subtest: independent evidence reference update invalidates review
+ok 162 - independent evidence reference update invalidates review
+  ---
+  duration_ms: 50.0902
+  type: 'test'
+  ...
+# Subtest: independent implementation digest update invalidates result
+ok 163 - independent implementation digest update invalidates result
+  ---
+  duration_ms: 60.9694
+  type: 'test'
+  ...
+# Subtest: independent same context is rejected after reseal
+ok 164 - independent same context is rejected after reseal
+  ---
+  duration_ms: 50.551
+  type: 'test'
+  ...
+# Subtest: independent duplicate coverage entry is diagnosed
+ok 165 - independent duplicate coverage entry is diagnosed
+  ---
+  duration_ms: 59.5014
+  type: 'test'
+  ...
+# Subtest: independent not-run is not passed
+ok 166 - independent not-run is not passed
+  ---
+  duration_ms: 17.819
+  type: 'test'
+  ...
+# Subtest: independent blocked is not passed
+ok 167 - independent blocked is not passed
+  ---
+  duration_ms: 19.2038
+  type: 'test'
+  ...
+# Subtest: independent fail is not passed
+ok 168 - independent fail is not passed
+  ---
+  duration_ms: 16.0913
+  type: 'test'
+  ...
+# Subtest: independent empty artifact is rejected
+ok 169 - independent empty artifact is rejected
+  ---
+  duration_ms: 39.5851
+  type: 'test'
+  ...
+# Subtest: independent 1 MiB artifact is permitted
+ok 170 - independent 1 MiB artifact is permitted
+  ---
+  duration_ms: 67.7425
+  type: 'test'
+  ...
+# Subtest: independent oversized artifact is rejected
+ok 171 - independent oversized artifact is rejected
+  ---
+  duration_ms: 41.3373
+  type: 'test'
+  ...
+# Subtest: independent cumulative byte limit is enforced
+ok 172 - independent cumulative byte limit is enforced
+  ---
+  duration_ms: 94.7304
+  type: 'test'
+  ...
+# Subtest: independent file count limit is enforced
+ok 173 - independent file count limit is enforced
+  ---
+  duration_ms: 567.6933
+  type: 'test'
+  ...
+# Subtest: independent CLI valid, diagnostic, and input error exits
+ok 174 - independent CLI valid, diagnostic, and input error exits
+  ---
+  duration_ms: 295.7264
+  type: 'test'
+  ...
+# Subtest: session reference drift stops before deploy even with identical requirement bytes
+ok 175 - session reference drift stops before deploy even with identical requirement bytes
+  ---
+  duration_ms: 571.0701
+  type: 'test'
+  ...
+# Subtest: session inactive drift stops before deploy even with identical requirement bytes
+ok 176 - session inactive drift stops before deploy even with identical requirement bytes
+  ---
+  duration_ms: 653.455
+  type: 'test'
+  ...
+# Subtest: session gate drift stops before deploy even with identical requirement bytes
+ok 177 - session gate drift stops before deploy even with identical requirement bytes
+  ---
+  duration_ms: 532.0364
+  type: 'test'
+  ...
+# Subtest: session progress text can change without changing bound intent
+ok 178 - session progress text can change without changing bound intent
+  ---
+  duration_ms: 3003.397
+  type: 'test'
+  ...
+# Subtest: rejects junction at excluded root or output ancestor: app/node_modules
+ok 179 - rejects junction at excluded root or output ancestor: app/node_modules
+  ---
+  duration_ms: 323.7859
+  type: 'test'
+  ...
+# Subtest: rejects junction at excluded root or output ancestor: work/simulations
+ok 180 - rejects junction at excluded root or output ancestor: work/simulations
+  ---
+  duration_ms: 208.0521
+  type: 'test'
+  ...
+# Subtest: rejects junction at excluded root or output ancestor: .harness/runtime
+ok 181 - rejects junction at excluded root or output ancestor: .harness/runtime
+  ---
+  duration_ms: 235.1348
+  type: 'test'
+  ...
+# Subtest: nested src/build is source, not a generated-root exclusion
+ok 182 - nested src/build is source, not a generated-root exclusion
+  ---
+  duration_ms: 554.547
+  type: 'test'
+  ...
+# Subtest: sync work past stage deadline cannot win Promise.race
+ok 183 - sync work past stage deadline cannot win Promise.race
+  ---
+  duration_ms: 643.3262
+  type: 'test'
+  ...
+# Subtest: overall deadline includes preflight and no late result can restore success
+ok 184 - overall deadline includes preflight and no late result can restore success
+  ---
+  duration_ms: 768.3887
+  type: 'test'
+  ...
+# Subtest: lost result and stop writes leave durable deployment entry uncertain with no downstream calls
+ok 185 - lost result and stop writes leave durable deployment entry uncertain with no downstream calls
+  ---
+  duration_ms: 1408.8559
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: run
+ok 186 - rejects untrusted health result: run
+  ---
+  duration_ms: 2407.1678
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: extra
+ok 187 - rejects untrusted health result: extra
+  ---
+  duration_ms: 2274.5996
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: future
+ok 188 - rejects untrusted health result: future
+  ---
+  duration_ms: 2280.9356
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: old
+ok 189 - rejects untrusted health result: old
+  ---
+  duration_ms: 1751.5037
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: calendar
+ok 190 - rejects untrusted health result: calendar
+  ---
+  duration_ms: 1592.392
+  type: 'test'
+  ...
+# Subtest: rejects untrusted health result: live-url
+ok 191 - rejects untrusted health result: live-url
+  ---
+  duration_ms: 1311.0271
+  type: 'test'
+  ...
+# Subtest: show rejects altered schema, event order and success fields even after hash recomputation
+ok 192 - show rejects altered schema, event order and success fields even after hash recomputation
+  ---
+  duration_ms: 1269.5597
+  type: 'test'
+  ...
+# Subtest: CLI rejects unknown, duplicate, missing and live options before creating records
+ok 193 - CLI rejects unknown, duplicate, missing and live options before creating records
+  ---
+  duration_ms: 88.5612
+  type: 'test'
+  ...
+# Subtest: fixed CLI scenarios cannot promote a synthetic observation into live success
+ok 194 - fixed CLI scenarios cannot promote a synthetic observation into live success
+  ---
+  duration_ms: 4065.6883
+  type: 'test'
+  ...
+# Subtest: public CLI uses real dispatcher and safe exit codes on isolated fixtures
+ok 195 - public CLI uses real dispatcher and safe exit codes on isolated fixtures
+  ---
+  duration_ms: 3130.0257
+  type: 'test'
+  ...
+# Subtest: policy directory junction is rejected capture even with equal bytes
+ok 196 - policy directory junction is rejected capture even with equal bytes
+  ---
+  duration_ms: 87.3125
+  type: 'test'
+  ...
+# Subtest: policy directory junction is rejected validate even with equal bytes
+ok 197 - policy directory junction is rejected validate even with equal bytes
+  ---
+  duration_ms: 199.4035
+  type: 'test'
+  ...
+# Subtest: policy raw byte changes invalidate candidate even when legacy UTF-8 digest collides
+ok 198 - policy raw byte changes invalidate candidate even when legacy UTF-8 digest collides
+  ---
+  duration_ms: 290.4977
+  type: 'test'
+  ...
+# Subtest: dispatcher bytes are bound independently of the legacy verifier policy hash
+ok 199 - dispatcher bytes are bound independently of the legacy verifier policy hash
+  ---
+  duration_ms: 245.2397
+  type: 'test'
+  ...
+# Subtest: synthetic health cannot store a path payload
+ok 200 - synthetic health cannot store a path payload
+  ---
+  duration_ms: 742.0238
+  type: 'test'
+  ...
+# Subtest: stopped event cannot jump over unentered stages even with a recomputed hash
+ok 201 - stopped event cannot jump over unentered stages even with a recomputed hash
+  ---
+  duration_ms: 205.3237
+  type: 'test'
+  ...
+# Subtest: candidate binds input roles and ignores only declared generated/dependency roots
+ok 202 - candidate binds input roles and ignores only declared generated/dependency roots
+  ---
+  duration_ms: 127.4594
+  type: 'test'
+  ...
+# Subtest: successful flow records simulation identity, ordered operations and freshness without claiming live
+ok 203 - successful flow records simulation identity, ordered operations and freshness without claiming live
+  ---
+  duration_ms: 823.6668
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at validate stops all downstream calls {"status":"failed"}
+ok 204 - failure or incomplete terminal at validate stops all downstream calls {"status":"failed"}
+  ---
+  duration_ms: 181.4236
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at validate stops all downstream calls {"status":"passed","checks":["build","typecheck","lint"]}
+ok 205 - failure or incomplete terminal at validate stops all downstream calls {"status":"passed","checks":["build","typecheck","lint"]}
+  ---
+  duration_ms: 174.3385
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at deploy stops all downstream calls {"status":"failed"}
+ok 206 - failure or incomplete terminal at deploy stops all downstream calls {"status":"failed"}
+  ---
+  duration_ms: 304.1739
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at observe stops all downstream calls {"state":"PENDING","deploymentId":"sim-001"}
+ok 207 - failure or incomplete terminal at observe stops all downstream calls {"state":"PENDING","deploymentId":"sim-001"}
+  ---
+  duration_ms: 449.0626
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at observe stops all downstream calls {"state":"FAILED","deploymentId":"sim-001"}
+ok 208 - failure or incomplete terminal at observe stops all downstream calls {"state":"FAILED","deploymentId":"sim-001"}
+  ---
+  duration_ms: 460.2669
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at start stops all downstream calls {"state":"STOPPED","deploymentId":"sim-001"}
+ok 209 - failure or incomplete terminal at start stops all downstream calls {"state":"STOPPED","deploymentId":"sim-001"}
+  ---
+  duration_ms: 694.84
+  type: 'test'
+  ...
+# Subtest: failure or incomplete terminal at health stops all downstream calls {"status":"unhealthy","deploymentId":"sim-001"}
+ok 210 - failure or incomplete terminal at health stops all downstream calls {"status":"unhealthy","deploymentId":"sim-001"}
+  ---
+  duration_ms: 850.3573
+  type: 'test'
+  ...
+# Subtest: validate throw or timeout cannot start a later operation
+ok 211 - validate throw or timeout cannot start a later operation
+  ---
+  duration_ms: 371.7042
+  type: 'test'
+  ...
+# Subtest: deploy throw or timeout cannot start a later operation
+ok 212 - deploy throw or timeout cannot start a later operation
+  ---
+  duration_ms: 604.6732
+  type: 'test'
+  ...
+# Subtest: observe throw or timeout cannot start a later operation
+ok 213 - observe throw or timeout cannot start a later operation
+  ---
+  duration_ms: 927.4352
+  type: 'test'
+  ...
+# Subtest: start throw or timeout cannot start a later operation
+ok 214 - start throw or timeout cannot start a later operation
+  ---
+  duration_ms: 1209.3627
+  type: 'test'
+  ...
+# Subtest: health throw or timeout cannot start a later operation
+ok 215 - health throw or timeout cannot start a later operation
+  ---
+  duration_ms: 1581.2453
+  type: 'test'
+  ...
+# Subtest: already aborted invocation calls no adapter
+ok 216 - already aborted invocation calls no adapter
+  ---
+  duration_ms: 69.6509
+  type: 'test'
+  ...
+# Subtest: abort during deployment prevents observation and marks reconciliation required
+ok 217 - abort during deployment prevents observation and marks reconciliation required
+  ---
+  duration_ms: 301.5089
+  type: 'test'
+  ...
+# Subtest: post-validation modify drift blocks deployment
+ok 218 - post-validation modify drift blocks deployment
+  ---
+  duration_ms: 235.4543
+  type: 'test'
+  ...
+# Subtest: post-validation add drift blocks deployment
+ok 219 - post-validation add drift blocks deployment
+  ---
+  duration_ms: 210.6848
+  type: 'test'
+  ...
+# Subtest: post-validation remove drift blocks deployment
+ok 220 - post-validation remove drift blocks deployment
+  ---
+  duration_ms: 189.6051
+  type: 'test'
+  ...
+# Subtest: post-validation validation drift blocks deployment
+ok 221 - post-validation validation drift blocks deployment
+  ---
+  duration_ms: 211.2936
+  type: 'test'
+  ...
+# Subtest: post-validation requirement drift blocks deployment
+ok 222 - post-validation requirement drift blocks deployment
+  ---
+  duration_ms: 207.8206
+  type: 'test'
+  ...
+# Subtest: post-validation policy drift blocks deployment
+ok 223 - post-validation policy drift blocks deployment
+  ---
+  duration_ms: 192.4295
+  type: 'test'
+  ...
+# Subtest: post-validation approval drift blocks deployment
+ok 224 - post-validation approval drift blocks deployment
+  ---
+  duration_ms: 213.3982
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope candidateId calls no adapter
+ok 225 - unapproved or mismatching scope candidateId calls no adapter
+  ---
+  duration_ms: 107.396
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope session calls no adapter
+ok 226 - unapproved or mismatching scope session calls no adapter
+  ---
+  duration_ms: 123.7761
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope identity calls no adapter
+ok 227 - unapproved or mismatching scope identity calls no adapter
+  ---
+  duration_ms: 117.6166
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope decision calls no adapter
+ok 228 - unapproved or mismatching scope decision calls no adapter
+  ---
+  duration_ms: 119.7873
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope expiresAt calls no adapter
+ok 229 - unapproved or mismatching scope expiresAt calls no adapter
+  ---
+  duration_ms: 127.3179
+  type: 'test'
+  ...
+# Subtest: unapproved or mismatching scope kind calls no adapter
+ok 230 - unapproved or mismatching scope kind calls no adapter
+  ---
+  duration_ms: 122.276
+  type: 'test'
+  ...
+# Subtest: mismatched deployment identity is never accepted as terminal success
+ok 231 - mismatched deployment identity is never accepted as terminal success
+  ---
+  duration_ms: 441.2772
+  type: 'test'
+  ...
+# Subtest: malformed candidate is rejected before any record or callback
+ok 232 - malformed candidate is rejected before any record or callback
+  ---
+  duration_ms: 58.6638
+  type: 'test'
+  ...
+# Subtest: record IDs cannot overwrite results or escape the simulation directory
+ok 233 - record IDs cannot overwrite results or escape the simulation directory
+  ---
+  duration_ms: 843.1612
+  type: 'test'
+  ...
+# Subtest: concurrent candidate/target invocation is rejected without duplicate deployment
+ok 234 - concurrent candidate/target invocation is rejected without duplicate deployment
+  ---
+  duration_ms: 837.7605
+  type: 'test'
+  ...
+# Subtest: candidate rejects secret settings and unsafe component roots
+ok 235 - candidate rejects secret settings and unsafe component roots
+  ---
+  duration_ms: 77.0441
+  type: 'test'
+  ...
+# Subtest: candidate rejects junctions including those pointing inside the repository
+ok 236 - candidate rejects junctions including those pointing inside the repository
+  ---
+  duration_ms: 73.7206
+  type: 'test'
+  ...
+# Subtest: release owns only harness assets, hashes payload bytes and leaves product/local files out
+ok 237 - release owns only harness assets, hashes payload bytes and leaves product/local files out
+  ---
+  duration_ms: 493.9426
+  type: 'test'
+  ...
+# Subtest: release rejects mismatched versions and escaping outputs
+ok 238 - release rejects mismatched versions and escaping outputs
+  ---
+  duration_ms: 87.3697
+  type: 'test'
+  ...
+# Subtest: normalization requires explicit yes, includes provider text and preserves product files and original baseline bytes
+ok 239 - normalization requires explicit yes, includes provider text and preserves product files and original baseline bytes
+  ---
+  duration_ms: 1235.9283
+  type: 'test'
+  ...
+# Subtest: release refuses CRLF text until normalization, but binary extensions, NUL and invalid UTF-8 remain byte-identical
+ok 240 - release refuses CRLF text until normalization, but binary extensions, NUL and invalid UTF-8 remain byte-identical
+  ---
+  duration_ms: 1655.8145
+  type: 'test'
+  ...
+# Subtest: normalization rejects managed junctions before writing any text
+ok 241 - normalization rejects managed junctions before writing any text
+  ---
+  duration_ms: 310.726
+  type: 'test'
+  ...
+# Subtest: a dry-run plan makes no managed changes and application needs explicit yes
+ok 242 - a dry-run plan makes no managed changes and application needs explicit yes
+  ---
+  duration_ms: 636.1283
+  type: 'test'
+  ...
+# Subtest: matching first-template bytes are adopted while unmatched existing files conflict
+ok 243 - matching first-template bytes are adopted while unmatched existing files conflict
+  ---
+  duration_ms: 537.4164
+  type: 'test'
+  ...
+# Subtest: upgrade preserves excluded files and backs up every replaced or deleted file
+ok 244 - upgrade preserves excluded files and backs up every replaced or deleted file
+  ---
+  duration_ms: 1232.5194
+  type: 'test'
+  ...
+# Subtest: downstream modified and deleted files are conflicts, never silently overwritten
+ok 245 - downstream modified and deleted files are conflicts, never silently overwritten
+  ---
+  duration_ms: 811.7927
+  type: 'test'
+  ...
+# Subtest: edits after planning invalidate application before managed writes
+ok 246 - edits after planning invalidate application before managed writes
+  ---
+  duration_ms: 934.8406
+  type: 'test'
+  ...
+# Subtest: source payload tampering after planning is rejected
+ok 247 - source payload tampering after planning is rejected
+  ---
+  duration_ms: 936.9625
+  type: 'test'
+  ...
+# Subtest: malicious manifests cannot own product, local config, case collisions or escaping paths
+ok 248 - malicious manifests cannot own product, local config, case collisions or escaping paths
+  ---
+  duration_ms: 1935.7773
+  type: 'test'
+  ...
+# Subtest: same-version mutation and downgrade are rejected
+ok 249 - same-version mutation and downgrade are rejected
+  ---
+  duration_ms: 997.661
+  type: 'test'
+  ...
+# Subtest: update plan edits and wrong target repository are rejected
+ok 250 - update plan edits and wrong target repository are rejected
+  ---
+  duration_ms: 749.8388
+  type: 'test'
+  ...
+# Subtest: managed symlinks and junctions are rejected in release and destination
+ok 251 - managed symlinks and junctions are rejected in release and destination # SKIP This host does not permit test symlinks.
+  ---
+  duration_ms: 17.6361
+  type: 'test'
+  ...
+# Subtest: directory junctions are rejected even on Windows without file-symlink privilege
+ok 252 - directory junctions are rejected even on Windows without file-symlink privilege
+  ---
+  duration_ms: 386.2888
+  type: 'test'
+  ...
+# Subtest: new upstream files do not overwrite untracked downstream additions
+ok 253 - new upstream files do not overwrite untracked downstream additions
+  ---
+  duration_ms: 625.8931
+  type: 'test'
+  ...
+# Subtest: installed baseline changes invalidate a previously reviewed plan
+ok 254 - installed baseline changes invalidate a previously reviewed plan
+  ---
+  duration_ms: 648.9624
+  type: 'test'
+  ...
+# Subtest: case-colliding payload paths are rejected on every operating system
+ok 255 - case-colliding payload paths are rejected on every operating system
+  ---
+  duration_ms: 238.2417
+  type: 'test'
+  ...
+# Subtest: release/apply keeps provider rules, the complete harness guide and harness test files together
+ok 256 - release/apply keeps provider rules, the complete harness guide and harness test files together
+  ---
+  duration_ms: 1636.6125
+  type: 'test'
+  ...
+# Subtest: registering original upstream metadata preserves pre-existing downstream changes as update conflicts
+ok 257 - registering original upstream metadata preserves pre-existing downstream changes as update conflicts
+  ---
+  duration_ms: 389.7754
+  type: 'test'
+  ...
+# Subtest: baseline registration is idempotent only for the original manifest and refuses overwrite
+ok 258 - baseline registration is idempotent only for the original manifest and refuses overwrite
+  ---
+  duration_ms: 380.8529
+  type: 'test'
+  ...
+# Subtest: base-release metadata is excluded from snapshots to avoid self-hashing
+ok 259 - base-release metadata is excluded from snapshots to avoid self-hashing
+  ---
+  duration_ms: 320.8904
+  type: 'test'
+  ...
+# Subtest: baseline registration rejects escaping and invalid upstream manifests
+ok 260 - baseline registration rejects escaping and invalid upstream manifests
+  ---
+  duration_ms: 5.799
+  type: 'test'
+  ...
+# Subtest: guide serves locally with working links, CSP and no workspace-file exposure
+ok 261 - guide serves locally with working links, CSP and no workspace-file exposure
+  ---
+  duration_ms: 66.9968
+  type: 'test'
+  ...
+# Subtest: durable schema validator rejects malformed states and unsupported assertion vocabulary
+ok 262 - durable schema validator rejects malformed states and unsupported assertion vocabulary
+  ---
+  duration_ms: 3.2737
+  type: 'test'
+  ...
+# Subtest: onboarding distinguishes template clone, script-owned root and incomplete application setup
+ok 263 - onboarding distinguishes template clone, script-owned root and incomplete application setup
+  ---
+  duration_ms: 0.839
+  type: 'test'
+  ...
+# Subtest: onboarding JSON examples match between Markdown and HTML and contain declared Bundle variables
+ok 264 - onboarding JSON examples match between Markdown and HTML and contain declared Bundle variables
+  ---
+  duration_ms: 1.7299
+  type: 'test'
+  ...
+# Subtest: onboarding setup examples use origin-only hosts, consistent explicit profiles and installed-agent defaults
+ok 265 - onboarding setup examples use origin-only hosts, consistent explicit profiles and installed-agent defaults
+  ---
+  duration_ms: 0.9257
+  type: 'test'
+  ...
+# Subtest: onboarding keeps dev isolation explicit and includes no deployment or resource-creation commands
+ok 266 - onboarding keeps dev isolation explicit and includes no deployment or resource-creation commands
+  ---
+  duration_ms: 0.7644
+  type: 'test'
+  ...
+# Subtest: guide copy button copies the complete command block, not explanatory inline code
+ok 267 - guide copy button copies the complete command block, not explanatory inline code
+  ---
+  duration_ms: 1.1312
+  type: 'test'
+  ...
+# Subtest: evaluation prepares the full provider x task x 3 immutable plan without executing checkouts or models
+ok 268 - evaluation prepares the full provider x task x 3 immutable plan without executing checkouts or models
+  ---
+  duration_ms: 530.3239
+  type: 'test'
+  ...
+# Subtest: evaluation rejects undersampling, unsupported providers, unknown tasks, floating revisions and duplicate plans
+ok 269 - evaluation rejects undersampling, unsupported providers, unknown tasks, floating revisions and duplicate plans
+  ---
+  duration_ms: 715.8943
+  type: 'test'
+  ...
+# Subtest: unexecuted templates and malformed JSON schema fields cannot be recorded
+ok 270 - unexecuted templates and malformed JSON schema fields cannot be recorded
+  ---
+  duration_ms: 575.2066
+  type: 'test'
+  ...
+# Subtest: passed results require complete acceptance and distinguish not-run from pass
+ok 271 - passed results require complete acceptance and distinguish not-run from pass
+  ---
+  duration_ms: 657.356
+  type: 'test'
+  ...
+# Subtest: blocked results can preserve unexecuted criteria but are not counted as passes
+ok 272 - blocked results can preserve unexecuted criteria but are not counted as passes
+  ---
+  duration_ms: 656.769
+  type: 'test'
+  ...
+# Subtest: passing trials require independent verifier, deterministic checks, versions and explicit security metrics
+ok 273 - passing trials require independent verifier, deterministic checks, versions and explicit security metrics
+  ---
+  duration_ms: 1025.3023
+  type: 'test'
+  ...
+# Subtest: trial imports reject cross-run evidence, missing files and path traversal
+ok 274 - trial imports reject cross-run evidence, missing files and path traversal
+  ---
+  duration_ms: 877.1621
+  type: 'test'
+  ...
+# Subtest: records are immutable and identical re-import is idempotent
+ok 275 - records are immutable and identical re-import is idempotent
+  ---
+  duration_ms: 1108.4383
+  type: 'test'
+  ...
+# Subtest: missing trials cannot promote and unavailable credits are not reported as zero
+ok 276 - missing trials cannot promote and unavailable credits are not reported as zero
+  ---
+  duration_ms: 1688.3222
+  type: 'test'
+  ...
+# Subtest: complete synthetic records can be eligible but cannot self-authorize promotion
+ok 277 - complete synthetic records can be eligible but cannot self-authorize promotion
+  ---
+  duration_ms: 3154.2698
+  type: 'test'
+  ...
+# Subtest: stale evidence invalidates previously passing records
+ok 278 - stale evidence invalidates previously passing records
+  ---
+  duration_ms: 2876.142
+  type: 'test'
+  ...
+# Subtest: editing a sealed result invalidates it even when evidence bytes are unchanged
+ok 279 - editing a sealed result invalidates it even when evidence bytes are unchanged
+  ---
+  duration_ms: 2626.8557
+  type: 'test'
+  ...
+# Subtest: security regression and diagnostic subsets cannot promote
+ok 280 - security regression and diagnostic subsets cannot promote
+  ---
+  duration_ms: 2591.6303
+  type: 'test'
+  ...
+# Subtest: a rehashed plan cannot redirect record writes outside the per-run scope
+ok 281 - a rehashed plan cannot redirect record writes outside the per-run scope
+  ---
+  duration_ms: 311.0165
+  type: 'test'
+  ...
+# Subtest: routes Japanese UI work to the mock-first workflow
+ok 282 - routes Japanese UI work to the mock-first workflow
+  ---
+  duration_ms: 125.5222
+  type: 'test'
+  ...
+# Subtest: Copilot session hook injects durable-context guidance
+ok 283 - Copilot session hook injects durable-context guidance
+  ---
+  duration_ms: 192.9049
+  type: 'test'
+  ...
+# Subtest: Copilot policy hook denies production deploy
+ok 284 - Copilot policy hook denies production deploy
+  ---
+  duration_ms: 103.8807
+  type: 'test'
+  ...
+# Subtest: Copilot policy hook does not pre-approve a development deploy
+ok 285 - Copilot policy hook does not pre-approve a development deploy
+  ---
+  duration_ms: 110.7338
+  type: 'test'
+  ...
+# Subtest: Claude and Copilot wire policy, stop, compaction, and failure lifecycle hooks
+ok 286 - Claude and Copilot wire policy, stop, compaction, and failure lifecycle hooks
+  ---
+  duration_ms: 3.9386
+  type: 'test'
+  ...
+# Subtest: fresh template setup and gated durable session lifecycle work end to end
+ok 287 - fresh template setup and gated durable session lifecycle work end to end
+  ---
+  duration_ms: 11976
+  type: 'test'
+  ...
+# Subtest: imported hook configurations preserve both CLI and VS Code decision/context envelopes
+ok 288 - imported hook configurations preserve both CLI and VS Code decision/context envelopes
+  ---
+  duration_ms: 595.8669
+  type: 'test'
+  ...
+# Subtest: VS Code multi-file replacements cannot modify loop policy
+ok 289 - VS Code multi-file replacements cannot modify loop policy
+  ---
+  duration_ms: 418.6893
+  type: 'test'
+  ...
+# Subtest: claude preserves safe development commands without granting approval
+ok 290 - claude preserves safe development commands without granting approval
+  ---
+  duration_ms: 1037.8028
+  type: 'test'
+  ...
+# Subtest: claude denies production deployment with CLI global options
+ok 291 - claude denies production deployment with CLI global options
+  ---
+  duration_ms: 258.1402
+  type: 'test'
+  ...
+# Subtest: claude denies unspecified target
+ok 292 - claude denies unspecified target
+  ---
+  duration_ms: 265.8478
+  type: 'test'
+  ...
+# Subtest: claude denies prod profile on a dev target
+ok 293 - claude denies prod profile on a dev target
+  ---
+  duration_ms: 240.9498
+  type: 'test'
+  ...
+# Subtest: claude denies App deployment with CLI prefix
+ok 294 - claude denies App deployment with CLI prefix
+  ---
+  duration_ms: 253.4084
+  type: 'test'
+  ...
+# Subtest: claude denies destructive bundle prefix
+ok 295 - claude denies destructive bundle prefix
+  ---
+  duration_ms: 253.6883
+  type: 'test'
+  ...
+# Subtest: claude denies production npm wrapper
+ok 296 - claude denies production npm wrapper
+  ---
+  duration_ms: 243.7353
+  type: 'test'
+  ...
+# Subtest: claude denies production PowerShell script wrapper
+ok 297 - claude denies production PowerShell script wrapper
+  ---
+  duration_ms: 226.2406
+  type: 'test'
+  ...
+# Subtest: claude denies compound dev token cannot authorize a different deployment
+ok 298 - claude denies compound dev token cannot authorize a different deployment
+  ---
+  duration_ms: 229.9846
+  type: 'test'
+  ...
+# Subtest: claude denies compound dev deployment cannot authorize another deployment
+ok 299 - claude denies compound dev deployment cannot authorize another deployment
+  ---
+  duration_ms: 241.8913
+  type: 'test'
+  ...
+# Subtest: claude denies piped dev deployment cannot authorize another deployment
+ok 300 - claude denies piped dev deployment cannot authorize another deployment
+  ---
+  duration_ms: 214.0104
+  type: 'test'
+  ...
+# Subtest: claude denies background dev deployment cannot authorize another deployment
+ok 301 - claude denies background dev deployment cannot authorize another deployment
+  ---
+  duration_ms: 234.6722
+  type: 'test'
+  ...
+# Subtest: claude denies force push with Git prefix
+ok 302 - claude denies force push with Git prefix
+  ---
+  duration_ms: 215.9722
+  type: 'test'
+  ...
+# Subtest: claude denies short force push with Git config prefix
+ok 303 - claude denies short force push with Git config prefix
+  ---
+  duration_ms: 214.7128
+  type: 'test'
+  ...
+# Subtest: claude denies destructive Git reset prefix
+ok 304 - claude denies destructive Git reset prefix
+  ---
+  duration_ms: 214.2556
+  type: 'test'
+  ...
+# Subtest: claude denies destructive Git cleanup prefix
+ok 305 - claude denies destructive Git cleanup prefix
+  ---
+  duration_ms: 211.3528
+  type: 'test'
+  ...
+# Subtest: claude denies DDL drop table
+ok 306 - claude denies DDL drop table
+  ---
+  duration_ms: 240.3934
+  type: 'test'
+  ...
+# Subtest: claude denies DDL truncate
+ok 307 - claude denies DDL truncate
+  ---
+  duration_ms: 194.7306
+  type: 'test'
+  ...
+# Subtest: claude denies DDL truncate quoted name
+ok 308 - claude denies DDL truncate quoted name
+  ---
+  duration_ms: 198.3229
+  type: 'test'
+  ...
+# Subtest: claude denies DDL interleaved comment
+ok 309 - claude denies DDL interleaved comment
+  ---
+  duration_ms: 202.8963
+  type: 'test'
+  ...
+# Subtest: claude denies broad grant
+ok 310 - claude denies broad grant
+  ---
+  duration_ms: 214.6594
+  type: 'test'
+  ...
+# Subtest: claude denies owner change
+ok 311 - claude denies owner change
+  ---
+  duration_ms: 200.0782
+  type: 'test'
+  ...
+# Subtest: claude denies encoded PowerShell
+ok 312 - claude denies encoded PowerShell
+  ---
+  duration_ms: 207.0992
+  type: 'test'
+  ...
+# Subtest: claude denies short encoded pwsh
+ok 313 - claude denies short encoded pwsh
+  ---
+  duration_ms: 200.2763
+  type: 'test'
+  ...
+# Subtest: claude denies dynamic expression
+ok 314 - claude denies dynamic expression
+  ---
+  duration_ms: 186.875
+  type: 'test'
+  ...
+# Subtest: claude denies Claude permission bypass
+ok 315 - claude denies Claude permission bypass
+  ---
+  duration_ms: 197.0614
+  type: 'test'
+  ...
+# Subtest: claude denies Copilot all-permission bypass
+ok 316 - claude denies Copilot all-permission bypass
+  ---
+  duration_ms: 200.1904
+  type: 'test'
+  ...
+# Subtest: claude denies sandbox bypass
+ok 317 - claude denies sandbox bypass
+  ---
+  duration_ms: 200.9577
+  type: 'test'
+  ...
+# Subtest: claude denies POSIX recursive delete
+ok 318 - claude denies POSIX recursive delete
+  ---
+  duration_ms: 227.0151
+  type: 'test'
+  ...
+# Subtest: claude denies PowerShell recursive delete
+ok 319 - claude denies PowerShell recursive delete
+  ---
+  duration_ms: 199.1877
+  type: 'test'
+  ...
+# Subtest: claude denies cmd recursive delete
+ok 320 - claude denies cmd recursive delete
+  ---
+  duration_ms: 212.3934
+  type: 'test'
+  ...
+# Subtest: claude inspects JSON-encoded tool arguments
+ok 321 - claude inspects JSON-encoded tool arguments
+  ---
+  duration_ms: 199.3789
+  type: 'test'
+  ...
+# Subtest: claude fails closed for malformed JSON
+ok 322 - claude fails closed for malformed JSON
+  ---
+  duration_ms: 199.22
+  type: 'test'
+  ...
+# Subtest: claude fails closed for null payload
+ok 323 - claude fails closed for null payload
+  ---
+  duration_ms: 197.9989
+  type: 'test'
+  ...
+# Subtest: claude fails closed for array payload
+ok 324 - claude fails closed for array payload
+  ---
+  duration_ms: 203.883
+  type: 'test'
+  ...
+# Subtest: claude fails closed for primitive payload
+ok 325 - claude fails closed for primitive payload
+  ---
+  duration_ms: 193.5247
+  type: 'test'
+  ...
+# Subtest: claude fails closed for empty payload
+ok 326 - claude fails closed for empty payload
+  ---
+  duration_ms: 209.5809
+  type: 'test'
+  ...
+# Subtest: claude fails closed for invalid command type
+ok 327 - claude fails closed for invalid command type
+  ---
+  duration_ms: 218.4348
+  type: 'test'
+  ...
+# Subtest: claude protects loop control file AGENTS.md
+ok 328 - claude protects loop control file AGENTS.md
+  ---
+  duration_ms: 200.2786
+  type: 'test'
+  ...
+# Subtest: claude protects loop control file harness.config.json
+ok 329 - claude protects loop control file harness.config.json
+  ---
+  duration_ms: 336.1536
+  type: 'test'
+  ...
+# Subtest: claude protects loop control file tools/agent-hook.mjs
+ok 330 - claude protects loop control file tools/agent-hook.mjs
+  ---
+  duration_ms: 187.9337
+  type: 'test'
+  ...
+# Subtest: claude protects loop control file harness/evals/route-cases.json
+ok 331 - claude protects loop control file harness/evals/route-cases.json
+  ---
+  duration_ms: 194.3595
+  type: 'test'
+  ...
+# Subtest: claude protects loop control file harness/schemas/loop.schema.json
+ok 332 - claude protects loop control file harness/schemas/loop.schema.json
+  ---
+  duration_ms: 199.5094
+  type: 'test'
+  ...
+# Subtest: claude protects loop control file .claude/settings.json
+ok 333 - claude protects loop control file .claude/settings.json
+  ---
+  duration_ms: 192.9045
+  type: 'test'
+  ...
+# Subtest: claude protects loop control file .github/hooks/harness.json
+ok 334 - claude protects loop control file .github/hooks/harness.json
+  ---
+  duration_ms: 189.3874
+  type: 'test'
+  ...
+# Subtest: claude protects loop control file .claude\\settings.json
+ok 335 - claude protects loop control file .claude\\settings.json
+  ---
+  duration_ms: 216.0506
+  type: 'test'
+  ...
+# Subtest: claude protects loop control file tools/lib/evidence.mjs
+ok 336 - claude protects loop control file tools/lib/evidence.mjs
+  ---
+  duration_ms: 191.6621
+  type: 'test'
+  ...
+# Subtest: claude protects loop control file tools/lib/loop.mjs
+ok 337 - claude protects loop control file tools/lib/loop.mjs
+  ---
+  duration_ms: 186.3256
+  type: 'test'
+  ...
+# Subtest: claude allows separate harness maintenance outside an autonomous loop
+ok 338 - claude allows separate harness maintenance outside an autonomous loop
+  ---
+  duration_ms: 244.4793
+  type: 'test'
+  ...
+# Subtest: claude does not mistake application content for a protected edit target
+ok 339 - claude does not mistake application content for a protected edit target
+  ---
+  duration_ms: 218.1852
+  type: 'test'
+  ...
+# Subtest: claude inspects raw apply_patch targets inside an autonomous loop
+ok 340 - claude inspects raw apply_patch targets inside an autonomous loop
+  ---
+  duration_ms: 194.5269
+  type: 'test'
+  ...
+# Subtest: copilot preserves safe development commands without granting approval
+ok 341 - copilot preserves safe development commands without granting approval
+  ---
+  duration_ms: 727.9318
+  type: 'test'
+  ...
+# Subtest: copilot denies production deployment with CLI global options
+ok 342 - copilot denies production deployment with CLI global options
+  ---
+  duration_ms: 183.3551
+  type: 'test'
+  ...
+# Subtest: copilot denies unspecified target
+ok 343 - copilot denies unspecified target
+  ---
+  duration_ms: 184.9062
+  type: 'test'
+  ...
+# Subtest: copilot denies prod profile on a dev target
+ok 344 - copilot denies prod profile on a dev target
+  ---
+  duration_ms: 194.219
+  type: 'test'
+  ...
+# Subtest: copilot denies App deployment with CLI prefix
+ok 345 - copilot denies App deployment with CLI prefix
+  ---
+  duration_ms: 187.624
+  type: 'test'
+  ...
+# Subtest: copilot denies destructive bundle prefix
+ok 346 - copilot denies destructive bundle prefix
+  ---
+  duration_ms: 187.409
+  type: 'test'
+  ...
+# Subtest: copilot denies production npm wrapper
+ok 347 - copilot denies production npm wrapper
+  ---
+  duration_ms: 176.4792
+  type: 'test'
+  ...
+# Subtest: copilot denies production PowerShell script wrapper
+ok 348 - copilot denies production PowerShell script wrapper
+  ---
+  duration_ms: 187.3179
+  type: 'test'
+  ...
+# Subtest: copilot denies compound dev token cannot authorize a different deployment
+ok 349 - copilot denies compound dev token cannot authorize a different deployment
+  ---
+  duration_ms: 190.3965
+  type: 'test'
+  ...
+# Subtest: copilot denies compound dev deployment cannot authorize another deployment
+ok 350 - copilot denies compound dev deployment cannot authorize another deployment
+  ---
+  duration_ms: 193.4706
+  type: 'test'
+  ...
+# Subtest: copilot denies piped dev deployment cannot authorize another deployment
+ok 351 - copilot denies piped dev deployment cannot authorize another deployment
+  ---
+  duration_ms: 188.3
+  type: 'test'
+  ...
+# Subtest: copilot denies background dev deployment cannot authorize another deployment
+ok 352 - copilot denies background dev deployment cannot authorize another deployment
+  ---
+  duration_ms: 186.0808
+  type: 'test'
+  ...
+# Subtest: copilot denies force push with Git prefix
+ok 353 - copilot denies force push with Git prefix
+  ---
+  duration_ms: 198.5545
+  type: 'test'
+  ...
+# Subtest: copilot denies short force push with Git config prefix
+ok 354 - copilot denies short force push with Git config prefix
+  ---
+  duration_ms: 192.6687
+  type: 'test'
+  ...
+# Subtest: copilot denies destructive Git reset prefix
+ok 355 - copilot denies destructive Git reset prefix
+  ---
+  duration_ms: 195.8535
+  type: 'test'
+  ...
+# Subtest: copilot denies destructive Git cleanup prefix
+ok 356 - copilot denies destructive Git cleanup prefix
+  ---
+  duration_ms: 187.472
+  type: 'test'
+  ...
+# Subtest: copilot denies DDL drop table
+ok 357 - copilot denies DDL drop table
+  ---
+  duration_ms: 194.4775
+  type: 'test'
+  ...
+# Subtest: copilot denies DDL truncate
+ok 358 - copilot denies DDL truncate
+  ---
+  duration_ms: 180.7775
+  type: 'test'
+  ...
+# Subtest: copilot denies DDL truncate quoted name
+ok 359 - copilot denies DDL truncate quoted name
+  ---
+  duration_ms: 179.0699
+  type: 'test'
+  ...
+# Subtest: copilot denies DDL interleaved comment
+ok 360 - copilot denies DDL interleaved comment
+  ---
+  duration_ms: 178.0928
+  type: 'test'
+  ...
+# Subtest: copilot denies broad grant
+ok 361 - copilot denies broad grant
+  ---
+  duration_ms: 185.7448
+  type: 'test'
+  ...
+# Subtest: copilot denies owner change
+ok 362 - copilot denies owner change
+  ---
+  duration_ms: 171.8978
+  type: 'test'
+  ...
+# Subtest: copilot denies encoded PowerShell
+ok 363 - copilot denies encoded PowerShell
+  ---
+  duration_ms: 188.6422
+  type: 'test'
+  ...
+# Subtest: copilot denies short encoded pwsh
+ok 364 - copilot denies short encoded pwsh
+  ---
+  duration_ms: 176.6477
+  type: 'test'
+  ...
+# Subtest: copilot denies dynamic expression
+ok 365 - copilot denies dynamic expression
+  ---
+  duration_ms: 196.3825
+  type: 'test'
+  ...
+# Subtest: copilot denies Claude permission bypass
+ok 366 - copilot denies Claude permission bypass
+  ---
+  duration_ms: 176.0997
+  type: 'test'
+  ...
+# Subtest: copilot denies Copilot all-permission bypass
+ok 367 - copilot denies Copilot all-permission bypass
+  ---
+  duration_ms: 218.8702
+  type: 'test'
+  ...
+# Subtest: copilot denies sandbox bypass
+ok 368 - copilot denies sandbox bypass
+  ---
+  duration_ms: 183.7117
+  type: 'test'
+  ...
+# Subtest: copilot denies POSIX recursive delete
+ok 369 - copilot denies POSIX recursive delete
+  ---
+  duration_ms: 180.6313
+  type: 'test'
+  ...
+# Subtest: copilot denies PowerShell recursive delete
+ok 370 - copilot denies PowerShell recursive delete
+  ---
+  duration_ms: 176.3588
+  type: 'test'
+  ...
+# Subtest: copilot denies cmd recursive delete
+ok 371 - copilot denies cmd recursive delete
+  ---
+  duration_ms: 165.8336
+  type: 'test'
+  ...
+# Subtest: copilot inspects JSON-encoded tool arguments
+ok 372 - copilot inspects JSON-encoded tool arguments
+  ---
+  duration_ms: 174.6291
+  type: 'test'
+  ...
+# Subtest: copilot fails closed for malformed JSON
+ok 373 - copilot fails closed for malformed JSON
+  ---
+  duration_ms: 167.3777
+  type: 'test'
+  ...
+# Subtest: copilot fails closed for null payload
+ok 374 - copilot fails closed for null payload
+  ---
+  duration_ms: 166.6889
+  type: 'test'
+  ...
+# Subtest: copilot fails closed for array payload
+ok 375 - copilot fails closed for array payload
+  ---
+  duration_ms: 170.8015
+  type: 'test'
+  ...
+# Subtest: copilot fails closed for primitive payload
+ok 376 - copilot fails closed for primitive payload
+  ---
+  duration_ms: 171.8361
+  type: 'test'
+  ...
+# Subtest: copilot fails closed for empty payload
+ok 377 - copilot fails closed for empty payload
+  ---
+  duration_ms: 169.0655
+  type: 'test'
+  ...
+# Subtest: copilot fails closed for invalid command type
+ok 378 - copilot fails closed for invalid command type
+  ---
+  duration_ms: 176.142
+  type: 'test'
+  ...
+# Subtest: copilot protects loop control file AGENTS.md
+ok 379 - copilot protects loop control file AGENTS.md
+  ---
+  duration_ms: 169.3008
+  type: 'test'
+  ...
+# Subtest: copilot protects loop control file harness.config.json
+ok 380 - copilot protects loop control file harness.config.json
+  ---
+  duration_ms: 180.1707
+  type: 'test'
+  ...
+# Subtest: copilot protects loop control file tools/agent-hook.mjs
+ok 381 - copilot protects loop control file tools/agent-hook.mjs
+  ---
+  duration_ms: 179.248
+  type: 'test'
+  ...
+# Subtest: copilot protects loop control file harness/evals/route-cases.json
+ok 382 - copilot protects loop control file harness/evals/route-cases.json
+  ---
+  duration_ms: 178.852
+  type: 'test'
+  ...
+# Subtest: copilot protects loop control file harness/schemas/loop.schema.json
+ok 383 - copilot protects loop control file harness/schemas/loop.schema.json
+  ---
+  duration_ms: 175.7895
+  type: 'test'
+  ...
+# Subtest: copilot protects loop control file .claude/settings.json
+ok 384 - copilot protects loop control file .claude/settings.json
+  ---
+  duration_ms: 165.7904
+  type: 'test'
+  ...
+# Subtest: copilot protects loop control file .github/hooks/harness.json
+ok 385 - copilot protects loop control file .github/hooks/harness.json
+  ---
+  duration_ms: 157.6527
+  type: 'test'
+  ...
+# Subtest: copilot protects loop control file .claude\\settings.json
+ok 386 - copilot protects loop control file .claude\\settings.json
+  ---
+  duration_ms: 157.5478
+  type: 'test'
+  ...
+# Subtest: copilot protects loop control file tools/lib/evidence.mjs
+ok 387 - copilot protects loop control file tools/lib/evidence.mjs
+  ---
+  duration_ms: 161.0457
+  type: 'test'
+  ...
+# Subtest: copilot protects loop control file tools/lib/loop.mjs
+ok 388 - copilot protects loop control file tools/lib/loop.mjs
+  ---
+  duration_ms: 161.2594
+  type: 'test'
+  ...
+# Subtest: copilot allows separate harness maintenance outside an autonomous loop
+ok 389 - copilot allows separate harness maintenance outside an autonomous loop
+  ---
+  duration_ms: 165.5788
+  type: 'test'
+  ...
+# Subtest: copilot does not mistake application content for a protected edit target
+ok 390 - copilot does not mistake application content for a protected edit target
+  ---
+  duration_ms: 157.618
+  type: 'test'
+  ...
+# Subtest: copilot inspects raw apply_patch targets inside an autonomous loop
+ok 391 - copilot inspects raw apply_patch targets inside an autonomous loop
+  ---
+  duration_ms: 182.1136
+  type: 'test'
+  ...
+# Subtest: Stop requests a semantic checkpoint for its own active iteration
+ok 392 - Stop requests a semantic checkpoint for its own active iteration
+  ---
+  duration_ms: 189.5552
+  type: 'test'
+  ...
+# Subtest: Stop respects an existing stop-hook block to prevent an infinite hook loop
+ok 393 - Stop respects an existing stop-hook block to prevent an infinite hook loop
+  ---
+  duration_ms: 166.0414
+  type: 'test'
+  ...
+# Subtest: Stop does not continue across a pending human gate or exhausted budget
+ok 394 - Stop does not continue across a pending human gate or exhausted budget
+  ---
+  duration_ms: 378.2794
+  type: 'test'
+  ...
+# Subtest: Stop does not interfere with an unrelated task
+ok 395 - Stop does not interfere with an unrelated task
+  ---
+  duration_ms: 197.482
+  type: 'test'
+  ...
+# Subtest: Stop permits a checkpoint written after the current iteration started
+ok 396 - Stop permits a checkpoint written after the current iteration started
+  ---
+  duration_ms: 205.4467
+  type: 'test'
+  ...
+# Subtest: Stop treats a missing checkpoint as stale
+ok 397 - Stop treats a missing checkpoint as stale
+  ---
+  duration_ms: 161.9583
+  type: 'test'
+  ...
+# Subtest: Stop selects the matching loop even when a newer unrelated loop exists
+ok 398 - Stop selects the matching loop even when a newer unrelated loop exists
+  ---
+  duration_ms: 171.3044
+  type: 'test'
+  ...
+# Subtest: compact retains only sanitized event metadata in the isolated fixture
+ok 399 - compact retains only sanitized event metadata in the isolated fixture
+  ---
+  duration_ms: 167.4646
+  type: 'test'
+  ...
+# Subtest: compact rejects an environment session path escape
+ok 400 - compact rejects an environment session path escape
+  ---
+  duration_ms: 170.1371
+  type: 'test'
+  ...
+# Subtest: failure retains only sanitized event metadata in the isolated fixture
+ok 401 - failure retains only sanitized event metadata in the isolated fixture
+  ---
+  duration_ms: 159.5993
+  type: 'test'
+  ...
+# Subtest: failure rejects an environment session path escape
+ok 402 - failure rejects an environment session path escape
+  ---
+  duration_ms: 188.3751
+  type: 'test'
+  ...
+# Subtest: new Japanese UI intake exposes business, data and interaction definitions without inventing decisions
+ok 403 - new Japanese UI intake exposes business, data and interaction definitions without inventing decisions
+  ---
+  duration_ms: 157.7768
+  type: 'test'
+  ...
+# Subtest: API-only Japanese intake skips UI design and keeps interface, test and operations definitions
+ok 404 - API-only Japanese intake skips UI design and keeps interface, test and operations definitions
+  ---
+  duration_ms: 86.947
+  type: 'test'
+  ...
+# Subtest: Japanese intake answers remain parseable and approval retains exact artifact hashes
+ok 405 - Japanese intake answers remain parseable and approval retains exact artifact hashes
+  ---
+  duration_ms: 739.0273
+  type: 'test'
+  ...
+# Subtest: all pinned workloads have human-facing descriptions and source text is not recursively templated
+ok 406 - all pinned workloads have human-facing descriptions and source text is not recursively templated
+  ---
+  duration_ms: 112.2789
+  type: 'test'
+  ...
+# Subtest: new Japanese sessions and legacy English sessions retain current state on checkpoint
+ok 407 - new Japanese sessions and legacy English sessions retain current state on checkpoint
+  ---
+  duration_ms: 119.9575
+  type: 'test'
+  ...
+# Subtest: installed harness delivery CLI is read-only and distinguishes findings from invalid input
+ok 408 - installed harness delivery CLI is read-only and distinguishes findings from invalid input
+  ---
+  duration_ms: 1708.5702
+  type: 'test'
+  ...
+# Subtest: fresh fixture excludes initialized source product state without modifying it
+ok 409 - fresh fixture excludes initialized source product state without modifying it
+  ---
+  duration_ms: 10675.4942
+  type: 'test'
+  ...
+# Subtest: fixture refuses existing, overlapping and missing-input sources without writes
+ok 410 - fixture refuses existing, overlapping and missing-input sources without writes
+  ---
+  duration_ms: 13.4369
+  type: 'test'
+  ...
+# Subtest: fresh fixture excludes case aliases of local state and original baseline
+ok 411 - fresh fixture excludes case aliases of local state and original baseline
+  ---
+  duration_ms: 5849.576
+  type: 'test'
+  ...
+# Subtest: fixture refuses source and destination ancestor junctions and dangling outputs
+ok 412 - fixture refuses source and destination ancestor junctions and dangling outputs
+  ---
+  duration_ms: 6.807
+  type: 'test'
+  ...
+# Subtest: fixture refuses a linked allowlisted input before creating its destination
+ok 413 - fixture refuses a linked allowlisted input before creating its destination
+  ---
+  duration_ms: 1931.2772
+  type: 'test'
+  ...
+# Subtest: loop exports the shared policy hash and includes policy modules in its snapshot
+ok 414 - loop exports the shared policy hash and includes policy modules in its snapshot
+  ---
+  duration_ms: 100.7349
+  type: 'test'
+  ...
+# Subtest: an active provider run owns the loop record until checks finish
+ok 415 - an active provider run owns the loop record until checks finish
+  ---
+  duration_ms: 343.39
+  type: 'test'
+  ...
+# Subtest: unexpected provider exceptions release the lock but cannot silently rerun an unfinished slice
+ok 416 - unexpected provider exceptions release the lock but cannot silently rerun an unfinished slice
+  ---
+  duration_ms: 198.8045
+  type: 'test'
+  ...
+# Subtest: simultaneous completion records cannot both close the same iteration
+ok 417 - simultaneous completion records cannot both close the same iteration
+  ---
+  duration_ms: 474.837
+  type: 'test'
+  ...
+# Subtest: all loop mutators fail closed on an existing record lock without changing state
+ok 418 - all loop mutators fail closed on an existing record lock without changing state
+  ---
+  duration_ms: 126.9732
+  type: 'test'
+  ...
+# Subtest: loop completion rejects missing requirement binding
+ok 419 - loop completion rejects missing requirement binding
+  ---
+  duration_ms: 364.2068
+  type: 'test'
+  ...
+# Subtest: loop completion rejects draft requirement
+ok 420 - loop completion rejects draft requirement
+  ---
+  duration_ms: 373.6995
+  type: 'test'
+  ...
+# Subtest: loop and session completion share receipt rejection for missing receipt requirement
+ok 421 - loop and session completion share receipt rejection for missing receipt requirement
+  ---
+  duration_ms: 302.46
+  type: 'test'
+  ...
+# Subtest: loop and session completion share receipt rejection for wrong receipt requirement
+ok 422 - loop and session completion share receipt rejection for wrong receipt requirement
+  ---
+  duration_ms: 299.8237
+  type: 'test'
+  ...
+# Subtest: loop and session completion share receipt rejection for string independence
+ok 423 - loop and session completion share receipt rejection for string independence
+  ---
+  duration_ms: 300.3402
+  type: 'test'
+  ...
+# Subtest: loop and session completion share receipt rejection for conflicting duplicate AC
+ok 424 - loop and session completion share receipt rejection for conflicting duplicate AC
+  ---
+  duration_ms: 356.0944
+  type: 'test'
+  ...
+# Subtest: loop and session completion share receipt rejection for extra passing AC without evidence
+ok 425 - loop and session completion share receipt rejection for extra passing AC without evidence
+  ---
+  duration_ms: 378.4175
+  type: 'test'
+  ...
+# Subtest: loop and session completion share receipt rejection for unhashed requirement
+ok 426 - loop and session completion share receipt rejection for unhashed requirement
+  ---
+  duration_ms: 367.6916
+  type: 'test'
+  ...
+# Subtest: loop completion rejects empty implementation evidence even if not referenced by the receipt
+ok 427 - loop completion rejects empty implementation evidence even if not referenced by the receipt
+  ---
+  duration_ms: 326.1888
+  type: 'test'
+  ...
+# Subtest: concurrent intake answers cannot lose an answer; a rejected writer can retry against fresh state
+ok 428 - concurrent intake answers cannot lose an answer; a rejected writer can retry against fresh state
+  ---
+  duration_ms: 310.13
+  type: 'test'
+  ...
+# Subtest: intake cannot overwrite a concurrently checkpointed session or partially update linked documents
+ok 429 - intake cannot overwrite a concurrently checkpointed session or partially update linked documents
+  ---
+  duration_ms: 262.1784
+  type: 'test'
+  ...
+# Subtest: intake approval and answers obey the same manifest lock
+ok 430 - intake approval and answers obey the same manifest lock
+  ---
+  duration_ms: 753.3363
+  type: 'test'
+  ...
+# Subtest: concurrent intake creation with the same name cannot overwrite product artifacts
+ok 431 - concurrent intake creation with the same name cannot overwrite product artifacts
+  ---
+  duration_ms: 174.5313
+  type: 'test'
+  ...
+# Subtest: durable sessions carry provider, linked designs, objective, and pending intent gate
+ok 432 - durable sessions carry provider, linked designs, objective, and pending intent gate
+  ---
+  duration_ms: 43.8303
+  type: 'test'
+  ...
+# Subtest: unknown session intents are rejected without creating a durable record
+ok 433 - unknown session intents are rejected without creating a durable record
+  ---
+  duration_ms: 66.9431
+  type: 'test'
+  ...
+# Subtest: a checkpoint requires summary and exact next action
+ok 434 - a checkpoint requires summary and exact next action
+  ---
+  duration_ms: 99.2719
+  type: 'test'
+  ...
+# Subtest: a pending intent gate cannot be skipped through checkpoint phase changes
+ok 435 - a pending intent gate cannot be skipped through checkpoint phase changes
+  ---
+  duration_ms: 100.0978
+  type: 'test'
+  ...
+# Subtest: file locks reject concurrent writers and are released after exceptions
+ok 436 - file locks reject concurrent writers and are released after exceptions
+  ---
+  duration_ms: 53.8649
+  type: 'test'
+  ...
+# Subtest: blocked sessions close without falsely claiming completed and reject later checkpoints
+ok 437 - blocked sessions close without falsely claiming completed and reject later checkpoints
+  ---
+  duration_ms: 108.485
+  type: 'test'
+  ...
+# Subtest: completion refuses a pending gate even with a valid receipt
+ok 438 - completion refuses a pending gate even with a valid receipt
+  ---
+  duration_ms: 106.7269
+  type: 'test'
+  ...
+# Subtest: completion refuses absent verification without mutating the active session
+ok 439 - completion refuses absent verification without mutating the active session
+  ---
+  duration_ms: 80.1643
+  type: 'test'
+  ...
+# Subtest: sealed independent AC evidence permits completion and records unauthenticated identity honestly
+ok 440 - sealed independent AC evidence permits completion and records unauthenticated identity honestly
+  ---
+  duration_ms: 161.462
+  type: 'test'
+  ...
+# Subtest: sealing rejects missing acceptance criterion
+ok 441 - sealing rejects missing acceptance criterion
+  ---
+  duration_ms: 91.7254
+  type: 'test'
+  ...
+# Subtest: sealing rejects non-independent reviewer
+ok 442 - sealing rejects non-independent reviewer
+  ---
+  duration_ms: 34.5083
+  type: 'test'
+  ...
+# Subtest: sealing rejects unknown reviewer provider
+ok 443 - sealing rejects unknown reviewer provider
+  ---
+  duration_ms: 39.5462
+  type: 'test'
+  ...
+# Subtest: sealing rejects passing criterion with no evidence
+ok 444 - sealing rejects passing criterion with no evidence
+  ---
+  duration_ms: 45.4473
+  type: 'test'
+  ...
+# Subtest: sealing rejects directory used as evidence
+ok 445 - sealing rejects directory used as evidence
+  ---
+  duration_ms: 41.5879
+  type: 'test'
+  ...
+# Subtest: a failed AC seals as fail and cannot be used to close completed
+ok 446 - a failed AC seals as fail and cannot be used to close completed
+  ---
+  duration_ms: 115.0275
+  type: 'test'
+  ...
+# Subtest: sealing rejects an unaccepted draft requirement
+ok 447 - sealing rejects an unaccepted draft requirement
+  ---
+  duration_ms: 75.1356
+  type: 'test'
+  ...
+# Subtest: sealing rejects an empty file advertised as passing evidence
+ok 448 - sealing rejects an empty file advertised as passing evidence
+  ---
+  duration_ms: 38.9779
+  type: 'test'
+  ...
+# Subtest: receipt validation rejects wrong session
+ok 449 - receipt validation rejects wrong session
+  ---
+  duration_ms: 72.8345
+  type: 'test'
+  ...
+# Subtest: receipt validation rejects wrong requirement binding
+ok 450 - receipt validation rejects wrong requirement binding
+  ---
+  duration_ms: 63.5784
+  type: 'test'
+  ...
+# Subtest: receipt validation rejects self-review identity
+ok 451 - receipt validation rejects self-review identity
+  ---
+  duration_ms: 109.5723
+  type: 'test'
+  ...
+# Subtest: receipt validation rejects stale policy
+ok 452 - receipt validation rejects stale policy
+  ---
+  duration_ms: 96.3352
+  type: 'test'
+  ...
+# Subtest: receipt validation rejects missing artifact hashes
+ok 453 - receipt validation rejects missing artifact hashes
+  ---
+  duration_ms: 84.2087
+  type: 'test'
+  ...
+# Subtest: receipt validation rejects unhashed acceptance evidence
+ok 454 - receipt validation rejects unhashed acceptance evidence
+  ---
+  duration_ms: 121.1996
+  type: 'test'
+  ...
+# Subtest: receipt validation rejects missing AC coverage
+ok 455 - receipt validation rejects missing AC coverage
+  ---
+  duration_ms: 104.7037
+  type: 'test'
+  ...
+# Subtest: receipt validation rejects truthy string independence
+ok 456 - receipt validation rejects truthy string independence
+  ---
+  duration_ms: 72.7665
+  type: 'test'
+  ...
+# Subtest: receipt validation rejects unknown provider in receipt
+ok 457 - receipt validation rejects unknown provider in receipt
+  ---
+  duration_ms: 76.176
+  type: 'test'
+  ...
+# Subtest: receipt validation rejects conflicting duplicate AC result
+ok 458 - receipt validation rejects conflicting duplicate AC result
+  ---
+  duration_ms: 77.8868
+  type: 'test'
+  ...
+# Subtest: verified artifact changes invalidate previously sealed completion evidence
+ok 459 - verified artifact changes invalidate previously sealed completion evidence
+  ---
+  duration_ms: 133.6059
+  type: 'test'
+  ...
+# Subtest: knowledge is indexed with source, confidence, applicability, and freshness
+ok 460 - knowledge is indexed with source, confidence, applicability, and freshness
+  ---
+  duration_ms: 48.3386
+  type: 'test'
+  ...
+# Subtest: knowledge requires provenance and rejects missing source files
+ok 461 - knowledge requires provenance and rejects missing source files
+  ---
+  duration_ms: 23.1847
+  type: 'test'
+  ...
+# Subtest: knowledge supersession retains history and marks the prior entry
+ok 462 - knowledge supersession retains history and marks the prior entry
+  ---
+  duration_ms: 50.9865
+  type: 'test'
+  ...
+# Subtest: knowledge supersession cannot cross scope
+ok 463 - knowledge supersession cannot cross scope
+  ---
+  duration_ms: 27.9444
+  type: 'test'
+  ...
+# Subtest: knowledge supersession rejects a sibling directory sharing the knowledge prefix
+ok 464 - knowledge supersession rejects a sibling directory sharing the knowledge prefix
+  ---
+  duration_ms: 28.7227
+  type: 'test'
+  ...
+# Subtest: knowledge review dates must be real calendar dates
+ok 465 - knowledge review dates must be real calendar dates
+  ---
+  duration_ms: 18.5952
+  type: 'test'
+  ...
+# Subtest: knowledge rejects unsupported kinds instead of creating ungoverned records
+ok 466 - knowledge rejects unsupported kinds instead of creating ungoverned records
+  ---
+  duration_ms: 15.1
+  type: 'test'
+  ...
+# Subtest: session checkpoints reject or redact recognizable credentials before persistence
+ok 467 - session checkpoints reject or redact recognizable credentials before persistence
+  ---
+  duration_ms: 31.6189
+  type: 'test'
+  ...
+# Subtest: knowledge rejects or redacts recognizable credentials before persistence
+ok 468 - knowledge rejects or redacts recognizable credentials before persistence
+  ---
+  duration_ms: 18.3445
+  type: 'test'
+  ...
+# Subtest: session closure rejects or redacts recognizable credentials before persistence
+ok 469 - session closure rejects or redacts recognizable credentials before persistence
+  ---
+  duration_ms: 45.2918
+  type: 'test'
+  ...
+# Subtest: publication checks complete source without using cached payload
+ok 470 - publication checks complete source without using cached payload
+  ---
+  duration_ms: 1566.6172
+  type: 'test'
+  ...
+# Subtest: publication rejects missing stamp, deleted file and same-byte omitted file
+ok 471 - publication rejects missing stamp, deleted file and same-byte omitted file
+  ---
+  duration_ms: 1278.1487
+  type: 'test'
+  ...
+# Subtest: package and lock versions and release notes are required
+ok 472 - package and lock versions and release notes are required
+  ---
+  duration_ms: 3750.6451
+  type: 'test'
+  ...
+# Subtest: immutable version compares files, migrations and executable attributes; rejects downgrade
+ok 473 - immutable version compares files, migrations and executable attributes; rejects downgrade
+  ---
+  duration_ms: 392.8696
+  type: 'test'
+  ...
+# Subtest: source checker and hook reject product repositories and links
+ok 474 - source checker and hook reject product repositories and links
+  ---
+  duration_ms: 1054.9391
+  type: 'test'
+  ...
+# Subtest: Git guard matches actual destination main and only committed HEAD
+ok 475 - Git guard matches actual destination main and only committed HEAD
+  ---
+  duration_ms: 1960.7516
+  type: 'test'
+  ...
+# Subtest: Git guard refuses staged uncommitted publication even when source stamp is coherent
+ok 476 - Git guard refuses staged uncommitted publication even when source stamp is coherent
+  ---
+  duration_ms: 1374.5804
+  type: 'test'
+  ...
+# Subtest: Git guard refuses a deleted managed file still present in the pushed commit
+ok 477 - Git guard refuses a deleted managed file still present in the pushed commit
+  ---
+  duration_ms: 2108.5447
+  type: 'test'
+  ...
+# Subtest: hook install is idempotent and preserves existing hook and custom hooksPath
+ok 478 - hook install is idempotent and preserves existing hook and custom hooksPath
+  ---
+  duration_ms: 2308.1948
+  type: 'test'
+  ...
+# Subtest: real local Git push passes stamped main, blocks stale main and still allows backup
+ok 479 - real local Git push passes stamped main, blocks stale main and still allows backup
+  ---
+  duration_ms: 3195.7685
+  type: 'test'
+  ...
+# Subtest: cache-free source and immutable payload update preserve product files and stop conflicts
+ok 480 - cache-free source and immutable payload update preserve product files and stop conflicts
+  ---
+  duration_ms: 1411.5706
+  type: 'test'
+  ...
+# Subtest: natural-language publication routes only the harness source and preserves explicit inspection
+ok 481 - natural-language publication routes only the harness source and preserves explicit inspection
+  ---
+  duration_ms: 651.8384
+  type: 'test'
+  ...
+# Subtest: data scaffold generates executable composite-key fixtures without running external tools
+ok 482 - data scaffold generates executable composite-key fixtures without running external tools
+  ---
+  duration_ms: 116.065
+  type: 'test'
+  ...
+# Subtest: generated Python unittest executes real record transitions and the actual Delta builder
+ok 483 - generated Python unittest executes real record transitions and the actual Delta builder
+  ---
+  duration_ms: 567.0524
+  type: 'test'
+  ...
+# Subtest: generated data job refuses execution without an explicit approved-write switch
+ok 484 - generated data job refuses execution without an explicit approved-write switch
+  ---
+  duration_ms: 343.2464
+  type: 'test'
+  ...
+# Subtest: fixture field generation remains correct when product columns collide with sample names
+ok 485 - fixture field generation remains correct when product columns collide with sample names
+  ---
+  duration_ms: 485.2677
+  type: 'test'
+  ...
+# Subtest: data planning rejects ambiguous keys, unsafe names, identical tables and missing inputs
+ok 486 - data planning rejects ambiguous keys, unsafe names, identical tables and missing inputs
+  ---
+  duration_ms: 32.165
+  type: 'test'
+  ...
+# Subtest: local generation preflights all paths and never overwrites an existing artifact
+ok 487 - local generation preflights all paths and never overwrites an existing artifact
+  ---
+  duration_ms: 45.1683
+  type: 'test'
+  ...
+# Subtest: AppKit mock requires an explicit verified workspace but no prior UI approval or data resources
+ok 488 - AppKit mock requires an explicit verified workspace but no prior UI approval or data resources
+  ---
+  duration_ms: 209.2845
+  type: 'test'
+  ...
+# Subtest: mock AppKit plans reject profiles and mandatory or optional live-data plugins
+ok 489 - mock AppKit plans reject profiles and mandatory or optional live-data plugins
+  ---
+  duration_ms: 51.0938
+  type: 'test'
+  ...
+# Subtest: AppKit validates the selected profile host before authentication and rechecks before init
+ok 490 - AppKit validates the selected profile host before authentication and rechecks before init
+  ---
+  duration_ms: 96.2455
+  type: 'test'
+  ...
+# Subtest: AppKit commands cannot inherit custom template overrides or resource-validation bypasses
+ok 491 - AppKit commands cannot inherit custom template overrides or resource-validation bypasses
+  ---
+  duration_ms: 234.9607
+  type: 'test'
+  ...
+# Subtest: AppKit auto-approve is plan-time opt-in and fixture bundles remain quarantined
+ok 492 - AppKit auto-approve is plan-time opt-in and fixture bundles remain quarantined
+  ---
+  duration_ms: 214.0357
+  type: 'test'
+  ...
+# Subtest: AppKit success remains a starter with pending after-init MUST rules, not deploy-ready
+ok 493 - AppKit success remains a starter with pending after-init MUST rules, not deploy-ready
+  ---
+  duration_ms: 147.05
+  type: 'test'
+  ...
+# Subtest: AppKit refuses changed plans and changed approval evidence before invoking init
+ok 494 - AppKit refuses changed plans and changed approval evidence before invoking init
+  ---
+  duration_ms: 123.6741
+  type: 'test'
+  ...
+# Subtest: AppKit integration diagnostics retain old evidence but forbid approval transfer to a new app
+ok 495 - AppKit integration diagnostics retain old evidence but forbid approval transfer to a new app
+  ---
+  duration_ms: 158.8276
+  type: 'test'
+  ...
+# Subtest: AppKit init failure and post-init validation failure persist distinct failed states
+ok 496 - AppKit init failure and post-init validation failure persist distinct failed states
+  ---
+  duration_ms: 180.2078
+  type: 'test'
+  ...
+# Subtest: local AppKit manifest provenance must bind the exact pinned version
+ok 497 - local AppKit manifest provenance must bind the exact pinned version
+  ---
+  duration_ms: 81.9761
+  type: 'test'
+  ...
+# Subtest: Genie and metric scaffolds are explicit drafts, outside automatic deployment paths
+ok 498 - Genie and metric scaffolds are explicit drafts, outside automatic deployment paths
+  ---
+  duration_ms: 165.221
+  type: 'test'
+  ...
+# Subtest: AppKit nested-only output stops before quarantine and validation
+ok 499 - AppKit nested-only output stops before quarantine and validation
+  ---
+  duration_ms: 112.3628
+  type: 'test'
+  ...
+# Subtest: AppKit missing-root fails before quarantine or validate
+ok 500 - AppKit missing-root fails before quarantine or validate
+  ---
+  duration_ms: 85.768
+  type: 'test'
+  ...
+# Subtest: AppKit missing-package fails before quarantine or validate
+ok 501 - AppKit missing-package fails before quarantine or validate
+  ---
+  duration_ms: 96.5297
+  type: 'test'
+  ...
+# Subtest: AppKit null-package fails before quarantine or validate
+ok 502 - AppKit null-package fails before quarantine or validate
+  ---
+  duration_ms: 89.3668
+  type: 'test'
+  ...
+# Subtest: AppKit linked-child fails before quarantine or validate
+ok 503 - AppKit linked-child fails before quarantine or validate
+  ---
+  duration_ms: 89.6373
+  type: 'test'
+  ...
+# Subtest: AppKit linked-root fails before quarantine or validate
+ok 504 - AppKit linked-root fails before quarantine or validate
+  ---
+  duration_ms: 131.6136
+  type: 'test'
+  ...
+# Subtest: AppKit directory-package fails before quarantine or validate
+ok 505 - AppKit directory-package fails before quarantine or validate
+  ---
+  duration_ms: 99.3823
+  type: 'test'
+  ...
+# Subtest: AppKit mock databricks.fixture-only.yml collision preserves all bytes
+ok 506 - AppKit mock databricks.fixture-only.yml collision preserves all bytes
+  ---
+  duration_ms: 89.5549
+  type: 'test'
+  ...
+# Subtest: AppKit mock .harness-fixture-only.json collision preserves all bytes
+ok 507 - AppKit mock .harness-fixture-only.json collision preserves all bytes
+  ---
+  duration_ms: 89.4866
+  type: 'test'
+  ...
+# Subtest: AppKit existing preflight calls neither auth nor init
+ok 508 - AppKit existing preflight calls neither auth nor init
+  ---
+  duration_ms: 71.7032
+  type: 'test'
+  ...
+# Subtest: AppKit ancestor-junction preflight calls neither auth nor init
+ok 509 - AppKit ancestor-junction preflight calls neither auth nor init
+  ---
+  duration_ms: 74.1475
+  type: 'test'
+  ...
+# Subtest: AppKit dangling-junction preflight calls neither auth nor init
+ok 510 - AppKit dangling-junction preflight calls neither auth nor init
+  ---
+  duration_ms: 63.6703
+  type: 'test'
+  ...
+# Subtest: AppKit successful validate cannot mask package removal
+ok 511 - AppKit successful validate cannot mask package removal
+  ---
+  duration_ms: 147.4772
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed same-byte-root
+ok 512 - AppKit validation cannot adopt changed same-byte-root
+  ---
+  duration_ms: 175.3568
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed package
+ok 513 - AppKit validation cannot adopt changed package
+  ---
+  duration_ms: 154.8343
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed marker
+ok 514 - AppKit validation cannot adopt changed marker
+  ---
+  duration_ms: 131.621
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed quarantine
+ok 515 - AppKit validation cannot adopt changed quarantine
+  ---
+  duration_ms: 123.3561
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed bundle-restored
+ok 516 - AppKit validation cannot adopt changed bundle-restored
+  ---
+  duration_ms: 139.0245
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed case-alias-bundle
+ok 517 - AppKit validation cannot adopt changed case-alias-bundle
+  ---
+  duration_ms: 122.8649
+  type: 'test'
+  ...
+# Subtest: AppKit validation cannot adopt changed bundle-directory
+ok 518 - AppKit validation cannot adopt changed bundle-directory
+  ---
+  duration_ms: 122.5904
+  type: 'test'
+  ...
+# Subtest: AppKit same-root validation cache writes remain allowed
+ok 519 - AppKit same-root validation cache writes remain allowed
+  ---
+  duration_ms: 145.0817
+  type: 'test'
+  ...
+# Subtest: AppKit parallel apply locks the same plan
+ok 520 - AppKit parallel apply locks the same plan
+  ---
+  duration_ms: 243.7116
+  type: 'test'
+  ...
+# Subtest: AppKit parallel apply locks different plans sharing the output
+ok 521 - AppKit parallel apply locks different plans sharing the output
+  ---
+  duration_ms: 192.3229
+  type: 'test'
+  ...
+# Subtest: expected component root with nested packages is inspected, not relocated
+ok 522 - expected component root with nested packages is inspected, not relocated
+  ---
+  duration_ms: 64.922
+  type: 'test'
+  ...
+# Subtest: output rejects non-object package: not
+ok 523 - output rejects non-object package: not
+  ---
+  duration_ms: 14.3201
+  type: 'test'
+  ...
+# Subtest: output rejects non-object package: null
+ok 524 - output rejects non-object package: null
+  ---
+  duration_ms: 16.1713
+  type: 'test'
+  ...
+# Subtest: output rejects non-object package: []
+ok 525 - output rejects non-object package: []
+  ---
+  duration_ms: 20.598
+  type: 'test'
+  ...
+# Subtest: output rejects non-object package: 1
+ok 526 - output rejects non-object package: 1
+  ---
+  duration_ms: 23.2116
+  type: 'test'
+  ...
+# Subtest: output rejects non-object package: "text"
+ok 527 - output rejects non-object package: "text"
+  ---
+  duration_ms: 19.2453
+  type: 'test'
+  ...
+# Subtest: output rejects missing root, missing package and directory package
+ok 528 - output rejects missing root, missing package and directory package
+  ---
+  duration_ms: 34.9348
+  type: 'test'
+  ...
+# Subtest: invalid UTF-8 package bytes are rejected without normalization
+ok 529 - invalid UTF-8 package bytes are rejected without normalization
+  ---
+  duration_ms: 16.7584
+  type: 'test'
+  ...
+# Subtest: output refuses ancestor, descendant and dangling junctions
+ok 530 - output refuses ancestor, descendant and dangling junctions
+  ---
+  duration_ms: 22.6864
+  type: 'test'
+  ...
+# Subtest: output refuses hard-linked files without changing their source
+ok 531 - output refuses hard-linked files without changing their source
+  ---
+  duration_ms: 13.498
+  type: 'test'
+  ...
+# Subtest: output package size and total byte limits fail closed on sparse files
+ok 532 - output package size and total byte limits fail closed on sparse files
+  ---
+  duration_ms: 27.1859
+  type: 'test'
+  ...
+# Subtest: output depth limit is bounded
+ok 533 - output depth limit is bounded
+  ---
+  duration_ms: 53.0014
+  type: 'test'
+  ...
+# Subtest: case alias DATABRICKS.YML is rejected consistently on every OS
+ok 534 - case alias DATABRICKS.YML is rejected consistently on every OS
+  ---
+  duration_ms: 24.124
+  type: 'test'
+  ...
+# Subtest: case alias DataBricks.Fixture-Only.yml is rejected consistently on every OS
+ok 535 - case alias DataBricks.Fixture-Only.yml is rejected consistently on every OS
+  ---
+  duration_ms: 12.3694
+  type: 'test'
+  ...
+# Subtest: case alias .HARNESS-FIXTURE-ONLY.JSON is rejected consistently on every OS
+ok 536 - case alias .HARNESS-FIXTURE-ONLY.JSON is rejected consistently on every OS
+  ---
+  duration_ms: 14.539
+  type: 'test'
+  ...
+# Subtest: case alias PACKAGE.JSON is rejected consistently on every OS
+ok 537 - case alias PACKAGE.JSON is rejected consistently on every OS
+  ---
+  duration_ms: 15.1333
+  type: 'test'
+  ...
+# Subtest: root control file content reads have a separate bound
+ok 538 - root control file content reads have a separate bound
+  ---
+  duration_ms: 14.4192
+  type: 'test'
+  ...
+# Subtest: root control directory databricks.yml fails without altering the tree
+ok 539 - root control directory databricks.yml fails without altering the tree
+  ---
+  duration_ms: 13.796
+  type: 'test'
+  ...
+# Subtest: root control directory databricks.fixture-only.yml fails without altering the tree
+ok 540 - root control directory databricks.fixture-only.yml fails without altering the tree
+  ---
+  duration_ms: 16.5885
+  type: 'test'
+  ...
+# Subtest: root control directory .harness-fixture-only.json fails without altering the tree
+ok 541 - root control directory .harness-fixture-only.json fails without altering the tree
+  ---
+  duration_ms: 13.0287
+  type: 'test'
+  ...
+# Subtest: output entry limit is bounded
+ok 542 - output entry limit is bounded
+  ---
+  duration_ms: 10738.2152
+  type: 'test'
+  ...
+# Subtest: same exact scoped decision survives session handoff without claiming execution authority
+ok 543 - same exact scoped decision survives session handoff without claiming execution authority
+  ---
+  duration_ms: 852.0007
+  type: 'test'
+  ...
+# Subtest: same ID never overwrites the original approval
+ok 544 - same ID never overwrites the original approval
+  ---
+  duration_ms: 800.7117
+  type: 'test'
+  ...
+# Subtest: changed environment does not inherit approval
+ok 545 - changed environment does not inherit approval
+  ---
+  duration_ms: 598.2101
+  type: 'test'
+  ...
+# Subtest: changed resource does not inherit approval
+ok 546 - changed resource does not inherit approval
+  ---
+  duration_ms: 567.0686
+  type: 'test'
+  ...
+# Subtest: changed principal does not inherit approval
+ok 547 - changed principal does not inherit approval
+  ---
+  duration_ms: 647.9143
+  type: 'test'
+  ...
+# Subtest: changed operation does not inherit approval
+ok 548 - changed operation does not inherit approval
+  ---
+  duration_ms: 547.5384
+  type: 'test'
+  ...
+# Subtest: changed permission does not inherit approval
+ok 549 - changed permission does not inherit approval
+  ---
+  duration_ms: 506.6338
+  type: 'test'
+  ...
+# Subtest: changed cost does not inherit approval
+ok 550 - changed cost does not inherit approval
+  ---
+  duration_ms: 523.5562
+  type: 'test'
+  ...
+# Subtest: changed candidate does not inherit approval
+ok 551 - changed candidate does not inherit approval
+  ---
+  duration_ms: 494.479
+  type: 'test'
+  ...
+# Subtest: changed workspace does not inherit approval
+ok 552 - changed workspace does not inherit approval
+  ---
+  duration_ms: 565.2906
+  type: 'test'
+  ...
+# Subtest: changed profile does not inherit approval
+ok 553 - changed profile does not inherit approval
+  ---
+  duration_ms: 464.8207
+  type: 'test'
+  ...
+# Subtest: changed host does not inherit approval
+ok 554 - changed host does not inherit approval
+  ---
+  duration_ms: 452.8601
+  type: 'test'
+  ...
+# Subtest: changed product does not inherit approval
+ok 555 - changed product does not inherit approval
+  ---
+  duration_ms: 455.1135
+  type: 'test'
+  ...
+# Subtest: changed currency does not inherit approval
+ok 556 - changed currency does not inherit approval
+  ---
+  duration_ms: 471.3777
+  type: 'test'
+  ...
+# Subtest: changed smaller scope does not inherit approval
+ok 557 - changed smaller scope does not inherit approval
+  ---
+  duration_ms: 476.1629
+  type: 'test'
+  ...
+# Subtest: array ordering is not a scope expansion
+ok 558 - array ordering is not a scope expansion
+  ---
+  duration_ms: 537.677
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: product.config.json
+ok 559 - changed bound bytes invalidate scope: product.config.json
+  ---
+  duration_ms: 478.6704
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: docs/product/requirements/orders.md
+ok 560 - changed bound bytes invalidate scope: docs/product/requirements/orders.md
+  ---
+  duration_ms: 538.2244
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: docs/product/architecture/orders.md
+ok 561 - changed bound bytes invalidate scope: docs/product/architecture/orders.md
+  ---
+  duration_ms: 631.1897
+  type: 'test'
+  ...
+# Subtest: changed bound bytes invalidate scope: work/evidence/decision.md
+ok 562 - changed bound bytes invalidate scope: work/evidence/decision.md
+  ---
+  duration_ms: 471.1514
+  type: 'test'
+  ...
+# Subtest: revocation is append-only and cannot be undone by duplicate record
+ok 563 - revocation is append-only and cannot be undone by duplicate record
+  ---
+  duration_ms: 758.4451
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: unknown field
+ok 564 - malformed request rejected before persistence: unknown field
+  ---
+  duration_ms: 352.4306
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: duplicate resource
+ok 565 - malformed request rejected before persistence: duplicate resource
+  ---
+  duration_ms: 435.6671
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: wildcard
+ok 566 - malformed request rejected before persistence: wildcard
+  ---
+  duration_ms: 330.3591
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: negative cost
+ok 567 - malformed request rejected before persistence: negative cost
+  ---
+  duration_ms: 316.5271
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: unsafe integer
+ok 568 - malformed request rejected before persistence: unsafe integer
+  ---
+  duration_ms: 312.2896
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: foreign permission
+ok 569 - malformed request rejected before persistence: foreign permission
+  ---
+  duration_ms: 343.6416
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: credential URL
+ok 570 - malformed request rejected before persistence: credential URL
+  ---
+  duration_ms: 324.5473
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: URL query
+ok 571 - malformed request rejected before persistence: URL query
+  ---
+  duration_ms: 332.1218
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: component root
+ok 572 - malformed request rejected before persistence: component root
+  ---
+  duration_ms: 300.3082
+  type: 'test'
+  ...
+# Subtest: malformed request rejected before persistence: harness component
+ok 573 - malformed request rejected before persistence: harness component
+  ---
+  duration_ms: 333.9723
+  type: 'test'
+  ...
+# Subtest: unknown/duplicate/missing CLI options fail without issuing a record
+ok 574 - unknown/duplicate/missing CLI options fail without issuing a record
+  ---
+  duration_ms: 626.4837
+  type: 'test'
+  ...
+# Subtest: expiry is strict at equality and does not renew on check
+ok 575 - expiry is strict at equality and does not renew on check
+  ---
+  duration_ms: 212.9557
+  type: 'test'
+  ...
+# Subtest: check clock rollback below issuedAt during reads denies reuse without changing original bytes
+ok 576 - check clock rollback below issuedAt during reads denies reuse without changing original bytes
+  ---
+  duration_ms: 198.6312
+  type: 'test'
+  ...
+# Subtest: record clock rollback below its issuedAt rejects before persistence
+ok 577 - record clock rollback below its issuedAt rejects before persistence
+  ---
+  duration_ms: 158.3236
+  type: 'test'
+  ...
+# Subtest: invalid calendar, expired and excessive approval windows reject
+ok 578 - invalid calendar, expired and excessive approval windows reject
+  ---
+  duration_ms: 69.6413
+  type: 'test'
+  ...
+# Subtest: origin completed can hand off its exact scope to active target
+ok 579 - origin completed can hand off its exact scope to active target
+  ---
+  duration_ms: 207.744
+  type: 'test'
+  ...
+# Subtest: origin blocked can hand off its exact scope to active target
+ok 580 - origin blocked can hand off its exact scope to active target
+  ---
+  duration_ms: 210.5034
+  type: 'test'
+  ...
+# Subtest: origin superseded can hand off its exact scope to active target
+ok 581 - origin superseded can hand off its exact scope to active target
+  ---
+  duration_ms: 208.0205
+  type: 'test'
+  ...
+# Subtest: session progress is not scope; pending gate remains a separate decision
+ok 582 - session progress is not scope; pending gate remains a separate decision
+  ---
+  duration_ms: 194.7844
+  type: 'test'
+  ...
+# Subtest: harness source without product initialization cannot record product authority
+ok 583 - harness source without product initialization cannot record product authority
+  ---
+  duration_ms: 315.993
+  type: 'test'
+  ...
+# Subtest: wrong or missing product context never falls back to another active session
+ok 584 - wrong or missing product context never falls back to another active session
+  ---
+  duration_ms: 509.972
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys rejected: top-level
+ok 585 - duplicate JSON keys rejected: top-level
+  ---
+  duration_ms: 320.8397
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys rejected: nested
+ok 586 - duplicate JSON keys rejected: nested
+  ---
+  duration_ms: 315.8687
+  type: 'test'
+  ...
+# Subtest: duplicate JSON keys rejected: escaped
+ok 587 - duplicate JSON keys rejected: escaped
+  ---
+  duration_ms: 298.1683
+  type: 'test'
+  ...
+# Subtest: invalid UTF-8 and over-limit user evidence are rejected
+ok 588 - invalid UTF-8 and over-limit user evidence are rejected
+  ---
+  duration_ms: 511.9526
+  type: 'test'
+  ...
+# Subtest: hardlinked evidence and linked input ancestors are refused without record writes
+ok 589 - hardlinked evidence and linked input ancestors are refused without record writes
+  ---
+  duration_ms: 323.0968
+  type: 'test'
+  ...
+# Subtest: append-only lock rejects contention and keeps existing lock untouched
+ok 590 - append-only lock rejects contention and keeps existing lock untouched
+  ---
+  duration_ms: 110.3424
+  type: 'test'
+  ...
+# Subtest: corrupted or mismatched revocation never re-enables approval
+ok 591 - corrupted or mismatched revocation never re-enables approval
+  ---
+  duration_ms: 175.8429
+  type: 'test'
+  ...
+# Subtest: control-code drift invalidates prior local scope without changing it
+ok 592 - control-code drift invalidates prior local scope without changing it
+  ---
+  duration_ms: 170.7433
+  type: 'test'
+  ...
+# Subtest: new scope records are not legacy loop approvals
+ok 593 - new scope records are not legacy loop approvals
+  ---
+  duration_ms: 455.2725
+  type: 'test'
+  ...
+# Subtest: old approval JSON is not a scoped decision
+ok 594 - old approval JSON is not a scoped decision
+  ---
+  duration_ms: 72.5081
+  type: 'test'
+  ...
+# Subtest: nine-session CLI and both hooks include newest, gate/current/next and explicit truncation
+ok 595 - nine-session CLI and both hooks include newest, gate/current/next and explicit truncation
+  ---
+  duration_ms: 860.5495
+  type: 'test'
+  ...
+# Subtest: explicit focus wins over recency and environment; bad focus never falls back
+ok 596 - explicit focus wins over recency and environment; bad focus never falls back
+  ---
+  duration_ms: 1436.2838
+  type: 'test'
+  ...
+# Subtest: legacy latest checkpoint overrides stale initial summary in read-only context
+ok 597 - legacy latest checkpoint overrides stale initial summary in read-only context
+  ---
+  duration_ms: 414.8483
+  type: 'test'
+  ...
+# work/sessions/S-1.md
+# work/sessions/S-1.md
+# Subtest: checkpoint refreshes current sections, preserves initial history, checks revision and gate
+ok 598 - checkpoint refreshes current sections, preserves initial history, checks revision and gate
+  ---
+  duration_ms: 237.1054
+  type: 'test'
+  ...
+# work/sessions/S-1.md
+# Subtest: task persists linked scope and appears in context; checkpoint focus must belong to session
+ok 599 - task persists linked scope and appears in context; checkpoint focus must belong to session
+  ---
+  duration_ms: 908.3138
+  type: 'test'
+  ...
+# Subtest: task writes reject duplicate, unknown session, secrets, outside paths, stale revisions and active locks
+ok 600 - task writes reject duplicate, unknown session, secrets, outside paths, stale revisions and active locks
+  ---
+  duration_ms: 381.6872
+  type: 'test'
+  ...
+# Subtest: dependencies and transitions are checked, including hand-edited cycles and missing IDs
+ok 601 - dependencies and transitions are checked, including hand-edited cycles and missing IDs
+  ---
+  duration_ms: 540.8832
+  type: 'test'
+  ...
+# C:\\Users\\nimao\\AppData\\Local\\Temp\\harness-visibility-PW43de\\work\\reviews\\receipt.json
+# Subtest: done requires current independent receipt and evidence and never approves session
+ok 602 - done requires current independent receipt and evidence and never approves session
+  ---
+  duration_ms: 1187.0173
+  type: 'test'
+  ...
+# Subtest: status reads do not write; explicit snapshot generation protects existing non-generated file
+ok 603 - status reads do not write; explicit snapshot generation protects existing non-generated file
+  ---
+  duration_ms: 451.2779
+  type: 'test'
+  ...
+# Subtest: context remains bounded and treats markdown/terminal content as data
+ok 604 - context remains bounded and treats markdown/terminal content as data
+  ---
+  duration_ms: 357.2944
+  type: 'test'
+  ...
+# work/sessions/S-1.md
+# work/sessions/S-1.md
+# Subtest: task focus survives task truncation, can be cleared, and status snapshot resists edits
+ok 605 - task focus survives task truncation, can be cleared, and status snapshot resists edits
+  ---
+  duration_ms: 3011.293
+  type: 'test'
+  ...
+# Subtest: inherited old harness sessions stay excluded after template initialization
+ok 606 - inherited old harness sessions stay excluded after template initialization
+  ---
+  duration_ms: 753.3762
+  type: 'test'
+  ...
+# Subtest: pending gates block task execution and terminal sessions cannot be used as focus
+ok 607 - pending gates block task execution and terminal sessions cannot be used as focus
+  ---
+  duration_ms: 493.7089
+  type: 'test'
+  ...
+# Subtest: task CRUD works through the public CLI and supports CRLF histories
+ok 608 - task CRUD works through the public CLI and supports CRLF histories
+  ---
+  duration_ms: 697.7923
+  type: 'test'
+  ...
+# Subtest: task reader refuses duplicate dependencies and cross-session references
+ok 609 - task reader refuses duplicate dependencies and cross-session references
+  ---
+  duration_ms: 339.6817
+  type: 'test'
+  ...
+# work/sessions/S-1.md
+# work/sessions/S-1.md
+# Subtest: manual current-state edits are archived on a later checkpoint rather than discarded
+ok 610 - manual current-state edits are archived on a later checkpoint rather than discarded
+  ---
+  duration_ms: 217.5044
+  type: 'test'
+  ...
+# Subtest: task scalars round-trip YAML-sensitive punctuation as data
+ok 611 - task scalars round-trip YAML-sensitive punctuation as data
+  ---
+  duration_ms: 161.1192
+  type: 'test'
+  ...
+# Subtest: boolean flags with values refuse instead of silently changing read/write intent
+ok 612 - boolean flags with values refuse instead of silently changing read/write intent
+  ---
+  duration_ms: 496.8644
+  type: 'test'
+  ...
+# Subtest: F-01 rejects outside verifier references before every writable transition
+ok 613 - F-01 rejects outside verifier references before every writable transition
+  ---
+  duration_ms: 5376.4566
+  type: 'test'
+  ...
+# Subtest: F-01 public CLI rejects bad verifier input and leaves both start hooks usable
+ok 614 - F-01 public CLI rejects bad verifier input and leaves both start hooks usable
+  ---
+  duration_ms: 1413.1452
+  type: 'test'
+  ...
+# Subtest: F-02 legacy omitted blockers inherit the last explicit value, including none, without writes
+ok 615 - F-02 legacy omitted blockers inherit the last explicit value, including none, without writes
+  ---
+  duration_ms: 1650.0272
+  type: 'test'
+  ...
+# work/sessions/S-1.md
+# Subtest: F-03 initial blocker content is archived before replacement
+ok 616 - F-03 initial blocker content is archived before replacement
+  ---
+  duration_ms: 75.4815
+  type: 'test'
+  ...
+# work/sessions/S-1.md
+# work/sessions/S-1.md
+# work/sessions/S-1.md
+# work/sessions/S-1.md
+# Subtest: F-03 manually added blockers survive later checkpoints and unchanged bodies are not rearchived
+ok 617 - F-03 manually added blockers survive later checkpoints and unchanged bodies are not rearchived
+  ---
+  duration_ms: 117.6442
+  type: 'test'
+  ...
+# work/sessions/S-1.md
+# Subtest: F-03 pre-fix format-2 sessions archive a blocker not present in earlier checkpoints
+ok 618 - F-03 pre-fix format-2 sessions archive a blocker not present in earlier checkpoints
+  ---
+  duration_ms: 77.631
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight unknown-file in provider 0 preserves both trees
+ok 619 - IND-ASSET preflight unknown-file in provider 0 preserves both trees
+  ---
+  duration_ms: 75.3598
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees
+ok 620 - IND-ASSET preflight empty-unknown-directory in provider 0 preserves both trees
+  ---
+  duration_ms: 25.6829
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight unknown-file in provider 1 preserves both trees
+ok 621 - IND-ASSET preflight unknown-file in provider 1 preserves both trees
+  ---
+  duration_ms: 25.4752
+  type: 'test'
+  ...
+# Subtest: IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees
+ok 622 - IND-ASSET preflight empty-unknown-directory in provider 1 preserves both trees
+  ---
+  duration_ms: 19.0149
+  type: 'test'
+  ...
+# Subtest: IND-ASSET hardlink in provider 0 rejects before writes
+ok 623 - IND-ASSET hardlink in provider 0 rejects before writes
+  ---
+  duration_ms: 53.2252
+  type: 'test'
+  ...
+# Subtest: IND-ASSET hardlink in provider 1 rejects before writes
+ok 624 - IND-ASSET hardlink in provider 1 rejects before writes
+  ---
+  duration_ms: 39.6261
+  type: 'test'
+  ...
+# Subtest: IND-ASSET junction at target-root rejects without changing linked data
+ok 625 - IND-ASSET junction at target-root rejects without changing linked data
+  ---
+  duration_ms: 44.1282
+  type: 'test'
+  ...
+# Subtest: IND-ASSET junction at expected-subdirectory rejects without changing linked data
+ok 626 - IND-ASSET junction at expected-subdirectory rejects without changing linked data
+  ---
+  duration_ms: 24.656
+  type: 'test'
+  ...
+# Subtest: IND-ASSET file symlink is rejected when host permits creating one
+ok 627 - IND-ASSET file symlink is rejected when host permits creating one # SKIP Host cannot create file symlinks; junction paths are tested separately.
+  ---
+  duration_ms: 28.9454
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/1d9e77ba-167b-4894-9d17-63bb1fe65741
+# Subtest: IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes
+ok 628 - IND-ASSET initial sync, complete backup, idempotence and retry preserve prior bytes
+  ---
+  duration_ms: 222.9256
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/f18cd5a5-ac03-4257-b103-8a0fd678ddbd
+# Managed skill backups: .harness/agent-assets/backups/7b0485bb-eda2-4fd3-a8ef-b6c05eae2a63
+# Subtest: IND-ASSET interrupted second rename retains both backups and explicit retry works
+ok 629 - IND-ASSET interrupted second rename retains both backups and explicit retry works
+  ---
+  duration_ms: 216.3271
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/de343c7f-54be-4f11-bf29-beaf24a35fb0
+# Managed skill backups: .harness/agent-assets/backups/83d5b96e-765b-432c-a5ea-fd4a4d1abc76
+# Subtest: IND-ASSET interrupted second write retains both backups and explicit retry works
+ok 630 - IND-ASSET interrupted second write retains both backups and explicit retry works
+  ---
+  duration_ms: 221.7698
+  type: 'test'
+  ...
+# Managed skill backups: .harness/agent-assets/backups/dfdb97af-b188-45e0-9df9-6a9344e79e83
+# Subtest: IND-ASSET cleanup failure reports the exact leftover and preserves destination and backups
+ok 631 - IND-ASSET cleanup failure reports the exact leftover and preserves destination and backups
+  ---
+  duration_ms: 182.7046
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused
+ok 632 - IND-VENDOR original and already-corrected inputs are deterministic; modified input is refused
+  ---
+  duration_ms: 1.4455
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR version mismatch and later-file hash mismatch cause no partial write
+ok 633 - IND-VENDOR version mismatch and later-file hash mismatch cause no partial write
+  ---
+  duration_ms: 46.4737
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR read-only validation does not patch; write then check is idempotent
+ok 634 - IND-VENDOR read-only validation does not patch; write then check is idempotent
+  ---
+  duration_ms: 34.5025
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity
+ok 635 - IND-VENDOR actual Lakebase patch roundtrips upstream hash and provider parity
+  ---
+  duration_ms: 8.8954
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and same-version
+ok 636 - IND-VENDOR full refresh uses mocked installer/legal data and same-version
+  ---
+  duration_ms: 11473.0288
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and changed-version
+ok 637 - IND-VENDOR full refresh uses mocked installer/legal data and changed-version
+  ---
+  duration_ms: 5133.563
+  type: 'test'
+  ...
+# Subtest: IND-VENDOR full refresh uses mocked installer/legal data and changed-hash
+ok 638 - IND-VENDOR full refresh uses mocked installer/legal data and changed-hash
+  ---
+  duration_ms: 3854.7172
+  type: 'test'
+  ...
+# Subtest: FIX-04 re-setup refuses unknown skills in either provider before modifying either tree
+ok 639 - FIX-04 re-setup refuses unknown skills in either provider before modifying either tree
+  ---
+  duration_ms: 10113.8889
+  type: 'test'
+  ...
+# Subtest: FIX-01 generated provider skill preserves existing Apps database resource type
+ok 640 - FIX-01 generated provider skill preserves existing Apps database resource type
+  ---
+  duration_ms: 5265.233
+  type: 'test'
+  ...
+# {
+#   "plan": "work/scaffolds/20260916-075518-230-metric-view-sales-53f1f523.json",
+#   "status": "draft-ready",
+#   "missing": [],
+#   "rules": []
+# }
+# {
+#   "plan": "work/scaffolds/20260916-075518-230-metric-view-sales-53f1f523.json",
+#   "status": "draft-generated",
+#   "generatedFiles": [
+#     "src/metrics/sales.metric.yml",
+#     "src/metrics/sales.draft.sql",
+#     "tests/metrics/sales.contract.json"
+#   ]
+# }
+# Subtest: FIX-05 generated SQL embeds exactly the canonical metric YAML
+ok 641 - FIX-05 generated SQL embeds exactly the canonical metric YAML
+  ---
+  duration_ms: 67.5816
+  type: 'test'
+  ...
+# Subtest: IND-01 generated Japanese session IDs can initialize a loop
+ok 642 - IND-01 generated Japanese session IDs can initialize a loop
+  ---
+  duration_ms: 157.4367
+  type: 'test'
+  ...
+# Subtest: IND-02 mismatched filename/frontmatter identity is rejected before loop creation
+ok 643 - IND-02 mismatched filename/frontmatter identity is rejected before loop creation
+  ---
+  duration_ms: 74.3763
+  type: 'test'
+  ...
+# Subtest: IND-03 a completed loop permits session completion
+ok 644 - IND-03 a completed loop permits session completion
+  ---
+  duration_ms: 469.7847
+  type: 'test'
+  ...
+# Subtest: IND-04 completed session rejects gate mutation without rewriting its achieved loop
+ok 645 - IND-04 completed session rejects gate mutation without rewriting its achieved loop
+  ---
+  duration_ms: 496.4718
+  type: 'test'
+  ...
+# Subtest: IND-05 completed session rejects approval without rewriting its achieved loop
+ok 646 - IND-05 completed session rejects approval without rewriting its achieved loop
+  ---
+  duration_ms: 442.5228
+  type: 'test'
+  ...
+# Subtest: IND-06 all related loops are checked even if one achieved
+ok 647 - IND-06 all related loops are checked even if one achieved
+  ---
+  duration_ms: 509.5236
+  type: 'test'
+  ...
+# Subtest: IND-07 cancelled unfinished iteration still prevents completion
+ok 648 - IND-07 cancelled unfinished iteration still prevents completion
+  ---
+  duration_ms: 371.6406
+  type: 'test'
+  ...
+# Subtest: IND-08 prelaunch session lock contention invokes no provider
+ok 649 - IND-08 prelaunch session lock contention invokes no provider
+  ---
+  duration_ms: 155.2611
+  type: 'test'
+  ...
+# Subtest: IND-09 actual local Node child can close blocked during runner execution
+ok 650 - IND-09 actual local Node child can close blocked during runner execution
+  ---
+  duration_ms: 309.2232
+  type: 'test'
+  ...
+# Subtest: IND-10 stop in a later check preserves previous observations and prevents achievement
+ok 651 - IND-10 stop in a later check preserves previous observations and prevents achievement
+  ---
+  duration_ms: 316.4656
+  type: 'test'
+  ...
+# Subtest: IND-11 new session cannot be initialized after normal blocked close
+ok 652 - IND-11 new session cannot be initialized after normal blocked close
+  ---
+  duration_ms: 134.7736
+  type: 'test'
+  ...
+# Subtest: IND-12 corrupted frontmatter identity cannot hide the pending loop from completion
+ok 653 - IND-12 corrupted frontmatter identity cannot hide the pending loop from completion
+  ---
+  duration_ms: 231.1844
+  type: 'test'
+  ...
+# Subtest: IND-13 default manual-loop check runner releases session lock during local Node execution
+ok 654 - IND-13 default manual-loop check runner releases session lock during local Node execution
+  ---
+  duration_ms: 397.2852
+  type: 'test'
+  ...
+# Subtest: IND-14 async runner preserves supported npm invocation on Windows
+ok 655 - IND-14 async runner preserves supported npm invocation on Windows
+  ---
+  duration_ms: 801.9751
+  type: 'test'
+  ...
+# Subtest: IND-15 npm works without Volta npm.exe using the existing Windows CLI adapter contract
+ok 656 - IND-15 npm works without Volta npm.exe using the existing Windows CLI adapter contract
+  ---
+  duration_ms: 747.5901
+  type: 'test'
+  ...
+# Subtest: IND-16 async runner reports missing executable as failure
+ok 657 - IND-16 async runner reports missing executable as failure
+  ---
+  duration_ms: 61.806
+  type: 'test'
+  ...
+# Subtest: IND-17 async runner bounds immediate child runtime
+ok 658 - IND-17 async runner bounds immediate child runtime
+  ---
+  duration_ms: 567.3662
+  type: 'test'
+  ...
+# Subtest: IND-18 async runner bounds captured output
+ok 659 - IND-18 async runner bounds captured output
+  ---
+  duration_ms: 118.0049
+  type: 'test'
+  ...
+# Subtest: FIX-02 pending loop prevents completed session with an otherwise valid receipt
+ok 660 - FIX-02 pending loop prevents completed session with an otherwise valid receipt
+  ---
+  duration_ms: 200.0272
+  type: 'test'
+  ...
+# Subtest: FIX-03 blocked session refuses a pre-existing loop before provider invocation
+ok 661 - FIX-03 blocked session refuses a pre-existing loop before provider invocation
+  ---
+  duration_ms: 129.5334
+  type: 'test'
+  ...
+# Subtest: FIX-03 completed session refuses a pre-existing loop before provider invocation
+ok 662 - FIX-03 completed session refuses a pre-existing loop before provider invocation
+  ---
+  duration_ms: 168.3819
+  type: 'test'
+  ...
+# Subtest: FIX-03 superseded session refuses a pre-existing loop before provider invocation
+ok 663 - FIX-03 superseded session refuses a pre-existing loop before provider invocation
+  ---
+  duration_ms: 155.5218
+  type: 'test'
+  ...
+# Subtest: FIX-03 pending session after init refuses execution
+ok 664 - FIX-03 pending session after init refuses execution
+  ---
+  duration_ms: 173.1692
+  type: 'test'
+  ...
+# Subtest: FIX-03 close during claude prevents following checks
+ok 665 - FIX-03 close during claude prevents following checks
+  ---
+  duration_ms: 215.2641
+  type: 'test'
+  ...
+# Subtest: FIX-03 close during check-one prevents following checks
+ok 666 - FIX-03 close during check-one prevents following checks
+  ---
+  duration_ms: 245.8366
+  type: 'test'
+  ...
+# Subtest: FIX-02 no-loop session can complete; unrelated loops do not block it
+ok 667 - FIX-02 no-loop session can complete; unrelated loops do not block it
+  ---
+  duration_ms: 193.5547
+  type: 'test'
+  ...
+# Subtest: FIX-02 every related loop is checked, including cancelled unresolved gates
+ok 668 - FIX-02 every related loop is checked, including cancelled unresolved gates
+  ---
+  duration_ms: 178.6732
+  type: 'test'
+  ...
+# Subtest: FIX-02 malformed loop records fail closed without completing
+ok 669 - FIX-02 malformed loop records fail closed without completing
+  ---
+  duration_ms: 92.872
+  type: 'test'
+  ...
+# Subtest: FIX-02 session lock prevents new loop creation during closure
+ok 670 - FIX-02 session lock prevents new loop creation during closure
+  ---
+  duration_ms: 92.5177
+  type: 'test'
+  ...
+# Subtest: FIX-03 achieved cannot be recorded after session stops
+ok 671 - FIX-03 achieved cannot be recorded after session stops
+  ---
+  duration_ms: 334.7748
+  type: 'test'
+  ...
+# Subtest: runtime correspondence supports preview and mock without certifying pixels
+ok 672 - runtime correspondence supports preview and mock without certifying pixels
+  ---
+  duration_ms: 436.5332
+  type: 'test'
+  ...
+# Subtest: approval rejects changed mock.tsx
+ok 673 - approval rejects changed mock.tsx
+  ---
+  duration_ms: 191.2675
+  type: 'test'
+  ...
+# Subtest: approval rejects changed style.css
+ok 674 - approval rejects changed style.css
+  ---
+  duration_ms: 242.5743
+  type: 'test'
+  ...
+# Subtest: approval rejects changed fixtures.json
+ok 675 - approval rejects changed fixtures.json
+  ---
+  duration_ms: 187.9398
+  type: 'test'
+  ...
+# Subtest: approval rejects changed package.json
+ok 676 - approval rejects changed package.json
+  ---
+  duration_ms: 275.5574
+  type: 'test'
+  ...
+# Subtest: approval rejects changed package-lock.json
+ok 677 - approval rejects changed package-lock.json
+  ---
+  duration_ms: 243.6176
+  type: 'test'
+  ...
+# Subtest: contract rejects empty screens
+ok 678 - contract rejects empty screens
+  ---
+  duration_ms: 76.1388
+  type: 'test'
+  ...
+# Subtest: contract rejects empty styles
+ok 679 - contract rejects empty styles
+  ---
+  duration_ms: 127.9644
+  type: 'test'
+  ...
+# Subtest: contract rejects empty components
+ok 680 - contract rejects empty components
+  ---
+  duration_ms: 74.5462
+  type: 'test'
+  ...
+# Subtest: contract rejects missing state
+ok 681 - contract rejects missing state
+  ---
+  duration_ms: 73.1782
+  type: 'test'
+  ...
+# Subtest: contract rejects approximate HTML
+ok 682 - contract rejects approximate HTML
+  ---
+  duration_ms: 74.8459
+  type: 'test'
+  ...
+# Subtest: contract rejects unresolved difference
+ok 683 - contract rejects unresolved difference
+  ---
+  duration_ms: 63.0714
+  type: 'test'
+  ...
+# Subtest: contract rejects self review
+ok 684 - contract rejects self review
+  ---
+  duration_ms: 72.8391
+  type: 'test'
+  ...
+# Subtest: contract rejects unapproved external
+ok 685 - contract rejects unapproved external
+  ---
+  duration_ms: 50.8009
+  type: 'test'
+  ...
+# Subtest: contract rejects version mismatch
+ok 686 - contract rejects version mismatch
+  ---
+  duration_ms: 62.6716
+  type: 'test'
+  ...
+# Subtest: runtime-generated static HTML is visual-only, never behavioral approval
+ok 687 - runtime-generated static HTML is visual-only, never behavioral approval
+  ---
+  duration_ms: 186.1234
+  type: 'test'
+  ...
+# Subtest: external hosting requires a decision tied to this target and requirement
+ok 688 - external hosting requires a decision tied to this target and requirement
+  ---
+  duration_ms: 81.0554
+  type: 'test'
+  ...
+# Subtest: stale review and unbound or legacy approvals fail without rewriting records
+ok 689 - stale review and unbound or legacy approvals fail without rewriting records
+  ---
+  duration_ms: 209.9652
+  type: 'test'
+  ...
+# Subtest: UI draft defaults to Apps, cannot overwrite and cannot be approved as complete
+ok 690 - UI draft defaults to Apps, cannot overwrite and cannot be approved as complete
+  ---
+  duration_ms: 104.6987
+  type: 'test'
+  ...
+# Subtest: public delivery CLI validates the actual approval and refuses stale/different app records
+ok 691 - public delivery CLI validates the actual approval and refuses stale/different app records
+  ---
+  duration_ms: 855.2893
+  type: 'test'
+  ...
+# Subtest: ui-init rejects linked output ancestors before creating a draft or lock
+ok 692 - ui-init rejects linked output ancestors before creating a draft or lock
+  ---
+  duration_ms: 49.78
+  type: 'test'
+  ...
+# Subtest: SU-05 natural update requests route to the updater without granting execution permission
+ok 693 - SU-05 natural update requests route to the updater without granting execution permission
+  ---
+  duration_ms: 426.3393
+  type: 'test'
+  ...
+# Subtest: SU-01/02 source tree without Git and release payload make equivalent dry plans; defaults preserve product bytes
+ok 694 - SU-01/02 source tree without Git and release payload make equivalent dry plans; defaults preserve product bytes
+  ---
+  duration_ms: 1696.7957
+  type: 'test'
+  ...
+# Subtest: SU-01 clean expanded source needs no cached release; source snapshot remains fixed after original changes
+ok 695 - SU-01 clean expanded source needs no cached release; source snapshot remains fixed after original changes
+  ---
+  duration_ms: 1336.5842
+  type: 'test'
+  ...
+# Subtest: SU-01 dirty source uses only a matching stamped immutable payload, not dirty bytes
+ok 696 - SU-01 dirty source uses only a matching stamped immutable payload, not dirty bytes
+  ---
+  duration_ms: 1016.7599
+  type: 'test'
+  ...
+# Subtest: SU-02 local edit refuses all managed writes without preserve flag
+ok 697 - SU-02 local edit refuses all managed writes without preserve flag
+  ---
+  duration_ms: 819.6498
+  type: 'test'
+  ...
+# Subtest: SU-02 local delete refuses all managed writes without preserve flag
+ok 698 - SU-02 local delete refuses all managed writes without preserve flag
+  ---
+  duration_ms: 876.303
+  type: 'test'
+  ...
+# Subtest: SU-02 local collision refuses all managed writes without preserve flag
+ok 699 - SU-02 local collision refuses all managed writes without preserve flag
+  ---
+  duration_ms: 1249.5464
+  type: 'test'
+  ...
+# Subtest: SU-03 unknown baseline and non-product target fail closed
+ok 700 - SU-03 unknown baseline and non-product target fail closed
+  ---
+  duration_ms: 629.0009
+  type: 'test'
+  ...
+# Subtest: SU-03 same or nested source and target are refused
+ok 701 - SU-03 same or nested source and target are refused
+  ---
+  duration_ms: 591.4969
+  type: 'test'
+  ...
+# Subtest: SU-03 modified release and mismatched stamped cache are refused
+ok 702 - SU-03 modified release and mismatched stamped cache are refused
+  ---
+  duration_ms: 678.6467
+  type: 'test'
+  ...
+# Subtest: SU-03 snapshot tampering, missing approval and stale target refuse application
+ok 703 - SU-03 snapshot tampering, missing approval and stale target refuse application
+  ---
+  duration_ms: 774.0127
+  type: 'test'
+  ...
+# Subtest: SU-03 source junction is rejected
+ok 704 - SU-03 source junction is rejected
+  ---
+  duration_ms: 560.8397
+  type: 'test'
+  ...
+# Subtest: SU-03/05 portable CLI targets cwd, rejects unknown/duplicate arguments and does not execute source code
+ok 705 - SU-03/05 portable CLI targets cwd, rejects unknown/duplicate arguments and does not execute source code
+  ---
+  duration_ms: 1031.2841
+  type: 'test'
+  ...
+# Subtest: SU-04 post-write corruption records interruption, keeps old baseline and original backups, and rejects replay
+ok 706 - SU-04 post-write corruption records interruption, keeps old baseline and original backups, and rejects replay
+  ---
+  duration_ms: 821.6672
+  type: 'test'
+  ...
+# Subtest: SU-05 legacy project bootstraps from external runner then uses its own installed runner for next update
+ok 707 - SU-05 legacy project bootstraps from external runner then uses its own installed runner for next update
+  ---
+  duration_ms: 1563.0629
+  type: 'test'
+  ...
+# Subtest: legal sources require strict resolved semver and never accept branches, unknown versions or paths
+ok 708 - legal sources require strict resolved semver and never accept branches, unknown versions or paths
+  ---
+  duration_ms: 27.7841
+  type: 'test'
+  ...
+# Subtest: both legal files are acquired before writes, preserve exact bytes, and bind source URLs and scope hashes
+ok 709 - both legal files are acquired before writes, preserve exact bytes, and bind source URLs and scope hashes
+  ---
+  duration_ms: 32.1235
+  type: 'test'
+  ...
+# Subtest: a failed legal download leaves stage legal files, current vendor and current lock untouched
+ok 710 - a failed legal download leaves stage legal files, current vendor and current lock untouched
+  ---
+  duration_ms: 11.1073
+  type: 'test'
+  ...
+# Subtest: legal acquisition rejects redirects, oversized advertised or streamed bodies, HTML, empty and invalid UTF8
+ok 711 - legal acquisition rejects redirects, oversized advertised or streamed bodies, HTML, empty and invalid UTF8
+  ---
+  duration_ms: 29.6235
+  type: 'test'
+  ...
+# Subtest: legal acquisition enforces a bounded timeout and aborts unresolved fetches without writing
+ok 712 - legal acquisition enforces a bounded timeout and aborts unresolved fetches without writing
+  ---
+  duration_ms: 40.6507
+  type: 'test'
+  ...
+# Subtest: legal verifier detects missing, changed and wrongly sourced upstream legal artifacts
+ok 713 - legal verifier detects missing, changed and wrongly sourced upstream legal artifacts
+  ---
+  duration_ms: 134.5334
+  type: 'test'
+  ...
+# Subtest: generated scope travels with provider copies and cannot be weakened through a matching rewritten hash
+ok 714 - generated scope travels with provider copies and cannot be weakened through a matching rewritten hash
+  ---
+  duration_ms: 114.2625
+  type: 'test'
+  ...
+# Subtest: refresh performs legal staging before removing existing vendor and harness check verifies provenance
+ok 715 - refresh performs legal staging before removing existing vendor and harness check verifies provenance
+  ---
+  duration_ms: 5.3719
+  type: 'test'
+  ...
+# Subtest: API-only intake has contract and transaction questions, not UI or Delta questions
+ok 716 - API-only intake has contract and transaction questions, not UI or Delta questions
+  ---
+  duration_ms: 160.4518
+  type: 'test'
+  ...
+# Subtest: notebook MLflow registry and serving remain a mixed discussion, not data registration or deploy
+ok 717 - notebook MLflow registry and serving remain a mixed discussion, not data registration or deploy
+  ---
+  duration_ms: 278.4368
+  type: 'test'
+  ...
+# Subtest: generic agents are not Genie, provider names/build do not match UI, explicit scope wins
+ok 718 - generic agents are not Genie, provider names/build do not match UI, explicit scope wins
+  ---
+  duration_ms: 57.7053
+  type: 'test'
+  ...
+# Subtest: unknown workloads require a material question and cannot authorize execution
+ok 719 - unknown workloads require a material question and cannot authorize execution
+  ---
+  duration_ms: 160.4704
+  type: 'test'
+  ...
+# Subtest: every catalog entry has real official skill paths and validated unique question IDs
+ok 720 - every catalog entry has real official skill paths and validated unique question IDs
+  ---
+  duration_ms: 97.4799
+  type: 'test'
+  ...
+# Subtest: catalog discovers each platform family and retains English API/dashboard composition
+ok 721 - catalog discovers each platform family and retains English API/dashboard composition
+  ---
+  duration_ms: 97.3312
+  type: 'test'
+  ...
+# Subtest: api starter is isolated, hash-bound, executable and refuses overwrite
+ok 722 - api starter is isolated, hash-bound, executable and refuses overwrite
+  ---
+  duration_ms: 382.6525
+  type: 'test'
+  ...
+# Subtest: analysis starter is isolated, hash-bound, executable and refuses overwrite
+ok 723 - analysis starter is isolated, hash-bound, executable and refuses overwrite
+  ---
+  duration_ms: 698.5372
+  type: 'test'
+  ...
+1..723
+# tests 723
+# suites 0
+# pass 721
+# fail 0
+# cancelled 0
+# skipped 2
+# todo 0
+# duration_ms 44601.6969

@@ -1,0 +1,23 @@
+{
+  "context": "Codex isolated forward trial, not product approval or Claude Code/Copilot acceptance",
+  "viewport": {
+    "width": 1440,
+    "height": 960
+  },
+  "columns": [
+    "商品名",
+    "商品分類",
+    "税込単価（円）"
+  ],
+  "rows": 6,
+  "actualAppKitTableCount": 1,
+  "theme": {
+    "primary": "#1764c0",
+    "bodyBackground": "rgb(243, 247, 252)"
+  },
+  "pageErrors": [],
+  "externalRequests": [],
+  "localRequests": 3,
+  "screenshot": "product-list.png",
+  "scope": "Product list layout only; other two screens retained in design but unrendered"
+}

@@ -1,0 +1,40 @@
+{
+  "reviewer": "publish_071_review",
+  "provider": "codex",
+  "context": "/root/publish_071_review",
+  "independent": true,
+  "status": "pass",
+  "stage": "staged-pre-commit",
+  "reviewedAt": "2026-09-16",
+  "baseSha": "6fedb4a4dd6f3bc9db1982cd195166f078864b0a",
+  "manifestSha256": "44c108e6190995de279842e8c237cfa89d65d5710b895fe558273790fa918bbb",
+  "preflight": {
+    "path": "work/evidence/2026-09-16-publish-071-preflight.json",
+    "sha256": "469031eeaf52a8334e76a0d4b0918f7c6aa9562d74f2a0b2b9d84f60e23767c3"
+  },
+  "checks": {
+    "stagedFileCount": 124,
+    "preflightSelectedPlusOwnRecordMatchesIndex": true,
+    "all123SelectedWorkingBytesMatchPreflight": true,
+    "all123SelectedIndexBytesMatchPreflight": true,
+    "managedSourceAndIndexMatches": 1109,
+    "sourcePublicationCheck": "stamp-valid",
+    "cachedDiffCheck": "pass",
+    "localBackupsExcluded": 29,
+    "harnessPathInEntireIndex": false,
+    "unrelatedStaged": [],
+    "stagedEntriesSha256": "10a5285eb1fec3b2f775adc3e165f7032c61eaa04817b428bdd8e149331b0dad",
+    "stagedEntriesHashDefinition": "SHA256(JSON.stringify(sorted git diff --cached --name-only entries mapped to {path,mode,oid} from git ls-files --stage))"
+  },
+  "decision": "確認した124ファイルにこの独立stage記録1ファイルを追加する範囲で、通常commitと公開手順への移行を許容する。committed checkとguardを省略せず、forceやguard回避は行わない。これはremote到達・CI成功・案件適用の認定ではない。",
+  "scopeFindingResolved": "stage選別の新規試験漏れはtests/purpose-ui-probe.test.mjsとtests/fixtures/purpose-ui/だけの明示追加で解消。広い無関係pathは追加していない。",
+  "allowedAdditionalFile": "work/reviews/2026-09-16-publish-071-stage.json",
+  "notVerified": ["committed publication check after this stage review", "remote main SHA", "GitHub CI result", "actual downstream project acceptance"],
+  "evidence": [
+    "work/reviews/2026-09-16-publish-071-independent.md",
+    "work/reviews/2026-09-16-publish-071-independent.json",
+    "work/evidence/2026-09-16-publish-071-preflight.json",
+    "work/evidence/2026-09-16-publish-071-update-r2.json",
+    "work/evidence/2026-09-16-publish-071-independent-conflict.json"
+  ]
+}

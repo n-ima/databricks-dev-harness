@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "version": "0.7.0",
-  "releasedAt": "2026-09-16T01:26:52Z",
+  "version": "0.7.1",
+  "releasedAt": "2026-09-16T09:18:16Z",
   "managedFiles": [
     {
       "path": ".claude/agents/independent-verifier.md",
@@ -61,9 +61,9 @@
     },
     {
       "path": ".claude/skills/build-work/SKILL.md",
-      "sha256": "de05e0fa6f8f5f8454370fcf6da54a78fde71d1e4417dd97fa488ac6935c9ca8",
+      "sha256": "d1123dd272e67c4c66b58c288df1c1586ab37a938d0135cba6803be10db7f0de",
       "strategy": "replace",
-      "bytes": 4175,
+      "bytes": 4900,
       "executable": false
     },
     {
@@ -2091,9 +2091,9 @@
     },
     {
       "path": ".claude/skills/define-work/SKILL.md",
-      "sha256": "158da8000c370fa6d4076278ddc0cdd0ec90c23a3c83898e27f7cf9bac44a487",
+      "sha256": "29d8709d8c9c3f273d8bab438ef15f7f1d3a8dd239e194d9445d63fcb18891ee",
       "strategy": "replace",
-      "bytes": 3502,
+      "bytes": 3841,
       "executable": false
     },
     {
@@ -2112,16 +2112,16 @@
     },
     {
       "path": ".claude/skills/mock-ui/SKILL.md",
-      "sha256": "e518779c3e64fe0ffce508b6fc523adda3f0a81ac80f2ecf4950933e7b84ec09",
+      "sha256": "9455cc49650cc87dc55c2efc1b42617486fdf5dc51ef5f8ad24f161376407408",
       "strategy": "replace",
-      "bytes": 3319,
+      "bytes": 4761,
       "executable": false
     },
     {
       "path": ".claude/skills/orchestrate-work/SKILL.md",
-      "sha256": "0bfccd76bc6a109267ead8c0b8b2d8cfe4322561cf283ddaf6979cb7a13b684a",
+      "sha256": "67f34388244f0c0ba4cd358c767f4dfb837fd24dcd51384cf9d04449f3ad02a8",
       "strategy": "replace",
-      "bytes": 5526,
+      "bytes": 5891,
       "executable": false
     },
     {
@@ -2133,16 +2133,16 @@
     },
     {
       "path": ".claude/skills/release-work/SKILL.md",
-      "sha256": "8f7cf7e044b2535a27cf1fa2a3e4e73e29f99f72bd78ad03f81c0e01879b8591",
+      "sha256": "0a82876fde3d666623c2ae4877cf4f181114765bbc7f4e8e257270c54d5d842b",
       "strategy": "replace",
-      "bytes": 1014,
+      "bytes": 1340,
       "executable": false
     },
     {
       "path": ".claude/skills/review-work/SKILL.md",
-      "sha256": "b398856f4b4e21eac7ff541b50209422abd912db784dbbc781b8353d50c1ebc5",
+      "sha256": "7982540218a93b950cbb091d3c73ed0ea8c26ba8208ac548d19f0607e9fd687f",
       "strategy": "replace",
-      "bytes": 2246,
+      "bytes": 2972,
       "executable": false
     },
     {
@@ -2231,9 +2231,9 @@
     },
     {
       "path": ".github/skills/build-work/SKILL.md",
-      "sha256": "de05e0fa6f8f5f8454370fcf6da54a78fde71d1e4417dd97fa488ac6935c9ca8",
+      "sha256": "d1123dd272e67c4c66b58c288df1c1586ab37a938d0135cba6803be10db7f0de",
       "strategy": "replace",
-      "bytes": 4175,
+      "bytes": 4900,
       "executable": false
     },
     {
@@ -4261,9 +4261,9 @@
     },
     {
       "path": ".github/skills/define-work/SKILL.md",
-      "sha256": "158da8000c370fa6d4076278ddc0cdd0ec90c23a3c83898e27f7cf9bac44a487",
+      "sha256": "29d8709d8c9c3f273d8bab438ef15f7f1d3a8dd239e194d9445d63fcb18891ee",
       "strategy": "replace",
-      "bytes": 3502,
+      "bytes": 3841,
       "executable": false
     },
     {
@@ -4282,16 +4282,16 @@
     },
     {
       "path": ".github/skills/mock-ui/SKILL.md",
-      "sha256": "e518779c3e64fe0ffce508b6fc523adda3f0a81ac80f2ecf4950933e7b84ec09",
+      "sha256": "9455cc49650cc87dc55c2efc1b42617486fdf5dc51ef5f8ad24f161376407408",
       "strategy": "replace",
-      "bytes": 3319,
+      "bytes": 4761,
       "executable": false
     },
     {
       "path": ".github/skills/orchestrate-work/SKILL.md",
-      "sha256": "0bfccd76bc6a109267ead8c0b8b2d8cfe4322561cf283ddaf6979cb7a13b684a",
+      "sha256": "67f34388244f0c0ba4cd358c767f4dfb837fd24dcd51384cf9d04449f3ad02a8",
       "strategy": "replace",
-      "bytes": 5526,
+      "bytes": 5891,
       "executable": false
     },
     {
@@ -4303,16 +4303,16 @@
     },
     {
       "path": ".github/skills/release-work/SKILL.md",
-      "sha256": "8f7cf7e044b2535a27cf1fa2a3e4e73e29f99f72bd78ad03f81c0e01879b8591",
+      "sha256": "0a82876fde3d666623c2ae4877cf4f181114765bbc7f4e8e257270c54d5d842b",
       "strategy": "replace",
-      "bytes": 1014,
+      "bytes": 1340,
       "executable": false
     },
     {
       "path": ".github/skills/review-work/SKILL.md",
-      "sha256": "b398856f4b4e21eac7ff541b50209422abd912db784dbbc781b8353d50c1ebc5",
+      "sha256": "7982540218a93b950cbb091d3c73ed0ea8c26ba8208ac548d19f0607e9fd687f",
       "strategy": "replace",
-      "bytes": 2246,
+      "bytes": 2972,
       "executable": false
     },
     {
@@ -4449,6 +4449,13 @@
       "executable": false
     },
     {
+      "path": "docs/harness/decisions/ADR-0013-purpose-driven-delivery-adoption.md",
+      "sha256": "a2700e4657fb48c894bcbc3b426fe20a44031ae7dfd46aa65a99d8617f9f5137",
+      "strategy": "replace",
+      "bytes": 2699,
+      "executable": false
+    },
+    {
       "path": "docs/harness/design/ARCHITECTURE.md",
       "sha256": "68bb42a1d7813432127f489b8ddc98993d6fd3aa4278506e4f1e475ece867cbd",
       "strategy": "replace",
@@ -4488,6 +4495,13 @@
       "sha256": "0328a0b2071bb114613a6be3c43041b8124a60849d93bb356092c1f6f3d6db12",
       "strategy": "replace",
       "bytes": 6062,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/design/PURPOSE_DRIVEN_DELIVERY.md",
+      "sha256": "bc8ee9c54e40e4a8738bfb27ff1151fe29adf36dd522e1edbac6a2c6b35738aa",
+      "strategy": "replace",
+      "bytes": 4970,
       "executable": false
     },
     {
@@ -4576,9 +4590,9 @@
     },
     {
       "path": "docs/harness/operations/DELIVERY_ASSURANCE.md",
-      "sha256": "a31498656c91f746da1615cd442b64572b75ea9a767f2d5e206c5f5fd8eb7ca4",
+      "sha256": "956e63717e049ea93aa8aee5784163cc5bb0d7e2bc4aa3d33401d66b878d6304",
       "strategy": "replace",
-      "bytes": 5626,
+      "bytes": 5981,
       "executable": false
     },
     {
@@ -4590,9 +4604,9 @@
     },
     {
       "path": "docs/harness/operations/DOCUMENTATION_STANDARD.md",
-      "sha256": "d5855cac34e65d7993b6f4030d202f77e58b6f16dcfa6dced3896b72ecc057a7",
+      "sha256": "ad0a3359156a916a67a989793cd0b11130d46971f0b3371a919d1d8805e888f1",
       "strategy": "replace",
-      "bytes": 8263,
+      "bytes": 8906,
       "executable": false
     },
     {
@@ -4618,9 +4632,9 @@
     },
     {
       "path": "docs/harness/operations/OPERATING_MODEL.md",
-      "sha256": "d0af7d25e73ed5c7525357a1d7ec3b829c11c6c33a54710975824efebaeb8d59",
+      "sha256": "31b78e427b2eef865924d3e4de20a07153a97ad6295ee9f8eaf04bee41128480",
       "strategy": "replace",
-      "bytes": 2852,
+      "bytes": 6090,
       "executable": false
     },
     {
@@ -4681,9 +4695,9 @@
     },
     {
       "path": "docs/harness/operations/UI_RUNTIME_FIDELITY.md",
-      "sha256": "612c0cfabe9e41c100ad0792b10b88964033921272557fce280ca182e8c276f3",
+      "sha256": "c70e923691969479981f05222582dd2fb1277fc4b5a5644d293f6ed8159940a6",
       "strategy": "replace",
-      "bytes": 8992,
+      "bytes": 10613,
       "executable": false
     },
     {
@@ -4705,6 +4719,13 @@
       "sha256": "81a2b90e949aefe4a8614a49f8f4515b963210f83b26033dd6e4b1afa9afde93",
       "strategy": "replace",
       "bytes": 4085,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/releases/0.7.1.md",
+      "sha256": "74669e1c4aba070701787819ce4bd1db2b9bd52ede982fccc7f84d4b45ce25b0",
+      "strategy": "replace",
+      "bytes": 3354,
       "executable": false
     },
     {
@@ -4768,6 +4789,20 @@
       "sha256": "c00c67d6c59a9e9d55f0a1e3a64bae56ddc3ba1af0403da608c3d1ee81c8a4c1",
       "strategy": "replace",
       "bytes": 2207,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/requirements/2026-09-16-publish-071.md",
+      "sha256": "255a0c1848e2c58686972767532a22759ce91793e30d1d9bf9bc339b849ab783",
+      "strategy": "replace",
+      "bytes": 1179,
+      "executable": false
+    },
+    {
+      "path": "docs/harness/requirements/2026-09-16-purpose-driven-delivery.md",
+      "sha256": "43ec974e9ca1430ec880499abb21e0ac7beb189bb757a29928c8a604abd13368",
+      "strategy": "replace",
+      "bytes": 2993,
       "executable": false
     },
     {
@@ -4848,6 +4883,13 @@
       "executable": false
     },
     {
+      "path": "docs/harness/research/2026-09-16-purpose-driven-delivery.md",
+      "sha256": "c21229beae1b969757dc225ca44bee3f43c9b27aff200c38c8124be02a768ccb",
+      "strategy": "replace",
+      "bytes": 12640,
+      "executable": false
+    },
+    {
       "path": "docs/harness/research/2026-09-harness-research.md",
       "sha256": "7132c81fa11e25006220e1dbe8648f3332d80e9ac37e1f99232331f56faabeae",
       "strategy": "replace",
@@ -4877,16 +4919,23 @@
     },
     {
       "path": "harness.config.json",
-      "sha256": "66b9495403b6ec670e78735629d7ddba47736b13e05b06b019cb0182cfc2a964",
+      "sha256": "b0ee3326d2ec2144bb5b0a524f7ba9ae95291b2546967db5bc92b13aa2b9abf0",
       "strategy": "replace",
       "bytes": 1213,
       "executable": false
     },
     {
       "path": "harness/evals/golden-tasks.json",
-      "sha256": "058d9b90ebfb729d4c66e1902bbf7f89958d27f349686851d40d66a5fa32fd84",
+      "sha256": "006675d01aba3fc132f9c48b4a1a83aede0df5f5cce8d7bda589879bd6e8eef7",
       "strategy": "replace",
-      "bytes": 3830,
+      "bytes": 4446,
+      "executable": false
+    },
+    {
+      "path": "harness/evals/progressive-ui.md",
+      "sha256": "5d848064e46f064c52a2588a5488b1c8b4860ba3c07cda5e799011c9797adbc7",
+      "strategy": "replace",
+      "bytes": 3451,
       "executable": false
     },
     {
@@ -4975,16 +5024,16 @@
     },
     {
       "path": "harness/skills/build-work/SKILL.md",
-      "sha256": "de05e0fa6f8f5f8454370fcf6da54a78fde71d1e4417dd97fa488ac6935c9ca8",
+      "sha256": "d1123dd272e67c4c66b58c288df1c1586ab37a938d0135cba6803be10db7f0de",
       "strategy": "replace",
-      "bytes": 4175,
+      "bytes": 4900,
       "executable": false
     },
     {
       "path": "harness/skills/define-work/SKILL.md",
-      "sha256": "158da8000c370fa6d4076278ddc0cdd0ec90c23a3c83898e27f7cf9bac44a487",
+      "sha256": "29d8709d8c9c3f273d8bab438ef15f7f1d3a8dd239e194d9445d63fcb18891ee",
       "strategy": "replace",
-      "bytes": 3502,
+      "bytes": 3841,
       "executable": false
     },
     {
@@ -5003,16 +5052,16 @@
     },
     {
       "path": "harness/skills/mock-ui/SKILL.md",
-      "sha256": "e518779c3e64fe0ffce508b6fc523adda3f0a81ac80f2ecf4950933e7b84ec09",
+      "sha256": "9455cc49650cc87dc55c2efc1b42617486fdf5dc51ef5f8ad24f161376407408",
       "strategy": "replace",
-      "bytes": 3319,
+      "bytes": 4761,
       "executable": false
     },
     {
       "path": "harness/skills/orchestrate-work/SKILL.md",
-      "sha256": "0bfccd76bc6a109267ead8c0b8b2d8cfe4322561cf283ddaf6979cb7a13b684a",
+      "sha256": "67f34388244f0c0ba4cd358c767f4dfb837fd24dcd51384cf9d04449f3ad02a8",
       "strategy": "replace",
-      "bytes": 5526,
+      "bytes": 5891,
       "executable": false
     },
     {
@@ -5024,16 +5073,16 @@
     },
     {
       "path": "harness/skills/release-work/SKILL.md",
-      "sha256": "8f7cf7e044b2535a27cf1fa2a3e4e73e29f99f72bd78ad03f81c0e01879b8591",
+      "sha256": "0a82876fde3d666623c2ae4877cf4f181114765bbc7f4e8e257270c54d5d842b",
       "strategy": "replace",
-      "bytes": 1014,
+      "bytes": 1340,
       "executable": false
     },
     {
       "path": "harness/skills/review-work/SKILL.md",
-      "sha256": "b398856f4b4e21eac7ff541b50209422abd912db784dbbc781b8353d50c1ebc5",
+      "sha256": "7982540218a93b950cbb091d3c73ed0ea8c26ba8208ac548d19f0607e9fd687f",
       "strategy": "replace",
-      "bytes": 2246,
+      "bytes": 2972,
       "executable": false
     },
     {
@@ -5059,9 +5108,9 @@
     },
     {
       "path": "harness/templates/execution-plan.md",
-      "sha256": "8f39aaf491ff3006ecc60e3b570512736f8a8448bd0210de30663448851fa1ef",
+      "sha256": "46a5e021401fd7d1b46b79e2c4b6cb40e0dfaa1d92d8fa984dc87d94cde0726c",
       "strategy": "replace",
-      "bytes": 732,
+      "bytes": 1231,
       "executable": false
     },
     {
@@ -5073,9 +5122,9 @@
     },
     {
       "path": "harness/templates/product-architecture.md",
-      "sha256": "b99a7e18757646b2d273a2d4ae7a50baf075a860de4eaed1fc1d28cb4d840ee2",
+      "sha256": "14398f278f6954d413c4f73c911ba8c1584a1ff05244ab47e636e040a1509903",
       "strategy": "replace",
-      "bytes": 5647,
+      "bytes": 5989,
       "executable": false
     },
     {
