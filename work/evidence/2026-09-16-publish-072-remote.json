@@ -1,0 +1,16 @@
+{
+  "observer":"publish_071_review",
+  "context":"/root/publish_071_review",
+  "checkedAt":"2026-09-16T09:47:50Z",
+  "repository":{"nameWithOwner":"n-ima/databricks-dev-harness","isPrivate":true,"defaultBranch":"main","url":"https://github.com/n-ima/databricks-dev-harness"},
+  "version":"0.7.2",
+  "sourceCommit":"3325ebc4d9751b528c1424d245116da7467e4530",
+  "localHead":"3325ebc4d9751b528c1424d245116da7467e4530",
+  "remoteMain":"3325ebc4d9751b528c1424d245116da7467e4530",
+  "mainMatched":true,
+  "publicationCheck":{"status":"stamp-valid","version":"0.7.2","manifestSha256":"da753bd8d5ea6dcdb943dc0182a647d54d59ea767c7e03717fb1f9efede9c42c","managedFiles":1110,"committed":true,"base":"12a8feae976cb6b1ec0ec2b8a77c716764be6d1f","certifiesAcceptance":false},
+  "ci":{"headSha":"3325ebc4d9751b528c1424d245116da7467e4530","runList":[],"checkRuns":{"total_count":0,"check_runs":[]},"observation":"独立読取時点でexact commitのrun/checkは0件。実行・成功は未観測。理由は未特定で、原因調査・設定変更・rerunは実施しない。","certifiesCiSuccess":false},
+  "commands":["git ls-remote origin refs/heads/main","git rev-parse HEAD","gh repo view n-ima/databricks-dev-harness --json nameWithOwner,isPrivate,defaultBranchRef,url","gh run list --repo n-ima/databricks-dev-harness --commit 3325ebc4d9751b528c1424d245116da7467e4530 --json databaseId,name,status,conclusion,headSha,event,url","gh api repos/n-ima/databricks-dev-harness/commits/3325ebc4d9751b528c1424d245116da7467e4530/check-runs","node tools/harness-publication.mjs check --committed --base 12a8feae976cb6b1ec0ec2b8a77c716764be6d1f"],
+  "mutationByReviewer":"新規work証拠のみ。remote・配布source・実案件・Databricksは変更していない。",
+  "followup":"この後のwork限定receipt/task/session完了記録commitは配布内容不変で行う。最終SHAはメッセージで読み取り確認し、証拠commitを無限に繰り返さない。"
+}
