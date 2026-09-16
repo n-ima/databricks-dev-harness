@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/publish_070_review",
+  "actor": "publish-070-independent-review",
+  "provider": "codex",
+  "context": "/root/publish_070_review",
+  "independent": true,
+  "status": "pass",
+  "requirement": "docs/harness/requirements/2026-09-16-publication-contract.md",
+  "acceptance": [
+    {"id": "PUBC-01", "status": "pass", "evidence": ["work/reviews/2026-09-16-publish-070-review.md", "work/evidence/2026-09-16-publish-070-remote-review.json", "work/reviews/2026-09-16-publication-acceptance.json", "docs/harness/operations/HARNESS_DEVELOPMENT.md", "harness/skills/publish-harness/SKILL.md"]},
+    {"id": "PUBC-02", "status": "pass", "evidence": ["work/reviews/2026-09-16-publish-070-review.md", "work/evidence/2026-09-16-publish-070-remote-review.json", "work/evidence/2026-09-16-publication-release-bytes.json", "work/evidence/2026-09-16-publication-r2.json"]},
+    {"id": "PUBC-03", "status": "pass", "evidence": ["work/reviews/2026-09-16-publish-070-review.md", "work/evidence/2026-09-16-publish-070-remote-review.json", "work/reviews/2026-09-16-publication-code-review.md", "work/evidence/2026-09-16-publication-r2.json"]},
+    {"id": "PUBC-04", "status": "pass", "evidence": ["work/reviews/2026-09-16-publish-070-review.md", "work/evidence/2026-09-16-publish-070-remote-review.json", "work/evidence/2026-09-16-publication-real-update-r2.json", "work/reviews/2026-09-16-publication-acceptance.json", "docs/harness/releases/0.7.0.md"]},
+    {"id": "PUBC-05", "status": "pass", "evidence": ["work/reviews/2026-09-16-publish-070-review.md", "work/evidence/2026-09-16-publish-070-remote-review.json", "work/quality/2026-09-16-publication-accepted.json", "work/reviews/2026-09-16-publication-acceptance.json", "work/evidence/2026-09-16-publication-r2.json"]}
+  ],
+  "publication": {
+    "version": "0.7.0",
+    "repository": "n-ima/databricks-dev-harness",
+    "isPrivate": true,
+    "branch": "main",
+    "sourceCommit": "cac5e265ee47a3b305de847edc42c36b07317d6a",
+    "manifestSha256": "9cfc0dd3697008330e20fe81f48c3ef712399ab42e7686a211dd4382daa49717",
+    "managedFiles": 1102,
+    "remoteReached": true,
+    "hostedCi": "no-runs-observed; success not verified"
+  },
+  "scope": "既存独立受入対象51参照の不変を再照合し、PUBC-01〜05維持と0.7.0のprivate main到達を確認。今回のレビューは回帰全件を再実行したものではない。",
+  "limitations": [
+    "GitHub hosted CIはcommit指定のworkflow runs/check-runsとも0件。実行結果未確認であり成功とは認定しない。",
+    "既存回帰はWindowsで721 pass/0 fail/2 file-symlink skips。Linux/macOSや実provider成功へ読み替えない。",
+    "実案件更新・Databricks操作・実Claude Code/Copilot試験・GitHub設定変更は行っていない。",
+    "source公開後に追加する作業記録だけのcommitはこのsourceCommitとは別SHAになる。配布内容不変と最終remote到達を別途確認する。"
+  ],
+  "createdAt": "2026-09-16T04:39:24.637Z"
+}

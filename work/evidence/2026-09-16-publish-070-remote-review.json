@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/publish_070_review",
+  "independent": true,
+  "checkedAt": "2026-09-16T04:39:24.637Z",
+  "repository": "n-ima/databricks-dev-harness",
+  "isPrivate": true,
+  "defaultBranch": "main",
+  "remoteRef": "refs/heads/main",
+  "remoteCommit": "cac5e265ee47a3b305de847edc42c36b07317d6a",
+  "localHead": "cac5e265ee47a3b305de847edc42c36b07317d6a",
+  "previousMain": "f06743b0c941872b6db041a88ee6fe7adb72168f",
+  "acceptedReferences": {"verified": 51, "mismatches": []},
+  "publicationCheck": {
+    "status": "stamp-valid",
+    "version": "0.7.0",
+    "manifestSha256": "9cfc0dd3697008330e20fe81f48c3ef712399ab42e7686a211dd4382daa49717",
+    "managedFiles": 1102,
+    "baseStatus": "compared",
+    "committed": true
+  },
+  "remoteContents": [
+    {"path": "harness/base-release.json", "sha256": "9cfc0dd3697008330e20fe81f48c3ef712399ab42e7686a211dd4382daa49717", "bytes": 278302, "matchesAcceptedLocalBytes": true},
+    {"path": "harness.config.json", "sha256": "66b9495403b6ec670e78735629d7ddba47736b13e05b06b019cb0182cfc2a964", "bytes": 1213, "matchesAcceptedLocalBytes": true},
+    {"path": "package.json", "sha256": "058de94ab664bd329adbfebbd3e2c48e68b5549e0a48316863d003d30ad58e6e", "bytes": 1261, "matchesAcceptedLocalBytes": true},
+    {"path": "package-lock.json", "sha256": "e6ae6aade4023601ae9a8c4906da34a5566c05420b85be41cb46b0165c743e4b", "bytes": 258, "matchesAcceptedLocalBytes": true},
+    {"path": ".github/workflows/harness-ci.yml", "sha256": "431bbb76a4c2b5f92b88b3cdfad1a671a8c007788f3063616dacb22ce9809fea", "bytes": 2066, "matchesAcceptedLocalBytes": true}
+  ],
+  "localGuard": "installed",
+  "localBackupFilesExcluded": 13,
+  "changedHarnessCachePathsInCommit": [],
+  "ci": {
+    "status": "no-runs-observed",
+    "headSha": "cac5e265ee47a3b305de847edc42c36b07317d6a",
+    "workflowRuns": 0,
+    "checkRuns": 0,
+    "successVerified": false
+  },
+  "methods": [
+    "git ls-remote origin refs/heads/main",
+    "gh repo view n-ima/databricks-dev-harness --json nameWithOwner,isPrivate,defaultBranchRef",
+    "GitHub Contents API at the exact published commit; base64-decoded bytes SHA-256 compared against accepted local files",
+    "node tools/harness-publication.mjs check --committed --base f06743b0c941872b6db041a88ee6fe7adb72168f",
+    "GitHub Actions runs filtered by published head SHA; commit check-runs",
+    "git diff --name-only previous-main..published-commit -- .harness"
+  ],
+  "scope": "Published Git source and stamp verification only. No product update, Databricks operation or GitHub setting mutation."
+}

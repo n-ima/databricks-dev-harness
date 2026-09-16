@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "sessionId": "20260916-043428-743-publish-harness-0-7-0",
+  "requirement": "docs/harness/requirements/2026-09-16-publication-contract.md",
+  "status": "pass",
+  "reviewer": "/root/publish_070_review",
+  "provider": "codex",
+  "independent": true,
+  "provenance": {
+    "type": "review-record",
+    "source": "work/reviews/2026-09-16-publish-070-acceptance.json",
+    "identityAuthenticated": false
+  },
+  "acceptance": [
+    {
+      "id": "PUBC-01",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-publish-070-review.md",
+        "work/evidence/2026-09-16-publish-070-remote-review.json",
+        "work/reviews/2026-09-16-publication-acceptance.json",
+        "docs/harness/operations/HARNESS_DEVELOPMENT.md",
+        "harness/skills/publish-harness/SKILL.md"
+      ]
+    },
+    {
+      "id": "PUBC-02",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-publish-070-review.md",
+        "work/evidence/2026-09-16-publish-070-remote-review.json",
+        "work/evidence/2026-09-16-publication-release-bytes.json",
+        "work/evidence/2026-09-16-publication-r2.json"
+      ]
+    },
+    {
+      "id": "PUBC-03",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-publish-070-review.md",
+        "work/evidence/2026-09-16-publish-070-remote-review.json",
+        "work/reviews/2026-09-16-publication-code-review.md",
+        "work/evidence/2026-09-16-publication-r2.json"
+      ]
+    },
+    {
+      "id": "PUBC-04",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-publish-070-review.md",
+        "work/evidence/2026-09-16-publish-070-remote-review.json",
+        "work/evidence/2026-09-16-publication-real-update-r2.json",
+        "work/reviews/2026-09-16-publication-acceptance.json",
+        "docs/harness/releases/0.7.0.md"
+      ]
+    },
+    {
+      "id": "PUBC-05",
+      "status": "pass",
+      "evidence": [
+        "work/reviews/2026-09-16-publish-070-review.md",
+        "work/evidence/2026-09-16-publish-070-remote-review.json",
+        "work/quality/2026-09-16-publication-accepted.json",
+        "work/reviews/2026-09-16-publication-acceptance.json",
+        "work/evidence/2026-09-16-publication-r2.json"
+      ]
+    }
+  ],
+  "artifactHashes": {
+    "work/reviews/2026-09-16-publish-070-acceptance.json": "5f6277809f4a505a3e103cff88189dfa42eed4f4a1e8d6e410fc5168877c8718",
+    "docs/harness/requirements/2026-09-16-publication-contract.md": "c00c67d6c59a9e9d55f0a1e3a64bae56ddc3ba1af0403da608c3d1ee81c8a4c1",
+    "harness/base-release.json": "9cfc0dd3697008330e20fe81f48c3ef712399ab42e7686a211dd4382daa49717",
+    "work/reviews/20260916-010024-987-harness-publication-contract.receipt.json": "d8ce54d0327ad1315da4cf532824babe76cca6b039e0f3f294c7562d0c357d48",
+    "work/quality/2026-09-16-publication-accepted.json": "099f33c6d9dab5c0d7a6e9bb72dbd2f4d31c368c5698ff142e0d1da13cf6f0c5",
+    "work/plans/2026-09-16-publish-070.md": "c99d533beb468dd447076e01f83119d33bc33bb84afd337e0e1e2e9ae747695c",
+    "work/reviews/2026-09-16-publish-070-review.md": "8a9213c9f52cf292288ab3210148d6a9eb91e3077d8c97b77bc99f7a1f96526c",
+    "work/evidence/2026-09-16-publish-070-remote-review.json": "67716ba0e5c3bc6052ccb03862e88948b657fbb57c929f87786f6904bb16789e",
+    "work/reviews/2026-09-16-publication-acceptance.json": "9a1ce1f351b5d8a6b48c6538b26fbb91217d06872f62411c810e6b0b9dee2450",
+    "docs/harness/operations/HARNESS_DEVELOPMENT.md": "9e37c3f4a839488ff393263639579d0e5fa40a0eb8b09a91134b033de8103824",
+    "harness/skills/publish-harness/SKILL.md": "168d39f9525c06556bfdc58831088014d7b107ba8e8d0ee5e640fa1619757f67",
+    "work/evidence/2026-09-16-publication-release-bytes.json": "5943e92fe730a05f90cca6fb33428679434e4927b0bdc773d34c7f98c0df7602",
+    "work/evidence/2026-09-16-publication-r2.json": "1bb90cb7ee7548c9abce411c104bfbae84091f74810f5f1389bab45b6a88fcd8",
+    "work/reviews/2026-09-16-publication-code-review.md": "d3747750aec5f82ae6989ff416a4be23e35590f4d760c3cf7e5529a06e228a37",
+    "work/evidence/2026-09-16-publication-real-update-r2.json": "f27053d3b2775a593ef1d4e64ae8442af4648dde685475adab7b7122a900f784",
+    "docs/harness/releases/0.7.0.md": "81a2b90e949aefe4a8614a49f8f4515b963210f83b26033dd6e4b1afa9afde93"
+  },
+  "policyHash": "819df2e35973468d00a90c24db2b7be846c53206e9e0a4eb192047a87b0535a9",
+  "createdAt": "2026-09-16T04:41:49Z"
+}
