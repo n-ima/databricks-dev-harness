@@ -3,6 +3,13 @@
   "defaultRoute": "define",
   "routes": [
     {
+      "id": "publish-harness",
+      "priority": 4,
+      "skill": "publish-harness",
+      "firstGate": "harness-policy-review",
+      "patterns": ["main.{0,30}(push|反映|公開)", "(ハーネス|harness).{0,40}(公開して|配布して|publish|release)", "^push(してください|して|$)", "stamp(して|する)"]
+    },
+    {
       "id": "update-harness",
       "priority": 5,
       "skill": "update-harness",

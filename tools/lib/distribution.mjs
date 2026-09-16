@@ -14,7 +14,7 @@ const OWNED_FILES = new Set([
   "tests/approval.test.mjs", "tests/databricks-identity.test.mjs", "tests/vendor-legal.test.mjs",
   "tests/ui-contract.test.mjs", "tests/helpers/ui-fidelity.mjs",
   "tests/truth-lifecycle.test.mjs", "tests/truth-assets.test.mjs", "tests/truth-gates.test.mjs",
-  "tests/truth-asset-boundaries.test.mjs",
+  "tests/truth-asset-boundaries.test.mjs", "tests/publication.test.mjs",
   "tests/workloads.test.mjs", "tests/helpers/workloads.mjs",
   "tests/initialization.test.mjs", "tests/helpers/initialization.mjs", "tests/scaffold-output.test.mjs",
   "tests/scoped-approval.test.mjs",
@@ -326,6 +326,46 @@ export async function createRelease(root, options = {}) {
   await rename(staging, output);
   console.log(repoRelative(root, join(output, "manifest.json")));
   return { manifest, path: repoRelative(root, output), manifestPath: repoRelative(root, join(output, "manifest.json")) };
+}
+
+// Publication validates the current source, never a cached older release.
+// Exact membership catches newly added managed files omitted from a stale stamp.
+export function assertPublicationCommitFiles(manifest, trackedPaths) {
+  const committed = trackedPaths.filter(path => owned(path)).sort();
+  const stamped = manifest.managedFiles.map(item => item.path).sort();
+  if (JSON.stringify(committed) !== JSON.stringify(stamped)) throw new Error('送信commitの管理file集合がstampと一致しません。削除や追加も含めてcommitしてください。');
+}
+
+export async function inspectPublicationSource(root) {
+  if (await exists(await safePath(root, 'product.config.json'))) throw new Error('案件ではなくハーネス開発元で公開検査してください。');
+  const release = await readManagedSource(root, 'harness/base-release.json', '');
+  const current = await collectOwned(root);
+  const stamped = release.manifest.managedFiles.map(item => item.path).sort();
+  if (JSON.stringify(current) !== JSON.stringify(stamped)) {
+    const missing = current.filter(path => !stamped.includes(path));
+    const extra = stamped.filter(path => !current.includes(path));
+    throw new Error(`stampの管理対象が現在のsourceと一致しません。未収録: ${missing.join(', ')}; 余分: ${extra.join(', ')}`);
+  }
+  for (const path of ['harness.config.json', 'package.json', 'package-lock.json']) {
+    const absolute = await safePath(root, path);
+    const info = await lstat(absolute);
+    if (!info.isFile() || info.size > 8 * 1024 * 1024) throw new Error(`版情報の形式/上限が不正: ${path}`);
+    const value = await readJson(absolute);
+    const versions = path === 'harness.config.json' ? [value.harnessVersion]
+      : path === 'package-lock.json' ? [value.version, value.packages?.['']?.version] : [value.version];
+    if (versions.some(version => version !== release.manifest.version)) throw new Error(`stampと版が不一致: ${path}`);
+  }
+  const notes = `docs/harness/releases/${release.manifest.version}.md`;
+  if (!release.contents.get(notes)?.length) throw new Error(`変更・互換性・移行案内を配布物に含めてください: ${notes}`);
+  return { manifest: release.manifest, manifestSha256: release.manifestSha256, managedPaths: current };
+}
+
+export function assertPublicationUpgrade(current, previous) {
+  validateManifest(current); validateManifest(previous);
+  const order = versionCompare(current.version, previous.version);
+  if (order < 0) throw new Error('mainへの公開版を戻すことはできません。新しい版で修正してください。');
+  const identity = value => JSON.stringify({ files: [...value.managedFiles].sort((a,b)=>a.path.localeCompare(b.path)), migrations: value.migrations });
+  if (order === 0 && identity(current) !== identity(previous)) throw new Error('同じ公開版の内容変更は拒否します。新版としてstampしてください。');
 }
 
 // Register a supplied upstream snapshot, never a snapshot of the current product.

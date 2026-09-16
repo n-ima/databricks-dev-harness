@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-09-16T01:30:55.617Z",
+  "sourceChecks": [
+    {
+      "args": [
+        "tools/harness-publication.mjs",
+        "guard-status"
+      ],
+      "exitCode": 0,
+      "result": {
+        "status": "installed",
+        "path": "D:\\projects\\databricks-dev-harness\\.git\\hooks\\pre-push"
+      }
+    },
+    {
+      "args": [
+        "tools/harness-publication.mjs",
+        "check",
+        "--base",
+        "f06743b0c941872b6db041a88ee6fe7adb72168f"
+      ],
+      "exitCode": 0,
+      "result": {
+        "status": "stamp-valid",
+        "version": "0.7.0",
+        "manifestSha256": "9cfc0dd3697008330e20fe81f48c3ef712399ab42e7686a211dd4382daa49717",
+        "managedFiles": 1102,
+        "baseStatus": "compared",
+        "committed": false,
+        "certifiesAcceptance": false,
+        "warning": "版と配布内容の整合検査。独立レビュー・更新試験・remote到達の証明ではありません。"
+      }
+    }
+  ],
+  "remotePush": false,
+  "gitHubProtectionChanged": false
+}

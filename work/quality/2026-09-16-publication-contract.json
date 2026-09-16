@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "producer": {
+    "actor": "codex",
+    "context": "20260916-010024-987-harness-publication-contract"
+  },
+  "requirement": {
+    "path": "docs/harness/requirements/2026-09-16-publication-contract.md",
+    "sha256": "c00c67d6c59a9e9d55f0a1e3a64bae56ddc3ba1af0403da608c3d1ee81c8a4c1"
+  },
+  "artifacts": [
+    {
+      "path": "docs/harness/design/HARNESS_PUBLICATION.md",
+      "sha256": "268ec1b8f5bfe148f3540ca48b4dffe084ef748e7b9a551df9e31bf09a2bcc51"
+    },
+    {
+      "path": "work/plans/2026-09-16-publication-contract.md",
+      "sha256": "540a3112e8a04fa50855ee898b1da17918dab6ba5bed660ccc51498b32dfcab1"
+    }
+  ],
+  "requirements": [
+    "PUBC-01",
+    "PUBC-02",
+    "PUBC-03",
+    "PUBC-04",
+    "PUBC-05"
+  ],
+  "risks": [
+    {
+      "id": "PC-R01",
+      "description": "案件配備と誤分類せず、公開をstamp前で完了せず、相談から書込をしない",
+      "testIds": [
+        "PC-T01"
+      ]
+    },
+    {
+      "id": "PC-R02",
+      "description": "完全一致だけ成功、旧cacheで最新sourceの不一致を隠さない",
+      "testIds": [
+        "PC-T02"
+      ]
+    },
+    {
+      "id": "PC-R03",
+      "description": "正常版のmain送信だけ許容、未stamp/未commit/別HEAD/main削除/既存hook衝突は拒否",
+      "testIds": [
+        "PC-T03"
+      ]
+    },
+    {
+      "id": "PC-R04",
+      "description": "正常更新後hash一致、案件doc/code/秘密を保持し、競合時に管理fileも変更しない",
+      "testIds": [
+        "PC-T04"
+      ]
+    },
+    {
+      "id": "PC-R05",
+      "description": "不一致と未解消の阻害指摘がない。skipと未実環境試験を区別する",
+      "testIds": [
+        "PC-T05"
+      ]
+    }
+  ],
+  "interfaces": [],
+  "testCases": [
+    {
+      "id": "PC-T01",
+      "requirements": [
+        "PUBC-01",
+        "PUBC-05"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "隔離fixture/ローカルGitのみ。実案件・Databricks・モデル課金は行わない。",
+      "steps": [
+        "自然言語のハーネス公開/案件配備/相談を分類し、独立forward担当が公開手順を辿る"
+      ],
+      "expected": "案件配備と誤分類せず、公開をstamp前で完了せず、相談から書込をしない",
+      "result": null
+    },
+    {
+      "id": "PC-T02",
+      "requirements": [
+        "PUBC-02"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "隔離fixture/ローカルGitのみ。実案件・Databricks・モデル課金は行わない。",
+      "steps": [
+        "stampあり/なし/改変/列挙漏れ/版差のsourceを検査する"
+      ],
+      "expected": "完全一致だけ成功、旧cacheで最新sourceの不一致を隠さない",
+      "result": null
+    },
+    {
+      "id": "PC-T03",
+      "requirements": [
+        "PUBC-03"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "隔離fixture/ローカルGitのみ。実案件・Databricks・モデル課金は行わない。",
+      "steps": [
+        "temp Git remoteへ各ref/commit状態でpushする"
+      ],
+      "expected": "正常版のmain送信だけ許容、未stamp/未commit/別HEAD/main削除/既存hook衝突は拒否",
+      "result": null
+    },
+    {
+      "id": "PC-T04",
+      "requirements": [
+        "PUBC-04"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "隔離fixture/ローカルGitのみ。実案件・Databricks・モデル課金は行わない。",
+      "steps": [
+        "sourceと固定payloadから合成案件へ更新し、独自変更を加えて再試行する"
+      ],
+      "expected": "正常更新後hash一致、案件doc/code/秘密を保持し、競合時に管理fileも変更しない",
+      "result": null
+    },
+    {
+      "id": "PC-T05",
+      "requirements": [
+        "PUBC-05"
+      ],
+      "level": "integration",
+      "environment": "local",
+      "preconditions": "隔離fixture/ローカルGitのみ。実案件・Databricks・モデル課金は行わない。",
+      "steps": [
+        "両provider同期・構造検査・既存回帰・独立レビューを行う"
+      ],
+      "expected": "不一致と未解消の阻害指摘がない。skipと未実環境試験を区別する",
+      "result": null
+    }
+  ],
+  "operations": [
+    {
+      "id": "ownership",
+      "status": "applicable",
+      "reason": "ハーネス保守担当が公開を所有し案件適用は案件側が所有する",
+      "testIds": [
+        "PC-T03"
+      ],
+      "document": {
+        "path": "docs/harness/design/HARNESS_PUBLICATION.md",
+        "sha256": "268ec1b8f5bfe148f3540ca48b4dffe084ef748e7b9a551df9e31bf09a2bcc51"
+      }
+    },
+    {
+      "id": "monitoring",
+      "status": "applicable",
+      "reason": "checkの非0終了と日本語診断を記録する",
+      "testIds": [
+        "PC-T03"
+      ],
+      "document": {
+        "path": "docs/harness/design/HARNESS_PUBLICATION.md",
+        "sha256": "268ec1b8f5bfe148f3540ca48b4dffe084ef748e7b9a551df9e31bf09a2bcc51"
+      }
+    },
+    {
+      "id": "recovery",
+      "status": "applicable",
+      "reason": "公開前は作業branchへ残し旧版を改変しない。既存hookを保持する",
+      "testIds": [
+        "PC-T03"
+      ],
+      "document": {
+        "path": "docs/harness/design/HARNESS_PUBLICATION.md",
+        "sha256": "268ec1b8f5bfe148f3540ca48b4dffe084ef748e7b9a551df9e31bf09a2bcc51"
+      }
+    },
+    {
+      "id": "data-protection",
+      "status": "applicable",
+      "reason": "合成案件のみ。秘密と案件固有を保持する",
+      "testIds": [
+        "PC-T04"
+      ],
+      "document": {
+        "path": "docs/harness/design/HARNESS_PUBLICATION.md",
+        "sha256": "268ec1b8f5bfe148f3540ca48b4dffe084ef748e7b9a551df9e31bf09a2bcc51"
+      }
+    },
+    {
+      "id": "cost",
+      "status": "applicable",
+      "reason": "ネットワーク無しのローカル試験、モデル呼出/課金なし",
+      "testIds": [
+        "PC-T05"
+      ],
+      "document": {
+        "path": "docs/harness/design/HARNESS_PUBLICATION.md",
+        "sha256": "268ec1b8f5bfe148f3540ca48b4dffe084ef748e7b9a551df9e31bf09a2bcc51"
+      }
+    },
+    {
+      "id": "dependency-updates",
+      "status": "applicable",
+      "reason": "版/依存変更後はstampと更新経路を再検証する",
+      "testIds": [
+        "PC-T03"
+      ],
+      "document": {
+        "path": "docs/harness/design/HARNESS_PUBLICATION.md",
+        "sha256": "268ec1b8f5bfe148f3540ca48b4dffe084ef748e7b9a551df9e31bf09a2bcc51"
+      }
+    }
+  ],
+  "reviews": []
+}

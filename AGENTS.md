@@ -22,6 +22,7 @@ Build maintainable Databricks data and AI products from explicit intent. Optimiz
 
 - `ARCHITECTURE.md`: short boundary map for harness design versus product design
 - `docs/harness/`: harness architecture, operations, research, decisions, and knowledge
+- `docs/harness/operations/HARNESS_DEVELOPMENT.md`: source maintenance and installable main releases; use `publish-harness` for harness publication, not Databricks deployment
 - `docs/product/`: target product requirements, architecture, UI, data, decisions, runbooks, and knowledge
 - `docs/product/standards/`: Databricks, frontend, quality, and security invariants
 - `work/sessions/`: durable per-agent work state and handoff records

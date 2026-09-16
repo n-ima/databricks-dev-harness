@@ -74,12 +74,15 @@ export async function resolveRoute(root, prompt, options = {}) {
   const workload = await resolveWorkloads(root, prompt, options);
   const explicit = options.intent;
   if (explicit && !router.routes.some(item => item.id === explicit)) throw new Error("Unknown --intent.");
+  const isSource = !await exists(join(root, 'product.config.json'));
+  if(explicit === 'publish-harness' && !isSource) throw new Error('publish-harnessはハーネス開発元専用です。案件のGit操作とは区別してください。');
   const defineOnly = /(?:要件.{0,15}(?:議論|ディスカッション|相談|から|定義)|まず.{0,15}(?:要件|相談|設計)|実装.{0,5}(?:しない|不要)|requirements?\s*(?:discussion|first)|discuss\s+(?:the\s+)?requirements)/iu.test(prompt);
   const ranked = router.routes.map(item => ({
     ...item, score: item.patterns.reduce((score, pattern) => score + (new RegExp(pattern, "iu").test(prompt) ? 1 : 0), 0),
-  })).filter(item => item.id !== "mock-ui" || workload.selectedIds.some(id => ["rich-app", "dashboard"].includes(id)))
+  })).filter(item => (item.id !== 'publish-harness' || isSource) && (item.id !== "mock-ui" || workload.selectedIds.some(id => ["rich-app", "dashboard"].includes(id))))
     .sort((a, b) => b.score - a.score || a.priority - b.priority);
-  const id = explicit || (defineOnly ? "define" : (ranked[0]?.score ? ranked[0].id : router.defaultRoute));
+  const publishing = isSource && ranked.find(item=>item.id==='publish-harness' && item.score);
+  const id = explicit || (defineOnly ? "define" : publishing ? publishing.id : (ranked[0]?.score ? ranked[0].id : router.defaultRoute));
   const route = router.routes.find(item => item.id === id);
   return { ...route, workload, reason: explicit ? "explicit-intent" : defineOnly ? "discussion-first" : "keyword-hint" };
 }

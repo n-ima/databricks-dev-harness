@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-09-16T01:31:52.742Z",
+  "purpose": "delivery readerの安全path制限を維持。実fileはpublication/source検査・base-release manifest・独立reviewが照合する。",
+  "snapshots": [
+    {
+      "path": ".github/workflows/harness-ci.yml",
+      "sha256": "431bbb76a4c2b5f92b88b3cdfad1a671a8c007788f3063616dacb22ce9809fea",
+      "bytes": 2066
+    },
+    {
+      "path": ".claude/skills/publish-harness/SKILL.md",
+      "sha256": "168d39f9525c06556bfdc58831088014d7b107ba8e8d0ee5e640fa1619757f67",
+      "bytes": 2255
+    },
+    {
+      "path": ".github/skills/publish-harness/SKILL.md",
+      "sha256": "168d39f9525c06556bfdc58831088014d7b107ba8e8d0ee5e640fa1619757f67",
+      "bytes": 2255
+    },
+    {
+      "path": ".claude/skills/improve-harness/SKILL.md",
+      "sha256": "3c036897340c811c75d0024a8e6bcfdecb792478f4d28746ba4a605cd1c1209b",
+      "bytes": 1595
+    },
+    {
+      "path": ".github/skills/improve-harness/SKILL.md",
+      "sha256": "3c036897340c811c75d0024a8e6bcfdecb792478f4d28746ba4a605cd1c1209b",
+      "bytes": 1595
+    },
+    {
+      "path": ".claude/skills/orchestrate-work/SKILL.md",
+      "sha256": "0bfccd76bc6a109267ead8c0b8b2d8cfe4322561cf283ddaf6979cb7a13b684a",
+      "bytes": 5526
+    },
+    {
+      "path": ".github/skills/orchestrate-work/SKILL.md",
+      "sha256": "0bfccd76bc6a109267ead8c0b8b2d8cfe4322561cf283ddaf6979cb7a13b684a",
+      "bytes": 5526
+    },
+    {
+      "path": ".claude/skills/release-work/SKILL.md",
+      "sha256": "8f7cf7e044b2535a27cf1fa2a3e4e73e29f99f72bd78ad03f81c0e01879b8591",
+      "bytes": 1014
+    },
+    {
+      "path": ".github/skills/release-work/SKILL.md",
+      "sha256": "8f7cf7e044b2535a27cf1fa2a3e4e73e29f99f72bd78ad03f81c0e01879b8591",
+      "bytes": 1014
+    }
+  ]
+}

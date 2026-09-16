@@ -1,0 +1,268 @@
+{
+  "status": "pass",
+  "checkedAt": "2026-09-16T01:33:56.776Z",
+  "fromVersion": "0.6.1",
+  "toVersion": "0.7.0",
+  "manifestSha256": "9cfc0dd3697008330e20fe81f48c3ef712399ab42e7686a211dd4382daa49717",
+  "checks": [
+    "cache-free real Git clone: complete stamped source, LF bytes and committed scope verified",
+    "old 0.6.1 CLI plan exit=2; actual update uses the trusted new standalone CLI",
+    "from-source: 0.6.1 -> 0.7.0, 1102 hashes verified, all 9 product/local files preserved, repeat idempotent, publication tests pass",
+    "from-payload: 0.6.1 -> 0.7.0, 1102 hashes verified, all 9 product/local files preserved, repeat idempotent, publication tests pass",
+    "conflict refuses all writes; all 1068 managed files unchanged",
+    "published 0.6.1 manifest and every payload file unchanged"
+  ],
+  "commands": [
+    {
+      "command": "git",
+      "args": [
+        "-c",
+        "core.autocrlf=true",
+        "init",
+        "-q"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\source",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "git",
+      "args": [
+        "-c",
+        "core.autocrlf=true",
+        "add",
+        "--all"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\source",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "git",
+      "args": [
+        "-c",
+        "core.autocrlf=true",
+        "-c",
+        "user.name=Publication test",
+        "-c",
+        "user.email=fixture@example.invalid",
+        "-c",
+        "commit.gpgSign=false",
+        "commit",
+        "-qm",
+        "local release canary"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\source",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "git",
+      "args": [
+        "-c",
+        "core.autocrlf=true",
+        "clone",
+        "--quiet",
+        "--no-hardlinks",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\source",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "tools/harness-publication.mjs",
+        "check",
+        "--committed"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"stamp-valid\",\n  \"version\": \"0.7.0\",\n  \"manifestSha256\": \"9cfc0dd3697008330e20fe81f48c3ef712399ab42e7686a211dd4382daa49717\",\n  \"managedFiles\": 1102,\n  \"baseStatus\": \"not-requested\",\n  \"committed\": true,\n  \"certifiesAcceptance\": false,\n  \"warning\": \"版と配布内容の整合検査。独立レビュー・更新試験・remote到達の証明ではありません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "tools/update-harness.mjs",
+        "plan",
+        "--source",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-source",
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "更新を停止しました: Release attempts to own an excluded product/local path: tests/helpers/ui-fidelity.mjs\n",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone\\tools\\update-harness.mjs",
+        "plan",
+        "--source",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-source"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-source",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"計画済み\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\from-source\",\n  \"fromVersion\": \"0.6.1\",\n  \"toVersion\": \"0.7.0\",\n  \"source\": {\n    \"requested\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\fresh-clone\",\n    \"resolved\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\fresh-clone\",\n    \"kind\": \"source-tree\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-013300-988-253f495e.json\",\n  \"canApply\": true,\n  \"counts\": {\n    \"keep\": 1014,\n    \"update\": 54,\n    \"add\": 34\n  },\n  \"conflicts\": [],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone\\tools\\update-harness.mjs",
+        "apply",
+        "--plan",
+        ".harness/updates/update-20260916-013300-988-253f495e.json",
+        "--yes",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-source"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-source",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"ファイル更新・hash確認済み\",\n  \"version\": \"0.7.0\",\n  \"backupPath\": \".harness/backups/update-20260916-013300-988-253f495e\",\n  \"changedFiles\": 88,\n  \"deletedFiles\": [],\n  \"managedFilesVerified\": 1102,\n  \"humanReviewRequired\": true,\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\from-source\",\n  \"next\": \"案件試験と独立レビュー後に開発を再開してください。受入完了・配備ではありません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone\\tools\\update-harness.mjs",
+        "plan",
+        "--source",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-source"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-source",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"計画済み\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\from-source\",\n  \"fromVersion\": \"0.7.0\",\n  \"toVersion\": \"0.7.0\",\n  \"source\": {\n    \"requested\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\fresh-clone\",\n    \"resolved\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\fresh-clone\",\n    \"kind\": \"source-tree\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-013310-084-318ada28.json\",\n  \"canApply\": true,\n  \"counts\": {\n    \"keep\": 1102\n  },\n  \"conflicts\": [],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "--test",
+        "tests/publication.test.mjs"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-source",
+      "exitCode": 0,
+      "stdout": "✔ publication checks complete source without using cached payload (250.0818ms)\n✔ publication rejects missing stamp, deleted file and same-byte omitted file (210.793ms)\n✔ package and lock versions and release notes are required (724.5137ms)\n✔ immutable version compares files, migrations and executable attributes; rejects downgrade (133.3215ms)\n✔ source checker and hook reject product repositories and links (335.9475ms)\n✔ Git guard matches actual destination main and only committed HEAD (763.6084ms)\n✔ Git guard refuses staged uncommitted publication even when source stamp is coherent (565.2491ms)\n✔ Git guard refuses a deleted managed file still present in the pushed commit (1052.7959ms)\n✔ hook install is idempotent and preserves existing hook and custom hooksPath (1349.6027ms)\n✔ real local Git push passes stamped main, blocks stale main and still allows backup (2397.8015ms)\n✔ cache-free source and immutable payload update preserve product files and stop conflicts (805.0133ms)\n✔ natural-language publication routes only the harness source and preserves explicit inspection (420.202ms)\nℹ tests 12\nℹ suites 0\nℹ pass 12\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 9073.1388\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone\\tools\\update-harness.mjs",
+        "plan",
+        "--source",
+        "D:\\projects\\databricks-dev-harness\\.harness\\releases\\0.7.0",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-payload"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-payload",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"計画済み\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\from-payload\",\n  \"fromVersion\": \"0.6.1\",\n  \"toVersion\": \"0.7.0\",\n  \"source\": {\n    \"requested\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\releases\\\\0.7.0\",\n    \"resolved\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\releases\\\\0.7.0\",\n    \"kind\": \"release\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-013331-235-b2791e55.json\",\n  \"canApply\": true,\n  \"counts\": {\n    \"keep\": 1014,\n    \"update\": 54,\n    \"add\": 34\n  },\n  \"conflicts\": [],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone\\tools\\update-harness.mjs",
+        "apply",
+        "--plan",
+        ".harness/updates/update-20260916-013331-235-b2791e55.json",
+        "--yes",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-payload"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-payload",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"ファイル更新・hash確認済み\",\n  \"version\": \"0.7.0\",\n  \"backupPath\": \".harness/backups/update-20260916-013331-235-b2791e55\",\n  \"changedFiles\": 88,\n  \"deletedFiles\": [],\n  \"managedFilesVerified\": 1102,\n  \"humanReviewRequired\": true,\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\from-payload\",\n  \"next\": \"案件試験と独立レビュー後に開発を再開してください。受入完了・配備ではありません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone\\tools\\update-harness.mjs",
+        "plan",
+        "--source",
+        "D:\\projects\\databricks-dev-harness\\.harness\\releases\\0.7.0",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-payload"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-payload",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"計画済み\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\from-payload\",\n  \"fromVersion\": \"0.7.0\",\n  \"toVersion\": \"0.7.0\",\n  \"source\": {\n    \"requested\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\releases\\\\0.7.0\",\n    \"resolved\": \"D:\\\\projects\\\\databricks-dev-harness\\\\.harness\\\\releases\\\\0.7.0\",\n    \"kind\": \"release\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-013339-932-a733d21e.json\",\n  \"canApply\": true,\n  \"counts\": {\n    \"keep\": 1102\n  },\n  \"conflicts\": [],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "--test",
+        "tests/publication.test.mjs"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\from-payload",
+      "exitCode": 0,
+      "stdout": "✔ publication checks complete source without using cached payload (267.8716ms)\n✔ publication rejects missing stamp, deleted file and same-byte omitted file (213.4933ms)\n✔ package and lock versions and release notes are required (788.4031ms)\n✔ immutable version compares files, migrations and executable attributes; rejects downgrade (121.0854ms)\n✔ source checker and hook reject product repositories and links (261.1529ms)\n✔ Git guard matches actual destination main and only committed HEAD (782.0017ms)\n✔ Git guard refuses staged uncommitted publication even when source stamp is coherent (575.3037ms)\n✔ Git guard refuses a deleted managed file still present in the pushed commit (1041.834ms)\n✔ hook install is idempotent and preserves existing hook and custom hooksPath (1276.1435ms)\n✔ real local Git push passes stamped main, blocks stale main and still allows backup (2438.7707ms)\n✔ cache-free source and immutable payload update preserve product files and stop conflicts (878.1019ms)\n✔ natural-language publication routes only the harness source and preserves explicit inspection (421.5191ms)\nℹ tests 12\nℹ suites 0\nℹ pass 12\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 9135.0327\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone\\tools\\update-harness.mjs",
+        "plan",
+        "--source",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\conflict"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\conflict",
+      "exitCode": 1,
+      "stdout": "{\n  \"status\": \"競合のため停止\",\n  \"target\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\conflict\",\n  \"fromVersion\": \"0.6.1\",\n  \"toVersion\": \"0.7.0\",\n  \"source\": {\n    \"requested\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\fresh-clone\",\n    \"resolved\": \"C:\\\\Users\\\\nimao\\\\AppData\\\\Local\\\\Temp\\\\publication-real-update-MZc6CC\\\\fresh-clone\",\n    \"kind\": \"source-tree\",\n    \"identityAuthenticated\": false\n  },\n  \"plan\": \".harness/updates/update-20260916-013356-375-6faaf2cf.json\",\n  \"canApply\": false,\n  \"counts\": {\n    \"keep\": 1014,\n    \"update\": 53,\n    \"add\": 34,\n    \"conflict\": 1\n  },\n  \"conflicts\": [\n    {\n      \"path\": \"AGENTS.md\",\n      \"action\": \"conflict\",\n      \"beforeSha256\": \"aa1ef552008d23278bdbc93a497aedfb5991900eb243e623419bbe251a2fe932\",\n      \"afterSha256\": \"b57c82afe7405ebc0eeac067b452bc5b43dc278fa552865b375c3bcf97678ed4\",\n      \"reason\": \"Downstream file changed since the installed baseline.\"\n    }\n  ],\n  \"migrations\": [\n    {\n      \"type\": \"manual-review\",\n      \"paths\": [\n        \"package.json\",\n        \"package-lock.json\",\n        \"README.md\",\n        \".vscode/\",\n        \"docs/product/\",\n        \"work/\",\n        \"apps/\",\n        \"resources/\",\n        \"src/\"\n      ],\n      \"description\": \"These downstream-owned files are never overlaid. Review required scripts, dependency or product migrations separately. Stop agents before applying a harness update.\"\n    }\n  ],\n  \"next\": \"管理ファイルは未変更。計画と手動移行を確認し、書込み停止後にapply。競合は自動上書きしません。\"\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\fresh-clone\\tools\\update-harness.mjs",
+        "apply",
+        "--plan",
+        ".harness/updates/update-20260916-013356-375-6faaf2cf.json",
+        "--yes",
+        "--target",
+        "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\conflict"
+      ],
+      "cwd": "C:\\Users\\nimao\\AppData\\Local\\Temp\\publication-real-update-MZc6CC\\conflict",
+      "exitCode": 2,
+      "stdout": "",
+      "stderr": "更新を停止しました: Update has downstream conflicts; no file was changed.\n",
+      "error": null
+    }
+  ],
+  "networkUsed": false,
+  "realProjectChanged": false,
+  "realRepositoryCommitted": false
+}

@@ -5,6 +5,8 @@ description: Prepare and verify a Databricks development, test, or production re
 
 # Release work
 
+This skill is for product deployment to Databricks. For publishing the harness source to Git main, use `publish-harness`; do not ask for a Databricks profile or deploy the harness itself.
+
 1. Read the approved requirement, architecture, plan, evidence, and release runbook.
 2. Run deterministic checks and `databricks bundle validate` against the intended non-production target.
 3. Produce resource, configuration, data-migration, and permission diffs without secrets.

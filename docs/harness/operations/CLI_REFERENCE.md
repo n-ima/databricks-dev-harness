@@ -129,6 +129,17 @@ loopを利用している場合だけ `loop record --outcome achieved` を実行
 
 ## Evaluate / release / update
 
+ハーネス開発元のmain公開は、[開発・公開手順](HARNESS_DEVELOPMENT.md)と`publish-harness` skillに従います。新版作成・stamp・更新試験までが公開の範囲です。案件のDatabricks配備とは別です。
+
+```text
+node tools/harness-publication.mjs guard-status
+node tools/harness-publication.mjs install-hook
+node tools/harness-publication.mjs check --base OLD_MAIN_SHA
+node tools/harness-publication.mjs check --committed --base OLD_MAIN_SHA
+```
+
+`install-hook`は開発元だけに導入し、既存hook/configは上書きしません。`check`は旧cacheへ逃げず現在のsourceを検査します。`--base`は取得済みの正確なcommit SHAで比較し、`--committed`は送信対象のcommitとの一致も検査します。検査成功だけで公開・品質受入を認定するものではありません。
+
 ```text
 npm run harness -- eval prepare --id candidate-001 --revision COMMIT_SHA
 npm run harness -- eval record --plan work/evals/candidate-001/plan.json --result work/evals/candidate-001/runs/RUN_ID/result.json

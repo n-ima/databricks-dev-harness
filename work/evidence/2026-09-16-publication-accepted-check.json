@@ -1,0 +1,7 @@
+{
+  "mode": "advisory",
+  "certifiesAcceptance": false,
+  "phase": "verify",
+  "findings": [],
+  "recordedExecutions": 5
+}

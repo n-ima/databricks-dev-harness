@@ -1,0 +1,300 @@
+{
+  "status": "pass",
+  "checkedAt": "2026-09-16T01:36:37.693Z",
+  "reviewer": "/root/publication_code_review",
+  "scope": "PUBC-01 through PUBC-05, local safeguards and release preparation only",
+  "source": {
+    "status": "stamp-valid",
+    "version": "0.7.0",
+    "manifestSha256": "9cfc0dd3697008330e20fe81f48c3ef712399ab42e7686a211dd4382daa49717",
+    "managedFiles": 1102,
+    "baseStatus": "compared",
+    "committed": false,
+    "certifiesAcceptance": false,
+    "warning": "版と配布内容の整合検査。独立レビュー・更新試験・remote到達の証明ではありません。"
+  },
+  "guard": {
+    "status": "installed",
+    "path": "D:\\projects\\databricks-dev-harness\\.git\\hooks\\pre-push"
+  },
+  "diagnostic": {
+    "mode": "advisory",
+    "certifiesAcceptance": false,
+    "phase": "verify",
+    "findings": [
+      {
+        "code": "MISSING_REVIEW",
+        "message": "fresh independent review is missing"
+      }
+    ],
+    "recordedExecutions": 5
+  },
+  "commands": [
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "work/evidence/2026-09-16-publication-deleted-file-probe.mjs",
+        "--expect-fixed"
+      ],
+      "exitCode": 0,
+      "stdout": ".harness/releases/1.0.0/manifest.json\n.harness/releases/1.1.0/manifest.json\n{\n  \"scenario\": \"未stage削除は拒否し、削除commit後は受理\",\n  \"rejectedUncommittedDeletion\": true,\n  \"report\": {\n    \"status\": \"stamp-valid\",\n    \"version\": \"1.1.0\",\n    \"manifestSha256\": \"489f9bc0e8e3aa73f7fac3b55df02b7ef4fdd100e8ed6fce607ef2a3c73c3ce4\",\n    \"managedFiles\": 4,\n    \"baseStatus\": \"compared\",\n    \"committed\": true,\n    \"certifiesAcceptance\": false,\n    \"warning\": \"版と配布内容の整合検査。独立レビュー・更新試験・remote到達の証明ではありません。\"\n  }\n}\n",
+      "stderr": "",
+      "error": null
+    },
+    {
+      "command": "C:\\Users\\nimao\\AppData\\Local\\Volta\\tools\\image\\node\\24.15.0\\node.exe",
+      "args": [
+        "work/evidence/2026-09-16-publication-review-probes.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"scenario\": \"同じ配布テストを初期化済み合成案件で実行\",\n  \"status\": 0,\n  \"stdout\": \"✔ natural-language publication routes only the harness source and preserves explicit inspection (389.1305ms)\\nℹ tests 1\\nℹ suites 0\\nℹ pass 1\\nℹ fail 0\\nℹ cancelled 0\\nℹ skipped 0\\nℹ todo 0\\nℹ duration_ms 551.4957\\n\",\n  \"stderr\": \"\"\n}\n",
+      "stderr": "",
+      "error": null
+    }
+  ],
+  "canary": {
+    "path": "work/evidence/2026-09-16-publication-real-update-r2.json",
+    "sha256": "f27053d3b2775a593ef1d4e64ae8442af4648dde685475adab7b7122a900f784",
+    "bytes": 21174
+  },
+  "snapshot": [
+    {
+      "path": "docs/harness/requirements/2026-09-16-publication-contract.md",
+      "sha256": "c00c67d6c59a9e9d55f0a1e3a64bae56ddc3ba1af0403da608c3d1ee81c8a4c1",
+      "bytes": 2207
+    },
+    {
+      "path": "docs/harness/design/HARNESS_PUBLICATION.md",
+      "sha256": "2dce093c5077771adda668b97bf3a5d0fc921a1b79e7f3da6de6e76a0dc8df9b",
+      "bytes": 4235
+    },
+    {
+      "path": "docs/harness/operations/HARNESS_DEVELOPMENT.md",
+      "sha256": "9e37c3f4a839488ff393263639579d0e5fa40a0eb8b09a91134b033de8103824",
+      "bytes": 7464
+    },
+    {
+      "path": "docs/harness/operations/CLI_REFERENCE.md",
+      "sha256": "1e171e95017978a4610e6e6677f5ad715327f4be76c28bd5b06d785db9b606c1",
+      "bytes": 16259
+    },
+    {
+      "path": "docs/harness/releases/0.7.0.md",
+      "sha256": "81a2b90e949aefe4a8614a49f8f4515b963210f83b26033dd6e4b1afa9afde93",
+      "bytes": 4085
+    },
+    {
+      "path": "work/plans/2026-09-16-publication-contract.md",
+      "sha256": "540a3112e8a04fa50855ee898b1da17918dab6ba5bed660ccc51498b32dfcab1",
+      "bytes": 557
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "b57c82afe7405ebc0eeac067b452bc5b43dc278fa552865b375c3bcf97678ed4",
+      "bytes": 4095
+    },
+    {
+      "path": "tools/lib/publication.mjs",
+      "sha256": "76029a34d1efe153139bbee0be8908ff6b798ef2ccdb371dea632855095a2c1c",
+      "bytes": 5788
+    },
+    {
+      "path": "tools/lib/distribution.mjs",
+      "sha256": "f34254d8a863d744577d7c9f4a372018fdb66efd52cfb59fca4677a311bc4409",
+      "bytes": 33947
+    },
+    {
+      "path": "tools/lib/workloads.mjs",
+      "sha256": "259b658ffbd7965e19812ab5de9edc2f7ae83fdcc7ead38b2e8dd5b107f49321",
+      "bytes": 6057
+    },
+    {
+      "path": "tools/harness-publication.mjs",
+      "sha256": "e99f5fe35874be33c0f6bc40403824181824a05996a5280654db169fc93cea69",
+      "bytes": 1522
+    },
+    {
+      "path": "tests/publication.test.mjs",
+      "sha256": "b3e3771b8a94935e157221273207a597a1c2d94d3907c6c2e8febe122624f217",
+      "bytes": 13133
+    },
+    {
+      "path": "harness/router.json",
+      "sha256": "46a45f5ea7af314a0c5db2680c23c2ee403e8ffd887d700a9691fc5bbe33d3f7",
+      "bytes": 2580
+    },
+    {
+      "path": "harness/base-release.json",
+      "sha256": "9cfc0dd3697008330e20fe81f48c3ef712399ab42e7686a211dd4382daa49717",
+      "bytes": 278302
+    },
+    {
+      "path": "harness.config.json",
+      "sha256": "66b9495403b6ec670e78735629d7ddba47736b13e05b06b019cb0182cfc2a964",
+      "bytes": 1213
+    },
+    {
+      "path": "package.json",
+      "sha256": "058de94ab664bd329adbfebbd3e2c48e68b5549e0a48316863d003d30ad58e6e",
+      "bytes": 1261
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "e6ae6aade4023601ae9a8c4906da34a5566c05420b85be41cb46b0165c743e4b",
+      "bytes": 258
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-real-update.mjs",
+      "sha256": "5679c74842a6e26552f8ecb4512d88c9d38767e4c7529605f058c3a6030da24b",
+      "bytes": 6402
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-regression.mjs",
+      "sha256": "35416315af0d7e0ae87f3a3bbe1852542f6aa3cd714c1b3c9ccc980c70e09a91",
+      "bytes": 1377
+    },
+    {
+      "path": "harness/skills/publish-harness/SKILL.md",
+      "sha256": "168d39f9525c06556bfdc58831088014d7b107ba8e8d0ee5e640fa1619757f67",
+      "bytes": 2255
+    },
+    {
+      "path": "harness/skills/improve-harness/SKILL.md",
+      "sha256": "3c036897340c811c75d0024a8e6bcfdecb792478f4d28746ba4a605cd1c1209b",
+      "bytes": 1595
+    },
+    {
+      "path": "harness/skills/orchestrate-work/SKILL.md",
+      "sha256": "0bfccd76bc6a109267ead8c0b8b2d8cfe4322561cf283ddaf6979cb7a13b684a",
+      "bytes": 5526
+    },
+    {
+      "path": "harness/skills/release-work/SKILL.md",
+      "sha256": "8f7cf7e044b2535a27cf1fa2a3e4e73e29f99f72bd78ad03f81c0e01879b8591",
+      "bytes": 1014
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-provider-ci-snapshot.json",
+      "sha256": "4199162568b10911a382ce3ce5b6d4306e988cc606c3db8f5ca68d4581902e8e",
+      "bytes": 1776
+    },
+    {
+      "path": "work/reviews/2026-09-16-publication-forward-review.md",
+      "sha256": "85472e7544a2440b4bab157aab8feac00dad71fdf4f95374ce1375632b2fc161",
+      "bytes": 13076
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-r2.json",
+      "sha256": "1bb90cb7ee7548c9abce411c104bfbae84091f74810f5f1389bab45b6a88fcd8",
+      "bytes": 64251
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-unstamped-rejection.json",
+      "sha256": "35c822ec9113b1b2e60930e50fabbdd2855453833bd8e941483079a0eb0ec21e",
+      "bytes": 189
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-release-bytes.json",
+      "sha256": "5943e92fe730a05f90cca6fb33428679434e4927b0bdc773d34c7f98c0df7602",
+      "bytes": 559
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-source-check.json",
+      "sha256": "4d3494dc12b25450ef33d7749922a0cf83b362408ca59d6253b880c11e6482e6",
+      "bytes": 1023
+    },
+    {
+      "path": "work/reviews/2026-09-16-publication-code-review.md",
+      "sha256": "d3747750aec5f82ae6989ff416a4be23e35590f4d760c3cf7e5529a06e228a37",
+      "bytes": 8254
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-real-update-r1.json",
+      "sha256": "e239b36164e0077f32bf908fbf5aab7f8402a9d864544b2eccb479d315de7239",
+      "bytes": 21176
+    },
+    {
+      "path": "work/reviews/2026-09-16-publication-design-review.md",
+      "sha256": "dc85e92d400e1623ddef37695a093bf0c4cf4c4139313ea4fe69f98ffe46856b",
+      "bytes": 8267
+    },
+    {
+      "path": "work/quality/2026-09-16-publication-review-ready.json",
+      "sha256": "b272f1288d5f975935dbac9ea45f623166dad52bdbc4d92fe8efdcbe0ee15efc",
+      "bytes": 14611
+    },
+    {
+      "path": ".github/workflows/harness-ci.yml",
+      "sha256": "431bbb76a4c2b5f92b88b3cdfad1a671a8c007788f3063616dacb22ce9809fea",
+      "bytes": 2066
+    },
+    {
+      "path": ".claude/skills/publish-harness/SKILL.md",
+      "sha256": "168d39f9525c06556bfdc58831088014d7b107ba8e8d0ee5e640fa1619757f67",
+      "bytes": 2255
+    },
+    {
+      "path": ".github/skills/publish-harness/SKILL.md",
+      "sha256": "168d39f9525c06556bfdc58831088014d7b107ba8e8d0ee5e640fa1619757f67",
+      "bytes": 2255
+    },
+    {
+      "path": ".claude/skills/improve-harness/SKILL.md",
+      "sha256": "3c036897340c811c75d0024a8e6bcfdecb792478f4d28746ba4a605cd1c1209b",
+      "bytes": 1595
+    },
+    {
+      "path": ".github/skills/improve-harness/SKILL.md",
+      "sha256": "3c036897340c811c75d0024a8e6bcfdecb792478f4d28746ba4a605cd1c1209b",
+      "bytes": 1595
+    },
+    {
+      "path": ".claude/skills/orchestrate-work/SKILL.md",
+      "sha256": "0bfccd76bc6a109267ead8c0b8b2d8cfe4322561cf283ddaf6979cb7a13b684a",
+      "bytes": 5526
+    },
+    {
+      "path": ".github/skills/orchestrate-work/SKILL.md",
+      "sha256": "0bfccd76bc6a109267ead8c0b8b2d8cfe4322561cf283ddaf6979cb7a13b684a",
+      "bytes": 5526
+    },
+    {
+      "path": ".claude/skills/release-work/SKILL.md",
+      "sha256": "8f7cf7e044b2535a27cf1fa2a3e4e73e29f99f72bd78ad03f81c0e01879b8591",
+      "bytes": 1014
+    },
+    {
+      "path": ".github/skills/release-work/SKILL.md",
+      "sha256": "8f7cf7e044b2535a27cf1fa2a3e4e73e29f99f72bd78ad03f81c0e01879b8591",
+      "bytes": 1014
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-real-update-r2.json",
+      "sha256": "f27053d3b2775a593ef1d4e64ae8442af4648dde685475adab7b7122a900f784",
+      "bytes": 21174
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-deleted-file-probe.mjs",
+      "sha256": "995d1a6275447cc33a7ec08a3f0b8e85edd89b58737d4612b6ece65ac008c4a3",
+      "bytes": 2826
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-review-probes.mjs",
+      "sha256": "de728a46afc34c882b7119096bf666fb695fd141531643e29cf78bb12770e070",
+      "bytes": 1503
+    },
+    {
+      "path": "work/reviews/2026-09-16-publication-acceptance.md",
+      "sha256": "6fc81956c79b2d00bfc827b12a3e8a015628662cebeb1d2a3c3d84d9850777b3",
+      "bytes": 4781
+    },
+    {
+      "path": "work/evidence/2026-09-16-publication-acceptance-check.mjs",
+      "sha256": "f6e17e33324846d820eb82341b2b421b2cd6b6adeab9c37d895e2298744a2462",
+      "bytes": 6471
+    }
+  ],
+  "remotePushed": false,
+  "databricksUsed": false,
+  "realProjectChanged": false
+}

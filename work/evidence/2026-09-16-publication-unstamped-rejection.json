@@ -1,0 +1,6 @@
+{
+  "expected": "reject stale 0.6.1 stamp",
+  "exitCode": 2,
+  "stdout": "",
+  "stderr": "ハーネス公開を停止: Release payload hash mismatch: .claude/skills/build-work/SKILL.md\n"
+}

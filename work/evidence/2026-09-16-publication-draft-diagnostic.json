@@ -1,0 +1,48 @@
+{
+  "mode": "advisory",
+  "certifiesAcceptance": false,
+  "phase": "verify",
+  "findings": [
+    {
+      "code": "UNSAFE_ARTIFACT",
+      "message": "unreadable or unsafe artifact: .github/workflows/harness-ci.yml"
+    },
+    {
+      "code": "UNSAFE_ARTIFACT",
+      "message": "unreadable or unsafe artifact: .claude/skills/publish-harness/SKILL.md"
+    },
+    {
+      "code": "UNSAFE_ARTIFACT",
+      "message": "unreadable or unsafe artifact: .github/skills/publish-harness/SKILL.md"
+    },
+    {
+      "code": "UNSAFE_ARTIFACT",
+      "message": "unreadable or unsafe artifact: .claude/skills/improve-harness/SKILL.md"
+    },
+    {
+      "code": "UNSAFE_ARTIFACT",
+      "message": "unreadable or unsafe artifact: .github/skills/improve-harness/SKILL.md"
+    },
+    {
+      "code": "UNSAFE_ARTIFACT",
+      "message": "unreadable or unsafe artifact: .claude/skills/orchestrate-work/SKILL.md"
+    },
+    {
+      "code": "UNSAFE_ARTIFACT",
+      "message": "unreadable or unsafe artifact: .github/skills/orchestrate-work/SKILL.md"
+    },
+    {
+      "code": "UNSAFE_ARTIFACT",
+      "message": "unreadable or unsafe artifact: .claude/skills/release-work/SKILL.md"
+    },
+    {
+      "code": "UNSAFE_ARTIFACT",
+      "message": "unreadable or unsafe artifact: .github/skills/release-work/SKILL.md"
+    },
+    {
+      "code": "MISSING_REVIEW",
+      "message": "fresh independent review is missing"
+    }
+  ],
+  "recordedExecutions": 5
+}
